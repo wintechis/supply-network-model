@@ -1,0 +1,13 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sn: <https://purl.org/sn/vocab#> .
+@prefix esn: <https://example.org/esn/vocab#> .
+@prefix csn: <https://example.org/csn/vocab#> .
+
+{ ?e a esn:Enterprise ;
+        esn:registeredIn ?c .    
+    ?c a csn:Country ;
+        csn:inContinent ?o .
+    esn:registeredIn rdfs:subPropertyOf sn:associatedEntity .
+    csn:inContinent rdfs:subPropertyOf sn:associatedEntity .
+    esn:continent rdfs:subPropertyOf sn:associatedEntity . } =>
+{  ?e esn:continent ?o . } .

@@ -1,0 +1,13 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sn: <https://purl.org/sn/vocab#> .
+@prefix esn: <https://example.org/esn/vocab#> .
+@prefix csn: <https://example.org/csn/vocab#> .
+
+{ ?A a $subclassA$ ;
+        $subproperty1$ ?B .    
+    ?B a $subclassB$ ;
+        $subproperty2$ ?C .
+    $subproperty1$ rdfs:subPropertyOf sn:associatedEntity .
+    $subproperty2$ rdfs:subPropertyOf sn:associatedEntity .
+    $subproperty3$ rdfs:subPropertyOf sn:associatedEntity . } =>
+{  ?A $subproperty3$ ?C . } .
