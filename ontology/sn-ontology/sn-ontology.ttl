@@ -1,0 +1,123 @@
+# own prefix
+@prefix sn: <https://purl.org/sn/vocab#> .
+
+# other prefixes
+@prefix cur: <http://qudt.org/vocab/currency/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+# --- classes ---
+    
+sn:Entity a owl:Class ;
+    rdfs:label "Entity"@en .
+
+sn:MultidimensionalEntity a owl:Class ;
+    rdfs:subClassOf sn:Entity ;
+    rdfs:label "Multidimensional entity"@en .
+
+sn:Relation a owl:Class ;
+    rdfs:label "Relation"@en .
+
+sn:Volume a owl:Class ;
+    rdfs:subClassOf qb:Observation ;
+    rdfs:label "Volume"@en .
+
+sn:TemporalEntity a owl:Class ;
+    rdfs:subClassOf time:TemporalEntity ;
+    rdfs:label "Temporal entity" .
+
+sn:Unit a owl:Class ;
+    rdfs:subClassOf qudt:Unit , qudt:CurrencyUnit ;
+    rdfs:label "Unit" .
+
+qudt:Unit a owl:Class ;
+    rdfs:label "Unit" ;
+    rdfs:comment "A unit of measure, or unit, is a particular quantity value that has been chosen as a scale for measuring other quantities the same kind (more generally of equivalent dimension). For example, the meter is a quantity of length that has been rigorously defined and standardized by the BIPM (International Board of Weights and Measures). Any measurement of the length can be expressed as a number multiplied by the unit meter. More formally, the value of a physical quantity Q with respect to a unit (U) is expressed as the scalar multiple of a real number (n) and U, as Q = nU."@en ;
+    vann:example unit: ;
+    rdfs:isDefinedBy qudt: .
+
+qudt:CurrencyUnit a owl:Class ;
+    rdfs:subClassOf qudt:Unit ;
+    rdfs:label "Currency unit" ;
+    rdfs:comment "Used for all units that express currency. Currency Units have their own subclass of unit because: (a) they have additonal properites such as 'country' and (b) their URIs do not conform to the same rules as other units."@en ;
+    vann:example cur: ;
+    rdfs:isDefinedBy qudt: .
+    
+sn:Abstraction a owl:Class ;
+    rdfs:subClassOf skos:Concept ;
+    rdfs:label "Abstraction"@en .
+
+
+# --- object properties ---
+    
+sn:from a owl:ObjectProperty ;
+    rdfs:label "from"@en ;
+    rdfs:domain sn:Relation ;
+    rdfs:range sn:Entity .
+
+sn:into a owl:ObjectProperty ;
+    rdfs:label "into"@en ;
+    rdfs:domain sn:Relation ;
+    rdfs:range sn:Entity .
+
+sn:relation a owl:ObjectProperty , qb:DimensionProperty ;
+    rdfs:label "relation"@en ;
+    rdfs:domain sn:Volume ;
+    rdfs:range sn:Relation .
+
+sn:time a owl:ObjectProperty , qb:DimensionProperty ;
+    rdfs:label "time"@en ;
+    rdfs:domain sn:Volume ;
+    rdfs:range sn:TemporalEntity .
+
+sn:unit a owl:ObjectProperty , qb:AttributeProperty ;
+    rdfs:label "unit"@en ;
+    rdfs:domain sn:Volume ;
+    rdfs:range sn:Unit .
+
+sn:abstraction a owl:ObjectProperty ;
+    rdfs:label "abstraction"@en ;
+    rdfs:domain sn:Entity ;
+    rdfs:range sn:Abstraction .
+
+sn:dimension a owl:ObjectProperty ;
+    rdfs:label "dimension"@en ;
+    rdfs:domain sn:MultidimensionalEntity ;
+    rdfs:range sn:Entity .
+
+sn:associatedEntity a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:label "associated entity"@en ;
+    rdfs:comment "Links an associated entity on another abstraction."@en ;
+    rdfs:domain sn:Entity ;
+    rdfs:range sn:Entity .
+
+sn:higherAbstractionLevel a owl:ObjectProperty , owl:TransitiveProperty ;
+    rdfs:label "higher abstraction level"@en ;
+    rdfs:comment "Links an abstraction on higher level."@en ;
+    rdfs:subPropertyOf skos:narrowerTransitive ;
+    rdfs:domain sn:Abstraction ;
+    rdfs:range sn:Abstraction .
+
+sn:similarAbstractionLevel a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:label "similar abstraction level"@en ;
+    rdfs:comment "Links an abstraction on similar level."@en ;
+    rdfs:subPropertyOf skos:related ;
+    rdfs:domain sn:Abstraction ;
+    rdfs:range sn:Abstraction .
+
+
+# --- datatype properties ---
+    
+sn:quantity a owl:DatatypeProperty , qb:MeasureProperty ;
+    rdfs:label "quantity"@en ;
+    rdfs:domain sn:Volume ;
+    rdfs:range xsd:decimal .

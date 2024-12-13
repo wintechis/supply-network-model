@@ -1,0 +1,54 @@
+# own prefix
+@prefix sn: <https://purl.org/sn/vocab#> .
+@prefix esn: <https://example.org/esn/vocab#> .
+@prefix csn: <https://example.org/csn/vocab#> .
+@prefix osn: <https://example.org/osn/vocab#> .
+@prefix isn: <https://example.org/isn/vocab#> .
+
+# other prefixes
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+# --- classes ---
+
+esn:Enterprise a owl:Class ;
+    rdfs:subClassOf sn:Entity  ;
+    rdfs:label "Enterprise"@en ;
+    rdfs:comment "todo"@en .
+
+esn:Trade a owl:Class ;
+    rdfs:subClassOf sn:Relation  ;
+    rdfs:label "Trade"@en ;
+    rdfs:comment "todo"@en .
+
+
+# --- object properties ---
+    
+esn:registeredIn a owl:ObjectProperty ;
+    rdfs:label "registered in"@en ;
+    rdfs:subPropertyOf sn:associatedEntity ;
+    rdfs:domain esn:Enterprise ;
+    rdfs:range csn:Country .
+
+esn:continent a owl:ObjectProperty ;
+    rdfs:label "continent"@en ;
+    rdfs:subPropertyOf sn:associatedEntity ;
+    rdfs:domain esn:Enterprise ;
+    rdfs:range osn:Continent .
+
+isn:industry a owl:ObjectProperty ;
+    rdfs:label "industry"@en ;
+    rdfs:subPropertyOf sn:associatedEntity ;
+    rdfs:domain esn:Enterprise ;
+    rdfs:range isn:Industry .
+
+
+# --- individuals ---
+
+esn:EnterpriseAbstraction a sn:Abstraction ;
+    rdfs:label "Enterprise abstraction"@en ;
+    rdfs:comment "todo"@en ;
+    sn:higherAbstractionLevel csn:CountryAbstraction .

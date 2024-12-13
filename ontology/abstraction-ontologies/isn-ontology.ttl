@@ -1,0 +1,33 @@
+# own prefix
+@prefix sn: <https://purl.org/sn/vocab#> .
+@prefix isn: <https://example.org/isn/vocab#> .
+
+# other prefixes
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+# --- classes ---
+
+isn:Industry a owl:Class ;
+    rdfs:subClassOf sn:Entity  ;
+    rdfs:label "Industry"@en ;
+    rdfs:comment "todo"@en .
+
+isn:Trade a owl:Class ;
+    rdfs:subClassOf sn:Relation  ;
+    rdfs:label "Trade"@en ;
+    rdfs:comment "todo"@en .
+
+
+# --- object properties ---
+
+
+
+# --- individuals ---
+
+isn:IndustryAbstraction a sn:Abstraction ;
+    rdfs:label "Industry abstraction"@en ;
+    rdfs:comment "todo"@en .
