@@ -1,0 +1,292 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <http://schema.org/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix org: <https://www.w3.org/ns/org#> .
+@prefix dbo: <https://dbpedia.org/ontology/> .
+@prefix we: <https://welektronik.iis.fraunhofer.de/entity/> .
+@prefix : <https://github.com/wintechis/natural-language-query-answering/tree/main/knowledge-graph/velektronik-graph-clean/tbox.ttl#> .
+
+### classes
+
+owl:Thing a rdfs:Class ;
+    rdfs:label "Thing"@en .
+
+org:Organization a rdfs:Class ;
+    rdfs:label "Organization"@en ;
+    rdfs:subClassOf owl:Thing .
+
+org:Post a rdfs:Class ;
+    rdfs:label "Post"@en .
+
+org:Role a rdfs:Class ;
+    rdfs:label "Role"@en .
+
+we:Q285 a rdfs:Class ;
+    rdfs:label "Integrated Device Manufacturer"@en ;
+    rdfs:subClassOf org:Organization .
+
+we:Q286 a rdfs:Class ;
+    rdfs:label "Fabless"@en ;
+    rdfs:subClassOf org:Organization .
+
+we:Q287 a rdfs:Class ;
+    rdfs:label "Foundry"@en ;
+    rdfs:subClassOf org:Organization .
+
+we:Q879 a rdfs:Class ;
+    rdfs:label "Outsourced Semiconductor Assembly and Test"@en ;
+    rdfs:subClassOf org:Organization .
+
+we:Q1023 a rdfs:Class ;
+    rdfs:label "Equipment manufacturer"@en ;
+    rdfs:subClassOf org:Organization .
+
+we:Q1060 a rdfs:Class ;
+    rdfs:label "Materials producer"@en ;
+    rdfs:subClassOf org:Organization .
+
+org:Site a rdfs:Class ;
+    rdfs:label "Site"@en ;
+    rdfs:subClassOf schema:Place .
+
+we:Q297 a rdfs:Class ;
+    rdfs:label "Chip fab"@en ;
+    rdfs:subClassOf org:Site .
+
+we:Q298 a rdfs:Class ;
+    rdfs:label "Assembly/Test Facility"@en ;
+    rdfs:subClassOf org:Site .
+
+we:Q1180 a rdfs:Class ;
+    rdfs:label "Material Fab"@en ;
+    rdfs:subClassOf org:Site .
+
+we:Q293 a rdfs:Class ;
+    rdfs:label "Service"@en .
+
+we:Q1045 a rdfs:Class ;
+    rdfs:label "Enterprise size"@en .
+
+schema:Place a rdfs:Class ;
+    rdfs:label "Place"@en .
+
+foaf:Agent a rdfs:Class ;
+    rdfs:label "Agent"@en .
+
+foaf:Person a rdfs:Class ;
+    rdfs:label "Person"@en ;
+    rdfs:subClassOf foaf:Agent .
+
+foaf:Document a rdfs:Class ;
+    rdfs:label "Document"@en .
+
+schema:City a rdfs:Class ;
+    rdfs:label "City"@en ;
+    rdfs:subClassOf schema:AdministrativeArea .
+
+schema:Country a rdfs:Class ;
+    rdfs:label "Country"@en ;
+    rdfs:subClassOf schema:AdministrativeArea .
+
+qb:Observation a rdfs:Class ;
+    rdfs:label "Observation"@en .
+
+qb:DimensionProperty a rdfs:Class ;
+    rdfs:label "Dimension property"@en ;
+    rdfs:subClassOf rdf:Property .
+
+qb:AttributeProperty a rdfs:Class ;
+    rdfs:label "Attribute property"@en ;
+    rdfs:subClassOf rdf:Property .
+
+qb:MeasureProperty a rdfs:Class ;
+    rdfs:label "Measure property"@en ;
+    rdfs:subClassOf rdf:Property .
+
+schema:CreativeWork a rdfs:Class ;
+    rdfs:label "Creative work"@en ;
+    rdfs:subClassOf schema:Thing .
+
+schema:Thing a rdfs:Class ;
+    rdfs:label "Thing"@en .
+
+schema:AdministrativeArea a rdfs:Class ;
+    rdfs:label "Administrative area"@en ;
+    rdfs:subClassOf schema:Place .
+
+
+### object properties
+
+:providesService a owl:ObjectProperty ;
+    rdfs:label "provides service"@en ;
+    rdfs:domain org:Organization ;
+    rdfs:range we:Q293 .
+
+:size a owl:ObjectProperty ;
+    rdfs:label "size"@en ;
+    rdfs:domain org:Organization ;
+    rdfs:range we:Q1045 .
+
+:supplier a owl:ObjectProperty ;
+    rdfs:label "supplier"@en ;
+    rdfs:domain org:Organization ;
+    rdfs:range org:Organization .
+
+org:hasSite a owl:ObjectProperty ;
+    rdfs:label "has site"@en ;
+    rdfs:domain org:Organization ;
+    rdfs:range org:Site .
+
+org:hasRegisteredSite a owl:ObjectProperty ;
+    rdfs:label "has registered site"@en ;
+    rdfs:domain org:Organization ;
+    rdfs:range org:Site .
+
+org:hasPost a owl:ObjectProperty ;
+    rdfs:label "has post"@en ;
+    rdfs:domain org:Organization ;
+    rdfs:range org:Post .
+
+org:role a owl:ObjectProperty ;
+    rdfs:label "role"@en ;
+    rdfs:domain org:Post ;
+    rdfs:range org:Role .
+
+org:heldBy a owl:ObjectProperty ;
+    rdfs:label "held by"@en ;
+    rdfs:domain org:Post ;
+    rdfs:range foaf:Agent .
+
+foaf:homepage a owl:ObjectProperty ;
+    rdfs:label "homepage"@en ;
+    rdfs:domain owl:Thing ;
+    rdfs:range foaf:Document .
+
+:observedEnterprise a owl:ObjectProperty , qb:DimensionProperty ;
+    rdfs:label "observed enterprise"@en ;
+    rdfs:domain qb:Observation ;
+    rdfs:range org:Organization ;
+    owl:inverseOf :enterpriseObservation .
+
+:enterpriseObservation a owl:ObjectProperty ;
+    rdfs:label "observed enterprise"@en ;
+    rdfs:domain org:Organization ;
+    rdfs:range qb:Observation ;
+    owl:inverseOf :observedEnterprise .
+
+:authorOf a owl:ObjectProperty ;
+    rdfs:label "author of"@en ;
+    owl:inverseOf schema:author ;
+    rdfs:domain foaf:Person ;
+    rdfs:range schema:CreativeWork .
+
+schema:containedInPlace a owl:ObjectProperty ;
+    rdfs:label "contained in place"@en ;
+    rdfs:domain schema:Place ;
+    rdfs:range schema:Place .
+
+
+### datatype properties
+
+schema:latitude a owl:DatatypeProperty ;
+    rdfs:label "latitude"@en ;
+    rdfs:domain schema:Place ;
+    rdfs:range xsd:double .
+
+schema:longitude a owl:DatatypeProperty ;
+    rdfs:label "longitude"@en ;
+    rdfs:domain schema:Place ;
+    rdfs:range xsd:double .
+
+:currency a owl:DatatypeProperty , qb:AttributeProperty ;
+    rdfs:label "currency"@en ;
+    rdfs:domain qb:Observation ;
+    rdfs:range rdf:langString .
+
+:accountingYear a owl:DatatypeProperty , qb:DimensionProperty ;
+    rdfs:label "accounting year"@en ;
+    rdfs:domain qb:Observation ;
+    rdfs:range xsd:integer .
+
+:totalAssets a owl:DatatypeProperty , qb:MeasureProperty ;
+    rdfs:label "total assets"@en ;
+    rdfs:domain qb:Observation ;
+    rdfs:range xsd:decimal .
+
+:totalEquity a owl:DatatypeProperty , qb:MeasureProperty ;
+    rdfs:label "total equity"@en ;
+    rdfs:domain qb:Observation ;
+    rdfs:range xsd:decimal.
+
+:totalRevenue a owl:DatatypeProperty , qb:MeasureProperty ;
+    rdfs:label "total revenue"@en ;
+    rdfs:domain qb:Observation ;
+    rdfs:range xsd:decimal .
+
+:operatingIncome a owl:DatatypeProperty , qb:MeasureProperty ;
+    rdfs:label "operating income"@en ;
+    rdfs:domain qb:Observation ;
+    rdfs:range xsd:decimal .
+
+:netProfit a owl:DatatypeProperty , qb:MeasureProperty ;
+    rdfs:label "net profit"@en ;
+    rdfs:domain qb:Observation ;
+    rdfs:range xsd:decimal .
+
+:capex a owl:DatatypeProperty , qb:MeasureProperty ;
+    rdfs:label "capex"@en ;
+    rdfs:domain qb:Observation ;
+    rdfs:range xsd:decimal .
+
+:employees a owl:DatatypeProperty , qb:MeasureProperty ;
+    rdfs:label "employees"@en ;
+    rdfs:domain qb:Observation ;
+    rdfs:range xsd:decimal .
+
+:yearPublished a owl:DatatypeProperty ;
+    rdfs:label "year published"@en ;
+    rdfs:domain schema:CreativeWork ;
+    rdfs:range xsd:gYear .
+
+schema:name a owl:DatatypeProperty ;
+    rdfs:label "name"@en ;
+    rdfs:domain schema:Thing ;
+    rdfs:range xsd:string .
+
+
+### individuals
+
+we:Q288 a we:Q293 ;
+    rdfs:label "Design"@en .
+
+we:Q292 a we:Q293 ;
+    rdfs:label "IP-Core"@en .
+
+we:Q291 a we:Q293 ;
+    rdfs:label "Foundry Service"@en .
+
+we:Q290 a we:Q293 ;
+    rdfs:label "Packaging"@en .
+
+we:Q289 a we:Q293 ;
+    rdfs:label "Testing"@en .
+
+we:Q1046 a we:Q1045 ;
+    rdfs:label "Small"@en .
+
+we:Q1047 a we:Q1045 ;
+    rdfs:label "Medium"@en .
+
+we:Q1048 a we:Q1045 ;
+    rdfs:label "Large"@en .
+
+we:Q1049 a we:Q1045 ;
+    rdfs:label "Very large"@en .
+
+:CEO a org:Role ;
+    rdfs:label "CEO"@en .
