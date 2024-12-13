@@ -17,7 +17,7 @@ CONSTRUCT {
         time:hasDateTimeDescription _:CTVTD .
     _:CTVTD time:year ?year .
 } WHERE {
-    { SELECT ?c1 ?c2 ?time ?unit (SUM(?quantity) AS ?aggregatedQuantity)
+    { SELECT ?c1 ?c2 ?year ?unit (SUM(?quantity) AS ?aggregatedQuantity)
         WHERE {
             esn:registeredIn rdfs:subPropertyOf sn:associatedEntity .
             ?e1 a esn:Enterprise ;

@@ -1,0 +1,31 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sn: <https://purl.org/sn/vocab#>
+PREFIX esn: <https://example.org/esn/vocab#>
+PREFIX csn: <https://example.org/csn/vocab#>
+
+CONSTRUCT {
+    ?B1 a $subclassB$ .
+    ?B2 a $subclassB$ .
+    _:BT a $subclassD$ ;
+        sn:from ?B1 ; sn:into ?B2 .
+    _:BTV a sn:Volume ;
+        sn:relation _:BT ;
+        sn:time ?time ;
+        sn:unit ?unit ;
+        sn:quantity ?aggregatedQuantity .
+} WHERE {
+    { SELECT ?B1 ?B2 ?time ?unit (SUM(?quantity) AS ?aggregatedQuantity)
+        WHERE {
+            $subproperty$ rdfs:subPropertyOf sn:associatedEntity .
+            ?A1 a $subclassA$ ;
+                $subproperty$ ?B1 .
+            ?A2 a $subclassA$ ;
+                $subproperty$ ?B2 .
+            ?AT a $subclassC$ ;
+                sn:from ?A1 ; sn:into ?A2 .
+            ?ATV a sn:Volume ;
+                sn:relation ?AT ;
+                sn:time ?time ;
+                sn:unit ?unit ;
+                sn:quantity ?quantity .
+        } GROUP BY ?B1 ?B2 ?time ?unit } }
