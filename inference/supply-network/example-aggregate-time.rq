@@ -1,0 +1,38 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sn: <https://purl.org/sn/vocab#>
+PREFIX esn: <https://example.org/esn/vocab#>
+PREFIX csn: <https://example.org/csn/vocab#>
+
+CONSTRUCT {
+    ?c1 a csn:Country .
+    ?c2 a csn:Country .
+    _:CT a csn:Trade ;
+        sn:from ?c1 ; sn:into ?c2 .
+    _:CTV a sn:Volume ;
+        sn:relation _:CT ;
+        sn:time _:CTVT ;
+        sn:unit ?unit ;
+        sn:quantity ?aggregatedQuantity .
+    _:CTVT a sn:TemporalEntity , time:DateTimeInterval ;
+        time:hasDateTimeDescription _:CTVTD .
+    _:CTVTD time:year ?year .
+} WHERE {
+    { SELECT ?c1 ?c2 ?time ?unit (SUM(?quantity) AS ?aggregatedQuantity)
+        WHERE {
+            esn:registeredIn rdfs:subPropertyOf sn:associatedEntity .
+            ?e1 a esn:Enterprise ;
+                esn:registeredIn ?c1 .
+            ?e2 a esn:Enterprise ;
+                esn:registeredIn ?c2 .
+            ?ET a esn:Trade ;
+                sn:from ?e1 ; sn:into ?e2 .
+            ?ETV a sn:Volume ;
+                sn:relation ?ET ;
+                sn:time ?ETVT ;
+                sn:unit ?unit ;
+                sn:quantity ?quantity .
+            ?ETVT a sn:TemporalEntity , time:Instant ;
+                time:inXSDDateTime ?time .
+            BIND (YEAR(?time) AS ?year) .
+        } GROUP BY ?c1 ?c2 ?year ?unit } }
+       
