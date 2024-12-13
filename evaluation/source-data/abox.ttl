@@ -29493,8 +29493,7 @@
     schema1:containedInPlace <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this> ;
     owl:sameAs wd:Q245023 .
 
-<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ1042.ttl#this> a we:Q1023,
-        we:Q1060,
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ1042.ttl#this> a we:Q1060,
         org1:Organization ;
     rdfs:label "Siltronic"@en ;
     owl:sameAs wd:Q2286374,
@@ -29553,7 +29552,6 @@
         <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/site/weQ448.ttl#this> .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ91.ttl#this> a we:Q1023,
-        we:Q285,
         org1:Organization ;
     rdfs:label "Canon"@en ;
     owl:sameAs wd:Q62621,
@@ -30734,7 +30732,6 @@
     org1:hasRegisteredSite <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ699.ttl#headquarter> .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ143.ttl#this> a we:Q1023,
-        we:Q285,
         org1:Organization ;
     rdfs:label "Kyocera"@en ;
     owl:sameAs wd:Q745099,
@@ -32135,7 +32132,6 @@
         <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/site/weQ356.ttl#this> .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ721.ttl#this> a we:Q1023,
-        we:Q286,
         org1:Organization ;
     rdfs:label "KLA Corporation"@en ;
     owl:sameAs wd:Q624649,
@@ -32542,7 +32538,6 @@
     org1:hasRegisteredSite <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ58.ttl#headquarter> .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ675.ttl#this> a we:Q1023,
-        we:Q285,
         org1:Organization ;
     rdfs:label "Applied Materials"@en ;
     owl:sameAs wd:Q621610,

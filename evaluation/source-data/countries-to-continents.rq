@@ -1,0 +1,11 @@
+CONSTRUCT {
+  ?country wdt:P30 ?continent .
+  ?continent rdfs:label ?label .
+}
+WHERE {
+  ?country wdt:P30 ?continent ;
+           wdt:P31 ?class .
+  ?continent rdfs:label ?label .
+  FILTER (?class IN (wd:Q6256, wd:Q3624078))
+  FILTER (lang(?label) = "en")
+}
