@@ -2,6 +2,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX sn: <https://purl.org/sn/vocab#>
 PREFIX esn: <https://example.org/esn/vocab#>
 PREFIX csn: <https://example.org/csn/vocab#>
+PREFIX time: <http://www.w3.org/2006/time#>
 
 CONSTRUCT {
     ?c1 a csn:Country .

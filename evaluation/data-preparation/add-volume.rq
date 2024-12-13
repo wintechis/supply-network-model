@@ -1,0 +1,52 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sn: <https://purl.org/sn/vocab#>
+PREFIX esn: <https://example.org/esn/vocab#>
+PREFIX cur: <http://qudt.org/vocab/currency/>
+PREFIX greg: <http://www.w3.org/ns/time/gregorian/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+INSERT {
+    _:V_march a sn:Volume ;
+        sn:relation ?trade ;
+        sn:time _:T_march ;
+        sn:unit cur:EUR ;
+        sn:quantity ?quantity_march .
+    _:T_march a sn:TemporalEntity , time:DateTimeInterval ;
+        time:hasDateTimeDescription _:TD_march .
+    _:TD_march time:month greg:March .
+
+    _:V_april a sn:Volume ;
+        sn:relation ?trade ;
+        sn:time _:T_april ;
+        sn:unit cur:EUR ;
+        sn:quantity ?quantity_april .
+    _:T_april a sn:TemporalEntity , time:DateTimeInterval ;
+        time:hasDateTimeDescription _:TD_april .
+    _:TD_april time:month greg:April .
+
+    _:V_may a sn:Volume ;
+        sn:relation ?trade ;
+        sn:time _:T_may ;
+        sn:unit cur:EUR ;
+        sn:quantity ?quantity_may .
+    _:T_may a sn:TemporalEntity , time:DateTimeInterval ;
+        time:hasDateTimeDescription _:TD_may .
+    _:TD_may time:month greg:May .
+
+    _:V_june a sn:Volume ;
+        sn:relation ?trade ;
+        sn:time _:T_june ;
+        sn:unit cur:EUR ;
+        sn:quantity ?quantity_june .
+    _:T_june a sn:TemporalEntity , time:DateTimeInterval ;
+        time:hasDateTimeDescription _:TD_june .
+    _:TD_june time:month greg:June .
+
+} WHERE {
+    ?trade a esn:Trade .
+    BIND (STRDT(STRBEFORE(STR(ROUND(2000000*RAND())), "."), xsd:integer) AS ?quantity_march) .
+    BIND (ABS(?quantity_march+STRDT(STRBEFORE(STR(ROUND(200000*(RAND()-0.5))), "."), xsd:integer)) AS ?quantity_april) .
+    BIND (ABS(?quantity_april+STRDT(STRBEFORE(STR(ROUND(200000*(RAND()-0.5))), "."), xsd:integer)) AS ?quantity_may) .
+    BIND (ABS(?quantity_may+STRDT(STRBEFORE(STR(ROUND(200000*(RAND()-0.5))), "."), xsd:integer)) AS ?quantity_june) .
+} 
