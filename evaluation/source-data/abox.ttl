@@ -30,15 +30,6 @@
         we:Q1026 ;
     org1:hasRegisteredSite <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ1026.ttl#headquarter> .
 
-<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ1027.ttl#this> a we:Q1023,
-        org1:Organization ;
-    rdfs:label "PrÃƒÆ’Ã‚Â¤zisionsteilefertigung Steffen PfÃƒÆ’Ã‚Â¼ller"@en,
-        "PrÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¤zisionsteilefertigung Steffen PfÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¼ller"@en,
-        "PrÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¤zisionsteilefertigung Steffen PfÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¼ller"@en ;
-    owl:sameAs wd:Q7253807,
-        we:Q1027 ;
-    org1:hasRegisteredSite <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ1027.ttl#headquarter> .
-
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ1028.ttl#this> a we:Q1023,
         org1:Organization ;
     rdfs:label "Multibeam Corporation"@en ;
@@ -83,15 +74,6 @@
         we:Q1040 ;
     foaf:homepage <https://www.zeiss.com> ;
     org1:hasRegisteredSite <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ1040.ttl#headquarter> .
-
-<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ1043.ttl#this> a we:Q1023,
-        org1:Organization ;
-    rdfs:label "MÃƒÆ’Ã‚Â¼hlbauer"@en,
-        "MÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¼hlbauer"@en,
-        "MÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¼hlbauer"@en ;
-    owl:sameAs wd:Q118299513,
-        we:Q1043 ;
-    org1:hasRegisteredSite <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ1043.ttl#headquarter> .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ105.ttl#this> a we:Q285,
         org1:Organization ;
@@ -1652,12 +1634,6 @@
     schema1:latitude 3.99801e+01 ;
     schema1:longitude 1.165002e+02 .
 
-<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ1027.ttl#headquarter> a schema1:Place,
-        org1:Site ;
-    schema1:containedInPlace <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ57955.ttl#this> ;
-    schema1:latitude 5.071099e+01 ;
-    schema1:longitude 1.27607e+01 .
-
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ1028.ttl#headquarter> a schema1:Place,
         org1:Site ;
     schema1:containedInPlace <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ159260.ttl#this> ;
@@ -2852,12 +2828,6 @@
     :currency "United States dollar"@en ;
     :observedEnterprise <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ1042.ttl#this> ;
     :totalRevenue 1934830000.0 .
-
-<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ1043.ttl#headquarter> a schema1:Place,
-        org1:Site ;
-    schema1:containedInPlace <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ273949.ttl#this> ;
-    schema1:latitude 4.921678e+01 ;
-    schema1:longitude 1.250228e+01 .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ1044.ttl#headquarter> a schema1:Place,
         org1:Site ;

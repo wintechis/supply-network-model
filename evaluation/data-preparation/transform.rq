@@ -1,0 +1,31 @@
+PREFIX : <https://github.com/wintechis/natural-language-query-answering/tree/main/knowledge-graph/velektronik-graph-clean/tbox.ttl#> 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sn: <https://purl.org/sn/vocab#>
+PREFIX esn: <https://example.org/esn/vocab#>
+PREFIX csn: <https://example.org/csn/vocab#>
+PREFIX isn: <https://example.org/isn/vocab#>
+PREFIX org: <https://www.w3.org/ns/org#> 
+PREFIX schema: <http://schema.org/> 
+
+CONSTRUCT {
+    ?enterprise a esn:Enterprise ;
+        rdfs:label ?enterprise_label ;
+        esn:industry ?industry ;
+        esn:registeredIn ?country .
+    _:T a esn:Trade ;
+        sn:from ?supplier ; sn:into ?enterprise .
+    ?country a csn:Country ;
+        rdfs:label ?country_label .
+    ?industry a isn:Industry ;
+        rdfs:label ?industry_label .
+} WHERE {
+    ?enterprise a org:Organization ;
+        rdfs:label ?enterprise_label ;
+        :supplier ?supplier ;
+        a ?industry ;
+        org:hasRegisteredSite/schema:containedInPlace+ ?country .
+    ?industry rdfs:label ?industry_label .
+    ?country a schema:Country ;
+        rdfs:label ?country_label .
+    FILTER (?industry != org:Organization)
+} 
