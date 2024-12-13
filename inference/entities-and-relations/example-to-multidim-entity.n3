@@ -1,0 +1,25 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sn: <https://purl.org/sn/vocab#> .
+@prefix esn: <https://example.org/esn/vocab#> .
+@prefix csn: <https://example.org/csn/vocab#> .
+@prefix isn: <https://example.org/isn/vocab#> .
+
+{   esn:registeredIn rdfs:subPropertyOf sn:associatedEntity .
+    ?e1 a esn:Enterprise ;
+        esn:registeredIn ?c1 ;
+        esn:industry ?i1 .
+    ?e2 a esn:Enterprise ;
+        esn:registeredIn ?c2 ;
+        esn:industry ?i2 .    
+    ?ET a esn:Trade ;
+        sn:from ?e1 ; sn:into ?e2 . } =>
+{   ?ic1 a sn:MultidimensionalEntity ;
+        sn:dimension ?i1 , ?c1 .
+    ?c1 a csn:Country .
+    ?i1 a isn:Industry .
+    ?ic2 a sn:MultidimensionalEntity ;
+        sn:dimension ?i1 , ?c1 .
+    ?c2 a csn:Country .
+    ?i2 a isn:Industry .
+    _:R a sn:Relation ;
+        sn:from ?ic1 ; sn:into ?ic2 . } .

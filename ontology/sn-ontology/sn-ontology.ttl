@@ -89,15 +89,16 @@ sn:abstraction a owl:ObjectProperty ;
     rdfs:domain sn:Entity ;
     rdfs:range sn:Abstraction .
 
-sn:dimension a owl:ObjectProperty ;
-    rdfs:label "dimension"@en ;
-    rdfs:domain sn:MultidimensionalEntity ;
-    rdfs:range sn:Entity .
-
 sn:associatedEntity a owl:ObjectProperty , owl:SymmetricProperty ;
     rdfs:label "associated entity"@en ;
     rdfs:comment "Links an associated entity on another abstraction."@en ;
     rdfs:domain sn:Entity ;
+    rdfs:range sn:Entity .
+
+sn:dimension a owl:ObjectProperty ;
+    rdfs:label "dimension"@en ;
+    rdfs:subPropertyOf sn:associatedEntity ;
+    rdfs:domain sn:MultidimensionalEntity ;
     rdfs:range sn:Entity .
 
 sn:higherAbstractionLevel a owl:ObjectProperty , owl:TransitiveProperty ;

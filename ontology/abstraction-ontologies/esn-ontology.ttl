@@ -39,7 +39,7 @@ esn:continent a owl:ObjectProperty ;
     rdfs:domain esn:Enterprise ;
     rdfs:range osn:Continent .
 
-isn:industry a owl:ObjectProperty ;
+esn:industry a owl:ObjectProperty ;
     rdfs:label "industry"@en ;
     rdfs:subPropertyOf sn:associatedEntity ;
     rdfs:domain esn:Enterprise ;

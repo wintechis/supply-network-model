@@ -2,6 +2,7 @@
 @prefix sn: <https://purl.org/sn/vocab#> .
 @prefix csn: <https://example.org/csn/vocab#> .
 @prefix osn: <https://example.org/osn/vocab#> .
+@prefix isn: <https://example.org/isn/vocab#> .
 
 # other prefixes
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -37,4 +38,5 @@ csn:inContinent a owl:ObjectProperty ;
 csn:CountryAbstraction a sn:Abstraction ;
     rdfs:label "Country abstraction"@en ;
     rdfs:comment "todo"@en ;
-    sn:higherAbstractionLevel osn:ContinentAbstraction .
+    sn:higherAbstractionLevel osn:ContinentAbstraction ;
+    sn:similarAbstractionLevel isn:IndustryAbstraction .
