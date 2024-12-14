@@ -22,11 +22,12 @@
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ29.ttl#this>
         a                 esn:Enterprise ;
         rdfs:label        "Marvell Technology"@en ;
+        rdfs:label        "Marvit Technology"@en ;
         <https://example.org/esn/vocab#continent> <http://www.wikidata.org/entity/Q49> ;
         esn:industry      we:Q286 ;
         esn:registeredIn  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> .
 
-<http://www.wikidata.org/entity/Q49> rdfs:label "Cont1" .
+<http://www.wikidata.org/entity/Q49> rdfs:label "Cont1" , "ContA" .
 we:Q286 rdfs:label "Ind1" .
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> rdfs:label "Count1" .
 
