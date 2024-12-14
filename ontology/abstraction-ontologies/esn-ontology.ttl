@@ -17,30 +17,35 @@
 esn:Enterprise a owl:Class ;
     rdfs:subClassOf sn:Entity  ;
     rdfs:label "Enterprise"@en ;
-    rdfs:comment "todo"@en .
+    rdfs:comment "todo"@en ;
+    sn:expresses esn:EnterpriseAbstraction .
 
 esn:Trade a owl:Class ;
     rdfs:subClassOf sn:Relation  ;
     rdfs:label "Trade"@en ;
-    rdfs:comment "todo"@en .
+    rdfs:comment "todo"@en ;
+    sn:expresses esn:EnterpriseAbstraction .
 
 
 # --- object properties ---
     
 esn:registeredIn a owl:ObjectProperty ;
     rdfs:label "registered in"@en ;
+    rdfs:comment "todo"@en ;
     rdfs:subPropertyOf sn:associatedEntity ;
     rdfs:domain esn:Enterprise ;
     rdfs:range csn:Country .
 
 esn:continent a owl:ObjectProperty ;
     rdfs:label "continent"@en ;
+    rdfs:comment "todo"@en ;
     rdfs:subPropertyOf sn:associatedEntity ;
     rdfs:domain esn:Enterprise ;
     rdfs:range osn:Continent .
 
 esn:industry a owl:ObjectProperty ;
     rdfs:label "industry"@en ;
+    rdfs:comment "todo"@en ;
     rdfs:subPropertyOf sn:associatedEntity ;
     rdfs:domain esn:Enterprise ;
     rdfs:range isn:Industry .

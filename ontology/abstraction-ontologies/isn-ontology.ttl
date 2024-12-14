@@ -16,12 +16,14 @@
 isn:Industry a owl:Class ;
     rdfs:subClassOf sn:Entity  ;
     rdfs:label "Industry"@en ;
-    rdfs:comment "todo"@en .
+    rdfs:comment "todo"@en ;
+    sn:expresses isn:IndustryAbstraction .
 
 isn:Trade a owl:Class ;
     rdfs:subClassOf sn:Relation  ;
     rdfs:label "Trade"@en ;
-    rdfs:comment "todo"@en .
+    rdfs:comment "todo"@en ;
+    sn:expresses isn:IndustryAbstraction .
 
 
 # --- object properties ---

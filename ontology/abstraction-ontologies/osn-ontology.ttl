@@ -15,12 +15,14 @@
 osn:Continent a owl:Class ;
     rdfs:subClassOf sn:Entity  ;
     rdfs:label "Continent"@en ;
-    rdfs:comment "todo"@en .
+    rdfs:comment "todo"@en ;
+    sn:expresses osn:ContinentAbstraction .
 
 osn:Trade a owl:Class ;
     rdfs:subClassOf sn:Relation  ;
     rdfs:label "Trade"@en ;
-    rdfs:comment "todo"@en .
+    rdfs:comment "todo"@en ;
+    sn:expresses osn:ContinentAbstraction .
 
 
 # --- object properties ---

@@ -18,26 +18,32 @@
 # --- classes ---
     
 sn:Entity a owl:Class ;
-    rdfs:label "Entity"@en .
+    rdfs:label "Entity"@en ;
+    rdfs:comment "Todo."@en .
 
 sn:MultidimensionalEntity a owl:Class ;
     rdfs:subClassOf sn:Entity ;
-    rdfs:label "Multidimensional entity"@en .
+    rdfs:label "Multidimensional entity"@en ;
+    rdfs:comment "Todo."@en .
 
 sn:Relation a owl:Class ;
-    rdfs:label "Relation"@en .
+    rdfs:label "Relation"@en ;
+    rdfs:comment "Todo."@en .
 
 sn:Volume a owl:Class ;
     rdfs:subClassOf qb:Observation ;
-    rdfs:label "Volume"@en .
+    rdfs:label "Volume"@en ;
+    rdfs:comment "Todo."@en .
 
 sn:TemporalEntity a owl:Class ;
     rdfs:subClassOf time:TemporalEntity ;
-    rdfs:label "Temporal entity" .
+    rdfs:label "Temporal entity" ;
+    rdfs:comment "Todo."@en .
 
 sn:Unit a owl:Class ;
     rdfs:subClassOf qudt:Unit , qudt:CurrencyUnit ;
-    rdfs:label "Unit" .
+    rdfs:label "Unit" ;
+    rdfs:comment "Todo."@en .
 
 qudt:Unit a owl:Class ;
     rdfs:label "Unit" ;
@@ -54,38 +60,45 @@ qudt:CurrencyUnit a owl:Class ;
     
 sn:Abstraction a owl:Class ;
     rdfs:subClassOf skos:Concept ;
-    rdfs:label "Abstraction"@en .
+    rdfs:label "Abstraction"@en ;
+    rdfs:comment "Todo."@en .
 
 
 # --- object properties ---
     
 sn:from a owl:ObjectProperty ;
     rdfs:label "from"@en ;
+    rdfs:comment "Todo."@en ;
     rdfs:domain sn:Relation ;
     rdfs:range sn:Entity .
 
 sn:into a owl:ObjectProperty ;
     rdfs:label "into"@en ;
+    rdfs:comment "Todo."@en ;
     rdfs:domain sn:Relation ;
     rdfs:range sn:Entity .
 
 sn:relation a owl:ObjectProperty , qb:DimensionProperty ;
     rdfs:label "relation"@en ;
+    rdfs:comment "Todo."@en ;
     rdfs:domain sn:Volume ;
     rdfs:range sn:Relation .
 
 sn:time a owl:ObjectProperty , qb:DimensionProperty ;
     rdfs:label "time"@en ;
+    rdfs:comment "Todo."@en ;
     rdfs:domain sn:Volume ;
     rdfs:range sn:TemporalEntity .
 
 sn:unit a owl:ObjectProperty , qb:AttributeProperty ;
     rdfs:label "unit"@en ;
+    rdfs:comment "Todo."@en ;
     rdfs:domain sn:Volume ;
     rdfs:range sn:Unit .
 
 sn:abstraction a owl:ObjectProperty ;
     rdfs:label "abstraction"@en ;
+    rdfs:comment "Todo."@en ;
     rdfs:domain sn:Entity ;
     rdfs:range sn:Abstraction .
 
@@ -97,6 +110,7 @@ sn:associatedEntity a owl:ObjectProperty , owl:SymmetricProperty ;
 
 sn:dimension a owl:ObjectProperty ;
     rdfs:label "dimension"@en ;
+    rdfs:comment "Todo."@en ;
     rdfs:subPropertyOf sn:associatedEntity ;
     rdfs:domain sn:MultidimensionalEntity ;
     rdfs:range sn:Entity .
@@ -115,10 +129,17 @@ sn:similarAbstractionLevel a owl:ObjectProperty , owl:SymmetricProperty ;
     rdfs:domain sn:Abstraction ;
     rdfs:range sn:Abstraction .
 
+sn:expresses a owl:ObjectProperty ;
+    rdfs:label "expresses"@en ;
+    rdfs:comment "Todo."@en ;
+    rdfs:domain owl:Class ;
+    rdfs:range sn:Abstraction .
+
 
 # --- datatype properties ---
     
 sn:quantity a owl:DatatypeProperty , qb:MeasureProperty ;
     rdfs:label "quantity"@en ;
+    rdfs:comment "Todo."@en ;
     rdfs:domain sn:Volume ;
     rdfs:range xsd:decimal .

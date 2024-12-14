@@ -16,18 +16,21 @@
 csn:Country a owl:Class ;
     rdfs:subClassOf sn:Entity  ;
     rdfs:label "Country"@en ;
-    rdfs:comment "todo"@en .
+    rdfs:comment "todo"@en ;
+    sn:expresses csn:CountryAbstraction .
 
 csn:Trade a owl:Class ;
     rdfs:subClassOf sn:Relation  ;
     rdfs:label "Trade"@en ;
-    rdfs:comment "todo"@en .
+    rdfs:comment "todo"@en ;
+    sn:expresses csn:CountryAbstraction .
 
 
 # --- object properties ---
     
 csn:inContinent a owl:ObjectProperty ;
     rdfs:label "in continent"@en ;
+    rdfs:comment "todo"@en ;
     rdfs:subPropertyOf sn:associatedEntity ;
     rdfs:domain csn:Country ;
     rdfs:range osn:Continent .
