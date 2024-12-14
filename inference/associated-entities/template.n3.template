@@ -3,11 +3,6 @@
 @prefix esn: <https://example.org/esn/vocab#> .
 @prefix csn: <https://example.org/csn/vocab#> .
 
-{ ?A a $subclassA$ ;
-        $subproperty1$ ?B .    
-    ?B a $subclassB$ ;
-        $subproperty2$ ?C .
-    $subproperty1$ rdfs:subPropertyOf sn:associatedEntity .
-    $subproperty2$ rdfs:subPropertyOf sn:associatedEntity .
-    $subproperty3$ rdfs:subPropertyOf sn:associatedEntity . } =>
-{  ?A $subproperty3$ ?C . } .
+{   ?A $associated-entity-subproperty-1$ ?B .    
+    ?B $associated-entity-subproperty-2$ ?C . } =>
+{   ?A $associated-entity-subproperty-3$ ?C . } .

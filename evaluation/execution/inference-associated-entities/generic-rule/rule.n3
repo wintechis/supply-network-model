@@ -1,0 +1,17 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sn: <https://purl.org/sn/vocab#> .
+@prefix esn: <https://example.org/esn/vocab#> .
+@prefix csn: <https://example.org/csn/vocab#> .
+
+{   ?x ?xy ?y .
+    ?y ?yz ?z .
+    ?xy rdfs:subPropertyOf sn:associatedEntity ;
+        rdfs:domain ?classx ;
+        rdfs:range ?classy .
+    ?yz rdfs:subPropertyOf sn:associatedEntity ;
+        rdfs:domain ?classy ;
+        rdfs:range ?classz .
+    ?xz rdfs:subPropertyOf sn:associatedEntity ;
+        rdfs:domain ?classx ;
+        rdfs:range ?classz . } =>
+{   ?x ?xz ?z . } .
