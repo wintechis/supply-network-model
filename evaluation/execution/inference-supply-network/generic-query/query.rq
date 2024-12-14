@@ -2,7 +2,6 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX sn: <https://purl.org/sn/vocab#>
 
 CONSTRUCT {
-    # infer network
     ?B1 a ?classB ;
         rdfs:label ?B1_label .
     ?B2 a ?classB ;
@@ -17,7 +16,6 @@ CONSTRUCT {
 } WHERE {
     { SELECT ?B1 ?B1_label ?B2 ?B2_label ?classB ?relationSubclassB ?relationB ?time ?unit (SUM(?quantity) AS ?aggregatedQuantity)
         WHERE {
-            # infer network
             ?associatedEntityProperty_AB rdfs:subPropertyOf sn:associatedEntity ;
                 rdfs:domain ?classA ;
                 rdfs:range ?classB .
