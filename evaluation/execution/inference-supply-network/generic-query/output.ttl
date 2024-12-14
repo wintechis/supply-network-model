@@ -1,0 +1,137 @@
+@prefix qudt:  <http://qudt.org/schema/qudt/> .
+@prefix cur:   <http://qudt.org/vocab/currency/> .
+@prefix esn:   <https://example.org/esn/vocab#> .
+@prefix isn:   <https://example.org/isn/vocab#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix osn:   <https://example.org/osn/vocab#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix we:    <https://welektronik.iis.fraunhofer.de/entity/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix unit:  <http://qudt.org/vocab/unit/> .
+@prefix ex:    <https://www.example.org/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sn:    <https://purl.org/sn/vocab#> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+@prefix vann:  <http://purl.org/vocab/vann/> .
+@prefix greg:  <http://www.w3.org/ns/time/gregorian/> .
+@prefix csn:   <https://example.org/csn/vocab#> .
+
+[ a            sn:Volume ;
+  sn:quantity  1062513 ;
+  sn:relation  wd:Q49Cont2 ;
+  sn:time      ex:april2024 ;
+  sn:unit      cur:EUR
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ40.ttl#this>
+        a           csn:Country ;
+        rdfs:label  "Count2" .
+
+[ a            sn:Volume ;
+  sn:quantity  1352586 ;
+  sn:relation  we:Q286Ind2 ;
+  sn:time      ex:march2024 ;
+  sn:unit      cur:EUR
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1352586 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#thisCount2> ;
+  sn:time      ex:march2024 ;
+  sn:unit      cur:EUR
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1062513 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#thisCount2> ;
+  sn:time      ex:april2024 ;
+  sn:unit      cur:EUR
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1167555 ;
+  sn:relation  wd:Q49Cont2 ;
+  sn:time      ex:june2024 ;
+  sn:unit      cur:EUR
+] .
+
+wd:Q59  a           osn:Continent ;
+        rdfs:label  "Cont2" .
+
+we:Q286Ind2  a   isn:Trade ;
+        sn:from  we:Q286 ;
+        sn:into  we:Q486 .
+
+[ a            sn:Volume ;
+  sn:quantity  1028292 ;
+  sn:relation  wd:Q49Cont2 ;
+  sn:time      ex:may2024 ;
+  sn:unit      cur:EUR
+] .
+
+wd:Q49  a           osn:Continent ;
+        rdfs:label  "Cont1" .
+
+we:Q486  a          isn:Industry ;
+        rdfs:label  "Ind2" .
+
+[ a            sn:Volume ;
+  sn:quantity  1352586 ;
+  sn:relation  wd:Q49Cont2 ;
+  sn:time      ex:march2024 ;
+  sn:unit      cur:EUR
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1167555 ;
+  sn:relation  we:Q286Ind2 ;
+  sn:time      ex:june2024 ;
+  sn:unit      cur:EUR
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1028292 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#thisCount2> ;
+  sn:time      ex:may2024 ;
+  sn:unit      cur:EUR
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1028292 ;
+  sn:relation  we:Q286Ind2 ;
+  sn:time      ex:may2024 ;
+  sn:unit      cur:EUR
+] .
+
+we:Q286  a          isn:Industry ;
+        rdfs:label  "Ind1" .
+
+wd:Q49Cont2  a   osn:Trade ;
+        sn:from  wd:Q49 ;
+        sn:into  wd:Q59 .
+
+[ a            sn:Volume ;
+  sn:quantity  1062513 ;
+  sn:relation  we:Q286Ind2 ;
+  sn:time      ex:april2024 ;
+  sn:unit      cur:EUR
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this>
+        a           csn:Country ;
+        rdfs:label  "Count1" .
+
+[ a            sn:Volume ;
+  sn:quantity  1167555 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#thisCount2> ;
+  sn:time      ex:june2024 ;
+  sn:unit      cur:EUR
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#thisCount2>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ40.ttl#this> .

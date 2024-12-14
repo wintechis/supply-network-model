@@ -1,0 +1,140 @@
+@prefix qudt:  <http://qudt.org/schema/qudt/> .
+@prefix cur:   <http://qudt.org/vocab/currency/> .
+@prefix esn:   <https://example.org/esn/vocab#> .
+@prefix isn:   <https://example.org/isn/vocab#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix osn:   <https://example.org/osn/vocab#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix we:    <https://welektronik.iis.fraunhofer.de/entity/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix unit:  <http://qudt.org/vocab/unit/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sn:    <https://purl.org/sn/vocab#> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+@prefix vann:  <http://purl.org/vocab/vann/> .
+@prefix greg:  <http://www.w3.org/ns/time/gregorian/> .
+@prefix csn:   <https://example.org/csn/vocab#> .
+@prefix ex: <https://www.example.org/> .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ29.ttl#this>
+        a                 esn:Enterprise ;
+        rdfs:label        "Marvell Technology"@en ;
+        <https://example.org/esn/vocab#continent> <http://www.wikidata.org/entity/Q49> ;
+        esn:industry      we:Q286 ;
+        esn:registeredIn  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> .
+
+<http://www.wikidata.org/entity/Q49> rdfs:label "Cont1" .
+we:Q286 rdfs:label "Ind1" .
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> rdfs:label "Count1" .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ719.ttl#this>
+        a                 esn:Enterprise ;
+        rdfs:label        "Arrow Electronics"@en ;
+        <https://example.org/esn/vocab#continent> <http://www.wikidata.org/entity/Q59> ;
+        esn:industry      we:Q486 ;
+        esn:registeredIn  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ40.ttl#this> .
+
+<http://www.wikidata.org/entity/Q59> rdfs:label "Cont2" .
+we:Q486 rdfs:label "Ind2" .
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ40.ttl#this> rdfs:label "Count2" .
+
+_:b1    a        esn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ29.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ719.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  450862 ;
+  sn:relation  _:b1 ;
+  sn:time      ex:march2024 ;
+  sn:unit      cur:EUR
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  354171 ;
+  sn:relation  _:b1 ;
+  sn:time      ex:april2024 ;
+  sn:unit      cur:EUR
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  342764 ;
+  sn:relation  _:b1 ;
+  sn:time      ex:may2024 ;
+  sn:unit      cur:EUR
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  389185 ;
+  sn:relation  _:b1 ;
+  sn:time      ex:june2024 ;
+  sn:unit      cur:EUR
+] .
+
+ex:march2024 a sn:TemporalEntity , time:DateTimeInterval , time:DateTimeDescription ;
+        time:hasDateTimeDescription ex:march2024 ;
+        time:month greg:March ;
+        time:year "2024"^^xsd:gYear .
+
+ex:april2024 a sn:TemporalEntity , time:DateTimeInterval , time:DateTimeDescription ;
+        time:hasDateTimeDescription ex:april2024 ;
+        time:month greg:April ;
+        time:year "2024"^^xsd:gYear .
+
+ex:may2024 a sn:TemporalEntity , time:DateTimeInterval , time:DateTimeDescription ;
+        time:hasDateTimeDescription ex:may2024 ;
+        time:month greg:May ;
+        time:year "2024"^^xsd:gYear .
+
+ex:june2024 a sn:TemporalEntity , time:DateTimeInterval , time:DateTimeDescription ;
+        time:hasDateTimeDescription ex:june2024 ;
+        time:month greg:June ;
+        time:year "2024"^^xsd:gYear .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ438.ttl#this>
+        a                 esn:Enterprise ;
+        rdfs:label        "TSMC"@en ;
+        <https://example.org/esn/vocab#continent> <http://www.wikidata.org/entity/Q49> ;
+        esn:industry      we:Q286 ;
+        esn:registeredIn  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ19.ttl#this>
+        a                 esn:Enterprise ;
+        rdfs:label        "Arrow Electronics"@en ;
+        <https://example.org/esn/vocab#continent> <http://www.wikidata.org/entity/Q59> ;
+        esn:industry      we:Q486 ;
+        esn:registeredIn  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ40.ttl#this> .
+
+_:b2    a        esn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ438.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ19.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  450862 ;
+  sn:relation  _:b2 ;
+  sn:time      ex:march2024 ;
+  sn:unit      cur:EUR
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  354171 ;
+  sn:relation  _:b2 ;
+  sn:time      ex:april2024 ;
+  sn:unit      cur:EUR
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  342764 ;
+  sn:relation  _:b2 ;
+  sn:time      ex:may2024 ;
+  sn:unit      cur:EUR
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  389185 ;
+  sn:relation  _:b2 ;
+  sn:time      ex:june2024 ;
+  sn:unit      cur:EUR
+] .
