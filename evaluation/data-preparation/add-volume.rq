@@ -5,43 +5,48 @@ PREFIX cur: <http://qudt.org/vocab/currency/>
 PREFIX greg: <http://www.w3.org/ns/time/gregorian/>
 PREFIX time: <http://www.w3.org/2006/time#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ex: <https://www.example.org/>
 
 INSERT {
     _:V_march a sn:Volume ;
         sn:relation ?trade ;
-        sn:time _:T_march ;
+        sn:time ex:march2024 ;
         sn:unit cur:EUR ;
         sn:quantity ?quantity_march .
-    _:T_march a sn:TemporalEntity , time:DateTimeInterval ;
-        time:hasDateTimeDescription _:TD_march .
-    _:TD_march time:month greg:March .
+    ex:march2024 a sn:TemporalEntity , time:DateTimeInterval , time:DateTimeDescription ;
+        time:hasDateTimeDescription ex:march2024 ;
+        time:month greg:March ;
+        time:year "2024"^^xsd:gYear .
 
     _:V_april a sn:Volume ;
         sn:relation ?trade ;
-        sn:time _:T_april ;
+        sn:time ex:april2024 ;
         sn:unit cur:EUR ;
         sn:quantity ?quantity_april .
-    _:T_april a sn:TemporalEntity , time:DateTimeInterval ;
-        time:hasDateTimeDescription _:TD_april .
-    _:TD_april time:month greg:April .
+    ex:april2024 a sn:TemporalEntity , time:DateTimeInterval , time:DateTimeDescription ;
+        time:hasDateTimeDescription ex:april2024 ;
+        time:month greg:April ;
+        time:year "2024"^^xsd:gYear .
 
     _:V_may a sn:Volume ;
         sn:relation ?trade ;
-        sn:time _:T_may ;
+        sn:time ex:may2024 ;
         sn:unit cur:EUR ;
         sn:quantity ?quantity_may .
-    _:T_may a sn:TemporalEntity , time:DateTimeInterval ;
-        time:hasDateTimeDescription _:TD_may .
-    _:TD_may time:month greg:May .
+    ex:may2024 a sn:TemporalEntity , time:DateTimeInterval , time:DateTimeDescription ;
+        time:hasDateTimeDescription ex:may2024 ;
+        time:month greg:May ;
+        time:year "2024"^^xsd:gYear .
 
     _:V_june a sn:Volume ;
         sn:relation ?trade ;
-        sn:time _:T_june ;
+        sn:time ex:june2024 ;
         sn:unit cur:EUR ;
         sn:quantity ?quantity_june .
-    _:T_june a sn:TemporalEntity , time:DateTimeInterval ;
-        time:hasDateTimeDescription _:TD_june .
-    _:TD_june time:month greg:June .
+    ex:june2024 a sn:TemporalEntity , time:DateTimeInterval , time:DateTimeDescription ;
+        time:hasDateTimeDescription ex:june2024 ;
+        time:month greg:June ;
+        time:year "2024"^^xsd:gYear .
 
 } WHERE {
     ?trade a esn:Trade .
