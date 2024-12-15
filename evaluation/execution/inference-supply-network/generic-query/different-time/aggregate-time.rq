@@ -1,0 +1,47 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sn: <https://purl.org/sn/vocab#>
+
+INSERT {
+    ?B1 a ?classB ;
+        rdfs:label ?B1_label .
+    ?B2 a ?classB ;
+        rdfs:label ?B2_label .
+    ?relationB a ?relationSubclassB ;
+        sn:from ?B1 ; sn:into ?B2 .
+    _:BTV a sn:Volume ;
+        sn:relation ?relationB ;
+        sn:time _:T ;
+        sn:unit ?unit ;
+        sn:quantity ?aggregatedQuantity .
+    _:T a sn:TemporalEntity , time:DateTimeInterval , time:DateTimeDescription ;
+        time:hasDateTimeDescription _:T ;
+        time:year ?year .
+} WHERE {
+    { SELECT ?B1 ?B1_label ?B2 ?B2_label ?classB ?relationSubclassB ?relationB ?year ?unit (SUM(?quantity) AS ?aggregatedQuantity)
+    WHERE {
+        ?associatedEntityProperty_AB rdfs:subPropertyOf sn:associatedEntity ;
+            rdfs:domain ?classA ;
+            rdfs:range ?classB .
+        ?classA rdfs:subClassOf sn:Entity .
+        ?classB rdfs:subClassOf sn:Entity ;
+            sn:expresses ?abstractionB .
+        ?A1 a ?classA ;
+            ?associatedEntityProperty_AB ?B1 .
+        ?A2 a ?classA ;
+            ?associatedEntityProperty_AB ?B2 .
+        ?AR a ?relationSubclassA ;
+            sn:from ?A1 ; sn:into ?A2 .
+        ?ARV a sn:Volume ;
+            sn:relation ?AR ;
+            sn:time ?time ;
+            sn:unit ?unit ;
+            sn:quantity ?quantity .
+        ?time a sn:TemporalEntity , time:Instant ;
+            time:inXSDDateTime ?date .
+        BIND (YEAR(?date) AS ?year) .
+        ?B1 rdfs:label ?B1_label .
+        ?B2 rdfs:label ?B2_label .
+        ?relationSubclassB rdfs:subClassOf sn:Relation ;
+            sn:expresses ?abstractionB .
+        BIND ( IRI(CONCAT(STR(?B1),ENCODE_FOR_URI(?B2_label))) AS ?relationB ) .
+    } GROUP BY ?B1 ?B1_label ?B2 ?B2_label ?classB ?relationSubclassB ?relationB ?year ?unit } }
