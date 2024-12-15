@@ -1,0 +1,41 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sn: <https://purl.org/sn/vocab#>
+PREFIX esn: <https://example.org/esn/vocab#>
+PREFIX csn: <https://example.org/csn/vocab#>
+PREFIX isn: <https://example.org/isn/vocab#>
+PREFIX osn: <https://example.org/osn/vocab#>
+
+CONSTRUCT {
+    ?C1 a osn:Continent ;
+        rdfs:label ?C1_label .
+    ?C2 a osn:Continent ;
+        rdfs:label ?AC_label .
+    ?relationC a osn:Trade ;
+        sn:from ?C1 ; sn:into ?C2 .
+    _:CTV a sn:Volume ;
+        sn:relation ?relationC ;
+        sn:time ?time ;
+        sn:unit ?unit ;
+        sn:quantity ?aggregatedQuantity .
+} WHERE {
+    { SELECT ?C1 ?C1_label ?C2 ?C2_label ?relationC ?time ?unit (SUM(?quantity) AS ?aggregatedQuantity)
+        WHERE {
+            ?AC1 a sn:MultidimensionalEntity ;
+                sn:dimension ?A1 , ?C1 .
+            ?C1 a osn:Continent ;
+                rdfs:label ?C1_label .
+            ?A1 a isn:Industry .
+            ?AC2 a sn:MultidimensionalEntity ;
+                sn:dimension ?A2 , ?C2 .
+            ?C2 a osn:Continent ;
+                rdfs:label ?C2_label .
+            ?A2 a isn:Industry .
+            ?ACR a sn:Relation ;
+                sn:from ?AC1 ; sn:into ?AC2 .
+            ?ACRV a sn:Volume ;
+                sn:relation ?ACR ;
+                sn:time ?time ;
+                sn:unit ?unit ;
+                sn:quantity ?quantity .
+	        BIND ( IRI(CONCAT(STR(?C1),ENCODE_FOR_URI(?C2_label))) AS ?relationC ) .
+        } GROUP BY ?C1 ?C1_label ?C2 ?C2_label ?relationC ?time ?unit } }

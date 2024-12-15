@@ -1,0 +1,36 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sn: <https://purl.org/sn/vocab#>
+PREFIX esn: <https://example.org/esn/vocab#>
+PREFIX osn: <https://example.org/osn/vocab#>
+
+CONSTRUCT {
+    ?B1 a osn:Continent ;
+        rdfs:label ?B1_label .
+    ?B2 a osn:Continent ;
+        rdfs:label ?B2_label .
+    ?relationB a osn:Trade ;
+        sn:from ?B1 ; sn:into ?B2 .
+    _:BTV a sn:Volume ;
+        sn:relation ?relationB ;
+        sn:time ?time ;
+        sn:unit ?unit ;
+        sn:quantity ?aggregatedQuantity .
+} WHERE {
+    { SELECT ?B1 ?B1_label ?B2 ?B2_label ?relationB ?time ?unit (SUM(?quantity) AS ?aggregatedQuantity)
+        WHERE {
+            # infer network
+            ?A1 a esn:Enterprise ;
+                esn:continent ?B1 .
+            ?A2 a esn:Enterprise ;
+                esn:continent ?B2 .
+            ?AR a esn:Trade ;
+                sn:from ?A1 ; sn:into ?A2 .
+            ?ARV a sn:Volume ;
+                sn:relation ?AR ;
+                sn:time ?time ;
+                sn:unit ?unit ;
+                sn:quantity ?quantity .
+            ?B1 rdfs:label ?B1_label .
+            ?B2 rdfs:label ?B2_label .
+	        BIND ( IRI(CONCAT(STR(?B1),ENCODE_FOR_URI(?B2_label))) AS ?relationB ) .
+        } GROUP BY ?B1 ?B1_label ?B2 ?B2_label ?relationB ?time ?unit } }
