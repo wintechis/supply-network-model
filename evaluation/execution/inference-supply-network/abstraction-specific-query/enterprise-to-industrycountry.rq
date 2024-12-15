@@ -6,57 +6,60 @@ PREFIX isn: <https://example.org/isn/vocab#>
 PREFIX osn: <https://example.org/osn/vocab#>
 
 CONSTRUCT {
-    ?BC1 a sn:MultidimensionalEntity ;
-        sn:dimension ?B1 , ?C1 .
-    ?B1 a csn:Country ;
-        rdfs:label ?B1_label ;
-        csn:inContinent ?D1 .
-    ?C1 a isn:Industry ;
-        rdfs:label ?C1_label .
-    ?BC1 a sn:MultidimensionalEntity ;
-        sn:dimension ?B1 , ?C1 .
-    ?B2 a csn:Country ;
-        rdfs:label ?B2_label ;
-        csn:inContinent ?D2 .
-    ?C2 a isn:Industry ;
-        rdfs:label ?C2_label .
-    ?relationBC a sn:Relation ;
-        sn:from ?BC1 ; sn:into ?BC2 .
-    _:BTV a sn:Volume ;
-        sn:relation ?relationBC ;
+    ?countryindustry1 a sn:MultidimensionalEntity ;
+        sn:dimension ?country1 , ?industry1 .
+    ?country1 a csn:Country ;
+        rdfs:label ?country1_label ;
+        csn:inContinent ?continent1 .
+    ?industry1 a isn:Industry ;
+        rdfs:label ?industry1_label .
+    ?countryindustry2 a sn:MultidimensionalEntity ;
+        sn:dimension ?country2 , ?industry2 .
+    ?country2 a csn:Country ;
+        rdfs:label ?country2_label ;
+        csn:inContinent ?continent2 .
+    ?industry2 a isn:Industry ;
+        rdfs:label ?industry2_label .
+    ?relation a sn:Relation ;
+        sn:from ?countryindustry1 ; sn:into ?countryindustry2 .
+    ?volume a sn:Volume ;
+        sn:relation ?relation ;
         sn:time ?time ;
         sn:unit ?unit ;
         sn:quantity ?aggregatedQuantity .
+    ?continent1 rdfs:label ?continent1_label .
+    ?continent2 rdfs:label ?continent2_label .
 } WHERE {
-    { SELECT ?D1 ?D1_label ?D2 ?D2_label ?C1 ?C1_label ?C2 ?C2_label ?B1 ?B1_label ?B2 ?B2_label ?BC2 ?BC1 ?relationBC ?time ?unit (SUM(?quantity) AS ?aggregatedQuantity)
+    { SELECT ?continent1 ?continent1_label ?continent2 ?continent2_label ?industry1 ?industry1_label ?industry2 ?industry2_label ?country1 ?country1_label ?country2 ?country2_label ?countryindustry2 ?countryindustry1 ?relation ?volume ?time ?unit (SUM(?quantity) AS ?aggregatedQuantity)
         WHERE {
             # infer network
-            ?A1 a esn:Enterprise ;
-                esn:registeredIn ?B1 ;
-                esn:industry ?C1 .
-            ?A2 a esn:Enterprise ;
-                esn:registeredIn ?B2 ;
-                esn:industry ?C2 .
-            ?AR a esn:Trade ;
-                sn:from ?A1 ; sn:into ?A2 .
-            ?ARV a sn:Volume ;
-                sn:relation ?AR ;
+            ?enterprise1 a esn:Enterprise ;
+                esn:registeredIn ?country1 ;
+                esn:industry ?industry1 .
+            ?enterprise2 a esn:Enterprise ;
+                esn:registeredIn ?country2 ;
+                esn:industry ?industry2 .
+            ?enterprisetrade a esn:Trade ;
+                sn:from ?enterprise1; sn:into ?enterprise2 .
+            ?enterprisetradevolume a sn:Volume ;
+                sn:relation ?enterprisetrade ;
                 sn:time ?time ;
                 sn:unit ?unit ;
                 sn:quantity ?quantity .
-            ?B1 rdfs:label ?B1_label .
-            ?B2 rdfs:label ?B2_label .
-            ?C1 rdfs:label ?C1_label .
-            ?C2 rdfs:label ?C2_label .
-	        BIND ( IRI(CONCAT(STR(?B1),ENCODE_FOR_URI(?C2_label))) AS ?relationBC ) .
-	        BIND ( IRI(CONCAT(STR(?B1),ENCODE_FOR_URI(?C1_label))) AS ?BC1 ) .
-	        BIND ( IRI(CONCAT(STR(?B2),ENCODE_FOR_URI(?C2_label))) AS ?BC1 ) .
+            ?country1 rdfs:label ?country1_label .
+            ?country2 rdfs:label ?country2_label .
+            ?industry1 rdfs:label ?industry1_label .
+            ?industry2 rdfs:label ?industry2_label .
+	        BIND ( IRI(CONCAT(STR(?country1),"_",ENCODE_FOR_URI(?industry2_label),"_relation")) AS ?relation ) .
+	        BIND ( IRI(CONCAT(STR(?country1),"_",ENCODE_FOR_URI(?industry1_label))) AS ?countryindustry1 ) .
+	        BIND ( IRI(CONCAT(STR(?country2),"_",ENCODE_FOR_URI(?industry2_label))) AS ?countryindustry2 ) .
+	        BIND ( IRI(CONCAT(STR(?time),"_",ENCODE_FOR_URI(?country1_label),"_",ENCODE_FOR_URI(?industry2_label))) AS ?volume ) .
 
             # pass on associated entities
             OPTIONAL {
-                ?A1 esn:continent ?D1 .
-                ?D1 rdfs:label ?C1_label .
-                ?A2 esn:continent ?D2 .
-                ?D2 rdfs:label ?CD_label .
+                ?enterprise1 esn:continent ?continent1 .
+                ?continent1 rdfs:label ?continent1_label .
+                ?enterprise2 esn:continent ?continent2 .
+                ?continent2 rdfs:label ?continent2_label .
             }
-        } GROUP BY ?D1 ?D1_label ?D2 ?D2_label ?C1 ?C1_label ?C2 ?C2_label ?B1 ?B1_label ?B2 ?B2_label ?relationB ?time ?unit } }
+        } GROUP BY ?continent1 ?continent1_label ?continent2 ?continent2_label ?industry1 ?industry1_label ?industry2 ?industry2_label ?country1 ?country1_label ?country2 ?country2_label ?countryindustry2 ?countryindustry1 ?relation ?volume ?time ?unit } }

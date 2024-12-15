@@ -1,0 +1,2701 @@
+@prefix esn:   <https://example.org/esn/vocab#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sn:    <https://purl.org/sn/vocab#> .
+@prefix osn:   <https://example.org/osn/vocab#> .
+@prefix csn:   <https://example.org/csn/vocab#> .
+
+[ a            sn:Volume ;
+  sn:quantity  201342 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ31.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  283696 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this_Germany> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  2000780 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this_Taiwan> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  949688 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this_South%20Korea> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1253324 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_Norway> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1943601 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ33.ttl#this_Malaysia> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  4160596 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_Sweden> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  780657 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this_Taiwan> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ33.ttl#this_Malaysia>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ33.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ833.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  1628986 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this_Austria> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this_Taiwan>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  2114133 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1766819 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_South%20Korea> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  470126 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this_Taiwan> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  3214370 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_United%20Kingdom> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1967943 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ33.ttl#this_Malaysia> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1056912 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this_Norway> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  178299 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_Germany> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  2187457 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1602630 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this_South%20Korea> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  456342 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this_Switzerland> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this_Switzerland>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  436633 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this_Taiwan> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  753895 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_South%20Korea> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1910628 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this_Netherlands> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this>
+        a                csn:Country ;
+        rdfs:label       "Netherlands"@en ;
+        csn:inContinent  <http://www.wikidata.org/entity/Q46> .
+
+[ a            sn:Volume ;
+  sn:quantity  5161656 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_Israel> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  521826 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_Netherlands> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  2997349 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_Japan> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  847705 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this_Taiwan> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  3940748 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_Sweden> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  149442 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this_Netherlands> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  2249010 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_Japan> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1131468 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  2058791 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this_United%20Kingdom> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this_Netherlands>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  1309944 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_Norway> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1436189 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this_Netherlands> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  4804809 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  61487272 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_Japan> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  62073318 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_Japan> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1465428 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this_United%20Kingdom> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1610469 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  32004677 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ801.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1919900 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this_Netherlands> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  597019 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this_Netherlands> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ34.ttl#this_United%20States%20of%20America>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ34.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this>
+        a                csn:Country ;
+        rdfs:label       "United States of America"@en ;
+        csn:inContinent  <http://www.wikidata.org/entity/Q49> .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this_Switzerland>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  2156931 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ833.ttl#this_Finland> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1853086 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_Germany> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1069181 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this_Norway> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_Sweden>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ34.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  1487176 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ33.ttl#this_Germany> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  567004 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this_Netherlands> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  185403 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ31.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  505353 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  443353 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_Switzerland> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  4587494 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  5918001 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_Netherlands> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1557676 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1492663 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_Switzerland> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  8468271 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this_Netherlands>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  1234326 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ33.ttl#this_Germany> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_Taiwan>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  1792730 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ801.ttl#this_Japan> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this>
+        a                csn:Country ;
+        rdfs:label       "South Korea"@en ;
+        csn:inContinent  <http://www.wikidata.org/entity/Q48> .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this_Germany>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this> .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this_South%20Korea>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  1696200 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this_South%20Korea> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1007628 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this_Belgium> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1902195 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this_Japan> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  18969751 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_Taiwan> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this_Japan>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  1348336 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this_Israel> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  565930 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this_Germany> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  34091471 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_Netherlands>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  1975562 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this_Japan> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  723278 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_South%20Korea> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  482937 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1577757 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this_South%20Korea> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  585307 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_Netherlands> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  267952 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ31.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1958458 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this_Japan> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  493290 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this_Taiwan> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  237303 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_Germany> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  2549226 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  5980780 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_Netherlands> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  3982423 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_Switzerland> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_Switzerland>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  3156589 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_United%20Kingdom> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_Netherlands>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this> .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_United%20States%20of%20America>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  964863 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this_South%20Korea> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1358249 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this_United%20Kingdom> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  2094610 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ833.ttl#this_Finland> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this_Japan>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  32473884 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ801.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  7482064 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_South%20Korea> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  513455890 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  739032 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ20.ttl#this_United%20Kingdom> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this_Israel>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ801.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  1936189 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this_Switzerland> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  31910766 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ801.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  376086 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_United%20Kingdom> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  2998444 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_Japan> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1227547 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ33.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1749859 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_Netherlands> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ40.ttl#this_People%27s%20Republic%20of%20China>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ40.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this> .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this_Netherlands>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  520678 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this_Netherlands> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1023373 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this_Belgium> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1774041 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ40.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1482241 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this_United%20Kingdom> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  994888 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this_Belgium> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  242354 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this_Germany> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ801.ttl#this>
+        a                csn:Country ;
+        rdfs:label       "Israel"@en ;
+        csn:inContinent  <http://www.wikidata.org/entity/Q48> .
+
+[ a            sn:Volume ;
+  sn:quantity  2863354 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1674378 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this_Austria> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  2894997 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_Japan> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1397623 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this_United%20Kingdom> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  769467 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ20.ttl#this_United%20Kingdom> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1436096 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this_Netherlands> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this>
+        a                csn:Country ;
+        rdfs:label       "Japan"@en ;
+        csn:inContinent  <http://www.wikidata.org/entity/Q48> .
+
+[ a            sn:Volume ;
+  sn:quantity  1000756 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this_Japan> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  4724905 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1608721 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this_Taiwan> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  514008125 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1707632 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_Netherlands> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  199155 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this_Netherlands> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1679125 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this_Taiwan> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1157652 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1144034 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1356322 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this_United%20Kingdom> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  14499754 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ31.ttl#this_People%27s%20Republic%20of%20China>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ31.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  1407716 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ833.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1749401 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_Netherlands> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this_United%20States%20of%20America>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this_People%27s%20Republic%20of%20China>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this> .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this_United%20States%20of%20America>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  925131 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ20.ttl#this_United%20Kingdom> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  545842 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this_Netherlands> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  9205601 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1987477 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this_United%20Kingdom> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  357295 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this_Germany> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  2928648 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_Taiwan> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1899856 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this_Switzerland> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1090771 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ34.ttl#this_Japan> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  940362 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this_South%20Korea> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  18918984 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_Taiwan> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  41638016 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  41777460 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ33.ttl#this_Germany>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ33.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  7191738 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_South%20Korea> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1422460 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_Switzerland> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  7410771 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_South%20Korea> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  8389015 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1514536 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1628527 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this_Austria> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this_United%20States%20of%20America>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  393884 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_United%20Kingdom> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  2004331 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this_Switzerland> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ34.ttl#this>
+        a                csn:Country ;
+        rdfs:label       "Sweden"@en ;
+        csn:inContinent  <http://www.wikidata.org/entity/Q46> .
+
+[ a            sn:Volume ;
+  sn:quantity  402991 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_Switzerland> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1506994 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ833.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  3978699 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_Switzerland> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1893778 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this_Switzerland> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1147774 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this_Norway> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1927071 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ801.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  5366045 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ34.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  271791 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_Germany> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this_Austria>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ40.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  481342 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this_Taiwan> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<http://www.wikidata.org/entity/Q46>
+        rdfs:label  "Europe"@en .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ801.ttl#this_People%27s%20Republic%20of%20China>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ801.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  1364419 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this_United%20Kingdom> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ833.ttl#this_People%27s%20Republic%20of%20China>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ833.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this> .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_People%27s%20Republic%20of%20China>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  1743114 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this_Taiwan> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  620793 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this_Germany> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  2351620 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this>
+        a                csn:Country ;
+        rdfs:label       "Germany"@en ;
+        csn:inContinent  <http://www.wikidata.org/entity/Q46> .
+
+[ a            sn:Volume ;
+  sn:quantity  3106751 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_United%20Kingdom> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this>
+        a                csn:Country ;
+        rdfs:label       "United Kingdom"@en ;
+        csn:inContinent  <http://www.wikidata.org/entity/Q46> .
+
+[ a            sn:Volume ;
+  sn:quantity  1083946 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ34.ttl#this_Japan> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  4739954 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  417585 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  8502742 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this_Germany>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this> .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ833.ttl#this_Finland>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ833.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ33.ttl#this> .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_People%27s%20Republic%20of%20China>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  465193 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  5348631 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ34.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ40.ttl#this>
+        a                csn:Country ;
+        rdfs:label       "Austria"@en ;
+        csn:inContinent  <http://www.wikidata.org/entity/Q46> .
+
+[ a            sn:Volume ;
+  sn:quantity  1450231 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this_Netherlands> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  516467835 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this_United%20Kingdom>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  3849507 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_Taiwan> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  33481618 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1363600 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this_Israel> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this_United%20States%20of%20America>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  1429861 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this_Netherlands> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1578219 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  447359 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_Switzerland> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this_Norway>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ20.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  1318311 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ33.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  400794 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this_Taiwan> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this_People%27s%20Republic%20of%20China>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  1120382 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  9027702 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1447765 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_Switzerland> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  5105625 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_Israel> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  62589136 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_Japan> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ20.ttl#this>
+        a                csn:Country ;
+        rdfs:label       "Norway"@en ;
+        csn:inContinent  <http://www.wikidata.org/entity/Q46> .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this_Netherlands>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  558424 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this_Netherlands> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  27443870 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this_Germany>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  33549760 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1565513 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this_South%20Korea> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  2360984 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_Japan> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this>
+        a                csn:Country ;
+        rdfs:label       "People's Republic of China"@en ;
+        csn:inContinent  <http://www.wikidata.org/entity/Q48> .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this_South%20Korea>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this> .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_South%20Korea>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  1848700 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ40.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  2040233 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ33.ttl#this_Malaysia> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1090771 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this_Japan> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_Japan>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  1002974 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this_South%20Korea> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  5390059 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_Israel> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1181738 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ31.ttl#this>
+        a                csn:Country ;
+        rdfs:label       "Belgium"@en ;
+        csn:inContinent  <http://www.wikidata.org/entity/Q46> .
+
+[ a            sn:Volume ;
+  sn:quantity  1072773 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this_Norway> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  2994635 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_Taiwan> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1981228 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this_Netherlands> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  3011963 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_Taiwan> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1065760 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this_Japan> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  6242559 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_Netherlands> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this_People%27s%20Republic%20of%20China>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  2715750 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  27354993 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1644000 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_South%20Korea> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1263953 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ33.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_South%20Korea>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  14773265 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_Japan>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  3246627 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_United%20Kingdom> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ801.ttl#this_United%20States%20of%20America>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ801.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this_United%20States%20of%20America>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  487205 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this_Germany> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this_Taiwan>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  390074 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_United%20Kingdom> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  640815 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this_Netherlands> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  358216 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_United%20Kingdom> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  5293459 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ34.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  680381 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this_Netherlands> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1680746 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_Netherlands> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  5420635 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ34.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  2053525 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ833.ttl#this_Finland> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  3700220 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_Taiwan> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1663506 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ801.ttl#this_Japan> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  27610312 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1065760 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ34.ttl#this_Japan> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  553947 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this_Switzerland> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  517745650 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_Taiwan>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  14139760 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  18736778 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_Taiwan> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this>
+        a                csn:Country ;
+        rdfs:label       "Switzerland"@en ;
+        csn:inContinent  <http://www.wikidata.org/entity/Q46> .
+
+[ a            sn:Volume ;
+  sn:quantity  2014004 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_Germany> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_People%27s%20Republic%20of%20China>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  1476590 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_Switzerland> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  503178 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_Netherlands> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  2380814 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  61966582 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_Japan> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1448125 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this_Israel> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  42169205 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1251607 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ33.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1674615 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_South%20Korea> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1709574 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this_Taiwan> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  3702486 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_Taiwan> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1085901 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this_South%20Korea> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  335815 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ31.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  41741809 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this>
+        a                csn:Country ;
+        rdfs:label       "Taiwan"@en ;
+        csn:inContinent  <http://www.wikidata.org/entity/Q48> .
+
+[ a            sn:Volume ;
+  sn:quantity  9153737 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  456897 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this_Germany> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1300154 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ33.ttl#this_Germany> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  14206317 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1674194 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this_Austria> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1390077 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ33.ttl#this_Germany> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  5124402 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  8926946 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1784825 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this_South%20Korea> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_United%20States%20of%20America>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  1312558 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_Norway> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  2038252 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this_Taiwan> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  2430437 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_Japan> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  27233345 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_Taiwan>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  3940748 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_Switzerland> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  457273 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this_Switzerland> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1132520 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_Netherlands>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  1782630 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this_Germany> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  31599015 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ801.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_Switzerland>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  1191646 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  682749 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_South%20Korea> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1717269 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ801.ttl#this_Japan> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this_Netherlands>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this> .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_Japan>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  1741967 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this_South%20Korea> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  804632 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this_Taiwan> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  4579319 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  2298545 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_Switzerland>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this> .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ34.ttl#this_Japan>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ34.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  1885919 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_Germany> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this_People%27s%20Republic%20of%20China>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  679043 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this_Netherlands> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  7402183 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_South%20Korea> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ20.ttl#this_United%20Kingdom>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ20.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this> .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this_United%20States%20of%20America>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_United%20States%20of%20America>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  2056425 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this_United%20Kingdom> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  2358274 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  5958032 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_Netherlands> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  434252 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this_Taiwan> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  33728443 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1473078 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ833.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_Germany>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  222867 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_Germany> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<http://www.wikidata.org/entity/Q48>
+        rdfs:label  "Asia"@en .
+
+[ a            sn:Volume ;
+  sn:quantity  3013792 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_Taiwan> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  440112 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this_Taiwan> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  3828434 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_Taiwan> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  3982423 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_Sweden> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  443778 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this_Switzerland> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1855008 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this_Japan> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1862500 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_Germany> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1413742 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this_United%20Kingdom> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  929488 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_South%20Korea> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  4160596 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_Switzerland> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  941330 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this_South%20Korea> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1421562 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this_United%20Kingdom> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1779147 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this_Germany> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  2434286 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_Japan> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_South%20Korea>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  218133 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this_Netherlands> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_Israel>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ801.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  8362829 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this_Taiwan>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  223920 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this_Netherlands> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  2276388 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1902371 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ40.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1751934 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ801.ttl#this_Japan> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1746427 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_South%20Korea> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  2948813 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_Japan> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1083946 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this_Japan> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this_South%20Korea>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this> .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_United%20Kingdom>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  1969983 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ33.ttl#this_Malaysia> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ801.ttl#this_Japan>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ801.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  398522 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_Netherlands> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1997341 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ801.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1351918 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_Norway> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  405970 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this_Taiwan> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1650979 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this_South%20Korea> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1977256 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this_United%20Kingdom> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  4843504 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1870336 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ40.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  488652 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_Switzerland> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1931521 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this_Netherlands> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this_United%20Kingdom>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  18682361 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_Taiwan> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_Germany>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  1997815 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ833.ttl#this_Finland> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  953781 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this_Belgium> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_Norway>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ20.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  1005975 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this_South%20Korea> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1319157 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this_Israel> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  2809509 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1062671 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this_South%20Korea> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this_Taiwan>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  2026903 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ801.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  2027577 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this_Taiwan> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this_United%20Kingdom>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  1934820 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this_Germany> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1903892 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this_Taiwan> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ33.ttl#this_United%20States%20of%20America>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ33.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  1873033 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this_Germany> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ33.ttl#this>
+        a                csn:Country ;
+        rdfs:label       "Finland"@en ;
+        csn:inContinent  <http://www.wikidata.org/entity/Q46> .
+
+[ a            sn:Volume ;
+  sn:quantity  844695 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ20.ttl#this_United%20Kingdom> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  5208211 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_Israel> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  774375 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this_Taiwan> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  2704413 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1000756 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ34.ttl#this_Japan> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_United%20Kingdom>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this> .
+
+<http://www.wikidata.org/entity/Q49>
+        rdfs:label  "North America"@en .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ833.ttl#this>
+        a                csn:Country ;
+        rdfs:label       "Malaysia"@en ;
+        csn:inContinent  <http://www.wikidata.org/entity/Q48> .
+
+[ a            sn:Volume ;
+  sn:quantity  1999504 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ801.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1577132 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ145.ttl#this_South%20Korea> ;
+  sn:time      <https://www.example.org/march2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  3978699 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this_Sweden> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1224065 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this_Belgium>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ31.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  523489 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this_Germany> ;
+  sn:time      <https://www.example.org/may2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+[ a            sn:Volume ;
+  sn:quantity  1417929 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ833.ttl#this_People%27s%20Republic%20of%20China> ;
+  sn:time      <https://www.example.org/april2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this_South%20Korea>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this> .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this_Taiwan>
+        a        csn:Trade ;
+        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this> ;
+        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this> .
+
+[ a            sn:Volume ;
+  sn:quantity  4892566 ;
+  sn:relation  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this_United%20States%20of%20America> ;
+  sn:time      <https://www.example.org/june2024> ;
+  sn:unit      <http://qudt.org/vocab/currency/EUR>
+] .
