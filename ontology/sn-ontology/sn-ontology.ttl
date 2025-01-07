@@ -66,13 +66,13 @@ sn:Abstraction a owl:Class ;
 
 # --- object properties ---
     
-sn:from a owl:ObjectProperty ;
+sn:from a owl:ObjectProperty , owl:FunctionalProperty ;
     rdfs:label "from"@en ;
     rdfs:comment "Todo."@en ;
     rdfs:domain sn:Relation ;
     rdfs:range sn:Entity .
 
-sn:into a owl:ObjectProperty ;
+sn:into a owl:ObjectProperty , owl:FunctionalProperty ;
     rdfs:label "into"@en ;
     rdfs:comment "Todo."@en ;
     rdfs:domain sn:Relation ;
@@ -141,5 +141,6 @@ sn:expresses a owl:ObjectProperty ;
 sn:quantity a owl:DatatypeProperty , qb:MeasureProperty ;
     rdfs:label "quantity"@en ;
     rdfs:comment "Todo."@en ;
+    rdfs:subPropertyOf qudt:quantity ;
     rdfs:domain sn:Volume ;
     rdfs:range xsd:decimal .
