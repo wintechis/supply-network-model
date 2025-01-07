@@ -1,0 +1,373 @@
+@prefix : <#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix org: <https://www.w3.org/ns/org#> .
+@prefix sn: <https://purl.org/sn/vocab#> .
+@prefix esn: <https://example.org/esn/vocab#> .
+@prefix cur: <http://qudt.org/vocab/currency/> .
+
+:2020Q3 a sn:TemporalEntity .
+
+
+# TSMC
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ23.ttl#Q20> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 537.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ24.ttl#Q20> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 498.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#Q20> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 479.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ17.ttl#Q20> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 430.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ25.ttl#Q20> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 299.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ31.ttl#Q20> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 235.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ28.ttl#Q20> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 230.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ59.ttl#Q20> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 181.0 .
+
+
+# Qualcomm
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q23> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 572.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q23> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 517.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ39.ttl#Q23> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 30.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ92.ttl#Q23> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 16.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ143.ttl#Q23> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 10.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ254.ttl#Q23> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 32.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ90.ttl#Q23> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 61.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#Q23> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 19.0 .
+
+
+# Broadcom
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q24> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 1700.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q24> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 149.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ22.ttl#Q24> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 32.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ79.ttl#Q24> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 12.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ254.ttl#Q24> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 31.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ65.ttl#Q24> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 18.0 .
+
+
+# Nvidia
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q21> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 30.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ90.ttl#Q21> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 8.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ33.ttl#Q21> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 0.4 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#Q21> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 20.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ76.ttl#Q21> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 16.0 .
+
+
+# AMD
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q17> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 71.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q17> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 43.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#Q17> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 261.0 .
+
+
+# Texas Instruments
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q25> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 57.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q25> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 383.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ22.ttl#Q25> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 12.0 .
+
+
+# STMicroelectronics
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q31> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 143.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q31> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 611.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ90.ttl#Q31> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 34.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ76.ttl#Q31> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 118.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#Q31> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 0.4 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ79.ttl#Q31> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 35.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ22.ttl#Q31> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 76.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#Q31> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 20.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ254.ttl#Q31> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 3.0 .
+
+
+# NXP
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q28> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 72.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q28> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 235.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ254.ttl#Q28> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 14.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ66.ttl#Q28> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 1.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ76.ttl#Q28> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 76.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#Q28> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 2.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ90.ttl#Q28> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 70.0 .
+
+
+# Renesas
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q59> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 22.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q59> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 23.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ66.ttl#Q59> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 39.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#Q59> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 15.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ91.ttl#Q59> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 10.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ92.ttl#Q59> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 6.0 .
+
+[] a sn:Volume ;
+    sn:relation <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ143.ttl#Q59> ;
+    sn:time :2020Q3 ;
+    sn:unit cur:MegaUSD ;
+    sn:quantity 15.0 .

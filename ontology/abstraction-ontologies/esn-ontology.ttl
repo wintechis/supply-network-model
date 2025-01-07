@@ -50,6 +50,20 @@ esn:industry a owl:ObjectProperty ;
     rdfs:domain esn:Enterprise ;
     rdfs:range isn:Industry .
 
+esn:supplier a owl:ObjectProperty ;
+    rdfs:label "supplier"@en ;
+    rdfs:comment "todo"@en ;
+    rdfs:subPropertyOf sn:from ;
+    rdfs:domain sn:Relation ;
+    rdfs:range esn:Enterprise .
+
+esn:customer a owl:ObjectProperty ;
+    rdfs:label "customer"@en ;
+    rdfs:comment "todo"@en ;
+    rdfs:subPropertyOf sn:into ;
+    rdfs:domain sn:Relation ;
+    rdfs:range esn:Enterprise .
+
 
 # --- individuals ---
 
