@@ -23,6 +23,8 @@ CONSTRUCT {
         ?from_property ?target_from_entity ;
         ?into_property ?target_into_entity ;
         sn:volume ?target_volume .
+
+    # resulting volumes
     ?target_volume a sn:Volume ;
         sn:time ?time ;
         sn:unit ?unit ;
@@ -39,12 +41,18 @@ CONSTRUCT {
                 sn:structure ?multidim_supplyNetworkStructure ;
                 sn:supplyLink ?source_supplylink .
             
-            # identify target abstraction and associated entity property
+            # identify target abstraction and associated entity property that links source and target
             ?multidim_supplyNetworkStructure a qb:DataStructureDefinition ;
                 sn:higherAbstractionLevel ?target_supplyNetworkStructure ;
-                qb:component/qb:dimension/rdfs:range ?source_class .
+                qb:component/qb:dimension ?dimA_from_property ;
+                qb:component/qb:dimension ?dimA_into_property .
+            ?dimA_from_property rdfs:range ?source_class .
+            ?dimA_into_property rdfs:range ?source_class .
             ?target_supplyNetworkStructure a qb:DataStructureDefinition ;
-                qb:component/qb:dimension/rdfs:range ?target_class .
+                qb:component/qb:dimension ?from_property ;
+                qb:component/qb:dimension ?into_property .
+            ?from_property rdfs:range ?target_class .
+            ?into_property rdfs:range ?target_class .
             ?associatedEntity_property rdfs:subPropertyOf sn:associatedEntity ;
                 rdfs:domain ?source_class ;
                 rdfs:range ?target_class .
