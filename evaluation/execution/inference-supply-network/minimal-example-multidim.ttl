@@ -1,0 +1,182 @@
+@prefix qudt:  <http://qudt.org/schema/qudt/> .
+@prefix cur:   <http://qudt.org/vocab/currency/> .
+@prefix esn:   <https://example.org/esn/vocab#> .
+@prefix isn:   <https://example.org/isn/vocab#> .
+@prefix fssn:   <https://example.org/fssn/vocab#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix unit:  <http://qudt.org/vocab/unit/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sn:    <https://purl.org/sn/vocab#> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+@prefix vann:  <http://purl.org/vocab/vann/> .
+@prefix greg:  <http://www.w3.org/ns/time/gregorian/> .
+@prefix csn:   <https://example.org/csn/vocab#> .
+@prefix ex: <https://www.example.org/> .
+
+# sn ontology
+sn:SupplyNetwork rdfs:subClassOf qb:DataSet ;
+        qb:structure sn:SNDataStructure .
+sn:supplyNetwork rdfs:subPropertyOf qb:dataSet ;
+        rdfs:domain sn:Volume ;
+        rdfs:range sn:SupplyNetwork .
+sn:SNDataStructure a qb:DataStructureDefinition ;
+        qb:component [ qb:dimension sn:from ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension sn:into ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension sn:time ] ,
+                [ qb:measure sn:quantity] ,
+                [ qb:attribute sn:unit] ;
+        qb:sliceKey sn:SNSupplyLink .
+sn:Entity a owl:Class .
+sn:from a owl:ObjectProperty ;
+        rdfs:domain sn:SupplyLink ;
+        rdfs:range sn:Entity .
+sn:into a owl:ObjectProperty ;
+        rdfs:domain sn:SupplyLink ;
+        rdfs:range sn:Entity .
+sn:SNSupplyLink a sn:SupplyLinkKey ;
+    qb:componentProperty sn:from , sn:into .
+sn:associatedEntity a owl:ObjectProperty ;
+        rdfs:domain sn:Entity ;
+        rdfs:range sn:Entity .
+sn:SupplyLink rdfs:subClassOf qb:Slice .
+sn:SupplyLinkKey rdfs:subClassOf qb:SliceKey .
+sn:Volume rdfs:subClassOf qb:Observation .
+sn:volume rdfs:subPropertyOf qb:observation ;
+        rdfs:domain sn:SupplyLink ;
+        rdfs:range sn:Volume .
+sn:time a qb:DimensionProperty ;
+        rdfs:domain sn:Volume ;
+        rdfs:range sn:TemporalEntity .
+sn:quantity a qb:MeasureProperty ;
+        rdfs:domain sn:Volume ;
+        rdfs:range xsd:decimal .
+sn:unit a qb:AttributeProperty ;
+        rdfs:domain sn:Volume ;
+        rdfs:range sn:Unit .
+
+# fssn ontology
+fssn:FederalStateSupplyNetwork rdfs:subClassOf sn:SupplyNetwork ;
+        qb:structure fssn:FederalStateDataStructure .
+fssn:FederalStateDataStructure a qb:DataStructureDefinition ;
+        qb:component [ qb:dimension fssn:export ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension fssn:import ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension sn:time ] ,
+                [ qb:measure sn:quantity] ,
+                [ qb:attribute sn:unit] ;
+        qb:sliceKey fssn:FederalStateSupplyLink .
+fssn:FederalState rdfs:subClassOf sn:Entity .
+fssn:inCountry rdfs:subPropertyOf sn:associatedEntity .
+fssn:export a qb:DimensionProperty ;
+        rdfs:subPropertyOf sn:from ;
+        rdfs:domain sn:SupplyLink ;
+        rdfs:range fssn:FederalState .
+fssn:import a qb:DimensionProperty ;
+        rdfs:subPropertyOf sn:into ;
+        rdfs:domain sn:SupplyLink ;
+        rdfs:range fssn:FederalState .
+fssn:FederalStateSupplyLink a sn:SupplyLinkKey ;
+    qb:componentProperty fssn:export , fssn:import .
+
+# isn ontology
+isn:IndustrySupplyNetwork rdfs:subClassOf sn:SupplyNetwork ;
+        qb:structure isn:IndustryDataStructure .
+isn:IndustryDataStructure a qb:DataStructureDefinition ;
+        qb:component [ qb:dimension isn:supply ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension isn:demand ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension sn:time ] ,
+                [ qb:measure sn:quantity] ,
+                [ qb:attribute sn:unit] ;
+        qb:sliceKey isn:IndustrySupplyLink .
+isn:Industry rdfs:subClassOf sn:Entity .
+isn:supply a qb:DimensionProperty ;
+        rdfs:subPropertyOf sn:from ;
+        rdfs:domain sn:SupplyLink ;
+        rdfs:range isn:Industry .
+isn:demand a qb:DimensionProperty ;
+        rdfs:subPropertyOf sn:into ;
+        rdfs:domain sn:SupplyLink ;
+        rdfs:range isn:Industry .
+isn:IndustrySupplyLink a sn:SupplyLinkKey ;
+    qb:componentProperty isn:supply , isn:demand .
+isn:IndustryFederalStateSupplyNetwork rdfs:subClassOf sn:SupplyNetwork ;
+        qb:structure isn:IndustryFederalStateDataStructure .
+isn:IndustryFederalStateDataStructure a qb:DataStructureDefinition ;
+        qb:component [ qb:dimension isn:supply ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension isn:demand ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension fssn:export ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension fssn:import  ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension sn:time ] ,
+                [ qb:measure sn:quantity] ,
+                [ qb:attribute sn:unit] ;
+        qb:sliceKey isn:IndustryFederalStateSupplyLink .
+isn:IndustryFederalStateSupplyLink a sn:SupplyLinkKey ;
+    qb:componentProperty fssn:export , fssn:import , isn:supply , isn:demand .
+
+# csn ontology
+csn:Country rdfs:subClassOf sn:Entity .
+
+
+# example data
+ex:Data a isn:IndustryFederalStateSupplyNetwork .
+ex:AT11 a fssn:FederalState ;
+        fssn:inCountry ex:AT ;
+        rdfs:label "Burgenland"@en , "AT-BL"@en .
+ex:AT a csn:Country ;
+        rdfs:label "Austria"@en .
+ex:DE11 a fssn:FederalState ;
+        fssn:inCountry ex:DE ;
+        rdfs:label "Stuttgart"@en .
+ex:DE a csn:Country ;
+        rdfs:label "Germany"@en , "GER"@en .
+ex:ss1 a isn:Industry ;
+        rdfs:label "Agriculture"@en .
+ex:ss2 a isn:Industry ;
+        rdfs:label "Mining_quarrying_and_energy_supply"@en .
+
+ex:AT11ss1AT11ss2 a sn:SupplyLink ;
+        qb:sliceStructure isn:IndustryFederalStateSupplyLink ;
+        fssn:export ex:AT11 ;
+        isn:supply ex:ss1 ;
+        fssn:import ex:AT11 ;
+        isn:demand ex:ss2 ;
+        sn:volume [ a sn:Volume ;
+                sn:supplyNetwork ex:Data ; 
+                sn:time ex:2010 ;
+                sn:quantity  0.0907 ;
+                sn:unit cur:MegaUSD ] ,
+                [ a sn:Volume ;
+                sn:supplyNetwork ex:Data ; 
+                sn:time ex:2009 ;
+                sn:quantity  0.1682 ;
+                sn:unit cur:MegaUSD ] .
+
+ex:AT11ss1DE11ss2 a sn:SupplyLink ;
+        qb:sliceStructure isn:IndustryFederalStateSupplyLink ;
+        fssn:export ex:AT11 ;
+        isn:supply ex:ss1 ;
+        fssn:import ex:DE11 ;
+        isn:demand ex:ss2 ;
+        sn:volume [ a sn:Volume ;
+                sn:supplyNetwork ex:Data ; 
+                sn:time ex:2010 ;
+                sn:quantity  0.0055 ;
+                sn:unit cur:MegaUSD ] ,
+                [ a sn:Volume ;
+                sn:supplyNetwork ex:Data ;
+                sn:time ex:2009 ;
+                sn:quantity  0.0049 ;
+                sn:unit cur:MegaUSD ] .

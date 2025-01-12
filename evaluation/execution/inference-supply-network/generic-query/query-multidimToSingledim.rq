@@ -1,0 +1,65 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX sn: <https://purl.org/sn/vocab#>
+PREFIX qb:    <http://purl.org/linked-data/cube#>
+
+CONSTRUCT {
+    # todo: dataset, AEs
+
+    ?dimA_from_entity a ?dimA_class ;
+        rdfs:label ?dimA_from_entity_label .
+    ?dimA_into_entity a ?dimA_class ;
+        rdfs:label ?dimA_into_entity_label .
+    ?dimA_supplylink a sn:SupplyLink ;
+        qb:sliceStructure ?singledim_sliceStructure ;
+        ?dimA_from_property ?dimA_from_entity ;
+        ?dimA_into_property ?dimA_into_entity ;
+        sn:volume ?dimA_volume .
+    ?dimA_volume a sn:Volume ;
+        sn:time ?time ;
+        sn:unit ?unit ;
+        sn:quantity ?aggregatedQuantity .
+} WHERE {
+    { SELECT ?dimA_supplylink ?dimA_volume ?dimA_from_entity ?dimA_from_entity_label ?dimA_into_entity ?dimA_into_entity_label ?dimA_from_property ?dimA_into_property ?dimA_class ?singledim_sliceStructure ?time ?unit (SUM(?quantity) AS ?aggregatedQuantity)
+    WHERE {
+        # identify dimensions in tbox
+        ?dimA_from_property rdfs:subPropertyOf sn:from .
+        ?dimA_into_property rdfs:subPropertyOf sn:into .
+        ?dimB_from_property rdfs:subPropertyOf sn:from .
+        ?dimB_into_property rdfs:subPropertyOf sn:into .
+        ?multidim_sliceStructure a sn:SupplyLinkKey ;
+            qb:componentProperty ?dimA_from_property , ?dimA_into_property , ?dimB_from_property , ?dimB_into_property .
+        ?singledim_sliceStructure a sn:SupplyLinkKey ;
+            qb:componentProperty ?dimA_from_property , ?dimA_into_property .
+
+        # identify the entities for all dimensions in abox
+        ?supplylink a sn:SupplyLink ;
+            ?dimA_from_property ?dimA_from_entity ;
+            ?dimA_into_property ?dimA_into_entity ;
+            ?dimB_from_property ?dimB_from_entity ;
+            ?dimB_into_property ?dimB_into_entity ;
+            qb:sliceStructure ?multidim_sliceStructure ;
+            sn:volume ?volume .
+        ?dimA_from_entity a ?dimA_class ;
+            rdfs:label ?dimA_from_entity_label .
+        ?dimA_into_entity a ?dimA_class ;
+            rdfs:label ?dimA_into_entity_label .
+        ?dimB_from_entity a ?dimB_class .
+        ?dimB_into_entity a ?dimB_class .
+
+        # varify classes in tbox
+        ?dimA_class rdfs:subClassOf sn:Entity .
+        ?dimB_class rdfs:subClassOf sn:Entity .
+
+        # identify volumes in abox
+        ?volume a sn:Volume ;
+            sn:supplyNetwork/rdf:type/rdfs:subClassOf sn:SupplyNetwork ; # required? can not CONSTRUCT
+            sn:time ?time ;
+            sn:unit ?unit ;
+            sn:quantity ?quantity .
+
+        # coin uris
+        BIND(IRI(CONCAT("https://www.example.org/",MD5(CONCAT(STR(?dimA_from_entity),STR(?dimA_into_entity))))) AS ?dimA_supplylink) .
+        BIND(IRI(CONCAT("https://www.example.org/",MD5(CONCAT(STR(?dimA_supplylink),STR(?time),STR(?unit))))) AS ?dimA_volume) .
+
+    } GROUP BY ?dimA_supplylink ?dimA_volume ?dimA_from_entity ?dimA_from_entity_label ?dimA_into_entity ?dimA_into_entity_label ?dimA_from_property ?dimA_into_property ?dimA_class ?singledim_sliceStructure ?time ?unit } }
