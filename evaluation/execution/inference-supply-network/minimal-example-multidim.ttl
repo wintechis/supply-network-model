@@ -20,7 +20,7 @@
 
 # sn ontology
 sn:Entity a owl:Class .
-sn:associatedEntity a owl:ObjectProperty ;
+sn:associatedEntity a owl:SymmetricProperty ;
         rdfs:domain sn:Entity ;
         rdfs:range sn:Entity .
 
@@ -37,6 +37,12 @@ sn:SupplyNetworkDataStructure a qb:DataStructureDefinition ;
                 [ qb:measure sn:quantity] ,
                 [ qb:attribute sn:unit] ;
         qb:sliceKey sn:SNSupplyLink .
+sn:higherAbstractionLevel a owl:TransitiveProperty ;
+        rdfs:domain qb:DataStructureDefinition ;
+        rdfs:range qb:DataStructureDefinition .
+sn:similarAbstractionLevel a owl:SymmetricProperty ;
+        rdfs:domain qb:DataStructureDefinition ;
+        rdfs:range qb:DataStructureDefinition .
 
 sn:supplyLink rdfs:subPropertyOf qb:slice ;
         rdfs:domain sn:SupplyNetwork ;
@@ -48,10 +54,10 @@ sn:supplyLinkKey rdfs:subPropertyOf qb:sliceStructure ;
 sn:SupplyLinkKey rdfs:subClassOf qb:SliceKey .
 sn:SNSupplyLink a sn:SupplyLinkKey ;
     qb:componentProperty sn:from , sn:into .
-sn:from a owl:ObjectProperty ;
+sn:from a owl:FunctionalProperty , qb:DimensionProperty ;
         rdfs:domain sn:SupplyLink ;
         rdfs:range sn:Entity .
-sn:into a owl:ObjectProperty ;
+sn:into a owl:FunctionalProperty , qb:DimensionProperty ;
         rdfs:domain sn:SupplyLink ;
         rdfs:range sn:Entity .
 
@@ -70,44 +76,19 @@ sn:unit a qb:AttributeProperty ;
         rdfs:range sn:Unit .
 
 
-# fssn ontology
-fssn:FederalState rdfs:subClassOf sn:Entity .
-fssn:inCountry rdfs:subPropertyOf sn:associatedEntity .
-fssn:inContinent rdfs:subPropertyOf sn:associatedEntity .
-fssn:export a qb:DimensionProperty ;
-        rdfs:subPropertyOf sn:from ;
-        rdfs:domain sn:SupplyLink ;
-        rdfs:range fssn:FederalState .
-fssn:import a qb:DimensionProperty ;
-        rdfs:subPropertyOf sn:into ;
-        rdfs:domain sn:SupplyLink ;
-        rdfs:range fssn:FederalState .
-
-fssn:FederalStateDataStructure a qb:DataStructureDefinition ;
-        qb:component [ qb:dimension fssn:export ;
-                qb:componentAttachment sn:SupplyLink ] ,
-                [ qb:dimension fssn:import ;
-                qb:componentAttachment sn:SupplyLink ] ,
-                [ qb:dimension sn:time ] ,
-                [ qb:measure sn:quantity] ,
-                [ qb:attribute sn:unit] ;
-        qb:sliceKey fssn:FederalStateSupplyLinkKey .
-fssn:FederalStateSupplyLinkKey a sn:SupplyLinkKey ;
-    qb:componentProperty fssn:export , fssn:import .
-
-
 # isn ontology
 isn:Industry rdfs:subClassOf sn:Entity .
-isn:supply a qb:DimensionProperty ;
+isn:supply a owl:FunctionalProperty , qb:DimensionProperty ;
         rdfs:subPropertyOf sn:from ;
         rdfs:domain sn:SupplyLink ;
         rdfs:range isn:Industry .
-isn:demand a qb:DimensionProperty ;
+isn:demand a owl:FunctionalProperty , qb:DimensionProperty ;
         rdfs:subPropertyOf sn:into ;
         rdfs:domain sn:SupplyLink ;
         rdfs:range isn:Industry .
 
 isn:IndustryDataStructure a qb:DataStructureDefinition ;
+        sn:similarAbstractionLevel fssn:FederalStateDataStructure , csn:CountryDataStructure , cosn:ContinentDataStructure ;
         qb:component [ qb:dimension isn:supply ;
                 qb:componentAttachment sn:SupplyLink ] ,
                 [ qb:dimension isn:demand ;
@@ -120,6 +101,7 @@ isn:IndustrySupplyLinkKey a sn:SupplyLinkKey ;
     qb:componentProperty isn:supply , isn:demand .
 
 isn:IndustryFederalStateDataStructure a qb:DataStructureDefinition ;
+        sn:higherAbstractionLevel isn:IndustryDataStructure , fssn:FederalStateDataStructure , csn:CountryDataStructure , cosn:ContinentDataStructure , isn:IndustryCountryDataStructure , isn:IndustryContinentDataStructure ;
         qb:component [ qb:dimension isn:supply ;
                 qb:componentAttachment sn:SupplyLink ] ,
                 [ qb:dimension isn:demand ;
@@ -135,13 +117,122 @@ isn:IndustryFederalStateDataStructure a qb:DataStructureDefinition ;
 isn:IndustryFederalStateSupplyLinkKey a sn:SupplyLinkKey ;
     qb:componentProperty fssn:export , fssn:import , isn:supply , isn:demand .
 
+isn:IndustryCountryDataStructure a qb:DataStructureDefinition ;
+        sn:higherAbstractionLevel isn:IndustryDataStructure , csn:CountryDataStructure , cosn:ContinentDataStructure , isn:IndustryContinentDataStructure ;
+        qb:component [ qb:dimension isn:supply ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension isn:demand ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension csn:export ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension csn:import  ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension sn:time ] ,
+                [ qb:measure sn:quantity] ,
+                [ qb:attribute sn:unit] ;
+        qb:sliceKey isn:IndustryCountrySupplyLinkKey .   
+isn:IndustryCountrySupplyLinkKey a sn:SupplyLinkKey ;
+    qb:componentProperty csn:export , csn:import , isn:supply , isn:demand .
+
+isn:IndustryContinentDataStructure a qb:DataStructureDefinition ;
+        sn:higherAbstractionLevel isn:IndustryDataStructure , cosn:ContinentDataStructure ;
+        qb:component [ qb:dimension isn:supply ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension isn:demand ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension cosn:export ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension cosn:import  ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension sn:time ] ,
+                [ qb:measure sn:quantity] ,
+                [ qb:attribute sn:unit] ;
+        qb:sliceKey isn:IndustryContinentSupplyLinkKey .   
+isn:IndustryContinentSupplyLinkKey a sn:SupplyLinkKey ;
+    qb:componentProperty cosn:export , cosn:import , isn:supply , isn:demand .
+
+
+# fssn ontology
+fssn:FederalState rdfs:subClassOf sn:Entity .
+fssn:inCountry rdfs:subPropertyOf sn:associatedEntity ;
+        rdfs:domain fssn:FederalState ;
+        rdfs:range csn:Country .
+fssn:inContinent rdfs:subPropertyOf sn:associatedEntity ;
+        rdfs:domain fssn:FederalState ;
+        rdfs:range cosn:Continent .
+fssn:export a owl:FunctionalProperty , qb:DimensionProperty ;
+        rdfs:subPropertyOf sn:from ;
+        rdfs:domain sn:SupplyLink ;
+        rdfs:range fssn:FederalState .
+fssn:import a owl:FunctionalProperty , qb:DimensionProperty ;
+        rdfs:subPropertyOf sn:into ;
+        rdfs:domain sn:SupplyLink ;
+        rdfs:range fssn:FederalState .
+
+fssn:FederalStateDataStructure a qb:DataStructureDefinition ;
+        sn:higherAbstractionLevel csn:CountryDataStructure , cosn:ContinentDataStructure ;
+        qb:component [ qb:dimension fssn:export ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension fssn:import ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension sn:time ] ,
+                [ qb:measure sn:quantity] ,
+                [ qb:attribute sn:unit] ;
+        qb:sliceKey fssn:FederalStateSupplyLinkKey .
+fssn:FederalStateSupplyLinkKey a sn:SupplyLinkKey ;
+    qb:componentProperty fssn:export , fssn:import .
+
 
 # csn ontology
 csn:Country rdfs:subClassOf sn:Entity .
+csn:inContinent rdfs:subPropertyOf sn:associatedEntity ;
+        rdfs:domain csn:Country ;
+        rdfs:range cosn:Continent .
+csn:export a owl:FunctionalProperty , qb:DimensionProperty ;
+        rdfs:subPropertyOf sn:from ;
+        rdfs:domain sn:SupplyLink ;
+        rdfs:range csn:Country .
+csn:import a owl:FunctionalProperty , qb:DimensionProperty ;
+        rdfs:subPropertyOf sn:into ;
+        rdfs:domain sn:SupplyLink ;
+        rdfs:range csn:Country .
+
+csn:CountryDataStructure a qb:DataStructureDefinition ;
+        qb:component [ qb:dimension csn:export ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension csn:import ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension sn:time ] ,
+                [ qb:measure sn:quantity] ,
+                [ qb:attribute sn:unit] ;
+        qb:sliceKey csn:CountrySupplyLinkKey .
+csn:CountrySupplyLinkKey a sn:SupplyLinkKey ;
+    qb:componentProperty csn:export , csn:import .
 
 
-# osn ontology
+# cosn ontology
 cosn:Continent rdfs:subClassOf sn:Entity .
+cosn:export a owl:FunctionalProperty , qb:DimensionProperty ;
+        rdfs:subPropertyOf sn:from ;
+        rdfs:domain sn:SupplyLink ;
+        rdfs:range cosn:Continent .
+cosn:import a owl:FunctionalProperty , qb:DimensionProperty ;
+        rdfs:subPropertyOf sn:into ;
+        rdfs:domain sn:SupplyLink ;
+        rdfs:range cosn:Continent .
+
+cosn:ContinentDataStructure a qb:DataStructureDefinition ;
+        sn:higherAbstractionLevel cosn:ContinentDataStructure ;
+        qb:component [ qb:dimension cosn:export ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension cosn:import ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension sn:time ] ,
+                [ qb:measure sn:quantity] ,
+                [ qb:attribute sn:unit] ;
+        qb:sliceKey cosn:ContinentSupplyLinkKey .
+cosn:ContinentSupplyLinkKey a sn:SupplyLinkKey ;
+    qb:componentProperty cosn:export , cosn:import .
 
 
 # example data

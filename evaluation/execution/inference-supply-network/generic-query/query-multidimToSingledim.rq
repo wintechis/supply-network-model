@@ -70,7 +70,7 @@ CONSTRUCT {
             ?dimA_from_entity a ?dimA_class ;
                 rdfs:label ?dimA_from_entity_label .
             ?dimA_into_entity a ?dimA_class ;
-                rdfs:label ?dimA_into_entity_label ;
+                rdfs:label ?dimA_into_entity_label .
             OPTIONAL {
                 ?dimA_from_entity ?associatedEntity_property ?associatedEntity_from_entity .
                 ?dimA_into_entity ?associatedEntity_property ?associatedEntity_into_entity .
