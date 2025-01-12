@@ -90,7 +90,7 @@ CONSTRUCT {
                 sn:quantity ?quantity .
 
             # coin uris
-            BIND(IRI(CONCAT("https://www.example.org/",MD5(CONCAT(STR(?multidim_supplyNetwork),STR(?dimA_class))))) AS ?singledim_supplyNetwork) .
+            BIND(IRI(CONCAT("https://www.example.org/",MD5(CONCAT(STR(?multidim_supplyNetwork),STR(?singledim_supplyNetworkStructure))))) AS ?singledim_supplyNetwork) .
             BIND(IRI(CONCAT("https://www.example.org/",MD5(CONCAT(STR(?dimA_from_entity),STR(?dimA_into_entity))))) AS ?dimA_supplylink) .
             BIND(IRI(CONCAT("https://www.example.org/",MD5(CONCAT(STR(?dimA_supplylink),STR(?time),STR(?unit))))) AS ?dimA_volume) .
 
