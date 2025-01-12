@@ -4,14 +4,22 @@ PREFIX sn: <https://purl.org/sn/vocab#>
 PREFIX qb:    <http://purl.org/linked-data/cube#>
 
 CONSTRUCT {
-    # todo: dataset, AEs
+    # resulting supply network
+    ?singledim_supplyNetwork a sn:SupplyNetwork ;
+        sn:structure ?singledim_supplyNetworkStructure ;
+        sn:supplyLink ?dimA_supplylink .
 
+    # resulting entities
     ?dimA_from_entity a ?dimA_class ;
-        rdfs:label ?dimA_from_entity_label .
+        rdfs:label ?dimA_from_entity_label ;
+        ?associatedEntity_property ?associatedEntity_from_entity .
     ?dimA_into_entity a ?dimA_class ;
-        rdfs:label ?dimA_into_entity_label .
+        rdfs:label ?dimA_into_entity_label ;
+        ?associatedEntity_property ?associatedEntity_into_entity .
+
+    # resulting supply links
     ?dimA_supplylink a sn:SupplyLink ;
-        qb:sliceStructure ?singledim_sliceStructure ;
+        qb:sliceStructure ?singledim_supplyLinkKey ;
         ?dimA_from_property ?dimA_from_entity ;
         ?dimA_into_property ?dimA_into_entity ;
         sn:volume ?dimA_volume .
@@ -20,46 +28,73 @@ CONSTRUCT {
         sn:unit ?unit ;
         sn:quantity ?aggregatedQuantity .
 } WHERE {
-    { SELECT ?dimA_supplylink ?dimA_volume ?dimA_from_entity ?dimA_from_entity_label ?dimA_into_entity ?dimA_into_entity_label ?dimA_from_property ?dimA_into_property ?dimA_class ?singledim_sliceStructure ?time ?unit (SUM(?quantity) AS ?aggregatedQuantity)
-    WHERE {
-        # identify dimensions in tbox
-        ?dimA_from_property rdfs:subPropertyOf sn:from .
-        ?dimA_into_property rdfs:subPropertyOf sn:into .
-        ?dimB_from_property rdfs:subPropertyOf sn:from .
-        ?dimB_into_property rdfs:subPropertyOf sn:into .
-        ?multidim_sliceStructure a sn:SupplyLinkKey ;
-            qb:componentProperty ?dimA_from_property , ?dimA_into_property , ?dimB_from_property , ?dimB_into_property .
-        ?singledim_sliceStructure a sn:SupplyLinkKey ;
-            qb:componentProperty ?dimA_from_property , ?dimA_into_property .
+    {
+        SELECT ?associatedEntity_property ?associatedEntity_from_entity ?associatedEntity_into_entity ?singledim_supplyNetwork ?dimA_supplylink ?dimA_volume ?dimA_from_entity ?dimA_from_entity_label ?dimA_into_entity ?dimA_into_entity_label ?dimA_from_property ?dimA_into_property ?dimA_class ?singledim_supplyLinkKey ?singledim_supplyNetworkStructure ?time ?unit (SUM(?quantity) AS ?aggregatedQuantity)
+        WHERE {
+            # identify supply network
+            ?multidim_supplyNetwork a sn:SupplyNetwork ;
+                sn:structure ?multidim_supplyNetworkStructure ;
+                sn:supplyLink ?supplylink .
 
-        # identify the entities for all dimensions in abox
-        ?supplylink a sn:SupplyLink ;
-            ?dimA_from_property ?dimA_from_entity ;
-            ?dimA_into_property ?dimA_into_entity ;
-            ?dimB_from_property ?dimB_from_entity ;
-            ?dimB_into_property ?dimB_into_entity ;
-            qb:sliceStructure ?multidim_sliceStructure ;
-            sn:volume ?volume .
-        ?dimA_from_entity a ?dimA_class ;
-            rdfs:label ?dimA_from_entity_label .
-        ?dimA_into_entity a ?dimA_class ;
-            rdfs:label ?dimA_into_entity_label .
-        ?dimB_from_entity a ?dimB_class .
-        ?dimB_into_entity a ?dimB_class .
+            # identify dimensions in tbox
+            ?multidim_supplyNetworkStructure a qb:DataStructureDefinition ;
+                qb:component/qb:dimension ?dimA_from_property ;
+                qb:component/qb:dimension ?dimA_into_property ;
+                qb:component/qb:dimension ?dimB_from_property ;
+                qb:component/qb:dimension ?dimB_into_property ;
+                qb:sliceKey ?multidim_supplyLinkKey .
+            ?dimA_from_property rdfs:subPropertyOf sn:from .
+            ?dimA_into_property rdfs:subPropertyOf sn:into .
+            ?dimB_from_property rdfs:subPropertyOf sn:from .
+            ?dimB_into_property rdfs:subPropertyOf sn:into .
+            FILTER (?dimA_from_property != ?dimB_from_property)
+            FILTER (?dimA_into_property != ?dimB_into_property)
+            ?multidim_supplyLinkKey a sn:SupplyLinkKey ;
+                qb:componentProperty ?dimA_from_property , ?dimA_into_property , ?dimB_from_property , ?dimB_into_property .
+            ?singledim_supplyLinkKey a sn:SupplyLinkKey ;
+                qb:componentProperty ?dimA_from_property , ?dimA_into_property .
+            ?singledim_supplyNetworkStructure a qb:DataStructureDefinition ;
+                qb:component/qb:dimension ?dimA_from_property ;
+                qb:component/qb:dimension ?dimA_into_property ;
+                qb:sliceKey ?singledim_supplyLinkKey .
+            FILTER NOT EXISTS { ?singledim_supplyNetworkStructure qb:component/qb:dimension ?dim . FILTER (?dim NOT IN (?dimA_from_property, ?dimA_into_property, sn:time))}
 
-        # varify classes in tbox
-        ?dimA_class rdfs:subClassOf sn:Entity .
-        ?dimB_class rdfs:subClassOf sn:Entity .
+            # identify the entities for all dimensions in abox
+            ?supplylink a sn:SupplyLink ;
+                ?dimA_from_property ?dimA_from_entity ;
+                ?dimA_into_property ?dimA_into_entity ;
+                ?dimB_from_property ?dimB_from_entity ;
+                ?dimB_into_property ?dimB_into_entity ;
+                sn:supplyLinkKey ?multidim_supplyLinkKey ;
+                sn:volume ?volume .
+            ?dimA_from_entity a ?dimA_class ;
+                rdfs:label ?dimA_from_entity_label .
+            ?dimA_into_entity a ?dimA_class ;
+                rdfs:label ?dimA_into_entity_label ;
+            OPTIONAL {
+                ?dimA_from_entity ?associatedEntity_property ?associatedEntity_from_entity .
+                ?dimA_into_entity ?associatedEntity_property ?associatedEntity_into_entity .
+                ?associatedEntity_property rdfs:subPropertyOf sn:associatedEntity .
+            }
+            ?dimB_from_entity a ?dimB_class .
+            ?dimB_into_entity a ?dimB_class .
 
-        # identify volumes in abox
-        ?volume a sn:Volume ;
-            sn:supplyNetwork/rdf:type/rdfs:subClassOf sn:SupplyNetwork ; # required? can not CONSTRUCT
-            sn:time ?time ;
-            sn:unit ?unit ;
-            sn:quantity ?quantity .
+            # varify classes in tbox
+            ?dimA_class rdfs:subClassOf sn:Entity .
+            ?dimB_class rdfs:subClassOf sn:Entity .
 
-        # coin uris
-        BIND(IRI(CONCAT("https://www.example.org/",MD5(CONCAT(STR(?dimA_from_entity),STR(?dimA_into_entity))))) AS ?dimA_supplylink) .
-        BIND(IRI(CONCAT("https://www.example.org/",MD5(CONCAT(STR(?dimA_supplylink),STR(?time),STR(?unit))))) AS ?dimA_volume) .
+            # identify volumes in abox
+            ?volume a sn:Volume ;
+                sn:time ?time ;
+                sn:unit ?unit ;
+                sn:quantity ?quantity .
 
-    } GROUP BY ?dimA_supplylink ?dimA_volume ?dimA_from_entity ?dimA_from_entity_label ?dimA_into_entity ?dimA_into_entity_label ?dimA_from_property ?dimA_into_property ?dimA_class ?singledim_sliceStructure ?time ?unit } }
+            # coin uris
+            BIND(IRI(CONCAT("https://www.example.org/",MD5(CONCAT(STR(?multidim_supplyNetwork),STR(?dimA_class))))) AS ?singledim_supplyNetwork) .
+            BIND(IRI(CONCAT("https://www.example.org/",MD5(CONCAT(STR(?dimA_from_entity),STR(?dimA_into_entity))))) AS ?dimA_supplylink) .
+            BIND(IRI(CONCAT("https://www.example.org/",MD5(CONCAT(STR(?dimA_supplylink),STR(?time),STR(?unit))))) AS ?dimA_volume) .
+
+        }
+        GROUP BY ?associatedEntity_property ?associatedEntity_from_entity ?associatedEntity_into_entity ?singledim_supplyNetwork ?dimA_supplylink ?dimA_volume ?dimA_from_entity ?dimA_from_entity_label ?dimA_into_entity ?dimA_into_entity_label ?dimA_from_property ?dimA_into_property ?dimA_class ?singledim_supplyLinkKey ?singledim_supplyNetworkStructure ?time ?unit 
+    }
+}
