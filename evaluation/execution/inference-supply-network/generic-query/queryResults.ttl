@@ -18,6 +18,12 @@
 @prefix greg:  <http://www.w3.org/ns/time/gregorian/> .
 @prefix csn:   <https://example.org/csn/vocab#> .
 
+ex:1e3b42f2431794b3abbdd612346f663f
+        a                sn:SupplyNetwork ;
+        sn:inferredFrom  ex:MultiDimData ;
+        sn:structure     isn:IndustryContinentDataStructure ;
+        sn:supplyLink    ex:56aa33122b20c6fa2973278cf7f6c8c9 .
+
 ex:c407da157aa7b6194b3dc13e894167cf
         a                  sn:SupplyLink ;
         qb:sliceStructure  csn:CountrySupplyLinkKey ;
@@ -58,6 +64,12 @@ ex:3a03bc973572fb7dd51a5d390589f818
         sn:time      ex:2009 ;
         sn:unit      cur:MegaUSD .
 
+ex:5d3b8aecc6842343162e4df786b81395
+        a            sn:Volume ;
+        sn:quantity  0.01 ;
+        sn:time      ex:2010 ;
+        sn:unit      cur:MegaUSD .
+
 ex:81a11c5477c0e88cd76d739dddb9db60
         a            sn:Volume ;
         sn:quantity  0.00001 ;
@@ -66,6 +78,15 @@ ex:81a11c5477c0e88cd76d739dddb9db60
 
 ex:Europe  a        cosn:Continent ;
         rdfs:label  "Europe"@en .
+
+ex:f0c0d67b4b8b4bd1b6430778de4737c9
+        a                  sn:SupplyLink ;
+        qb:sliceStructure  isn:IndustryCountrySupplyLinkKey ;
+        csn:export         ex:AT ;
+        csn:import         ex:AT ;
+        isn:demand         ex:ss2 ;
+        isn:supply         ex:ss1 ;
+        sn:volume          ex:115681f976d9d801ac40413003734aa3 , ex:24605bfe1375ea89a61303ddd9e30298 .
 
 ex:66f022240824e08546f780055533d622
         a            sn:Volume ;
@@ -78,6 +99,27 @@ ex:90a39b472d8cebaf596dc646a9220735
         sn:quantity  0.1 ;
         sn:time      ex:2009 ;
         sn:unit      cur:MegaUSD .
+
+ex:9cb7930625fc9f7a07a1e674fc9f1d79
+        a            sn:Volume ;
+        sn:quantity  0.101 ;
+        sn:time      ex:2009 ;
+        sn:unit      cur:MegaUSD .
+
+ex:56aa33122b20c6fa2973278cf7f6c8c9
+        a                  sn:SupplyLink ;
+        qb:sliceStructure  isn:IndustryContinentSupplyLinkKey ;
+        cosn:export        ex:Europe ;
+        cosn:import        ex:Europe ;
+        isn:demand         ex:ss2 ;
+        isn:supply         ex:ss1 ;
+        sn:volume          ex:9cb7930625fc9f7a07a1e674fc9f1d79 , ex:7afdfac5fae8c848942f2b12fc416d68 .
+
+ex:7e4fc2767c0acdc03e957cf347946493
+        a                sn:SupplyNetwork ;
+        sn:inferredFrom  ex:MultiDimData ;
+        sn:structure     isn:IndustryCountryDataStructure ;
+        sn:supplyLink    ex:c1c2e30c2aaa5a43d647760daeca4a2e , ex:f0c0d67b4b8b4bd1b6430778de4737c9 .
 
 ex:b4a7bd7cf8c04aad2a4ae48d01cccb92
         a            sn:Volume ;
@@ -152,6 +194,12 @@ ex:7bc8297fb5c31e718eaf3ece7567fc84
         isn:supply         ex:Foundry ;
         sn:volume          ex:ae9ca5ec8ac3faa7a37bf448a530e15e , ex:2c3788c83e6b00a85c32902584639c96 .
 
+ex:115681f976d9d801ac40413003734aa3
+        a            sn:Volume ;
+        sn:quantity  1.0 ;
+        sn:time      ex:2010 ;
+        sn:unit      cur:MegaUSD .
+
 ex:USA  a           csn:Country ;
         rdfs:label  "USA"@en .
 
@@ -170,6 +218,12 @@ ex:5e2fe2f3a72e04116945e26826a1a98e
 ex:0df1f7650f72655f558d937b872fcf52
         a            sn:Volume ;
         sn:quantity  0.001 ;
+        sn:time      ex:2009 ;
+        sn:unit      cur:MegaUSD .
+
+ex:24605bfe1375ea89a61303ddd9e30298
+        a            sn:Volume ;
+        sn:quantity  0.1 ;
         sn:time      ex:2009 ;
         sn:unit      cur:MegaUSD .
 
@@ -301,6 +355,12 @@ ex:74b9ad58e16cf1f9925003641101748b
         csn:import         ex:AT ;
         sn:volume          ex:d2f5540a0dfdb3a230814483c2f829a0 , ex:fd8804f5450aaae205b7932691633ad3 .
 
+ex:7afdfac5fae8c848942f2b12fc416d68
+        a            sn:Volume ;
+        sn:quantity  1.01 ;
+        sn:time      ex:2010 ;
+        sn:unit      cur:MegaUSD .
+
 ex:ss1  a           isn:Industry ;
         rdfs:label  "Agriculture"@en .
 
@@ -388,6 +448,15 @@ ex:87b9d119bcb6cea89c806798bb0f93af
         sn:time      ex:2010 ;
         sn:unit      cur:MegaUSD .
 
+ex:c1c2e30c2aaa5a43d647760daeca4a2e
+        a                  sn:SupplyLink ;
+        qb:sliceStructure  isn:IndustryCountrySupplyLinkKey ;
+        csn:export         ex:AT ;
+        csn:import         ex:DE ;
+        isn:demand         ex:ss2 ;
+        isn:supply         ex:ss1 ;
+        sn:volume          ex:5d3b8aecc6842343162e4df786b81395 , ex:3e3736ad466d5e4fb885a5e38a67e1ee .
+
 ex:DE11  a          fssn:FederalState ;
         rdfs:label  "Stuttgart"@en .
 
@@ -470,6 +539,12 @@ ex:4643c93f784a8f5f73cc8ed3ff9cf731
         sn:time      ex:2009 ;
         sn:unit      cur:MegaUSD .
 
+ex:3e3736ad466d5e4fb885a5e38a67e1ee
+        a            sn:Volume ;
+        sn:quantity  0.001 ;
+        sn:time      ex:2009 ;
+        sn:unit      cur:MegaUSD .
+
 ex:f7289a35dab04c2e98b4f42e9da44009
         a            sn:Volume ;
         sn:quantity  1.01 ;
@@ -488,17 +563,17 @@ ex:4af5dbabc4f44f4a929704e3edca7d7e
         sn:structure     cosn:ContinentDataStructure ;
         sn:supplyLink    ex:712045a98ad59900d8fd0402e96dd4f7 .
 
-ex:0315f70b95f70c595c6d120ecc0921fe
-        a                sn:SupplyNetwork ;
-        sn:inferredFrom  ex:MultiDimData ;
-        sn:structure     fssn:FederalStateDataStructure ;
-        sn:supplyLink    ex:c5a5f255db7c0b5a5d9dec148481a4a9 , ex:5124ebc927224a669e8a2476c8aaedc2 .
-
 ex:2c6c39e3d7c3e51d4c9f4c4b70e0033f
         a            sn:Volume ;
         sn:quantity  0.0001 ;
         sn:time      ex:2010 ;
         sn:unit      cur:MegaUSD .
+
+ex:0315f70b95f70c595c6d120ecc0921fe
+        a                sn:SupplyNetwork ;
+        sn:inferredFrom  ex:MultiDimData ;
+        sn:structure     fssn:FederalStateDataStructure ;
+        sn:supplyLink    ex:c5a5f255db7c0b5a5d9dec148481a4a9 , ex:5124ebc927224a669e8a2476c8aaedc2 .
 
 ex:NorthAmerica  a  cosn:Continent ;
         rdfs:label  "North America"@en .
