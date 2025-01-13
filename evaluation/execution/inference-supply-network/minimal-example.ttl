@@ -2,13 +2,13 @@
 @prefix cur:   <http://qudt.org/vocab/currency/> .
 @prefix esn:   <https://example.org/esn/vocab#> .
 @prefix isn:   <https://example.org/isn/vocab#> .
+@prefix ptsn:   <https://example.org/ptsn/vocab#> .
+@prefix fssn:   <https://example.org/fssn/vocab#> .
+@prefix cosn:   <https://example.org/cosn/vocab#> .
 @prefix owl:   <http://www.w3.org/2002/07/owl#> .
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix osn:   <https://example.org/osn/vocab#> .
-@prefix wd:    <http://www.wikidata.org/entity/> .
-@prefix we:    <https://welektronik.iis.fraunhofer.de/entity/> .
 @prefix qb:    <http://purl.org/linked-data/cube#> .
 @prefix unit:  <http://qudt.org/vocab/unit/> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -19,123 +19,578 @@
 @prefix csn:   <https://example.org/csn/vocab#> .
 @prefix ex: <https://www.example.org/> .
 
-<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ29.ttl#this>
-        a                 esn:Enterprise ;
-        rdfs:label        "Marvell Technology"@en ;
-        rdfs:label        "Marvit Technology"@en ;
-        <https://example.org/esn/vocab#continent> <http://www.wikidata.org/entity/Q49> ;
-        esn:industry      we:Q286 ;
-        esn:registeredIn  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> .
+# sn ontology
+sn:Entity a owl:Class .
+sn:associatedEntity a owl:SymmetricProperty ;
+        rdfs:domain sn:Entity ;
+        rdfs:range sn:Entity .
 
-<http://www.wikidata.org/entity/Q49> rdfs:label "Cont1" , "ContA" .
-we:Q286 rdfs:label "Ind1" .
-<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> rdfs:label "Count1" .
+sn:SupplyNetwork rdfs:subClassOf qb:DataSet .
+sn:inferredFrom a owl:ObjectProperty ;
+        rdfs:domain sn:SupplyNetwork ;
+        rdfs:range qb:SupplyNetwork .
+sn:structure rdfs:subPropertyOf qb:structure ;
+        rdfs:domain sn:SupplyNetwork ;
+        rdfs:range qb:DataStructureDefinition .
+sn:SupplyNetworkDataStructure a qb:DataStructureDefinition ;
+        qb:component [ qb:dimension sn:from ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension sn:into ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension sn:time ] ,
+                [ qb:measure sn:quantity] ,
+                [ qb:attribute sn:unit] ;
+        qb:sliceKey sn:SNSupplyLink .
+sn:higherAbstractionLevel a owl:TransitiveProperty ;
+        rdfs:domain qb:DataStructureDefinition ;
+        rdfs:range qb:DataStructureDefinition .
+sn:similarAbstractionLevel a owl:SymmetricProperty ;
+        rdfs:domain qb:DataStructureDefinition ;
+        rdfs:range qb:DataStructureDefinition .
 
-<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ719.ttl#this>
-        a                 esn:Enterprise ;
-        rdfs:label        "Arrow Electronics"@en ;
-        <https://example.org/esn/vocab#continent> <http://www.wikidata.org/entity/Q59> ;
-        esn:industry      we:Q486 ;
-        esn:registeredIn  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ40.ttl#this> .
+sn:supplyLink rdfs:subPropertyOf qb:slice ;
+        rdfs:domain sn:SupplyNetwork ;
+        rdfs:range sn:SupplyLink .
+sn:SupplyLink rdfs:subClassOf qb:Slice .
+sn:supplyLinkKey rdfs:subPropertyOf qb:sliceStructure ;
+        rdfs:domain sn:SupplyLink ;
+        rdfs:range sn:SupplyLinkKey .
+sn:SupplyLinkKey rdfs:subClassOf qb:SliceKey .
+sn:SNSupplyLink a sn:SupplyLinkKey ;
+    qb:componentProperty sn:from , sn:into .
+sn:from a owl:FunctionalProperty , qb:DimensionProperty ;
+        rdfs:domain sn:SupplyLink ;
+        rdfs:range sn:Entity .
+sn:into a owl:FunctionalProperty , qb:DimensionProperty ;
+        rdfs:domain sn:SupplyLink ;
+        rdfs:range sn:Entity .
 
-<http://www.wikidata.org/entity/Q59> rdfs:label "Cont2" .
-we:Q486 rdfs:label "Ind2" .
-<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ40.ttl#this> rdfs:label "Count2" .
+sn:volume rdfs:subPropertyOf qb:observation ;
+        rdfs:domain sn:SupplyLink ;
+        rdfs:range sn:Volume .
+sn:Volume rdfs:subClassOf qb:Observation .
+sn:time a qb:DimensionProperty ;
+        rdfs:domain sn:Volume ;
+        rdfs:range sn:TemporalEntity .
+sn:quantity a qb:MeasureProperty ;
+        rdfs:domain sn:Volume ;
+        rdfs:range xsd:decimal .
+sn:unit a qb:AttributeProperty ;
+        rdfs:domain sn:Volume ;
+        rdfs:range sn:Unit .
 
-_:b1    a        esn:Trade ;
-        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ29.ttl#this> ;
-        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ719.ttl#this> .
 
-[ a            sn:Volume ;
-  sn:quantity  450862 ;
-  sn:relation  _:b1 ;
-  sn:time      ex:march2024 ;
-  sn:unit      cur:EUR
-] .
+# isn ontology
+isn:Industry rdfs:subClassOf sn:Entity .
+isn:supply a owl:FunctionalProperty , qb:DimensionProperty ;
+        rdfs:subPropertyOf sn:from ;
+        rdfs:domain sn:SupplyLink ;
+        rdfs:range isn:Industry .
+isn:demand a owl:FunctionalProperty , qb:DimensionProperty ;
+        rdfs:subPropertyOf sn:into ;
+        rdfs:domain sn:SupplyLink ;
+        rdfs:range isn:Industry .
 
-[ a            sn:Volume ;
-  sn:quantity  354171 ;
-  sn:relation  _:b1 ;
-  sn:time      ex:april2024 ;
-  sn:unit      cur:EUR
-] .
+isn:IndustryDataStructure a qb:DataStructureDefinition ;
+        sn:similarAbstractionLevel fssn:FederalStateDataStructure , csn:CountryDataStructure , cosn:ContinentDataStructure ;
+        qb:component [ qb:dimension isn:supply ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension isn:demand ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension sn:time ] ,
+                [ qb:measure sn:quantity] ,
+                [ qb:attribute sn:unit] ;
+        qb:sliceKey isn:IndustrySupplyLinkKey .
+isn:IndustrySupplyLinkKey a sn:SupplyLinkKey ;
+    qb:componentProperty isn:supply , isn:demand .
 
-[ a            sn:Volume ;
-  sn:quantity  342764 ;
-  sn:relation  _:b1 ;
-  sn:time      ex:may2024 ;
-  sn:unit      cur:EUR
-] .
+isn:IndustryFederalStateDataStructure a qb:DataStructureDefinition ;
+        sn:higherAbstractionLevel isn:IndustryDataStructure , fssn:FederalStateDataStructure , csn:CountryDataStructure , cosn:ContinentDataStructure , isn:IndustryCountryDataStructure , isn:IndustryContinentDataStructure ;
+        qb:component [ qb:dimension isn:supply ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension isn:demand ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension fssn:export ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension fssn:import  ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension sn:time ] ,
+                [ qb:measure sn:quantity] ,
+                [ qb:attribute sn:unit] ;
+        qb:sliceKey isn:IndustryFederalStateSupplyLinkKey .   
+isn:IndustryFederalStateSupplyLinkKey a sn:SupplyLinkKey ;
+    qb:componentProperty fssn:export , fssn:import , isn:supply , isn:demand .
 
-[ a            sn:Volume ;
-  sn:quantity  389185 ;
-  sn:relation  _:b1 ;
-  sn:time      ex:june2024 ;
-  sn:unit      cur:EUR
-] .
+isn:IndustryCountryDataStructure a qb:DataStructureDefinition ;
+        sn:higherAbstractionLevel isn:IndustryDataStructure , csn:CountryDataStructure , cosn:ContinentDataStructure , isn:IndustryContinentDataStructure ;
+        qb:component [ qb:dimension isn:supply ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension isn:demand ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension csn:export ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension csn:import  ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension sn:time ] ,
+                [ qb:measure sn:quantity] ,
+                [ qb:attribute sn:unit] ;
+        qb:sliceKey isn:IndustryCountrySupplyLinkKey .   
+isn:IndustryCountrySupplyLinkKey a sn:SupplyLinkKey ;
+    qb:componentProperty csn:export , csn:import , isn:supply , isn:demand .
 
-ex:march2024 a sn:TemporalEntity , time:DateTimeInterval , time:DateTimeDescription ;
-        time:hasDateTimeDescription ex:march2024 ;
-        time:month greg:March ;
-        time:year "2024"^^xsd:gYear .
+isn:IndustryContinentDataStructure a qb:DataStructureDefinition ;
+        sn:higherAbstractionLevel isn:IndustryDataStructure , cosn:ContinentDataStructure ;
+        qb:component [ qb:dimension isn:supply ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension isn:demand ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension cosn:export ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension cosn:import  ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension sn:time ] ,
+                [ qb:measure sn:quantity] ,
+                [ qb:attribute sn:unit] ;
+        qb:sliceKey isn:IndustryContinentSupplyLinkKey .   
+isn:IndustryContinentSupplyLinkKey a sn:SupplyLinkKey ;
+    qb:componentProperty cosn:export , cosn:import , isn:supply , isn:demand .
 
-ex:april2024 a sn:TemporalEntity , time:DateTimeInterval , time:DateTimeDescription ;
-        time:hasDateTimeDescription ex:april2024 ;
-        time:month greg:April ;
-        time:year "2024"^^xsd:gYear .
 
-ex:may2024 a sn:TemporalEntity , time:DateTimeInterval , time:DateTimeDescription ;
-        time:hasDateTimeDescription ex:may2024 ;
-        time:month greg:May ;
-        time:year "2024"^^xsd:gYear .
+# fssn ontology
+fssn:FederalState rdfs:subClassOf sn:Entity .
+fssn:export a owl:FunctionalProperty , qb:DimensionProperty ;
+        rdfs:subPropertyOf sn:from ;
+        rdfs:domain sn:SupplyLink ;
+        rdfs:range fssn:FederalState .
+fssn:import a owl:FunctionalProperty , qb:DimensionProperty ;
+        rdfs:subPropertyOf sn:into ;
+        rdfs:domain sn:SupplyLink ;
+        rdfs:range fssn:FederalState .
+fssn:inCountry rdfs:subPropertyOf sn:associatedEntity ;
+        rdfs:domain fssn:FederalState ;
+        rdfs:range csn:Country .
+fssn:inContinent rdfs:subPropertyOf sn:associatedEntity ;
+        rdfs:domain fssn:FederalState ;
+        rdfs:range cosn:Continent .
 
-ex:june2024 a sn:TemporalEntity , time:DateTimeInterval , time:DateTimeDescription ;
-        time:hasDateTimeDescription ex:june2024 ;
-        time:month greg:June ;
-        time:year "2024"^^xsd:gYear .
+fssn:FederalStateDataStructure a qb:DataStructureDefinition ;
+        sn:higherAbstractionLevel csn:CountryDataStructure , cosn:ContinentDataStructure ;
+        qb:component [ qb:dimension fssn:export ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension fssn:import ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension sn:time ] ,
+                [ qb:measure sn:quantity] ,
+                [ qb:attribute sn:unit] ;
+        qb:sliceKey fssn:FederalStateSupplyLinkKey .
+fssn:FederalStateSupplyLinkKey a sn:SupplyLinkKey ;
+    qb:componentProperty fssn:export , fssn:import .
 
-<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ438.ttl#this>
-        a                 esn:Enterprise ;
-        rdfs:label        "TSMC"@en ;
-        <https://example.org/esn/vocab#continent> <http://www.wikidata.org/entity/Q49> ;
-        esn:industry      we:Q286 ;
-        esn:registeredIn  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> .
 
-<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ19.ttl#this>
-        a                 esn:Enterprise ;
-        rdfs:label        "Arrow Electronics"@en ;
-        <https://example.org/esn/vocab#continent> <http://www.wikidata.org/entity/Q59> ;
-        esn:industry      we:Q486 ;
-        esn:registeredIn  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ40.ttl#this> .
+# csn ontology
+csn:Country rdfs:subClassOf sn:Entity .
+csn:export a owl:FunctionalProperty , qb:DimensionProperty ;
+        rdfs:subPropertyOf sn:from ;
+        rdfs:domain sn:SupplyLink ;
+        rdfs:range csn:Country .
+csn:import a owl:FunctionalProperty , qb:DimensionProperty ;
+        rdfs:subPropertyOf sn:into ;
+        rdfs:domain sn:SupplyLink ;
+        rdfs:range csn:Country .
+csn:inContinent rdfs:subPropertyOf sn:associatedEntity ;
+        rdfs:domain csn:Country ;
+        rdfs:range cosn:Continent .
 
-_:b2    a        esn:Trade ;
-        sn:from  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ438.ttl#this> ;
-        sn:into  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ19.ttl#this> .
+csn:CountryDataStructure a qb:DataStructureDefinition ;
+        sn:higherAbstractionLevel cosn:ContinentDataStructure ;
+        qb:component [ qb:dimension csn:export ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension csn:import ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension sn:time ] ,
+                [ qb:measure sn:quantity] ,
+                [ qb:attribute sn:unit] ;
+        qb:sliceKey csn:CountrySupplyLinkKey .
+csn:CountrySupplyLinkKey a sn:SupplyLinkKey ;
+    qb:componentProperty csn:export , csn:import .
 
-[ a            sn:Volume ;
-  sn:quantity  450862 ;
-  sn:relation  _:b2 ;
-  sn:time      ex:march2024 ;
-  sn:unit      cur:EUR
-] .
 
-[ a            sn:Volume ;
-  sn:quantity  354171 ;
-  sn:relation  _:b2 ;
-  sn:time      ex:april2024 ;
-  sn:unit      cur:EUR
-] .
+# cosn ontology
+cosn:Continent rdfs:subClassOf sn:Entity .
+cosn:export a owl:FunctionalProperty , qb:DimensionProperty ;
+        rdfs:subPropertyOf sn:from ;
+        rdfs:domain sn:SupplyLink ;
+        rdfs:range cosn:Continent .
+cosn:import a owl:FunctionalProperty , qb:DimensionProperty ;
+        rdfs:subPropertyOf sn:into ;
+        rdfs:domain sn:SupplyLink ;
+        rdfs:range cosn:Continent .
 
-[ a            sn:Volume ;
-  sn:quantity  342764 ;
-  sn:relation  _:b2 ;
-  sn:time      ex:may2024 ;
-  sn:unit      cur:EUR
-] .
+cosn:ContinentDataStructure a qb:DataStructureDefinition ;
+        qb:component [ qb:dimension cosn:export ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension cosn:import ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension sn:time ] ,
+                [ qb:measure sn:quantity] ,
+                [ qb:attribute sn:unit] ;
+        qb:sliceKey cosn:ContinentSupplyLinkKey .
+cosn:ContinentSupplyLinkKey a sn:SupplyLinkKey ;
+    qb:componentProperty cosn:export , cosn:import .
 
-[ a            sn:Volume ;
-  sn:quantity  389185 ;
-  sn:relation  _:b2 ;
-  sn:time      ex:june2024 ;
-  sn:unit      cur:EUR
-] .
+
+# esn ontology
+esn:Enterprise rdfs:subClassOf sn:Entity .
+esn:supplier a owl:FunctionalProperty , qb:DimensionProperty ;
+        rdfs:subPropertyOf sn:from ;
+        rdfs:domain sn:SupplyLink ;
+        rdfs:range esn:Enterprise .
+esn:customer a owl:FunctionalProperty , qb:DimensionProperty ;
+        rdfs:subPropertyOf sn:into ;
+        rdfs:domain sn:SupplyLink ;
+        rdfs:range esn:Enterprise .
+esn:industry rdfs:subPropertyOf sn:associatedEntity ;
+        rdfs:domain esn:Enterprise ;
+        rdfs:range isn:Industry .
+esn:registeredInFederalState rdfs:subPropertyOf sn:associatedEntity ;
+        rdfs:domain esn:Enterprise ;
+        rdfs:range fssn:FederalState.
+esn:registeredInCountry rdfs:subPropertyOf sn:associatedEntity ;
+        rdfs:domain esn:Enterprise ;
+        rdfs:range csn:Country .
+esn:continent rdfs:subPropertyOf sn:associatedEntity ;
+        rdfs:domain esn:Enterprise ;
+        rdfs:range cosn:Continent .
+
+esn:EnterpriseDataStructure a qb:DataStructureDefinition ;
+        sn:higherAbstractionLevel fssn:FederalStateDataStructure , csn:CountryDataStructure , cosn:ContinentDataStructure , isn:IndustryDataStructure , isn:IndustryFederalStateDataStructure , isn:IndustryCountryDataStructure , isn:IndustryContinentDataStructure ;
+        qb:component [ qb:dimension esn:supplier ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension esn:customer ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension sn:time ] ,
+                [ qb:measure sn:quantity] ,
+                [ qb:attribute sn:unit] ;
+        qb:sliceKey esn:EnterpriseSupplyLinkKey .
+esn:EnterpriseSupplyLinkKey a sn:SupplyLinkKey ;
+    qb:componentProperty esn:supplier , esn:customer .
+
+
+# ptsn ontology
+ptsn:ProductType rdfs:subClassOf sn:Entity .
+ptsn:component a owl:FunctionalProperty , qb:DimensionProperty ;
+        rdfs:subPropertyOf sn:from ;
+        rdfs:domain sn:SupplyLink ;
+        rdfs:range ptsn:ProductType .
+ptsn:outcome a owl:FunctionalProperty , qb:DimensionProperty ;
+        rdfs:subPropertyOf sn:into ;
+        rdfs:domain sn:SupplyLink ;
+        rdfs:range ptsn:ProductType .
+ptsn:industry rdfs:subPropertyOf sn:associatedEntity ;
+        rdfs:domain ptsn:ProductType ;
+        rdfs:range isn:Industry .
+
+ptsn:ProductTypeDataStructure a qb:DataStructureDefinition ;
+        sn:similarAbstractionLevel esn:EnterpriseDataStructure , fssn:FederalStateDataStructure , csn:CountryDataStructure , cosn:ContinentDataStructure ;
+        sn:higherAbstractionLevel isn:IndustryDataStructure ;
+        qb:component [ qb:dimension ptsn:component ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension ptsn:outcome ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension sn:time ] ,
+                [ qb:measure sn:quantity] ,
+                [ qb:attribute sn:unit] ;
+        qb:sliceKey ptsn:ProductTypeSupplyLinkKey .
+ptsn:ProductTypeSupplyLinkKey a sn:SupplyLinkKey ;
+    qb:componentProperty ptsn:component , ptsn:outcome .
+
+ptsn:ProductTypeEnterpriseDataStructure a qb:DataStructureDefinition ;
+        sn:higherAbstractionLevel esn:EnterpriseDataStructure , ptsn:ProductTypeDataStructure , isn:IndustryDataStructure , fssn:FederalStateDataStructure , csn:CountryDataStructure , cosn:ContinentDataStructure , isn:IndustryFederalStateDataStructure , isn:IndustryCountryDataStructure , isn:IndustryContinentDataStructure ;
+        qb:component [ qb:dimension ptsn:component ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension ptsn:outcome ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension esn:supplier ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension esn:customer ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension sn:time ] ,
+                [ qb:measure sn:quantity] ,
+                [ qb:attribute sn:unit] ;
+        qb:sliceKey ptsn:ProductTypeEnterpriseSupplyLinkKey .   
+ptsn:ProductTypeEnterpriseSupplyLinkKey a sn:SupplyLinkKey ;
+    qb:componentProperty esn:supplier , esn:customer , ptsn:component , ptsn:outcome .
+
+ptsn:ProductTypeFederalStateDataStructure a qb:DataStructureDefinition ;
+        sn:higherAbstractionLevel ptsn:ProductTypeDataStructure , isn:IndustryDataStructure , fssn:FederalStateDataStructure , csn:CountryDataStructure , cosn:ContinentDataStructure , isn:IndustryCountryDataStructure , isn:IndustryContinentDataStructure , ptsn:ProductTypeCountryDataStructure , ptsn:ProductTypeContinentDataStructure ;
+        qb:component [ qb:dimension ptsn:component ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension ptsn:outcome ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension fssn:export ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension fssn:import  ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension sn:time ] ,
+                [ qb:measure sn:quantity] ,
+                [ qb:attribute sn:unit] ;
+        qb:sliceKey ptsn:ProductTypeFederalStateSupplyLinkKey .   
+ptsn:ProductTypeFederalStateSupplyLinkKey a sn:SupplyLinkKey ;
+    qb:componentProperty fssn:export , fssn:import , ptsn:component , ptsn:outcome .
+
+ptsn:ProductTypeCountryDataStructure a qb:DataStructureDefinition ;
+        sn:higherAbstractionLevel ptsn:ProductTypeDataStructure , isn:IndustryDataStructure , csn:CountryDataStructure , cosn:ContinentDataStructure , isn:IndustryContinentDataStructure , ptsn:ProductTypeContinentDataStructure ;
+        qb:component [ qb:dimension ptsn:component ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension ptsn:outcome ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension csn:export ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension csn:import  ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension sn:time ] ,
+                [ qb:measure sn:quantity] ,
+                [ qb:attribute sn:unit] ;
+        qb:sliceKey ptsn:ProductTypeCountrySupplyLinkKey .   
+ptsn:ProductTypeCountrySupplyLinkKey a sn:SupplyLinkKey ;
+    qb:componentProperty csn:export , csn:import , ptsn:component , ptsn:outcome .
+
+ptsn:ProductTypeContinentDataStructure a qb:DataStructureDefinition ;
+        sn:higherAbstractionLevel ptsn:ProductTypeDataStructure , isn:IndustryDataStructure , cosn:ContinentDataStructure ;
+        qb:component [ qb:dimension ptsn:component ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension ptsn:outcome ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension cosn:export ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension cosn:import  ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension sn:time ] ,
+                [ qb:measure sn:quantity] ,
+                [ qb:attribute sn:unit] ;
+        qb:sliceKey ptsn:ProductTypeContinentSupplyLinkKey .   
+ptsn:ProductTypeContinentSupplyLinkKey a sn:SupplyLinkKey ;
+    qb:componentProperty cosn:export , cosn:import , ptsn:component , ptsn:outcome .
+
+
+# example data of multi-dimensional supply network
+ex:MultiDimData a sn:SupplyNetwork ;
+        sn:structure isn:IndustryFederalStateDataStructure ;
+        sn:supplyLink ex:AT11ss1AT11ss2 , ex:AT11ss1DE11ss2 .
+ex:AT11 a fssn:FederalState ;
+        fssn:inCountry ex:AT ;
+        fssn:inContinent ex:Europe ;
+        rdfs:label "Burgenland"@en , "AT-BL"@en .
+ex:AT a csn:Country ;
+        rdfs:label "Austria"@en .
+ex:Europe a cosn:Continent ;
+        rdfs:label "Europe"@en .
+ex:DE11 a fssn:FederalState ;
+        fssn:inCountry ex:DE ;
+        fssn:inContinent ex:Europe ;
+        rdfs:label "Stuttgart"@en .
+ex:DE a csn:Country ;
+        rdfs:label "Germany"@en , "GER"@en .
+ex:ss1 a isn:Industry ;
+        rdfs:label "Agriculture"@en .
+ex:ss2 a isn:Industry ;
+        rdfs:label "Mining_quarrying_and_energy_supply"@en .
+
+ex:AT11ss1AT11ss2 a sn:SupplyLink ;
+        sn:supplyLinkKey isn:IndustryFederalStateSupplyLinkKey ;
+        fssn:export ex:AT11 ;
+        isn:supply ex:ss1 ;
+        fssn:import ex:AT11 ;
+        isn:demand ex:ss2 ;
+        sn:volume [ a sn:Volume ;
+                sn:time ex:2010 ;
+                sn:quantity  1.0 ;
+                sn:unit cur:MegaUSD ] ,
+                [ a sn:Volume ;
+                sn:time ex:2009 ;
+                sn:quantity  0.1 ;
+                sn:unit cur:MegaUSD ] .
+
+ex:AT11ss1DE11ss2 a sn:SupplyLink ;
+        sn:supplyLinkKey isn:IndustryFederalStateSupplyLinkKey ;
+        fssn:export ex:AT11 ;
+        isn:supply ex:ss1 ;
+        fssn:import ex:DE11 ;
+        isn:demand ex:ss2 ;
+        sn:volume [ a sn:Volume ;
+                sn:time ex:2010 ;
+                sn:quantity  0.01 ;
+                sn:unit cur:MegaUSD ] ,
+                [ a sn:Volume ;
+                sn:time ex:2009 ;
+                sn:quantity  0.001 ;
+                sn:unit cur:MegaUSD ] .
+
+
+# example data of single-dimensional supply network
+ex:SingleDimData a sn:SupplyNetwork ;
+        sn:structure esn:EnterpriseDataStructure ;
+        sn:supplyLink ex:TSMCIntel , ex:TSMCAMD , ex:SMICAMD .
+ex:Intel a esn:Enterprise ;
+        esn:industry ex:IDM ;
+        esn:registeredInFederalState ex:California ;
+        esn:registeredInCountry ex:USA ;
+        esn:continent ex:NorthAmerica ;
+        rdfs:label "Intel"@en .
+ex:IDM a isn:Industry ;
+        rdfs:label "IDM"@en .
+ex:California a fssn:FederalState ;
+        rdfs:label "California"@en , "CA"@en .
+ex:USA a csn:Country ;
+        rdfs:label "USA"@en .
+ex:NorthAmerica a cosn:Continent ;
+        rdfs:label "North America"@en .
+ex:AMD a esn:Enterprise ;
+        esn:industry ex:Fabless ;
+        esn:registeredInFederalState ex:California ;
+        esn:registeredInCountry ex:USA ;
+        esn:continent ex:NorthAmerica ;
+        rdfs:label "AMD"@en , "Advanced Micro Devices"@en .
+ex:Fabless a isn:Industry ;
+        rdfs:label "Fabless"@en .
+ex:TSMC a esn:Enterprise ;
+        esn:industry ex:Foundry ;
+        esn:registeredInFederalState ex:HSZ ;
+        esn:registeredInCountry ex:Taiwan ;
+        esn:continent ex:Asia ;
+        rdfs:label "TSMC"@en , "Taiwan Semiconductor Manufacturing Company Limited"@en .
+ex:Foundry a isn:Industry ;
+        rdfs:label "Foundry"@en .
+ex:HSZ a fssn:FederalState ;
+        rdfs:label "Hsinchu City"@en .
+ex:Taiwan a csn:Country ;
+        rdfs:label "Taiwan"@en .
+ex:Asia a cosn:Continent ;
+        rdfs:label "Asia"@en .
+ex:SMIC a esn:Enterprise ;
+        esn:industry ex:Foundry ;
+        esn:registeredInFederalState ex:Shanghai ;
+        esn:registeredInCountry ex:China ;
+        esn:continent ex:Asia ;
+        rdfs:label "SMIC"@en , "Semiconductor Manufacturing International Corporation"@en .
+ex:Shanghai a fssn:FederalState ;
+        rdfs:label "Shanghai"@en .
+ex:China a csn:Country ;
+        rdfs:label "China"@en .
+
+ex:TSMCIntel a sn:SupplyLink ;
+        sn:supplyLinkKey esn:EnterpriseSupplyLinkKey ;
+        esn:supplier ex:TSMC ;
+        esn:customer ex:Intel ;
+        sn:volume [ a sn:Volume ;
+                sn:time ex:2010 ;
+                sn:quantity  1.0 ;
+                sn:unit cur:MegaUSD ] ,
+                [ a sn:Volume ;
+                sn:time ex:2009 ;
+                sn:quantity  0.1 ;
+                sn:unit cur:MegaUSD ] .
+
+ex:TSMCAMD a sn:SupplyLink ;
+        sn:supplyLinkKey esn:EnterpriseSupplyLinkKey ;
+        esn:supplier ex:TSMC ;
+        esn:customer ex:AMD ;
+        sn:volume [ a sn:Volume ;
+                sn:time ex:2010 ;
+                sn:quantity  0.01 ;
+                sn:unit cur:MegaUSD ] ,
+                [ a sn:Volume ;
+                sn:time ex:2009 ;
+                sn:quantity  0.001 ;
+                sn:unit cur:MegaUSD ] .
+
+ex:SMICAMD a sn:SupplyLink ;
+        sn:supplyLinkKey esn:EnterpriseSupplyLinkKey ;
+        esn:supplier ex:SMIC ;
+        esn:customer ex:AMD ;
+        sn:volume [ a sn:Volume ;
+                sn:time ex:2010 ;
+                sn:quantity  0.0001 ;
+                sn:unit cur:MegaUSD ] ,
+                [ a sn:Volume ;
+                sn:time ex:2009 ;
+                sn:quantity  0.00001 ;
+                sn:unit cur:MegaUSD ] .
+
+
+# example data of multi-dimensional supply network on lower level
+ex:LowlevelMultiDimData a sn:SupplyNetwork ;
+        sn:structure ptsn:ProductTypeEnterpriseDataStructure ;
+        sn:supplyLink ex:AT11ss1AT11ss2 , ex:AT11ss1DE11ss2 .
+ex:FoundryService a ptsn:ProductType ;
+        ptsn:industry ex:Semiconductor ;
+        rdfs:label "Chip"@en .
+ex:Semiconductor a isn:Industry ;
+        rdfs:label "Semiconductor"@en .
+ex:CPU a ptsn:ProductType ;
+        ptsn:industry ex:Semiconductor ;
+        rdfs:label "CPU"@en , "Central processing unit"@en .
+ex:GPU a ptsn:ProductType ;
+        ptsn:industry ex:Semiconductor ;
+        rdfs:label "GPU"@en , "Graphics processing unit"@en .
+
+ex:FoundryServiceTSMCCPUIntel a sn:SupplyLink ;
+        sn:supplyLinkKey ptsn:ProductTypeEnterpriseSupplyLinkKey ;
+        ptsn:component ex:FoundryService ;
+        esn:supplier ex:TSMC ;
+        ptsn:outcome ex:CPU ;
+        esn:customer ex:Intel ;
+        sn:volume [ a sn:Volume ;
+                sn:time ex:2010 ;
+                sn:quantity  100.0 ;
+                sn:unit cur:MegaUSD ] ,
+                [ a sn:Volume ;
+                sn:time ex:2009 ;
+                sn:quantity  10.0 ;
+                sn:unit cur:MegaUSD ] .
+
+ex:FoundryServiceTSMCGPUIntel a sn:SupplyLink ;
+        sn:supplyLinkKey ptsn:ProductTypeEnterpriseSupplyLinkKey ;
+        ptsn:component ex:FoundryService ;
+        esn:supplier ex:TSMC ;
+        ptsn:outcome ex:GPU ;
+        esn:customer ex:Intel ;
+        sn:volume [ a sn:Volume ;
+                sn:time ex:2010 ;
+                sn:quantity  1.0 ;
+                sn:unit cur:MegaUSD ] ,
+                [ a sn:Volume ;
+                sn:time ex:2009 ;
+                sn:quantity  0.1 ;
+                sn:unit cur:MegaUSD ] .
+
+ex:FoundryServiceTSMCGPUAMD a sn:SupplyLink ;
+        sn:supplyLinkKey ptsn:ProductTypeEnterpriseSupplyLinkKey ;
+        ptsn:component ex:FoundryService ;
+        esn:supplier ex:TSMC ;
+        ptsn:outcome ex:GPU ;
+        esn:customer ex:AMD ;
+        sn:volume [ a sn:Volume ;
+                sn:time ex:2010 ;
+                sn:quantity  0.01 ;
+                sn:unit cur:MegaUSD ] ,
+                [ a sn:Volume ;
+                sn:time ex:2009 ;
+                sn:quantity  0.001 ;
+                sn:unit cur:MegaUSD ] .
+
+ex:FoundryServiceSMICCPUAMD a sn:SupplyLink ;
+        sn:supplyLinkKey ptsn:ProductTypeEnterpriseSupplyLinkKey ;
+        ptsn:component ex:FoundryService ;
+        esn:supplier ex:SMIC ;
+        ptsn:outcome ex:CPU ;
+        esn:customer ex:AMD ;
+        sn:volume [ a sn:Volume ;
+                sn:time ex:2010 ;
+                sn:quantity  0.0001 ;
+                sn:unit cur:MegaUSD ] ,
+                [ a sn:Volume ;
+                sn:time ex:2009 ;
+                sn:quantity  0.00001 ;
+                sn:unit cur:MegaUSD ] .
+                

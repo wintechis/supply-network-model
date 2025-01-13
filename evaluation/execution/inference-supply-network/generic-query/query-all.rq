@@ -218,7 +218,7 @@ CONSTRUCT {
                 # identify the target entities for all dimensions in abox
                 ?source_dimA_from_entity ?associatedEntity_property ?target_dimA_from_entity .
                 ?source_dimA_into_entity ?associatedEntity_property ?target_dimA_into_entity .
-                
+
             } UNION {
             # query part to infer multi-dimension supply network from single-dimension supply network
 
@@ -298,7 +298,7 @@ CONSTRUCT {
 
             } UNION {
             # query part to infer multi-dimension supply network from multi-dimension supply network
-            # where one of the dimensions IS part of the multi-dimension
+            # where ONE of the target dimensions is part of the source multi-dimension
 
                 # identify supply network
                 ?source_supplyNetwork a sn:SupplyNetwork ;
