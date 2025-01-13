@@ -25,6 +25,9 @@ sn:associatedEntity a owl:SymmetricProperty ;
         rdfs:range sn:Entity .
 
 sn:SupplyNetwork rdfs:subClassOf qb:DataSet .
+sn:inferredFrom a owl:ObjectProperty ;
+        rdfs:domain sn:SupplyNetwork ;
+        rdfs:range qb:SupplyNetwork .
 sn:structure rdfs:subPropertyOf qb:structure ;
         rdfs:domain sn:SupplyNetwork ;
         rdfs:range qb:DataStructureDefinition .

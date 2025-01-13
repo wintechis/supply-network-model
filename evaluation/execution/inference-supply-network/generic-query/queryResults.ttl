@@ -44,12 +44,13 @@ ex:9a38f3164abf44c2f817f3b1f38e61e9
         sn:unit      cur:MegaUSD .
 
 ex:b577d6bf4d2a2f0dd817ff8d6b713265
-        a              sn:SupplyNetwork ;
-        sn:structure   fssn:FederalStateDataStructure ;
-        sn:supplyLink  ex:221cbc7ac941ffebff0a59541d837267 , ex:438518394ea7a411f2feb651d8149058 .
+        a                sn:SupplyNetwork ;
+        sn:inferredFrom  ex:SingleDimData ;
+        sn:structure     fssn:FederalStateDataStructure ;
+        sn:supplyLink    ex:221cbc7ac941ffebff0a59541d837267 , ex:438518394ea7a411f2feb651d8149058 .
 
 ex:DE   a           csn:Country ;
-        rdfs:label  "GER"@en , "Germany"@en .
+        rdfs:label  "Germany"@en , "GER"@en .
 
 ex:3a03bc973572fb7dd51a5d390589f818
         a            sn:Volume ;
@@ -88,22 +89,25 @@ ex:Foundry  a       isn:Industry ;
         rdfs:label  "Foundry"@en .
 
 ex:664aeb49c153d274e5f7c00671f5c35e
-        a              sn:SupplyNetwork ;
-        sn:structure   isn:IndustryDataStructure ;
-        sn:supplyLink  ex:ec2a61ca4fb730d87dc8606817616c3d , ex:7bc8297fb5c31e718eaf3ece7567fc84 .
+        a                sn:SupplyNetwork ;
+        sn:inferredFrom  ex:SingleDimData ;
+        sn:structure     isn:IndustryDataStructure ;
+        sn:supplyLink    ex:ec2a61ca4fb730d87dc8606817616c3d , ex:7bc8297fb5c31e718eaf3ece7567fc84 .
+
+ex:e20c6d73d2a5c3dc248b258fb9eef547
+        a                sn:SupplyNetwork ;
+        sn:inferredFrom  ex:MultiDimData ;
+        sn:structure     csn:CountryDataStructure ;
+        sn:supplyLink    ex:1397b54083208a98d581cfef3bdcedf6 , ex:74b9ad58e16cf1f9925003641101748b .
 
 ex:China  a         csn:Country ;
         rdfs:label  "China"@en .
 
-ex:e20c6d73d2a5c3dc248b258fb9eef547
-        a              sn:SupplyNetwork ;
-        sn:structure   csn:CountryDataStructure ;
-        sn:supplyLink  ex:74b9ad58e16cf1f9925003641101748b , ex:1397b54083208a98d581cfef3bdcedf6 .
-
 ex:41ac84f65948547bf62550a0cbadfb6c
-        a              sn:SupplyNetwork ;
-        sn:structure   isn:IndustryFederalStateDataStructure ;
-        sn:supplyLink  ex:78be2ff7724635d70cb6a1d712a520f9 , ex:67cd4fa3d421345c6f25fa78643999dd , ex:354427f3ad957c250961dcddf5c9f155 .
+        a                sn:SupplyNetwork ;
+        sn:inferredFrom  ex:SingleDimData ;
+        sn:structure     isn:IndustryFederalStateDataStructure ;
+        sn:supplyLink    ex:67cd4fa3d421345c6f25fa78643999dd , ex:354427f3ad957c250961dcddf5c9f155 , ex:78be2ff7724635d70cb6a1d712a520f9 .
 
 ex:65351ec9daeb3fd8b2cf654cd864385d
         a            sn:Volume ;
@@ -189,14 +193,14 @@ ex:ec2a61ca4fb730d87dc8606817616c3d
         qb:sliceStructure  isn:IndustrySupplyLinkKey ;
         isn:demand         ex:Fabless ;
         isn:supply         ex:Foundry ;
-        sn:volume          ex:ff2ab3b1404360c5753dfe41ddb004f5 , ex:8422fd19dd46012a12431aee7bd493ed .
+        sn:volume          ex:8422fd19dd46012a12431aee7bd493ed , ex:ff2ab3b1404360c5753dfe41ddb004f5 .
 
 ex:c02bd7a2b68b1b37ee1512da44b71a6f
         a                  sn:SupplyLink ;
         qb:sliceStructure  csn:CountrySupplyLinkKey ;
         csn:export         ex:Taiwan ;
         csn:import         ex:USA ;
-        sn:volume          ex:b4a7bd7cf8c04aad2a4ae48d01cccb92 , ex:78e268ece35ecb1d14d4527e0222843b .
+        sn:volume          ex:78e268ece35ecb1d14d4527e0222843b , ex:b4a7bd7cf8c04aad2a4ae48d01cccb92 .
 
 ex:ff2ab3b1404360c5753dfe41ddb004f5
         a            sn:Volume ;
@@ -223,12 +227,20 @@ ex:8422fd19dd46012a12431aee7bd493ed
         sn:unit      cur:MegaUSD .
 
 ex:f7e57d275ab142f826fb20fc57fcb9d0
-        a              sn:SupplyNetwork ;
-        sn:structure   isn:IndustryDataStructure ;
-        sn:supplyLink  ex:7cc03ac8c916627c05320137066b5170 .
+        a                sn:SupplyNetwork ;
+        sn:inferredFrom  ex:MultiDimData ;
+        sn:structure     isn:IndustryDataStructure ;
+        sn:supplyLink    ex:7cc03ac8c916627c05320137066b5170 .
 
 ex:IDM  a           isn:Industry ;
         rdfs:label  "IDM"@en .
+
+ex:221cbc7ac941ffebff0a59541d837267
+        a                  sn:SupplyLink ;
+        qb:sliceStructure  fssn:FederalStateSupplyLinkKey ;
+        fssn:export        ex:Shanghai ;
+        fssn:import        ex:California ;
+        sn:volume          ex:65351ec9daeb3fd8b2cf654cd864385d , ex:e815648d2099edf8bd05a638991624f4 .
 
 ex:021090091a0b92ee08f2fd68971c0fc1
         a                  sn:SupplyLink ;
@@ -237,12 +249,12 @@ ex:021090091a0b92ee08f2fd68971c0fc1
         cosn:import        ex:Europe ;
         sn:volume          ex:7694639b05e613ffcad3f4b010977a97 , ex:f734a7ef89aa8c087d3b390935e895e8 .
 
-ex:221cbc7ac941ffebff0a59541d837267
+ex:712045a98ad59900d8fd0402e96dd4f7
         a                  sn:SupplyLink ;
-        qb:sliceStructure  fssn:FederalStateSupplyLinkKey ;
-        fssn:export        ex:Shanghai ;
-        fssn:import        ex:California ;
-        sn:volume          ex:e815648d2099edf8bd05a638991624f4 , ex:65351ec9daeb3fd8b2cf654cd864385d .
+        qb:sliceStructure  cosn:ContinentSupplyLinkKey ;
+        cosn:export        ex:Asia ;
+        cosn:import        ex:NorthAmerica ;
+        sn:volume          ex:51fc8df4389f8d3440425dcc2c813fb8 , ex:a93b098e4068bf427ddf7990b7f454dc .
 
 ex:3b4b860803e0e853ba49b5970259eff3
         a                  sn:SupplyLink ;
@@ -252,13 +264,6 @@ ex:3b4b860803e0e853ba49b5970259eff3
         isn:demand         ex:Fabless ;
         isn:supply         ex:Foundry ;
         sn:volume          ex:81a11c5477c0e88cd76d739dddb9db60 , ex:2c6c39e3d7c3e51d4c9f4c4b70e0033f .
-
-ex:712045a98ad59900d8fd0402e96dd4f7
-        a                  sn:SupplyLink ;
-        qb:sliceStructure  cosn:ContinentSupplyLinkKey ;
-        cosn:export        ex:Asia ;
-        cosn:import        ex:NorthAmerica ;
-        sn:volume          ex:51fc8df4389f8d3440425dcc2c813fb8 , ex:a93b098e4068bf427ddf7990b7f454dc .
 
 ex:f734a7ef89aa8c087d3b390935e895e8
         a            sn:Volume ;
@@ -271,7 +276,7 @@ ex:c5a5f255db7c0b5a5d9dec148481a4a9
         qb:sliceStructure  fssn:FederalStateSupplyLinkKey ;
         fssn:export        ex:AT11 ;
         fssn:import        ex:DE11 ;
-        sn:volume          ex:0df1f7650f72655f558d937b872fcf52 , ex:0ca0083481e2d8d3152ae461ad6e73c0 .
+        sn:volume          ex:0ca0083481e2d8d3152ae461ad6e73c0 , ex:0df1f7650f72655f558d937b872fcf52 .
 
 ex:AT11  a          fssn:FederalState ;
         rdfs:label  "Burgenland"@en , "AT-BL"@en .
@@ -324,7 +329,7 @@ ex:67b459dbc347454e15473f0842f96132
         csn:import         ex:USA ;
         isn:demand         ex:Fabless ;
         isn:supply         ex:Foundry ;
-        sn:volume          ex:817957839143fe7ad6dc2d9f05b72cfc , ex:14b81c5de89b92985e49db9652727665 .
+        sn:volume          ex:14b81c5de89b92985e49db9652727665 , ex:817957839143fe7ad6dc2d9f05b72cfc .
 
 ex:Fabless  a       isn:Industry ;
         rdfs:label  "Fabless"@en .
@@ -336,14 +341,16 @@ ex:b46ac8f48e79f5b8d6016d4c653b71d2
         sn:unit      cur:MegaUSD .
 
 ex:a71553dbaed03cc859a0278423696bcd
-        a              sn:SupplyNetwork ;
-        sn:structure   isn:IndustryContinentDataStructure ;
-        sn:supplyLink  ex:6b9108022790f26aa68610008b4567d9 , ex:5116cc1af64311176469b975cd640d02 .
+        a                sn:SupplyNetwork ;
+        sn:inferredFrom  ex:SingleDimData ;
+        sn:structure     isn:IndustryContinentDataStructure ;
+        sn:supplyLink    ex:6b9108022790f26aa68610008b4567d9 , ex:5116cc1af64311176469b975cd640d02 .
 
 ex:b8eb247d0ac3c90231462af7a850a89b
-        a              sn:SupplyNetwork ;
-        sn:structure   isn:IndustryCountryDataStructure ;
-        sn:supplyLink  ex:67b459dbc347454e15473f0842f96132 , ex:3b4b860803e0e853ba49b5970259eff3 , ex:46e907712e808bd107cf93f79bb0cf19 .
+        a                sn:SupplyNetwork ;
+        sn:inferredFrom  ex:SingleDimData ;
+        sn:structure     isn:IndustryCountryDataStructure ;
+        sn:supplyLink    ex:67b459dbc347454e15473f0842f96132 , ex:46e907712e808bd107cf93f79bb0cf19 , ex:3b4b860803e0e853ba49b5970259eff3 .
 
 ex:bd3fbbad4b77f5beec3c7963902286b5
         a            sn:Volume ;
@@ -391,7 +398,7 @@ ex:5116cc1af64311176469b975cd640d02
         cosn:import        ex:NorthAmerica ;
         isn:demand         ex:IDM ;
         isn:supply         ex:Foundry ;
-        sn:volume          ex:5d2295494bf49d011f774e2174f77ff2 , ex:4643c93f784a8f5f73cc8ed3ff9cf731 .
+        sn:volume          ex:4643c93f784a8f5f73cc8ed3ff9cf731 , ex:5d2295494bf49d011f774e2174f77ff2 .
 
 ex:d2f5540a0dfdb3a230814483c2f829a0
         a            sn:Volume ;
@@ -407,9 +414,10 @@ ex:7cc03ac8c916627c05320137066b5170
         sn:volume          ex:04fcb1e92505c0c75126336ca689c3cb , ex:4a5a4ad6e6e6a576bc6f32406e5d0a31 .
 
 ex:580c47da275e5dd92e41dada27c7afd5
-        a              sn:SupplyNetwork ;
-        sn:structure   cosn:ContinentDataStructure ;
-        sn:supplyLink  ex:021090091a0b92ee08f2fd68971c0fc1 .
+        a                sn:SupplyNetwork ;
+        sn:inferredFrom  ex:MultiDimData ;
+        sn:structure     cosn:ContinentDataStructure ;
+        sn:supplyLink    ex:021090091a0b92ee08f2fd68971c0fc1 .
 
 ex:78be2ff7724635d70cb6a1d712a520f9
         a                  sn:SupplyLink ;
@@ -418,7 +426,7 @@ ex:78be2ff7724635d70cb6a1d712a520f9
         fssn:import        ex:California ;
         isn:demand         ex:Fabless ;
         isn:supply         ex:Foundry ;
-        sn:volume          ex:e7aee47632386133db17e9f71bfb9de3 , ex:b46ac8f48e79f5b8d6016d4c653b71d2 .
+        sn:volume          ex:b46ac8f48e79f5b8d6016d4c653b71d2 , ex:e7aee47632386133db17e9f71bfb9de3 .
 
 ex:7bc6cd5ddbf1631b09df4bdfaf7f6a76
         a            sn:Volume ;
@@ -436,9 +444,10 @@ ex:0ca0083481e2d8d3152ae461ad6e73c0
         sn:unit      cur:MegaUSD .
 
 ex:e187e396441b6d91670ab9f9e2c81619
-        a              sn:SupplyNetwork ;
-        sn:structure   csn:CountryDataStructure ;
-        sn:supplyLink  ex:c407da157aa7b6194b3dc13e894167cf , ex:c02bd7a2b68b1b37ee1512da44b71a6f .
+        a                sn:SupplyNetwork ;
+        sn:inferredFrom  ex:SingleDimData ;
+        sn:structure     csn:CountryDataStructure ;
+        sn:supplyLink    ex:c407da157aa7b6194b3dc13e894167cf , ex:c02bd7a2b68b1b37ee1512da44b71a6f .
 
 ex:6b9108022790f26aa68610008b4567d9
         a                  sn:SupplyLink ;
@@ -447,7 +456,7 @@ ex:6b9108022790f26aa68610008b4567d9
         cosn:import        ex:NorthAmerica ;
         isn:demand         ex:Fabless ;
         isn:supply         ex:Foundry ;
-        sn:volume          ex:c94d6e635548304d69c2a9e1dcc3e8df , ex:66f022240824e08546f780055533d622 .
+        sn:volume          ex:66f022240824e08546f780055533d622 , ex:c94d6e635548304d69c2a9e1dcc3e8df .
 
 ex:14b81c5de89b92985e49db9652727665
         a            sn:Volume ;
@@ -473,6 +482,18 @@ ex:9ec684e642428052559152d58072359d
         sn:time      ex:2009 ;
         sn:unit      cur:MegaUSD .
 
+ex:4af5dbabc4f44f4a929704e3edca7d7e
+        a                sn:SupplyNetwork ;
+        sn:inferredFrom  ex:SingleDimData ;
+        sn:structure     cosn:ContinentDataStructure ;
+        sn:supplyLink    ex:712045a98ad59900d8fd0402e96dd4f7 .
+
+ex:0315f70b95f70c595c6d120ecc0921fe
+        a                sn:SupplyNetwork ;
+        sn:inferredFrom  ex:MultiDimData ;
+        sn:structure     fssn:FederalStateDataStructure ;
+        sn:supplyLink    ex:c5a5f255db7c0b5a5d9dec148481a4a9 , ex:5124ebc927224a669e8a2476c8aaedc2 .
+
 ex:2c6c39e3d7c3e51d4c9f4c4b70e0033f
         a            sn:Volume ;
         sn:quantity  0.0001 ;
@@ -482,22 +503,12 @@ ex:2c6c39e3d7c3e51d4c9f4c4b70e0033f
 ex:NorthAmerica  a  cosn:Continent ;
         rdfs:label  "North America"@en .
 
-ex:4af5dbabc4f44f4a929704e3edca7d7e
-        a              sn:SupplyNetwork ;
-        sn:structure   cosn:ContinentDataStructure ;
-        sn:supplyLink  ex:712045a98ad59900d8fd0402e96dd4f7 .
-
-ex:0315f70b95f70c595c6d120ecc0921fe
-        a              sn:SupplyNetwork ;
-        sn:structure   fssn:FederalStateDataStructure ;
-        sn:supplyLink  ex:c5a5f255db7c0b5a5d9dec148481a4a9 , ex:5124ebc927224a669e8a2476c8aaedc2 .
-
 ex:5124ebc927224a669e8a2476c8aaedc2
         a                  sn:SupplyLink ;
         qb:sliceStructure  fssn:FederalStateSupplyLinkKey ;
         fssn:export        ex:AT11 ;
         fssn:import        ex:AT11 ;
-        sn:volume          ex:57918d9b954c59a91258e5f5d39d9544 , ex:90a39b472d8cebaf596dc646a9220735 .
+        sn:volume          ex:90a39b472d8cebaf596dc646a9220735 , ex:57918d9b954c59a91258e5f5d39d9544 .
 
 ex:78e268ece35ecb1d14d4527e0222843b
         a            sn:Volume ;
@@ -510,7 +521,7 @@ ex:438518394ea7a411f2feb651d8149058
         qb:sliceStructure  fssn:FederalStateSupplyLinkKey ;
         fssn:export        ex:HSZ ;
         fssn:import        ex:California ;
-        sn:volume          ex:995a0aa7ce16dbac56bb4dc40b814a3e , ex:f7289a35dab04c2e98b4f42e9da44009 .
+        sn:volume          ex:f7289a35dab04c2e98b4f42e9da44009 , ex:995a0aa7ce16dbac56bb4dc40b814a3e .
 
 ex:354427f3ad957c250961dcddf5c9f155
         a                  sn:SupplyLink ;
@@ -519,7 +530,7 @@ ex:354427f3ad957c250961dcddf5c9f155
         fssn:import        ex:California ;
         isn:demand         ex:Fabless ;
         isn:supply         ex:Foundry ;
-        sn:volume          ex:bd3fbbad4b77f5beec3c7963902286b5 , ex:7bc6cd5ddbf1631b09df4bdfaf7f6a76 .
+        sn:volume          ex:7bc6cd5ddbf1631b09df4bdfaf7f6a76 , ex:bd3fbbad4b77f5beec3c7963902286b5 .
 
 ex:67cd4fa3d421345c6f25fa78643999dd
         a                  sn:SupplyLink ;
@@ -528,7 +539,7 @@ ex:67cd4fa3d421345c6f25fa78643999dd
         fssn:import        ex:California ;
         isn:demand         ex:IDM ;
         isn:supply         ex:Foundry ;
-        sn:volume          ex:9a38f3164abf44c2f817f3b1f38e61e9 , ex:87c16f215cfa49ebf220668eda6c94ea .
+        sn:volume          ex:87c16f215cfa49ebf220668eda6c94ea , ex:9a38f3164abf44c2f817f3b1f38e61e9 .
 
 ex:efdc141aeadf0c386fba2fb45c69038f
         a            sn:Volume ;

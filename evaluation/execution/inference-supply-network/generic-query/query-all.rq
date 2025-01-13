@@ -7,7 +7,8 @@ CONSTRUCT {
     # resulting supply network
     ?target_supplyNetwork a sn:SupplyNetwork ;
         sn:structure ?target_supplyNetworkStructure ;
-        sn:supplyLink ?target_supplylink .
+        sn:supplyLink ?target_supplylink ;
+        sn:inferredFrom ?source_supplyNetwork .
 
     # resulting entities
     ?target_dimA_from_entity a ?target_dimA_class ;
@@ -35,7 +36,7 @@ CONSTRUCT {
         sn:quantity ?aggregatedQuantity .
 } WHERE {
     {
-        SELECT ?target_supplyNetwork ?target_supplylink ?target_volume
+        SELECT ?source_supplyNetwork ?target_supplyNetwork ?target_supplylink ?target_volume
         ?target_dimA_from_entity ?target_dimA_from_entitylabel ?target_dimA_into_entity ?target_dimA_into_entitylabel
         ?target_dimB_from_entity ?target_dimB_from_entitylabel ?target_dimB_into_entity ?target_dimB_into_entitylabel
         ?target_dimA_from_property ?target_dimA_into_property ?target_dimA_class
@@ -323,7 +324,7 @@ CONSTRUCT {
             BIND(IRI(CONCAT("https://www.example.org/",MD5(CONCAT(STR(?target_supplylink),STR(?time),STR(?unit))))) AS ?target_volume) .
             
         }
-        GROUP BY ?target_supplyNetwork ?target_supplylink ?target_volume
+        GROUP BY ?source_supplyNetwork ?target_supplyNetwork ?target_supplylink ?target_volume
         ?target_dimA_from_entity ?target_dimA_from_entitylabel ?target_dimA_into_entity ?target_dimA_into_entitylabel
         ?target_dimB_from_entity ?target_dimB_from_entitylabel ?target_dimB_into_entity ?target_dimB_into_entitylabel
         ?target_dimA_from_property ?target_dimA_into_property ?target_dimA_class
