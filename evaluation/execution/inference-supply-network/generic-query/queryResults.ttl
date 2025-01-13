@@ -1,0 +1,360 @@
+@prefix qudt:  <http://qudt.org/schema/qudt/> .
+@prefix cur:   <http://qudt.org/vocab/currency/> .
+@prefix esn:   <https://example.org/esn/vocab#> .
+@prefix isn:   <https://example.org/isn/vocab#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix cosn:  <https://example.org/cosn/vocab#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix unit:  <http://qudt.org/vocab/unit/> .
+@prefix ex:    <https://www.example.org/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix fssn:  <https://example.org/fssn/vocab#> .
+@prefix sn:    <https://purl.org/sn/vocab#> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+@prefix vann:  <http://purl.org/vocab/vann/> .
+@prefix greg:  <http://www.w3.org/ns/time/gregorian/> .
+@prefix csn:   <https://example.org/csn/vocab#> .
+
+ex:bac6ec0686eef0ef9c5f789e2c50da30
+        a            sn:Volume ;
+        sn:quantity  0.1 ;
+        sn:time      ex:2009 ;
+        sn:unit      cur:MegaUSD .
+
+ex:Shanghai  a      fssn:FederalState ;
+        rdfs:label  "Shanghai"@en .
+
+ex:649c8cd5878a569fc657a8264aaba896
+        a                  sn:SupplyLink ;
+        qb:sliceStructure  cosn:ContinentSupplyLinkKey ;
+        cosn:export        ex:Europe ;
+        cosn:import        ex:Europe ;
+        sn:volume          ex:e7371d13821d41659d346aaeb7719a02 , ex:da235aed7878ed2829d3bb80c239f56b .
+
+ex:Taiwan  a        csn:Country ;
+        rdfs:label  "Taiwan"@en .
+
+ex:1552a1f155052373e1e1dad0b8092814
+        a                  sn:SupplyLink ;
+        qb:sliceStructure  fssn:FederalStateSupplyLinkKey ;
+        fssn:export        ex:AT11 ;
+        fssn:import        ex:DE11 ;
+        sn:volume          ex:c1c814ff47d084984edfcc902010bcc1 , ex:d8edee2dcd05cef020f3f89ae00a76b8 .
+
+ex:b577d6bf4d2a2f0dd817ff8d6b713265
+        a              sn:SupplyNetwork ;
+        sn:structure   fssn:FederalStateDataStructure ;
+        sn:supplyLink  ex:a3b9b268aecf3cc30d76fcbd881b31da , ex:48423b84340135ca07bc6d1790e7534f .
+
+ex:DE   a           csn:Country ;
+        rdfs:label  "Germany"@en , "GER"@en .
+
+ex:da235aed7878ed2829d3bb80c239f56b
+        a            sn:Volume ;
+        sn:quantity  1.01 ;
+        sn:time      ex:2010 ;
+        sn:unit      cur:MegaUSD .
+
+ex:6196dea24c2dbf27b0223a30a95fa740
+        a            sn:Volume ;
+        sn:quantity  1.0 ;
+        sn:time      ex:2010 ;
+        sn:unit      cur:MegaUSD .
+
+ex:c39ace07d3bcae15aef4366202dcbd10
+        a            sn:Volume ;
+        sn:quantity  0.101 ;
+        sn:time      ex:2009 ;
+        sn:unit      cur:MegaUSD .
+
+ex:e0c805b27e8cbac2e5251ae60ddb8200
+        a            sn:Volume ;
+        sn:quantity  1.0101 ;
+        sn:time      ex:2010 ;
+        sn:unit      cur:MegaUSD .
+
+ex:Europe  a        cosn:Continent ;
+        rdfs:label  "Europe"@en .
+
+ex:e7371d13821d41659d346aaeb7719a02
+        a            sn:Volume ;
+        sn:quantity  0.101 ;
+        sn:time      ex:2009 ;
+        sn:unit      cur:MegaUSD .
+
+ex:Foundry  a       isn:Industry ;
+        rdfs:label  "Foundry"@en .
+
+ex:664aeb49c153d274e5f7c00671f5c35e
+        a              sn:SupplyNetwork ;
+        sn:structure   isn:IndustryDataStructure ;
+        sn:supplyLink  ex:eaf7460bf3b3ad9e64d432294e9507bb , ex:39ba7797e4a8b64b9e31cb0f3ba714e2 .
+
+ex:e20c6d73d2a5c3dc248b258fb9eef547
+        a              sn:SupplyNetwork ;
+        sn:structure   csn:CountryDataStructure ;
+        sn:supplyLink  ex:8735da47a1a8aa4f228b973b5474027e , ex:d0da5595ce531987da1bda4c82b34030 .
+
+ex:China  a         csn:Country ;
+        rdfs:label  "China"@en .
+
+ex:314930a1dadd47a2dc5b72d71d372f21
+        a            sn:Volume ;
+        sn:quantity  0.00001 ;
+        sn:time      ex:2009 ;
+        sn:unit      cur:MegaUSD .
+
+ex:USA  a           csn:Country ;
+        rdfs:label  "USA"@en .
+
+ex:fa102f09a555292a7743e9185284b0b1
+        a            sn:Volume ;
+        sn:quantity  1.01 ;
+        sn:time      ex:2010 ;
+        sn:unit      cur:MegaUSD .
+
+ex:d0da5595ce531987da1bda4c82b34030
+        a                  sn:SupplyLink ;
+        qb:sliceStructure  csn:CountrySupplyLinkKey ;
+        csn:export         ex:AT ;
+        csn:import         ex:DE ;
+        sn:volume          ex:e6098bc7a3b393fe6db8401e59499195 , ex:f235f347270c2119b3f267fd23721c46 .
+
+ex:California  a    fssn:FederalState ;
+        rdfs:label  "California"@en , "CA"@en .
+
+ex:39ba7797e4a8b64b9e31cb0f3ba714e2
+        a                  sn:SupplyLink ;
+        qb:sliceStructure  isn:IndustrySupplyLinkKey ;
+        isn:demand         ex:IDM ;
+        isn:supply         ex:Foundry ;
+        sn:volume          ex:2fc8c9419197defd84e7aa389db9e1fe , ex:bac6ec0686eef0ef9c5f789e2c50da30 .
+
+ex:a3b9b268aecf3cc30d76fcbd881b31da
+        a                  sn:SupplyLink ;
+        qb:sliceStructure  fssn:FederalStateSupplyLinkKey ;
+        fssn:export        ex:HSZ ;
+        fssn:import        ex:California ;
+        sn:volume          ex:515397170d1509df420bc78eb8394bbe , ex:d8ed1eac9569b40a071dede455ad4046 .
+
+ex:HSZ  a           fssn:FederalState ;
+        rdfs:label  "Hsinchu City"@en .
+
+ex:ss2  a           isn:Industry ;
+        rdfs:label  "Mining_quarrying_and_energy_supply"@en .
+
+ex:f235f347270c2119b3f267fd23721c46
+        a            sn:Volume ;
+        sn:quantity  0.01 ;
+        sn:time      ex:2010 ;
+        sn:unit      cur:MegaUSD .
+
+ex:f7e57d275ab142f826fb20fc57fcb9d0
+        a              sn:SupplyNetwork ;
+        sn:structure   isn:IndustryDataStructure ;
+        sn:supplyLink  ex:5b104644b43168ab6dda483fe192afbf .
+
+ex:IDM  a           isn:Industry ;
+        rdfs:label  "IDM"@en .
+
+ex:b2e46b64d510676e0a6499246276625d
+        a            sn:Volume ;
+        sn:quantity  0.00001 ;
+        sn:time      ex:2009 ;
+        sn:unit      cur:MegaUSD .
+
+ex:AT11  a          fssn:FederalState ;
+        rdfs:label  "Burgenland"@en , "AT-BL"@en .
+
+ex:ss1  a           isn:Industry ;
+        rdfs:label  "Agriculture"@en .
+
+ex:Asia  a          cosn:Continent ;
+        rdfs:label  "Asia"@en .
+
+ex:48423b84340135ca07bc6d1790e7534f
+        a                  sn:SupplyLink ;
+        qb:sliceStructure  fssn:FederalStateSupplyLinkKey ;
+        fssn:export        ex:Shanghai ;
+        fssn:import        ex:California ;
+        sn:volume          ex:10696517c65cbbe664659bfd5678f603 , ex:314930a1dadd47a2dc5b72d71d372f21 .
+
+ex:e6098bc7a3b393fe6db8401e59499195
+        a            sn:Volume ;
+        sn:quantity  0.001 ;
+        sn:time      ex:2009 ;
+        sn:unit      cur:MegaUSD .
+
+ex:Fabless  a       isn:Industry ;
+        rdfs:label  "Fabless"@en .
+
+ex:d8edee2dcd05cef020f3f89ae00a76b8
+        a            sn:Volume ;
+        sn:quantity  0.01 ;
+        sn:time      ex:2010 ;
+        sn:unit      cur:MegaUSD .
+
+ex:10696517c65cbbe664659bfd5678f603
+        a            sn:Volume ;
+        sn:quantity  0.0001 ;
+        sn:time      ex:2010 ;
+        sn:unit      cur:MegaUSD .
+
+ex:074e1bb18125c5058467ea0aff73dbc4
+        a            sn:Volume ;
+        sn:quantity  1.01 ;
+        sn:time      ex:2010 ;
+        sn:unit      cur:MegaUSD .
+
+ex:515397170d1509df420bc78eb8394bbe
+        a            sn:Volume ;
+        sn:quantity  0.101 ;
+        sn:time      ex:2009 ;
+        sn:unit      cur:MegaUSD .
+
+ex:DE11  a          fssn:FederalState ;
+        rdfs:label  "Stuttgart"@en .
+
+ex:5b104644b43168ab6dda483fe192afbf
+        a                  sn:SupplyLink ;
+        qb:sliceStructure  isn:IndustrySupplyLinkKey ;
+        isn:demand         ex:ss2 ;
+        isn:supply         ex:ss1 ;
+        sn:volume          ex:074e1bb18125c5058467ea0aff73dbc4 , ex:ebae88512a3f2bb46dd7c8f126530ba2 .
+
+ex:580c47da275e5dd92e41dada27c7afd5
+        a              sn:SupplyNetwork ;
+        sn:structure   cosn:ContinentDataStructure ;
+        sn:supplyLink  ex:649c8cd5878a569fc657a8264aaba896 .
+
+ex:6dd5bdbb11c3fa9a31cfc5c22912100e
+        a            sn:Volume ;
+        sn:quantity  0.1 ;
+        sn:time      ex:2009 ;
+        sn:unit      cur:MegaUSD .
+
+ex:dd5001e4ec1a7e284f5dbd2f78ec9898
+        a            sn:Volume ;
+        sn:quantity  0.0001 ;
+        sn:time      ex:2010 ;
+        sn:unit      cur:MegaUSD .
+
+ex:AT   a           csn:Country ;
+        rdfs:label  "Austria"@en .
+
+ex:9e598ba0e61e0075aac2c2737eb3a302
+        a            sn:Volume ;
+        sn:quantity  0.0101 ;
+        sn:time      ex:2010 ;
+        sn:unit      cur:MegaUSD .
+
+ex:93bd0afc404359c90ae04e402482f255
+        a            sn:Volume ;
+        sn:quantity  0.1 ;
+        sn:time      ex:2009 ;
+        sn:unit      cur:MegaUSD .
+
+ex:2fc8c9419197defd84e7aa389db9e1fe
+        a            sn:Volume ;
+        sn:quantity  1.0 ;
+        sn:time      ex:2010 ;
+        sn:unit      cur:MegaUSD .
+
+ex:e187e396441b6d91670ab9f9e2c81619
+        a              sn:SupplyNetwork ;
+        sn:structure   csn:CountryDataStructure ;
+        sn:supplyLink  ex:a2525fc126f89e948b81cf6bb8d48928 , ex:73b183ccdd25ddf406bba03d8922b124 .
+
+ex:660e2b1770dc069e5bd76fe0a45cbf93
+        a            sn:Volume ;
+        sn:quantity  0.10101 ;
+        sn:time      ex:2009 ;
+        sn:unit      cur:MegaUSD .
+
+ex:ea8ee6173c2a472438d499dda4f2781f
+        a                  sn:SupplyLink ;
+        qb:sliceStructure  fssn:FederalStateSupplyLinkKey ;
+        fssn:export        ex:AT11 ;
+        fssn:import        ex:AT11 ;
+        sn:volume          ex:9a0489cc92798d57f14ee09282414da1 , ex:93bd0afc404359c90ae04e402482f255 .
+
+ex:a2525fc126f89e948b81cf6bb8d48928
+        a                  sn:SupplyLink ;
+        qb:sliceStructure  csn:CountrySupplyLinkKey ;
+        csn:export         ex:China ;
+        csn:import         ex:USA ;
+        sn:volume          ex:b2e46b64d510676e0a6499246276625d , ex:dd5001e4ec1a7e284f5dbd2f78ec9898 .
+
+ex:ebae88512a3f2bb46dd7c8f126530ba2
+        a            sn:Volume ;
+        sn:quantity  0.101 ;
+        sn:time      ex:2009 ;
+        sn:unit      cur:MegaUSD .
+
+ex:7b5674af7eef5622435c3e5c6c40871b
+        a            sn:Volume ;
+        sn:quantity  0.00101 ;
+        sn:time      ex:2009 ;
+        sn:unit      cur:MegaUSD .
+
+ex:4af5dbabc4f44f4a929704e3edca7d7e
+        a              sn:SupplyNetwork ;
+        sn:structure   cosn:ContinentDataStructure ;
+        sn:supplyLink  ex:dc3b49d1a9c42f6cf32f034a91bbddb9 .
+
+ex:NorthAmerica  a  cosn:Continent ;
+        rdfs:label  "North America"@en .
+
+ex:0315f70b95f70c595c6d120ecc0921fe
+        a              sn:SupplyNetwork ;
+        sn:structure   fssn:FederalStateDataStructure ;
+        sn:supplyLink  ex:1552a1f155052373e1e1dad0b8092814 , ex:ea8ee6173c2a472438d499dda4f2781f .
+
+ex:c1c814ff47d084984edfcc902010bcc1
+        a            sn:Volume ;
+        sn:quantity  0.001 ;
+        sn:time      ex:2009 ;
+        sn:unit      cur:MegaUSD .
+
+ex:9a0489cc92798d57f14ee09282414da1
+        a            sn:Volume ;
+        sn:quantity  1.0 ;
+        sn:time      ex:2010 ;
+        sn:unit      cur:MegaUSD .
+
+ex:73b183ccdd25ddf406bba03d8922b124
+        a                  sn:SupplyLink ;
+        qb:sliceStructure  csn:CountrySupplyLinkKey ;
+        csn:export         ex:Taiwan ;
+        csn:import         ex:USA ;
+        sn:volume          ex:c39ace07d3bcae15aef4366202dcbd10 , ex:fa102f09a555292a7743e9185284b0b1 .
+
+ex:8735da47a1a8aa4f228b973b5474027e
+        a                  sn:SupplyLink ;
+        qb:sliceStructure  csn:CountrySupplyLinkKey ;
+        csn:export         ex:AT ;
+        csn:import         ex:AT ;
+        sn:volume          ex:6dd5bdbb11c3fa9a31cfc5c22912100e , ex:6196dea24c2dbf27b0223a30a95fa740 .
+
+ex:d8ed1eac9569b40a071dede455ad4046
+        a            sn:Volume ;
+        sn:quantity  1.01 ;
+        sn:time      ex:2010 ;
+        sn:unit      cur:MegaUSD .
+
+ex:dc3b49d1a9c42f6cf32f034a91bbddb9
+        a                  sn:SupplyLink ;
+        qb:sliceStructure  cosn:ContinentSupplyLinkKey ;
+        cosn:export        ex:Asia ;
+        cosn:import        ex:NorthAmerica ;
+        sn:volume          ex:660e2b1770dc069e5bd76fe0a45cbf93 , ex:e0c805b27e8cbac2e5251ae60ddb8200 .
+
+ex:eaf7460bf3b3ad9e64d432294e9507bb
+        a                  sn:SupplyLink ;
+        qb:sliceStructure  isn:IndustrySupplyLinkKey ;
+        isn:demand         ex:Fabless ;
+        isn:supply         ex:Foundry ;
+        sn:volume          ex:7b5674af7eef5622435c3e5c6c40871b , ex:9e598ba0e61e0075aac2c2737eb3a302 .

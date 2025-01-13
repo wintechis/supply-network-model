@@ -154,12 +154,6 @@ isn:IndustryContinentSupplyLinkKey a sn:SupplyLinkKey ;
 
 # fssn ontology
 fssn:FederalState rdfs:subClassOf sn:Entity .
-fssn:inCountry rdfs:subPropertyOf sn:associatedEntity ;
-        rdfs:domain fssn:FederalState ;
-        rdfs:range csn:Country .
-fssn:inContinent rdfs:subPropertyOf sn:associatedEntity ;
-        rdfs:domain fssn:FederalState ;
-        rdfs:range cosn:Continent .
 fssn:export a owl:FunctionalProperty , qb:DimensionProperty ;
         rdfs:subPropertyOf sn:from ;
         rdfs:domain sn:SupplyLink ;
@@ -168,6 +162,12 @@ fssn:import a owl:FunctionalProperty , qb:DimensionProperty ;
         rdfs:subPropertyOf sn:into ;
         rdfs:domain sn:SupplyLink ;
         rdfs:range fssn:FederalState .
+fssn:inCountry rdfs:subPropertyOf sn:associatedEntity ;
+        rdfs:domain fssn:FederalState ;
+        rdfs:range csn:Country .
+fssn:inContinent rdfs:subPropertyOf sn:associatedEntity ;
+        rdfs:domain fssn:FederalState ;
+        rdfs:range cosn:Continent .
 
 fssn:FederalStateDataStructure a qb:DataStructureDefinition ;
         sn:higherAbstractionLevel csn:CountryDataStructure , cosn:ContinentDataStructure ;
@@ -185,9 +185,6 @@ fssn:FederalStateSupplyLinkKey a sn:SupplyLinkKey ;
 
 # csn ontology
 csn:Country rdfs:subClassOf sn:Entity .
-csn:inContinent rdfs:subPropertyOf sn:associatedEntity ;
-        rdfs:domain csn:Country ;
-        rdfs:range cosn:Continent .
 csn:export a owl:FunctionalProperty , qb:DimensionProperty ;
         rdfs:subPropertyOf sn:from ;
         rdfs:domain sn:SupplyLink ;
@@ -196,8 +193,12 @@ csn:import a owl:FunctionalProperty , qb:DimensionProperty ;
         rdfs:subPropertyOf sn:into ;
         rdfs:domain sn:SupplyLink ;
         rdfs:range csn:Country .
+csn:inContinent rdfs:subPropertyOf sn:associatedEntity ;
+        rdfs:domain csn:Country ;
+        rdfs:range cosn:Continent .
 
 csn:CountryDataStructure a qb:DataStructureDefinition ;
+        sn:higherAbstractionLevel cosn:ContinentDataStructure ;
         qb:component [ qb:dimension csn:export ;
                 qb:componentAttachment sn:SupplyLink ] ,
                 [ qb:dimension csn:import ;
@@ -222,7 +223,6 @@ cosn:import a owl:FunctionalProperty , qb:DimensionProperty ;
         rdfs:range cosn:Continent .
 
 cosn:ContinentDataStructure a qb:DataStructureDefinition ;
-        sn:higherAbstractionLevel cosn:ContinentDataStructure ;
         qb:component [ qb:dimension cosn:export ;
                 qb:componentAttachment sn:SupplyLink ] ,
                 [ qb:dimension cosn:import ;
@@ -235,8 +235,45 @@ cosn:ContinentSupplyLinkKey a sn:SupplyLinkKey ;
     qb:componentProperty cosn:export , cosn:import .
 
 
-# example data
-ex:Data a sn:SupplyNetwork ;
+# esn ontology
+esn:Enterprise rdfs:subClassOf sn:Entity .
+esn:supplier a owl:FunctionalProperty , qb:DimensionProperty ;
+        rdfs:subPropertyOf sn:from ;
+        rdfs:domain sn:SupplyLink ;
+        rdfs:range esn:Enterprise .
+esn:customer a owl:FunctionalProperty , qb:DimensionProperty ;
+        rdfs:subPropertyOf sn:into ;
+        rdfs:domain sn:SupplyLink ;
+        rdfs:range esn:Enterprise .
+esn:industry rdfs:subPropertyOf sn:associatedEntity ;
+        rdfs:domain esn:Enterprise ;
+        rdfs:range isn:Industry .
+esn:registeredInFederalState rdfs:subPropertyOf sn:associatedEntity ;
+        rdfs:domain esn:Enterprise ;
+        rdfs:range fssn:FederalState.
+esn:registeredInCountry rdfs:subPropertyOf sn:associatedEntity ;
+        rdfs:domain esn:Enterprise ;
+        rdfs:range csn:Country .
+esn:continent rdfs:subPropertyOf sn:associatedEntity ;
+        rdfs:domain esn:Enterprise ;
+        rdfs:range cosn:Continent .
+
+esn:EnterpriseDataStructure a qb:DataStructureDefinition ;
+        sn:higherAbstractionLevel fssn:FederalStateDataStructure , csn:CountryDataStructure , cosn:ContinentDataStructure , isn:IndustryDataStructure , isn:IndustryFederalStateDataStructure , isn:IndustryCountryDataStructure , isn:IndustryContinentDataStructure ;
+        qb:component [ qb:dimension esn:supplier ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension esn:customer ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension sn:time ] ,
+                [ qb:measure sn:quantity] ,
+                [ qb:attribute sn:unit] ;
+        qb:sliceKey esn:EnterpriseSupplyLinkKey .
+esn:EnterpriseSupplyLinkKey a sn:SupplyLinkKey ;
+    qb:componentProperty esn:supplier , esn:customer .
+
+
+# example data of multi-dimensional supply network
+ex:MultiDimData a sn:SupplyNetwork ;
         sn:structure isn:IndustryFederalStateDataStructure ;
         sn:supplyLink ex:AT11ss1AT11ss2 , ex:AT11ss1DE11ss2 .
 ex:AT11 a fssn:FederalState ;
@@ -286,4 +323,95 @@ ex:AT11ss1DE11ss2 a sn:SupplyLink ;
                 [ a sn:Volume ;
                 sn:time ex:2009 ;
                 sn:quantity  0.001 ;
+                sn:unit cur:MegaUSD ] .
+
+
+# example data of single-dimensional supply network
+ex:SingleDimData a sn:SupplyNetwork ;
+        sn:structure esn:EnterpriseDataStructure ;
+        sn:supplyLink ex:TSMCIntel , ex:TSMCAMD , ex:SMICAMD .
+ex:Intel a esn:Enterprise ;
+        esn:industry ex:IDM ;
+        esn:registeredInFederalState ex:California ;
+        esn:registeredInCountry ex:USA ;
+        esn:continent ex:NorthAmerica ;
+        rdfs:label "Intel"@en .
+ex:IDM a isn:Industry ;
+        rdfs:label "IDM"@en .
+ex:California a fssn:FederalState ;
+        rdfs:label "California"@en , "CA"@en .
+ex:USA a csn:Country ;
+        rdfs:label "USA"@en .
+ex:NorthAmerica a cosn:Continent ;
+        rdfs:label "North America"@en .
+ex:AMD a esn:Enterprise ;
+        esn:industry ex:Fabless ;
+        esn:registeredInFederalState ex:California ;
+        esn:registeredInCountry ex:USA ;
+        esn:continent ex:NorthAmerica ;
+        rdfs:label "AMD"@en , "Advanced Micro Devices"@en .
+ex:Fabless a isn:Industry ;
+        rdfs:label "Fabless"@en .
+ex:TSMC a esn:Enterprise ;
+        esn:industry ex:Foundry ;
+        esn:registeredInFederalState ex:HSZ ;
+        esn:registeredInCountry ex:Taiwan ;
+        esn:continent ex:Asia ;
+        rdfs:label "TSMC"@en , "Taiwan Semiconductor Manufacturing Company Limited"@en .
+ex:Foundry a isn:Industry ;
+        rdfs:label "Foundry"@en .
+ex:HSZ a fssn:FederalState ;
+        rdfs:label "Hsinchu City"@en .
+ex:Taiwan a csn:Country ;
+        rdfs:label "Taiwan"@en .
+ex:Asia a cosn:Continent ;
+        rdfs:label "Asia"@en .
+ex:SMIC a esn:Enterprise ;
+        esn:industry ex:Foundry ;
+        esn:registeredInFederalState ex:Shanghai ;
+        esn:registeredInCountry ex:China ;
+        esn:continent ex:Asia ;
+        rdfs:label "SMIC"@en , "Semiconductor Manufacturing International Corporation"@en .
+ex:Shanghai a fssn:FederalState ;
+        rdfs:label "Shanghai"@en .
+ex:China a csn:Country ;
+        rdfs:label "China"@en .
+
+ex:TSMCIntel a sn:SupplyLink ;
+        sn:supplyLinkKey esn:EnterpriseSupplyLinkKey ;
+        esn:supplier ex:TSMC ;
+        esn:customer ex:Intel ;
+        sn:volume [ a sn:Volume ;
+                sn:time ex:2010 ;
+                sn:quantity  1.0 ;
+                sn:unit cur:MegaUSD ] ,
+                [ a sn:Volume ;
+                sn:time ex:2009 ;
+                sn:quantity  0.1 ;
+                sn:unit cur:MegaUSD ] .
+
+ex:TSMCAMD a sn:SupplyLink ;
+        sn:supplyLinkKey esn:EnterpriseSupplyLinkKey ;
+        esn:supplier ex:TSMC ;
+        esn:customer ex:AMD ;
+        sn:volume [ a sn:Volume ;
+                sn:time ex:2010 ;
+                sn:quantity  0.01 ;
+                sn:unit cur:MegaUSD ] ,
+                [ a sn:Volume ;
+                sn:time ex:2009 ;
+                sn:quantity  0.001 ;
+                sn:unit cur:MegaUSD ] .
+
+ex:SMICAMD a sn:SupplyLink ;
+        sn:supplyLinkKey esn:EnterpriseSupplyLinkKey ;
+        esn:supplier ex:SMIC ;
+        esn:customer ex:AMD ;
+        sn:volume [ a sn:Volume ;
+                sn:time ex:2010 ;
+                sn:quantity  0.0001 ;
+                sn:unit cur:MegaUSD ] ,
+                [ a sn:Volume ;
+                sn:time ex:2009 ;
+                sn:quantity  0.00001 ;
                 sn:unit cur:MegaUSD ] .
