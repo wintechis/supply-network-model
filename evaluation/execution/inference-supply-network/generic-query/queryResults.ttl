@@ -25,6 +25,12 @@ ex:afe78567b8efdc1207ee09596759e6f8
         sn:time      ex:2010 ;
         sn:unit      cur:MegaUSD .
 
+ex:8fad5db3145e66b972967caabf07c9c5
+        a            sn:Volume ;
+        sn:quantity  0.0001 ;
+        sn:time      ex:2010 ;
+        sn:unit      cur:MegaUSD .
+
 ex:5e2fe2f3a72e04116945e26826a1a98e
         a            sn:Volume ;
         sn:quantity  10.1 , 0.1 ;
@@ -43,6 +49,12 @@ ex:c1c2e30c2aaa5a43d647760daeca4a2e
 ex:d6b958649ba214d310a006c4bfc626fb
         a            sn:Volume ;
         sn:quantity  1.01 ;
+        sn:time      ex:2010 ;
+        sn:unit      cur:MegaUSD .
+
+ex:216e55bc16f5d9ae9ecdd3c7c40b6727
+        a            sn:Volume ;
+        sn:quantity  101.01 ;
         sn:time      ex:2010 ;
         sn:unit      cur:MegaUSD .
 
@@ -88,6 +100,12 @@ ex:ee2ae3b057b4fe71c1bed0d0034bf52b
         sn:inferredFrom  ex:LowlevelMultiDimData ;
         sn:structure     fssn:FederalStateDataStructure ;
         sn:supplyLink    ex:438518394ea7a411f2feb651d8149058 , ex:221cbc7ac941ffebff0a59541d837267 .
+
+ex:53373b566844df43d8b3f08fe33bd5eb
+        a            sn:Volume ;
+        sn:quantity  101.0101 ;
+        sn:time      ex:2010 ;
+        sn:unit      cur:MegaUSD .
 
 ex:3c9535946b1c6ec877953ba6b4e57493
         a                  sn:SupplyLink ;
@@ -151,6 +169,15 @@ ex:580c47da275e5dd92e41dada27c7afd5
         sn:inferredFrom  ex:MultiDimData ;
         sn:structure     cosn:ContinentDataStructure ;
         sn:supplyLink    ex:021090091a0b92ee08f2fd68971c0fc1 .
+
+ex:3460a12cecf64e0f04b1653d266cd6ed
+        a                  sn:SupplyLink ;
+        qb:sliceStructure  isn:IndustryContinentSupplyLinkKey ;
+        cosn:export        ex:Asia ;
+        cosn:import        ex:NorthAmerica ;
+        isn:demand         ex:Semiconductor ;
+        isn:supply         ex:Semiconductor ;
+        sn:volume          ex:b2f85f2a045b859c1e76edb3250b89c6 , ex:53373b566844df43d8b3f08fe33bd5eb .
 
 ex:57918d9b954c59a91258e5f5d39d9544
         a            sn:Volume ;
@@ -258,13 +285,31 @@ ex:58e7271dc15e7c5da8c203705ec80edd
         a                sn:SupplyNetwork ;
         sn:inferredFrom  ex:LowlevelMultiDimData ;
         sn:structure     isn:IndustryFederalStateDataStructure ;
-        sn:supplyLink    ex:67cd4fa3d421345c6f25fa78643999dd , ex:354427f3ad957c250961dcddf5c9f155 , ex:78be2ff7724635d70cb6a1d712a520f9 .
+        sn:supplyLink    ex:67cd4fa3d421345c6f25fa78643999dd , ex:5bc6baf8dab2c70411202473ac620839 , ex:053b52dc56118b0c8e4aad80e1317b80 , ex:354427f3ad957c250961dcddf5c9f155 , ex:78be2ff7724635d70cb6a1d712a520f9 .
+
+ex:17cf5008acd108fd41879af1653d53e6
+        a            sn:Volume ;
+        sn:quantity  0.00001 ;
+        sn:time      ex:2009 ;
+        sn:unit      cur:MegaUSD .
+
+ex:b2f85f2a045b859c1e76edb3250b89c6
+        a            sn:Volume ;
+        sn:quantity  10.10101 ;
+        sn:time      ex:2009 ;
+        sn:unit      cur:MegaUSD .
 
 ex:a71553dbaed03cc859a0278423696bcd
         a                sn:SupplyNetwork ;
         sn:inferredFrom  ex:SingleDimData ;
         sn:structure     isn:IndustryContinentDataStructure ;
         sn:supplyLink    ex:6b9108022790f26aa68610008b4567d9 , ex:5116cc1af64311176469b975cd640d02 .
+
+ex:a17910d99c79cb04a2a82e918e88b003
+        a            sn:Volume ;
+        sn:quantity  10.101 ;
+        sn:time      ex:2009 ;
+        sn:unit      cur:MegaUSD .
 
 ex:095924ae7a134d7d1a3da0ec54a25b39
         a            sn:Volume ;
@@ -350,6 +395,12 @@ ex:0ca0083481e2d8d3152ae461ad6e73c0
         sn:time      ex:2010 ;
         sn:unit      cur:MegaUSD .
 
+ex:817957839143fe7ad6dc2d9f05b72cfc
+        a            sn:Volume ;
+        sn:quantity  0.001 ;
+        sn:time      ex:2009 ;
+        sn:unit      cur:MegaUSD .
+
 ex:3b4b860803e0e853ba49b5970259eff3
         a                  sn:SupplyLink ;
         qb:sliceStructure  isn:IndustryCountrySupplyLinkKey ;
@@ -359,9 +410,9 @@ ex:3b4b860803e0e853ba49b5970259eff3
         isn:supply         ex:Foundry ;
         sn:volume          ex:2c6c39e3d7c3e51d4c9f4c4b70e0033f , ex:81a11c5477c0e88cd76d739dddb9db60 .
 
-ex:817957839143fe7ad6dc2d9f05b72cfc
+ex:7237832a1f7844cba0f3d9f1d41e10d8
         a            sn:Volume ;
-        sn:quantity  0.001 ;
+        sn:quantity  0.00001 ;
         sn:time      ex:2009 ;
         sn:unit      cur:MegaUSD .
 
@@ -407,16 +458,16 @@ ex:87b9d119bcb6cea89c806798bb0f93af
         sn:time      ex:2010 ;
         sn:unit      cur:MegaUSD .
 
-ex:a93b098e4068bf427ddf7990b7f454dc
-        a            sn:Volume ;
-        sn:quantity  101.0101 , 1.0101 ;
-        sn:time      ex:2010 ;
-        sn:unit      cur:MegaUSD .
-
 ex:d2f5540a0dfdb3a230814483c2f829a0
         a            sn:Volume ;
         sn:quantity  0.1 ;
         sn:time      ex:2009 ;
+        sn:unit      cur:MegaUSD .
+
+ex:a93b098e4068bf427ddf7990b7f454dc
+        a            sn:Volume ;
+        sn:quantity  101.0101 , 1.0101 ;
+        sn:time      ex:2010 ;
         sn:unit      cur:MegaUSD .
 
 ex:AMD  a           esn:Enterprise ;
@@ -465,14 +516,14 @@ ex:60e5f27534a2a1b87b9c322056fda6df
         sn:time      ex:2009 ;
         sn:unit      cur:MegaUSD .
 
-ex:GPU  a           ptsn:ProductType ;
-        rdfs:label  "GPU"@en , "Graphics processing unit"@en .
-
 ex:1e3b42f2431794b3abbdd612346f663f
         a                sn:SupplyNetwork ;
         sn:inferredFrom  ex:MultiDimData ;
         sn:structure     isn:IndustryContinentDataStructure ;
         sn:supplyLink    ex:56aa33122b20c6fa2973278cf7f6c8c9 .
+
+ex:GPU  a           ptsn:ProductType ;
+        rdfs:label  "GPU"@en , "Graphics processing unit"@en .
 
 ex:51fc8df4389f8d3440425dcc2c813fb8
         a            sn:Volume ;
@@ -487,7 +538,7 @@ ex:ff87b5445094b6bb4adb60ce88be5f22
         a                sn:SupplyNetwork ;
         sn:inferredFrom  ex:LowlevelMultiDimData ;
         sn:structure     isn:IndustryCountryDataStructure ;
-        sn:supplyLink    ex:46e907712e808bd107cf93f79bb0cf19 , ex:3b4b860803e0e853ba49b5970259eff3 , ex:67b459dbc347454e15473f0842f96132 .
+        sn:supplyLink    ex:dc3e56b30c5c4cebdd3ded7c39052d55 , ex:46e907712e808bd107cf93f79bb0cf19 , ex:1afe1307730ae0954cde88fa014253e6 , ex:3b4b860803e0e853ba49b5970259eff3 , ex:67b459dbc347454e15473f0842f96132 .
 
 ex:2c6c39e3d7c3e51d4c9f4c4b70e0033f
         a            sn:Volume ;
@@ -545,7 +596,7 @@ ex:0ce2bef6021f63a652f2f2483fe6b8d4
         a                sn:SupplyNetwork ;
         sn:inferredFrom  ex:LowlevelMultiDimData ;
         sn:structure     isn:IndustryContinentDataStructure ;
-        sn:supplyLink    ex:6b9108022790f26aa68610008b4567d9 , ex:5116cc1af64311176469b975cd640d02 .
+        sn:supplyLink    ex:3460a12cecf64e0f04b1653d266cd6ed , ex:6b9108022790f26aa68610008b4567d9 , ex:5116cc1af64311176469b975cd640d02 .
 
 ex:021090091a0b92ee08f2fd68971c0fc1
         a                  sn:SupplyLink ;
@@ -573,6 +624,12 @@ ex:USA  a           csn:Country ;
 ex:Europe  a        cosn:Continent ;
         rdfs:label  "Europe"@en .
 
+ex:17a48202aade2bccb41c705923478650
+        a            sn:Volume ;
+        sn:quantity  10.101 ;
+        sn:time      ex:2009 ;
+        sn:unit      cur:MegaUSD .
+
 ex:4643c93f784a8f5f73cc8ed3ff9cf731
         a            sn:Volume ;
         sn:quantity  10.1 , 0.1 ;
@@ -585,15 +642,15 @@ ex:313c92fb1634bb0fee2bb290774a1e61
         sn:time      ex:2010 ;
         sn:unit      cur:MegaUSD .
 
-ex:097c622c738768fa920c9e575433b3a6
-        a            sn:Volume ;
-        sn:quantity  0.00001 ;
-        sn:time      ex:2009 ;
-        sn:unit      cur:MegaUSD .
-
 ex:9a38f3164abf44c2f817f3b1f38e61e9
         a            sn:Volume ;
         sn:quantity  0.1 , 10.1 ;
+        sn:time      ex:2009 ;
+        sn:unit      cur:MegaUSD .
+
+ex:097c622c738768fa920c9e575433b3a6
+        a            sn:Volume ;
+        sn:quantity  0.00001 ;
         sn:time      ex:2009 ;
         sn:unit      cur:MegaUSD .
 
@@ -661,15 +718,27 @@ ex:126591e241dd6fa5be096dd253eb01cd
         ptsn:outcome       ex:CPU ;
         sn:volume          ex:ee994ad6ae50fa31e597af335b0725d2 , ex:29918663faf9ffd71c5fe8411f36a09a .
 
-ex:115681f976d9d801ac40413003734aa3
+ex:df04f86c49d8d64677f55a5abd110624
         a            sn:Volume ;
-        sn:quantity  1.0 ;
+        sn:quantity  0.0001 ;
         sn:time      ex:2010 ;
         sn:unit      cur:MegaUSD .
 
 ex:19e10af6e08f6989e331eeb81c313b1f
         a            sn:Volume ;
         sn:quantity  1.0 , 101.0 ;
+        sn:time      ex:2010 ;
+        sn:unit      cur:MegaUSD .
+
+ex:654ecba88079119ade26c1f4bdf3281f
+        a            sn:Volume ;
+        sn:quantity  101.01 ;
+        sn:time      ex:2010 ;
+        sn:unit      cur:MegaUSD .
+
+ex:115681f976d9d801ac40413003734aa3
+        a            sn:Volume ;
+        sn:quantity  1.0 ;
         sn:time      ex:2010 ;
         sn:unit      cur:MegaUSD .
 
@@ -779,6 +848,15 @@ ex:1397b54083208a98d581cfef3bdcedf6
         csn:import         ex:DE ;
         sn:volume          ex:87b9d119bcb6cea89c806798bb0f93af , ex:3a03bc973572fb7dd51a5d390589f818 .
 
+ex:1afe1307730ae0954cde88fa014253e6
+        a                  sn:SupplyLink ;
+        qb:sliceStructure  isn:IndustryCountrySupplyLinkKey ;
+        csn:export         ex:China ;
+        csn:import         ex:USA ;
+        isn:demand         ex:Semiconductor ;
+        isn:supply         ex:Semiconductor ;
+        sn:volume          ex:17cf5008acd108fd41879af1653d53e6 , ex:8fad5db3145e66b972967caabf07c9c5 .
+
 ex:a9c0df86dc9f31e88e2ed7c444dd9574
         a                  sn:SupplyLink ;
         qb:sliceStructure  esn:EnterpriseSupplyLinkKey ;
@@ -791,6 +869,15 @@ ex:14b81c5de89b92985e49db9652727665
         sn:quantity  0.01 ;
         sn:time      ex:2010 ;
         sn:unit      cur:MegaUSD .
+
+ex:5bc6baf8dab2c70411202473ac620839
+        a                  sn:SupplyLink ;
+        qb:sliceStructure  isn:IndustryFederalStateSupplyLinkKey ;
+        fssn:export        ex:HSZ ;
+        fssn:import        ex:California ;
+        isn:demand         ex:Semiconductor ;
+        isn:supply         ex:Semiconductor ;
+        sn:volume          ex:654ecba88079119ade26c1f4bdf3281f , ex:a17910d99c79cb04a2a82e918e88b003 .
 
 ex:29918663faf9ffd71c5fe8411f36a09a
         a            sn:Volume ;
@@ -842,6 +929,15 @@ ex:cbc88217879e29001f63f1b905aac8c1
         sn:quantity  0.00001 ;
         sn:time      ex:2009 ;
         sn:unit      cur:MegaUSD .
+
+ex:dc3e56b30c5c4cebdd3ded7c39052d55
+        a                  sn:SupplyLink ;
+        qb:sliceStructure  isn:IndustryCountrySupplyLinkKey ;
+        csn:export         ex:Taiwan ;
+        csn:import         ex:USA ;
+        isn:demand         ex:Semiconductor ;
+        isn:supply         ex:Semiconductor ;
+        sn:volume          ex:17a48202aade2bccb41c705923478650 , ex:216e55bc16f5d9ae9ecdd3c7c40b6727 .
 
 ex:04fcb1e92505c0c75126336ca689c3cb
         a            sn:Volume ;
@@ -960,6 +1056,15 @@ ex:5d3b8aecc6842343162e4df786b81395
         sn:quantity  0.01 ;
         sn:time      ex:2010 ;
         sn:unit      cur:MegaUSD .
+
+ex:053b52dc56118b0c8e4aad80e1317b80
+        a                  sn:SupplyLink ;
+        qb:sliceStructure  isn:IndustryFederalStateSupplyLinkKey ;
+        fssn:export        ex:Shanghai ;
+        fssn:import        ex:California ;
+        isn:demand         ex:Semiconductor ;
+        isn:supply         ex:Semiconductor ;
+        sn:volume          ex:df04f86c49d8d64677f55a5abd110624 , ex:7237832a1f7844cba0f3d9f1d41e10d8 .
 
 ex:5124ebc927224a669e8a2476c8aaedc2
         a                  sn:SupplyLink ;
