@@ -305,7 +305,7 @@ ptsn:ProductTypeSupplyLinkKey a sn:SupplyLinkKey ;
     qb:componentProperty ptsn:component , ptsn:outcome .
 
 ptsn:ProductTypeEnterpriseDataStructure a qb:DataStructureDefinition ;
-        sn:higherAbstractionLevel esn:EnterpriseDataStructure , ptsn:ProductTypeDataStructure , isn:IndustryDataStructure , fssn:FederalStateDataStructure , csn:CountryDataStructure , cosn:ContinentDataStructure , isn:IndustryFederalStateDataStructure , isn:IndustryCountryDataStructure , isn:IndustryContinentDataStructure ;
+        sn:higherAbstractionLevel esn:EnterpriseDataStructure , ptsn:ProductTypeDataStructure , isn:IndustryDataStructure , fssn:FederalStateDataStructure , csn:CountryDataStructure , cosn:ContinentDataStructure , isn:IndustryFederalStateDataStructure , isn:IndustryCountryDataStructure , isn:IndustryContinentDataStructure , ptsn:ProductTypeFederalStateDataStructure , ptsn:ProductTypeCountryDataStructure , ptsn:ProductTypeContinentDataStructure ;
         qb:component [ qb:dimension ptsn:component ;
                 qb:componentAttachment sn:SupplyLink ] ,
                 [ qb:dimension ptsn:outcome ;
@@ -521,7 +521,7 @@ ex:SMICAMD a sn:SupplyLink ;
 # example data of multi-dimensional supply network on lower level
 ex:LowlevelMultiDimData a sn:SupplyNetwork ;
         sn:structure ptsn:ProductTypeEnterpriseDataStructure ;
-        sn:supplyLink ex:AT11ss1AT11ss2 , ex:AT11ss1DE11ss2 .
+        sn:supplyLink ex:FoundryServiceTSMCCPUIntel , ex:FoundryServiceTSMCGPUIntel , ex:FoundryServiceTSMCGPUAMD , ex:FoundryServiceSMICCPUAMD .
 ex:FoundryService a ptsn:ProductType ;
         ptsn:industry ex:Semiconductor ;
         rdfs:label "Chip"@en .
