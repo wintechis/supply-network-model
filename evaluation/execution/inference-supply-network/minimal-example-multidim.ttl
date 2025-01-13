@@ -2,6 +2,7 @@
 @prefix cur:   <http://qudt.org/vocab/currency/> .
 @prefix esn:   <https://example.org/esn/vocab#> .
 @prefix isn:   <https://example.org/isn/vocab#> .
+@prefix ptsn:   <https://example.org/ptsn/vocab#> .
 @prefix fssn:   <https://example.org/fssn/vocab#> .
 @prefix cosn:   <https://example.org/cosn/vocab#> .
 @prefix owl:   <http://www.w3.org/2002/07/owl#> .
@@ -275,6 +276,103 @@ esn:EnterpriseSupplyLinkKey a sn:SupplyLinkKey ;
     qb:componentProperty esn:supplier , esn:customer .
 
 
+# ptsn ontology
+ptsn:ProductType rdfs:subClassOf sn:Entity .
+ptsn:component a owl:FunctionalProperty , qb:DimensionProperty ;
+        rdfs:subPropertyOf sn:from ;
+        rdfs:domain sn:SupplyLink ;
+        rdfs:range ptsn:ProductType .
+ptsn:outcome a owl:FunctionalProperty , qb:DimensionProperty ;
+        rdfs:subPropertyOf sn:into ;
+        rdfs:domain sn:SupplyLink ;
+        rdfs:range ptsn:ProductType .
+ptsn:industry rdfs:subPropertyOf sn:associatedEntity ;
+        rdfs:domain ptsn:ProductType ;
+        rdfs:range isn:Industry .
+
+ptsn:ProductTypeDataStructure a qb:DataStructureDefinition ;
+        sn:similarAbstractionLevel esn:EnterpriseDataStructure , fssn:FederalStateDataStructure , csn:CountryDataStructure , cosn:ContinentDataStructure ;
+        sn:higherAbstractionLevel isn:IndustryDataStructure ;
+        qb:component [ qb:dimension ptsn:component ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension ptsn:outcome ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension sn:time ] ,
+                [ qb:measure sn:quantity] ,
+                [ qb:attribute sn:unit] ;
+        qb:sliceKey ptsn:ProductTypeSupplyLinkKey .
+ptsn:ProductTypeSupplyLinkKey a sn:SupplyLinkKey ;
+    qb:componentProperty ptsn:component , ptsn:outcome .
+
+ptsn:ProductTypeEnterpriseDataStructure a qb:DataStructureDefinition ;
+        sn:higherAbstractionLevel esn:EnterpriseDataStructure , ptsn:ProductTypeDataStructure , isn:IndustryDataStructure , fssn:FederalStateDataStructure , csn:CountryDataStructure , cosn:ContinentDataStructure , isn:IndustryFederalStateDataStructure , isn:IndustryCountryDataStructure , isn:IndustryContinentDataStructure ;
+        qb:component [ qb:dimension ptsn:component ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension ptsn:outcome ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension esn:supplier ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension esn:customer ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension sn:time ] ,
+                [ qb:measure sn:quantity] ,
+                [ qb:attribute sn:unit] ;
+        qb:sliceKey ptsn:ProductTypeEnterpriseSupplyLinkKey .   
+ptsn:ProductTypeEnterpriseSupplyLinkKey a sn:SupplyLinkKey ;
+    qb:componentProperty esn:supplier , esn:customer , ptsn:component , ptsn:outcome .
+
+ptsn:ProductTypeFederalStateDataStructure a qb:DataStructureDefinition ;
+        sn:higherAbstractionLevel ptsn:ProductTypeDataStructure , isn:IndustryDataStructure , fssn:FederalStateDataStructure , csn:CountryDataStructure , cosn:ContinentDataStructure , isn:IndustryCountryDataStructure , isn:IndustryContinentDataStructure , ptsn:ProductTypeCountryDataStructure , ptsn:ProductTypeContinentDataStructure ;
+        qb:component [ qb:dimension ptsn:component ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension ptsn:outcome ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension fssn:export ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension fssn:import  ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension sn:time ] ,
+                [ qb:measure sn:quantity] ,
+                [ qb:attribute sn:unit] ;
+        qb:sliceKey ptsn:ProductTypeFederalStateSupplyLinkKey .   
+ptsn:ProductTypeFederalStateSupplyLinkKey a sn:SupplyLinkKey ;
+    qb:componentProperty fssn:export , fssn:import , ptsn:component , ptsn:outcome .
+
+ptsn:ProductTypeCountryDataStructure a qb:DataStructureDefinition ;
+        sn:higherAbstractionLevel ptsn:ProductTypeDataStructure , isn:IndustryDataStructure , csn:CountryDataStructure , cosn:ContinentDataStructure , isn:IndustryContinentDataStructure , ptsn:ProductTypeContinentDataStructure ;
+        qb:component [ qb:dimension ptsn:component ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension ptsn:outcome ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension csn:export ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension csn:import  ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension sn:time ] ,
+                [ qb:measure sn:quantity] ,
+                [ qb:attribute sn:unit] ;
+        qb:sliceKey ptsn:ProductTypeCountrySupplyLinkKey .   
+ptsn:ProductTypeCountrySupplyLinkKey a sn:SupplyLinkKey ;
+    qb:componentProperty csn:export , csn:import , ptsn:component , ptsn:outcome .
+
+ptsn:ProductTypeContinentDataStructure a qb:DataStructureDefinition ;
+        sn:higherAbstractionLevel ptsn:ProductTypeDataStructure , isn:IndustryDataStructure , cosn:ContinentDataStructure ;
+        qb:component [ qb:dimension ptsn:component ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension ptsn:outcome ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension cosn:export ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension cosn:import  ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension sn:time ] ,
+                [ qb:measure sn:quantity] ,
+                [ qb:attribute sn:unit] ;
+        qb:sliceKey ptsn:ProductTypeContinentSupplyLinkKey .   
+ptsn:ProductTypeContinentSupplyLinkKey a sn:SupplyLinkKey ;
+    qb:componentProperty cosn:export , cosn:import , ptsn:component , ptsn:outcome .
+
+
 # example data of multi-dimensional supply network
 ex:MultiDimData a sn:SupplyNetwork ;
         sn:structure isn:IndustryFederalStateDataStructure ;
@@ -418,3 +516,81 @@ ex:SMICAMD a sn:SupplyLink ;
                 sn:time ex:2009 ;
                 sn:quantity  0.00001 ;
                 sn:unit cur:MegaUSD ] .
+
+
+# example data of multi-dimensional supply network on lower level
+ex:LowlevelMultiDimData a sn:SupplyNetwork ;
+        sn:structure ptsn:ProductTypeEnterpriseDataStructure ;
+        sn:supplyLink ex:AT11ss1AT11ss2 , ex:AT11ss1DE11ss2 .
+ex:FoundryService a ptsn:ProductType ;
+        ptsn:industry ex:Semiconductor ;
+        rdfs:label "Chip"@en .
+ex:Semiconductor a isn:Industry ;
+        rdfs:label "Semiconductor"@en .
+ex:CPU a ptsn:ProductType ;
+        ptsn:industry ex:Semiconductor ;
+        rdfs:label "CPU"@en , "Central processing unit"@en .
+ex:GPU a ptsn:ProductType ;
+        ptsn:industry ex:Semiconductor ;
+        rdfs:label "GPU"@en , "Graphics processing unit"@en .
+
+ex:FoundryServiceTSMCCPUIntel a sn:SupplyLink ;
+        sn:supplyLinkKey ptsn:ProductTypeEnterpriseSupplyLinkKey ;
+        ptsn:component ex:FoundryService ;
+        esn:supplier ex:TSMC ;
+        ptsn:outcome ex:CPU ;
+        esn:customer ex:Intel ;
+        sn:volume [ a sn:Volume ;
+                sn:time ex:2010 ;
+                sn:quantity  100.0 ;
+                sn:unit cur:MegaUSD ] ,
+                [ a sn:Volume ;
+                sn:time ex:2009 ;
+                sn:quantity  10.0 ;
+                sn:unit cur:MegaUSD ] .
+
+ex:FoundryServiceTSMCGPUIntel a sn:SupplyLink ;
+        sn:supplyLinkKey ptsn:ProductTypeEnterpriseSupplyLinkKey ;
+        ptsn:component ex:FoundryService ;
+        esn:supplier ex:TSMC ;
+        ptsn:outcome ex:GPU ;
+        esn:customer ex:Intel ;
+        sn:volume [ a sn:Volume ;
+                sn:time ex:2010 ;
+                sn:quantity  1.0 ;
+                sn:unit cur:MegaUSD ] ,
+                [ a sn:Volume ;
+                sn:time ex:2009 ;
+                sn:quantity  0.1 ;
+                sn:unit cur:MegaUSD ] .
+
+ex:FoundryServiceTSMCGPUAMD a sn:SupplyLink ;
+        sn:supplyLinkKey ptsn:ProductTypeEnterpriseSupplyLinkKey ;
+        ptsn:component ex:FoundryService ;
+        esn:supplier ex:TSMC ;
+        ptsn:outcome ex:GPU ;
+        esn:customer ex:AMD ;
+        sn:volume [ a sn:Volume ;
+                sn:time ex:2010 ;
+                sn:quantity  0.01 ;
+                sn:unit cur:MegaUSD ] ,
+                [ a sn:Volume ;
+                sn:time ex:2009 ;
+                sn:quantity  0.001 ;
+                sn:unit cur:MegaUSD ] .
+
+ex:FoundryServiceSMICCPUAMD a sn:SupplyLink ;
+        sn:supplyLinkKey ptsn:ProductTypeEnterpriseSupplyLinkKey ;
+        ptsn:component ex:FoundryService ;
+        esn:supplier ex:SMIC ;
+        ptsn:outcome ex:CPU ;
+        esn:customer ex:AMD ;
+        sn:volume [ a sn:Volume ;
+                sn:time ex:2010 ;
+                sn:quantity  0.0001 ;
+                sn:unit cur:MegaUSD ] ,
+                [ a sn:Volume ;
+                sn:time ex:2009 ;
+                sn:quantity  0.00001 ;
+                sn:unit cur:MegaUSD ] .
+                
