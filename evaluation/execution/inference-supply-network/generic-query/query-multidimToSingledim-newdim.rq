@@ -59,8 +59,6 @@ CONSTRUCT {
 
             # identify source dimensions in tbox
             ?multidim_supplyNetworkStructure a qb:DataStructureDefinition ;
-                qb:component/qb:dimension ?dimA_from_property ;
-                qb:component/qb:dimension ?dimA_into_property ;
                 qb:component/qb:dimension ?dimB_from_property ;
                 qb:component/qb:dimension ?dimB_into_property ;
                 qb:sliceKey ?multidim_supplyLinkKey .
@@ -77,8 +75,6 @@ CONSTRUCT {
             ?target_supplyLinkKey a sn:SupplyLinkKey ;
                 qb:componentProperty ?from_property , ?into_property .
             ?target_supplyNetworkStructure a qb:DataStructureDefinition ;
-                qb:component/qb:dimension ?from_property ;
-                qb:component/qb:dimension ?into_property ;
                 qb:sliceKey ?target_supplyLinkKey .
             ?from_property rdfs:subPropertyOf sn:from .
             ?into_property rdfs:subPropertyOf sn:into .

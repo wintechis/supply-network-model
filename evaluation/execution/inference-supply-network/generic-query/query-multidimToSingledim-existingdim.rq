@@ -5,31 +5,37 @@ PREFIX qb:    <http://purl.org/linked-data/cube#>
 
 CONSTRUCT {
     # resulting supply network
-    ?singledim_supplyNetwork a sn:SupplyNetwork ;
-        sn:structure ?singledim_supplyNetworkStructure ;
-        sn:supplyLink ?dimA_supplylink .
+    ?target_supplyNetwork a sn:SupplyNetwork ;
+        sn:structure ?target_supplyNetworkStructure ;
+        sn:supplyLink ?target_supplylink .
 
     # resulting entities
-    ?dimA_from_entity a ?dimA_class ;
-        rdfs:label ?dimA_from_entity_label ;
-        ?associatedEntity_property ?associatedEntity_from_entity .
-    ?dimA_into_entity a ?dimA_class ;
-        rdfs:label ?dimA_into_entity_label ;
-        ?associatedEntity_property ?associatedEntity_into_entity .
+    ?target_from_entity a ?target_class ;
+        rdfs:label ?target_from_entitylabel .
+        # ?associatedEntity_property ?associatedEntity_from_entity .
+    ?target_into_entity a ?target_class ;
+        rdfs:label ?target_into_entitylabel .
+        # ?associatedEntity_property ?associatedEntity_into_entity .
 
     # resulting supply links
-    ?dimA_supplylink a sn:SupplyLink ;
-        qb:sliceStructure ?singledim_supplyLinkKey ;
-        ?dimA_from_property ?dimA_from_entity ;
-        ?dimA_into_property ?dimA_into_entity ;
-        sn:volume ?dimA_volume .
-    ?dimA_volume a sn:Volume ;
+    ?target_supplylink a sn:SupplyLink ;
+        qb:sliceStructure ?target_supplyLinkKey ;
+        ?target_from_property ?target_from_entity ;
+        ?target_into_property ?target_into_entity ;
+        sn:volume ?target_volume .
+
+    # resulting volumes
+    ?target_volume a sn:Volume ;
         sn:time ?time ;
         sn:unit ?unit ;
         sn:quantity ?aggregatedQuantity .
 } WHERE {
     {
-        SELECT ?associatedEntity_property ?associatedEntity_from_entity ?associatedEntity_into_entity ?singledim_supplyNetwork ?dimA_supplylink ?dimA_volume ?dimA_from_entity ?dimA_from_entity_label ?dimA_into_entity ?dimA_into_entity_label ?dimA_from_property ?dimA_into_property ?dimA_class ?singledim_supplyLinkKey ?singledim_supplyNetworkStructure ?time ?unit (SUM(?quantity) AS ?aggregatedQuantity)
+        SELECT  ?target_supplyNetwork ?target_supplylink ?target_volume
+        # ?associatedEntity_property ?associatedEntity_from_entity ?associatedEntity_into_entity
+        ?target_from_entity ?target_from_entitylabel ?target_into_entity ?target_into_entitylabel
+        ?target_from_property ?target_into_property ?target_class ?target_supplyLinkKey ?target_supplyNetworkStructure
+        ?time ?unit (SUM(?quantity) AS ?aggregatedQuantity)
         WHERE {
             # identify supply network
             ?multidim_supplyNetwork a sn:SupplyNetwork ;
@@ -51,13 +57,13 @@ CONSTRUCT {
             FILTER (?dimA_into_property != ?dimB_into_property)
             ?multidim_supplyLinkKey a sn:SupplyLinkKey ;
                 qb:componentProperty ?dimA_from_property , ?dimA_into_property , ?dimB_from_property , ?dimB_into_property .
-            ?singledim_supplyLinkKey a sn:SupplyLinkKey ;
+            ?target_supplyLinkKey a sn:SupplyLinkKey ;
                 qb:componentProperty ?dimA_from_property , ?dimA_into_property .
-            ?singledim_supplyNetworkStructure a qb:DataStructureDefinition ;
+            ?target_supplyNetworkStructure a qb:DataStructureDefinition ;
                 qb:component/qb:dimension ?dimA_from_property ;
                 qb:component/qb:dimension ?dimA_into_property ;
-                qb:sliceKey ?singledim_supplyLinkKey .
-            FILTER NOT EXISTS { ?singledim_supplyNetworkStructure qb:component/qb:dimension ?dim . FILTER (?dim NOT IN (?dimA_from_property, ?dimA_into_property, sn:time))}
+                qb:sliceKey ?target_supplyLinkKey .
+            FILTER NOT EXISTS { ?target_supplyNetworkStructure qb:component/qb:dimension ?dim . FILTER (?dim NOT IN (?dimA_from_property, ?dimA_into_property, sn:time))}
 
             # identify the entities for all dimensions in abox
             ?supplylink a sn:SupplyLink ;
@@ -67,21 +73,28 @@ CONSTRUCT {
                 ?dimB_into_property ?dimB_into_entity ;
                 sn:supplyLinkKey ?multidim_supplyLinkKey ;
                 sn:volume ?volume .
-            ?dimA_from_entity a ?dimA_class ;
-                rdfs:label ?dimA_from_entity_label .
-            ?dimA_into_entity a ?dimA_class ;
-                rdfs:label ?dimA_into_entity_label .
-            OPTIONAL {
-                ?dimA_from_entity ?associatedEntity_property ?associatedEntity_from_entity .
-                ?dimA_into_entity ?associatedEntity_property ?associatedEntity_into_entity .
-                ?associatedEntity_property rdfs:subPropertyOf sn:associatedEntity .
-            }
+            BIND (?dimA_from_property AS ?target_from_property) .
+            BIND (?dimA_into_property AS ?target_into_property) .
+            ?dimA_from_entity a ?dimA_class .
+            ?dimA_into_entity a ?dimA_class .
+            BIND (?dimA_from_entity AS ?target_from_entity) .
+            BIND (?dimA_into_entity AS ?target_into_entity) .
+            ?target_from_entity a ?target_class ;
+                rdfs:label ?target_from_entitylabel .
+            ?target_into_entity a ?target_class ;
+                    rdfs:label ?target_into_entitylabel .
+            # OPTIONAL {
+            #     ?dimA_from_entity ?associatedEntity_property ?associatedEntity_from_entity .
+            #     ?dimA_into_entity ?associatedEntity_property ?associatedEntity_into_entity .
+            #     ?associatedEntity_property rdfs:subPropertyOf sn:associatedEntity .
+            # }
             ?dimB_from_entity a ?dimB_class .
             ?dimB_into_entity a ?dimB_class .
 
             # varify classes in tbox
             ?dimA_class rdfs:subClassOf sn:Entity .
             ?dimB_class rdfs:subClassOf sn:Entity .
+            ?target_class rdfs:subClassOf sn:Entity .
 
             # identify volumes in abox
             ?volume a sn:Volume ;
@@ -90,11 +103,14 @@ CONSTRUCT {
                 sn:quantity ?quantity .
 
             # coin uris
-            BIND(IRI(CONCAT("https://www.example.org/",MD5(CONCAT(STR(?multidim_supplyNetwork),STR(?singledim_supplyNetworkStructure))))) AS ?singledim_supplyNetwork) .
-            BIND(IRI(CONCAT("https://www.example.org/",MD5(CONCAT(STR(?dimA_from_entity),STR(?dimA_into_entity))))) AS ?dimA_supplylink) .
-            BIND(IRI(CONCAT("https://www.example.org/",MD5(CONCAT(STR(?dimA_supplylink),STR(?time),STR(?unit))))) AS ?dimA_volume) .
-
+            BIND(IRI(CONCAT("https://www.example.org/",MD5(CONCAT(STR(?multidim_supplyNetwork),STR(?target_supplyNetworkStructure))))) AS ?target_supplyNetwork) .
+            BIND(IRI(CONCAT("https://www.example.org/",MD5(CONCAT(STR(?target_from_entity),STR(?target_into_entity))))) AS ?target_supplylink) .
+            BIND(IRI(CONCAT("https://www.example.org/",MD5(CONCAT(STR(?target_supplylink),STR(?time),STR(?unit))))) AS ?target_volume) .
         }
-        GROUP BY ?associatedEntity_property ?associatedEntity_from_entity ?associatedEntity_into_entity ?singledim_supplyNetwork ?dimA_supplylink ?dimA_volume ?dimA_from_entity ?dimA_from_entity_label ?dimA_into_entity ?dimA_into_entity_label ?dimA_from_property ?dimA_into_property ?dimA_class ?singledim_supplyLinkKey ?singledim_supplyNetworkStructure ?time ?unit 
+        GROUP BY ?target_supplyNetwork ?target_supplylink ?target_volume
+        # ?associatedEntity_property ?associatedEntity_from_entity ?associatedEntity_into_entity
+        ?target_from_entity ?target_from_entitylabel ?target_into_entity ?target_into_entitylabel
+        ?target_from_property ?target_into_property ?target_class ?target_supplyLinkKey ?target_supplyNetworkStructure
+        ?time ?unit
     }
 }
