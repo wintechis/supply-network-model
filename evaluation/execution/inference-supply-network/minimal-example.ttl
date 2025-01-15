@@ -40,7 +40,7 @@ sn:SupplyNetworkDataStructure a qb:DataStructureDefinition ;
                 [ qb:dimension sn:time ] ,
                 [ qb:measure sn:quantity] ,
                 [ qb:attribute sn:unit] ;
-        qb:sliceKey sn:SNSupplyLink .
+        qb:sliceKey sn:SupplyNetworkSupplyLink .
 sn:higherAbstractionLevel a owl:TransitiveProperty ;
         rdfs:domain qb:DataStructureDefinition ;
         rdfs:range qb:DataStructureDefinition .
@@ -56,12 +56,12 @@ sn:supplyLinkKey rdfs:subPropertyOf qb:sliceStructure ;
         rdfs:domain sn:SupplyLink ;
         rdfs:range sn:SupplyLinkKey .
 sn:SupplyLinkKey rdfs:subClassOf qb:SliceKey .
-sn:SNSupplyLink a sn:SupplyLinkKey ;
+sn:SupplyNetworkSupplyLink a sn:SupplyLinkKey ;
     qb:componentProperty sn:from , sn:into .
-sn:from a owl:FunctionalProperty , qb:DimensionProperty ;
+sn:from a qb:DimensionProperty ;
         rdfs:domain sn:SupplyLink ;
         rdfs:range sn:Entity .
-sn:into a owl:FunctionalProperty , qb:DimensionProperty ;
+sn:into a qb:DimensionProperty ;
         rdfs:domain sn:SupplyLink ;
         rdfs:range sn:Entity .
 
