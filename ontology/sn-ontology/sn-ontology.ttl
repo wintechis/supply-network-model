@@ -14,6 +14,88 @@
 @prefix unit: <http://qudt.org/vocab/unit/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+# sn ontology
+sn:Entity a owl:Class .
+sn:associatedEntity a owl:SymmetricProperty ;
+        rdfs:domain sn:Entity ;
+        rdfs:range sn:Entity .
+
+sn:SupplyNetwork rdfs:subClassOf qb:DataSet .
+sn:inferredFrom a owl:ObjectProperty ;
+        rdfs:domain sn:SupplyNetwork ;
+        rdfs:range qb:SupplyNetwork .
+sn:Abstraction rdfs:subClassOf qb:DataStructureDefinition , skos:Concept .
+sn:structure rdfs:subPropertyOf qb:structure ;
+        rdfs:domain sn:SupplyNetwork ;
+        rdfs:range sn:Abstraction .
+sn:SupplyNetworkDataStructure a sn:Abstraction ;
+        qb:component [ qb:dimension sn:from ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension sn:into ;
+                qb:componentAttachment sn:SupplyLink ] ,
+                [ qb:dimension sn:time ] ,
+                [ qb:measure sn:quantity] ,
+                [ qb:attribute sn:unit] ;
+        sn:supplyLinkKey sn:SupplyNetworkSupplyLink .
+sn:supplyLinkKey rdfs:subPropertyOf qb:sliceKey ;
+        rdfs:domain sn:Abstraction ;
+        rdfs:range sn:SupplyLinkKey .
+sn:higherAbstractionLevel a owl:TransitiveProperty ;
+        rdfs:domain sn:Abstraction ;
+        rdfs:range sn:Abstraction .
+sn:similarAbstractionLevel a owl:SymmetricProperty ;
+        rdfs:domain sn:Abstraction ;
+        rdfs:range sn:Abstraction .
+
+sn:supplyLink rdfs:subPropertyOf qb:slice ;
+        rdfs:domain sn:SupplyNetwork ;
+        rdfs:range sn:SupplyLink .
+sn:SupplyLink rdfs:subClassOf qb:Slice .
+sn:supplyLinkKey rdfs:subPropertyOf qb:sliceStructure ;
+        rdfs:domain sn:SupplyLink ;
+        rdfs:range sn:SupplyLinkKey .
+sn:SupplyLinkKey rdfs:subClassOf qb:SliceKey .
+sn:SupplyNetworkSupplyLink a sn:SupplyLinkKey ;
+    qb:componentProperty sn:from , sn:into .
+sn:from a qb:DimensionProperty ;
+        rdfs:domain sn:SupplyLink ;
+        rdfs:range sn:Entity .
+sn:into a qb:DimensionProperty ;
+        rdfs:domain sn:SupplyLink ;
+        rdfs:range sn:Entity .
+
+sn:volume rdfs:subPropertyOf qb:observation ;
+        rdfs:domain sn:SupplyLink ;
+        rdfs:range sn:Volume .
+sn:Volume rdfs:subClassOf qb:Observation .
+sn:time a owl:FunctionalProperty , qb:DimensionProperty ;
+        rdfs:domain sn:Volume ;
+        rdfs:range sn:TemporalEntity .
+sn:quantity a owl:FunctionalProperty , qb:MeasureProperty ;
+        rdfs:domain sn:Volume ;
+        rdfs:range xsd:decimal .
+sn:unit a owl:FunctionalProperty , qb:AttributeProperty ;
+        rdfs:domain sn:Volume ;
+        rdfs:range qudt:Unit .
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # --- classes ---
     

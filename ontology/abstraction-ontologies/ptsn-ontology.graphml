@@ -28,10 +28,10 @@
     <node id="n1">
       <data key="d6">
         <y:ShapeNode>
-          <y:Geometry height="44.0" width="210.84822102864592" x="435.1415108452994" y="421.69593967517017"/>
+          <y:Geometry height="44.0" width="146.4082210286461" x="467.3615108452992" y="421.69593967517017"/>
           <y:Fill color="#FFFF00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="16" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="23.6015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="191.65625" x="9.595985514322933" xml:space="preserve" y="10.19921875">qb:DataStructureDefinition</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="16" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="23.6015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="105.3828125" x="20.51270426432302" xml:space="preserve" y="10.19921875">sn:Abstraction</y:NodeLabel>
           <y:Shape type="roundrectangle"/>
         </y:ShapeNode>
       </data>
@@ -75,7 +75,7 @@
           <y:Geometry height="44.0" width="126.09496821071735" x="1314.9272559924957" y="421.69593967517017"/>
           <y:Fill color="#FFFF00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="16" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="23.6015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="103.6171875" x="11.238890355358649" xml:space="preserve" y="10.19921875">sn:SupplyLink</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="16" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="23.6015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="103.6171875" x="11.238890355358762" xml:space="preserve" y="10.19921875">sn:SupplyLink</y:NodeLabel>
           <y:Shape type="roundrectangle"/>
         </y:ShapeNode>
       </data>
@@ -227,7 +227,7 @@
           <y:Geometry height="74.65893271461721" width="240.3120435967303" x="1485.1057508853476" y="438.75519721577257"/>
           <y:Fill color="#CCFFFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="16" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="62.8046875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="214.7578125" x="12.777115548365146" xml:space="preserve" y="5.927122607308661">Characteristics: Functional
+          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="16" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="62.8046875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="214.7578125" x="12.777115548365146" xml:space="preserve" y="5.927122607308604">Characteristics: Functional
 Types: qb:DimensionProperty
 SubPropertyOf: sn:from</y:NodeLabel>
         </y:UMLNoteNode>
@@ -328,10 +328,10 @@ SubPropertyOf: sn:into</y:NodeLabel>
     <node id="n27">
       <data key="d6">
         <y:ShapeNode>
-          <y:Geometry height="44.0" width="210.84822102864592" x="435.14151084529954" y="997.8203596287661"/>
+          <y:Geometry height="44.0" width="146.4082210286462" x="467.3615108452992" y="997.8203596287661"/>
           <y:Fill color="#FFFF00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="16" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="23.6015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="191.65625" x="9.595985514323047" xml:space="preserve" y="10.19921875">qb:DataStructureDefinition</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="16" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="23.6015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="105.3828125" x="20.512704264323133" xml:space="preserve" y="10.199218750000114">sn:Abstraction</y:NodeLabel>
           <y:Shape type="roundrectangle"/>
         </y:ShapeNode>
       </data>
@@ -364,7 +364,7 @@ SubPropertyOf: sn:into</y:NodeLabel>
           <y:Geometry height="44.0" width="146.4082210286461" x="759.1721836991276" y="997.8203596287661"/>
           <y:Fill color="#FFFF00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="16" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="23.6015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="131.1875" x="7.61036051432302" xml:space="preserve" y="10.19921875">sn:SupplyLinkKey</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="16" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="23.6015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="131.1875" x="7.61036051432302" xml:space="preserve" y="10.199218750000114">sn:SupplyLinkKey</y:NodeLabel>
           <y:Shape type="roundrectangle"/>
         </y:ShapeNode>
       </data>
@@ -390,7 +390,7 @@ SubPropertyOf: sn:into</y:NodeLabel>
           <y:Geometry height="31.0" width="601.7563978117342" x="-299.9407764521118" y="1047.2788863109008"/>
           <y:Fill color="#CCFFFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="16" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="23.6015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="560.765625" x="20.495386405867066" xml:space="preserve" y="3.69921875">Facts: qb:dimension ptsn:component, qb:componentAttachment sn:SupplyLink</y:NodeLabel>
+          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="16" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="23.6015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="560.765625" x="20.495386405867123" xml:space="preserve" y="3.69921875">Facts: qb:dimension ptsn:component, qb:componentAttachment sn:SupplyLink</y:NodeLabel>
         </y:UMLNoteNode>
       </data>
     </node>
