@@ -4,6 +4,7 @@
 # other prefixes
 @prefix cur: <http://qudt.org/vocab/currency/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix qb: <http://purl.org/linked-data/cube#> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -22,6 +23,7 @@ sn:associatedEntity a owl:SymmetricProperty ;
 
 sn:SupplyNetwork rdfs:subClassOf qb:DataSet .
 sn:inferredFrom a owl:ObjectProperty ;
+        rdfs:subPropertyOf prov:wasDerivedFrom ;
         rdfs:domain sn:SupplyNetwork ;
         rdfs:range qb:SupplyNetwork .
 sn:Abstraction rdfs:subClassOf qb:DataStructureDefinition , skos:Concept .
@@ -51,7 +53,7 @@ sn:supplyLink rdfs:subPropertyOf qb:slice ;
         rdfs:domain sn:SupplyNetwork ;
         rdfs:range sn:SupplyLink .
 sn:SupplyLink rdfs:subClassOf qb:Slice .
-sn:supplyLinkKey rdfs:subPropertyOf qb:sliceStructure ;
+sn:supplyLinkStructure rdfs:subPropertyOf qb:sliceStructure ;
         rdfs:domain sn:SupplyLink ;
         rdfs:range sn:SupplyLinkKey .
 sn:SupplyLinkKey rdfs:subClassOf qb:SliceKey .
@@ -200,7 +202,7 @@ sn:dimension a owl:ObjectProperty ;
 sn:higherAbstractionLevel a owl:ObjectProperty , owl:TransitiveProperty ;
     rdfs:label "higher abstraction level"@en ;
     rdfs:comment "Links an abstraction on higher level."@en ;
-    rdfs:subPropertyOf skos:narrowerTransitive ;
+    rdfs:subPropertyOf skos:broaderTransitive ;
     rdfs:domain sn:Abstraction ;
     rdfs:range sn:Abstraction .
 
