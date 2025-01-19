@@ -33,7 +33,8 @@ sn: a owl:Ontology ;
     vann:preferredNamespaceUri <https://purl.org/supply-network/onto#> ;
     vann:preferredNamespacePrefix "sn" ;
     voaf:extends qb: , qudt: , time: , skos: , prov: ;
-    rdfs:isDefinedBy sn: .
+    rdfs:isDefinedBy sn: ;
+    rdfs:seeAlso <https://purl.org/supply-network/abstraction/enterprise/onto#> .
 
 <https://danielhenselmann.solidcommunity.net/profile/card#me> foaf:name "Daniel Henselmann" .
 
@@ -179,7 +180,7 @@ sn:SupplyNetworkDataStructure a sn:Abstraction ;
             [ qb:attribute sn:unit] ;
     sn:supplyLinkKey sn:SupplyNetworkSupplyLink ;
     rdfs:label "Supply Network Data Structure"@en ;
-    rdfs:comment "This individual is informative and defines the generic abstraction of a supply network through the data structure of all supply networks."@en .
+    rdfs:comment "This individual is informative and defines the generic abstraction of all supply networks through the data structure."@en .
 
 sn:SupplyNetworkSupplyLink a sn:SupplyLinkKey ;
     qb:componentProperty sn:from , sn:into ;
