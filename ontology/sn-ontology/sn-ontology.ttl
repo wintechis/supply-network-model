@@ -1,230 +1,187 @@
 # own prefix
-@prefix sn: <https://purl.org/sn/vocab#> .
+@prefix sn: <https://purl.org/supply-network/onto#> .
 
 # other prefixes
-@prefix cur: <http://qudt.org/vocab/currency/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix qb: <http://purl.org/linked-data/cube#> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
-@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-# sn ontology
-sn:Entity a owl:Class .
-sn:associatedEntity a owl:SymmetricProperty ;
-        rdfs:domain sn:Entity ;
-        rdfs:range sn:Entity .
+sn: a owl:Ontology ;
+    rdfs:label "Supply Network Ontology"@en ;
+    dct:title "Supply Network Ontology"@en ;
+    dct:abstract "todo."@en ;
+    dct:description "todo."@en ;
+    schema:image <https://purl.org/supply-network/onto/visualization> ;
+    owl:versionInfo "1.0.0" ;
+    owl:versionIRI <https://purl.org/supply-network/onto/1.0.0> ;
+    dct:created "2025-01-19"^^xsd:date ;
+    dct:creator <https://danielhenselmann.solidcommunity.net/profile/card#me> ;
+    dct:publisher [ foaf:name "Center for Applied Research on Supply Chain Services at Fraunhofer IIS"@en ;
+        foaf:homepage <https://www.scs.fraunhofer.de/en.html> ] ;
+    dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+    schema:creativeWorkStatus "Ontology Release"@en ;
+    vann:preferredNamespaceUri <https://purl.org/supply-network/onto#> ;
+    vann:preferredNamespacePrefix "sn" ;
+    voaf:extends qb: , qudt: , time: , skos: , prov: ;
+    rdfs:isDefinedBy sn: .
 
-sn:SupplyNetwork rdfs:subClassOf qb:DataSet .
-sn:inferredFrom a owl:ObjectProperty ;
-        rdfs:subPropertyOf prov:wasDerivedFrom ;
-        rdfs:domain sn:SupplyNetwork ;
-        rdfs:range qb:SupplyNetwork .
-sn:Abstraction rdfs:subClassOf qb:DataStructureDefinition , skos:Concept .
-sn:structure rdfs:subPropertyOf qb:structure ;
-        rdfs:domain sn:SupplyNetwork ;
-        rdfs:range sn:Abstraction .
-sn:SupplyNetworkDataStructure a sn:Abstraction ;
-        qb:component [ qb:dimension sn:from ;
-                qb:componentAttachment sn:SupplyLink ] ,
-                [ qb:dimension sn:into ;
-                qb:componentAttachment sn:SupplyLink ] ,
-                [ qb:dimension sn:time ] ,
-                [ qb:measure sn:quantity] ,
-                [ qb:attribute sn:unit] ;
-        sn:supplyLinkKey sn:SupplyNetworkSupplyLink .
-sn:supplyLinkKey rdfs:subPropertyOf qb:sliceKey ;
-        rdfs:domain sn:Abstraction ;
-        rdfs:range sn:SupplyLinkKey .
-sn:higherAbstractionLevel a owl:TransitiveProperty ;
-        rdfs:domain sn:Abstraction ;
-        rdfs:range sn:Abstraction .
-sn:similarAbstractionLevel a owl:SymmetricProperty ;
-        rdfs:domain sn:Abstraction ;
-        rdfs:range sn:Abstraction .
-
-sn:supplyLink rdfs:subPropertyOf qb:slice ;
-        rdfs:domain sn:SupplyNetwork ;
-        rdfs:range sn:SupplyLink .
-sn:SupplyLink rdfs:subClassOf qb:Slice .
-sn:supplyLinkStructure rdfs:subPropertyOf qb:sliceStructure ;
-        rdfs:domain sn:SupplyLink ;
-        rdfs:range sn:SupplyLinkKey .
-sn:SupplyLinkKey rdfs:subClassOf qb:SliceKey .
-sn:SupplyNetworkSupplyLink a sn:SupplyLinkKey ;
-    qb:componentProperty sn:from , sn:into .
-sn:from a qb:DimensionProperty ;
-        rdfs:domain sn:SupplyLink ;
-        rdfs:range sn:Entity .
-sn:into a qb:DimensionProperty ;
-        rdfs:domain sn:SupplyLink ;
-        rdfs:range sn:Entity .
-
-sn:volume rdfs:subPropertyOf qb:observation ;
-        rdfs:domain sn:SupplyLink ;
-        rdfs:range sn:Volume .
-sn:Volume rdfs:subClassOf qb:Observation .
-sn:time a owl:FunctionalProperty , qb:DimensionProperty ;
-        rdfs:domain sn:Volume ;
-        rdfs:range sn:TemporalEntity .
-sn:quantity a owl:FunctionalProperty , qb:MeasureProperty ;
-        rdfs:domain sn:Volume ;
-        rdfs:range xsd:decimal .
-sn:unit a owl:FunctionalProperty , qb:AttributeProperty ;
-        rdfs:domain sn:Volume ;
-        rdfs:range qudt:Unit .
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<https://danielhenselmann.solidcommunity.net/profile/card#me> foaf:name "Daniel Henselmann" .
 
 
 # --- classes ---
+
+sn:Abstraction a owl:Class ;
+    rdfs:subClassOf qb:DataStructureDefinition , skos:Concept ;
+    rdfs:label "Abstraction"@en ;
+    rdfs:comment "A specific abstraction of entities that represent a supply network."@en .
     
 sn:Entity a owl:Class ;
     rdfs:label "Entity"@en ;
-    rdfs:comment "Todo."@en .
+    rdfs:comment "Abstract class. An entity that can represent a vertex in a supply network on an abstraction."@en .
 
-sn:MultidimensionalEntity a owl:Class ;
-    rdfs:subClassOf sn:Entity ;
-    rdfs:label "Multidimensional entity"@en ;
-    rdfs:comment "Todo."@en .
+sn:SupplyLink a owl:Class ;
+    rdfs:subClassOf qb:Slice ;
+    rdfs:label "Supply Link"@en ;
+    rdfs:comment "A directed supply relation between two entities, typically with a volume."@en .
 
-sn:Relation a owl:Class ;
-    rdfs:label "Relation"@en ;
-    rdfs:comment "Todo."@en .
+sn:SupplyLinkKey a owl:Class ;
+    rdfs:subClassOf qb:SliceKey ;
+    rdfs:label "Supply Link Key"@en ;
+    rdfs:comment "A fixed subset of dimension properties that are fixed for corresponding supply links."@en .
+
+sn:SupplyNetwork a owl:Class ;
+    rdfs:subClassOf qb:DataSet ;
+    rdfs:label "Supply Network"@en ;
+    rdfs:comment "A representation of a supply network as a network of entities an a specific abstraction."@en .
 
 sn:Volume a owl:Class ;
     rdfs:subClassOf qb:Observation ;
     rdfs:label "Volume"@en ;
-    rdfs:comment "Todo."@en .
-
-sn:TemporalEntity a owl:Class ;
-    rdfs:subClassOf time:TemporalEntity ;
-    rdfs:label "Temporal entity" ;
-    rdfs:comment "Todo."@en .
-
-sn:Unit a owl:Class ;
-    rdfs:subClassOf qudt:Unit , qudt:CurrencyUnit ;
-    rdfs:label "Unit" ;
-    rdfs:comment "Todo."@en .
-
-qudt:Unit a owl:Class ;
-    rdfs:label "Unit" ;
-    rdfs:comment "A unit of measure, or unit, is a particular quantity value that has been chosen as a scale for measuring other quantities the same kind (more generally of equivalent dimension). For example, the meter is a quantity of length that has been rigorously defined and standardized by the BIPM (International Board of Weights and Measures). Any measurement of the length can be expressed as a number multiplied by the unit meter. More formally, the value of a physical quantity Q with respect to a unit (U) is expressed as the scalar multiple of a real number (n) and U, as Q = nU."@en ;
-    vann:example unit: ;
-    rdfs:isDefinedBy qudt: .
-
-qudt:CurrencyUnit a owl:Class ;
-    rdfs:subClassOf qudt:Unit ;
-    rdfs:label "Currency unit" ;
-    rdfs:comment "Used for all units that express currency. Currency Units have their own subclass of unit because: (a) they have additonal properites such as 'country' and (b) their URIs do not conform to the same rules as other units."@en ;
-    vann:example cur: ;
-    rdfs:isDefinedBy qudt: .
-    
-sn:Abstraction a owl:Class ;
-    rdfs:subClassOf skos:Concept ;
-    rdfs:label "Abstraction"@en ;
-    rdfs:comment "Todo."@en .
+    rdfs:comment "A volume of a supply link."@en .
 
 
 # --- object properties ---
-    
-sn:from a owl:ObjectProperty , owl:FunctionalProperty ;
-    rdfs:label "from"@en ;
-    rdfs:comment "Todo."@en ;
-    rdfs:domain sn:Relation ;
-    rdfs:range sn:Entity .
-
-sn:into a owl:ObjectProperty , owl:FunctionalProperty ;
-    rdfs:label "into"@en ;
-    rdfs:comment "Todo."@en ;
-    rdfs:domain sn:Relation ;
-    rdfs:range sn:Entity .
-
-sn:relation a owl:ObjectProperty , qb:DimensionProperty ;
-    rdfs:label "relation"@en ;
-    rdfs:comment "Todo."@en ;
-    rdfs:domain sn:Volume ;
-    rdfs:range sn:Relation .
-
-sn:time a owl:ObjectProperty , qb:DimensionProperty ;
-    rdfs:label "time"@en ;
-    rdfs:comment "Todo."@en ;
-    rdfs:domain sn:Volume ;
-    rdfs:range sn:TemporalEntity .
-
-sn:unit a owl:ObjectProperty , qb:AttributeProperty ;
-    rdfs:label "unit"@en ;
-    rdfs:comment "Todo."@en ;
-    rdfs:domain sn:Volume ;
-    rdfs:range sn:Unit .
-
-sn:abstraction a owl:ObjectProperty ;
-    rdfs:label "abstraction"@en ;
-    rdfs:comment "Todo."@en ;
-    rdfs:domain sn:Entity ;
-    rdfs:range sn:Abstraction .
 
 sn:associatedEntity a owl:ObjectProperty , owl:SymmetricProperty ;
-    rdfs:label "associated entity"@en ;
-    rdfs:comment "Links an associated entity on another abstraction."@en ;
     rdfs:domain sn:Entity ;
-    rdfs:range sn:Entity .
-
-sn:dimension a owl:ObjectProperty ;
-    rdfs:label "dimension"@en ;
-    rdfs:comment "Todo."@en ;
-    rdfs:subPropertyOf sn:associatedEntity ;
-    rdfs:domain sn:MultidimensionalEntity ;
-    rdfs:range sn:Entity .
+    rdfs:range sn:Entity ;
+    rdfs:label "associated entity"@en ;
+    rdfs:comment "Links an associated entity on another abstraction.."@en .
+    
+sn:from a owl:ObjectProperty , qb:DimensionProperty ;
+    rdfs:domain sn:SupplyLink ;
+    rdfs:range sn:Entity ;
+    rdfs:label "from"@en ;
+    rdfs:comment "Links the entity that is the origin/source of a directed supply link between two entities."@en .
 
 sn:higherAbstractionLevel a owl:ObjectProperty , owl:TransitiveProperty ;
-    rdfs:label "higher abstraction level"@en ;
-    rdfs:comment "Links an abstraction on higher level."@en ;
     rdfs:subPropertyOf skos:broaderTransitive ;
     rdfs:domain sn:Abstraction ;
-    rdfs:range sn:Abstraction .
+    rdfs:range sn:Abstraction ;
+    rdfs:label "higher abstraction level"@en ;
+    rdfs:comment "Links an abstraction on higher level."@en .
+
+sn:inferredFrom a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:subPropertyOf prov:wasDerivedFrom ;
+    rdfs:domain sn:SupplyNetwork ;
+    rdfs:range sn:SupplyNetwork ;
+    rdfs:label "inferred from"@en ;
+    rdfs:comment "Links the source supply network on a lower abstraction the supply network was inferred from."@en .
+
+sn:into a owl:ObjectProperty , qb:DimensionProperty ;
+    rdfs:domain sn:SupplyLink ;
+    rdfs:range sn:Entity ;
+    rdfs:label "into"@en ;
+    rdfs:comment "Links the entity that is the target of a directed supply link between two entities."@en .
 
 sn:similarAbstractionLevel a owl:ObjectProperty , owl:SymmetricProperty ;
-    rdfs:label "similar abstraction level"@en ;
-    rdfs:comment "Links an abstraction on similar level."@en ;
     rdfs:subPropertyOf skos:related ;
     rdfs:domain sn:Abstraction ;
-    rdfs:range sn:Abstraction .
+    rdfs:range sn:Abstraction ;
+    rdfs:label "similar abstraction level"@en ;
+    rdfs:comment "Links an abstraction on similar level."@en .
 
-sn:expresses a owl:ObjectProperty ;
-    rdfs:label "expresses"@en ;
-    rdfs:comment "Todo."@en ;
-    rdfs:domain owl:Class ;
-    rdfs:range sn:Abstraction .
+sn:structure a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:subPropertyOf qb:structure ;
+    rdfs:domain sn:SupplyNetwork ;
+    rdfs:range sn:Abstraction ;
+    rdfs:label "structure"@en ;
+    rdfs:comment "The abstraction of the supply nerwork and all entities in it that also defines the structure of the supply network dataset."@en .
+
+sn:supplyLink a owl:ObjectProperty ;
+    rdfs:subPropertyOf qb:slice ;
+    rdfs:domain sn:SupplyNetwork ;
+    rdfs:range sn:SupplyLink ;
+    rdfs:label "supply link"@en ;
+    rdfs:comment "Links all supply links between entities of the supply network."@en .
+
+sn:supplyLinkKey a owl:ObjectProperty , owl:FunctionalProperty , owl:InverseFunctionalProperty ;
+    rdfs:subPropertyOf qb:sliceKey ;
+    rdfs:domain sn:Abstraction ;
+    rdfs:range sn:SupplyLinkKey ;
+    rdfs:label "supply link key"@en ;
+    rdfs:comment "Links the corresponding supply link key of the abstraction."@en .
+
+sn:supplyLinkStructure a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:subPropertyOf qb:sliceStructure ;
+    rdfs:domain sn:SupplyLink ;
+    rdfs:range sn:SupplyLinkKey ;
+    rdfs:label "supply link structure"@en ;
+    rdfs:comment "Links the supply link's structure/key."@en .
+
+sn:time a owl:ObjectProperty , owl:FunctionalProperty , qb:DimensionProperty ;
+    rdfs:domain sn:Volume ;
+    rdfs:range time:TemporalEntity ;
+    rdfs:label "time"@en ;
+    rdfs:comment "Links the time instance or interval of a supply link's volume."@en .
+
+sn:unit a owl:ObjectProperty , owl:FunctionalProperty , qb:AttributeProperty ;
+    rdfs:domain sn:Volume ;
+    rdfs:range qudt:Unit ;
+    rdfs:label "unit"@en ;
+    rdfs:comment "Links the unit of the observed quantity of a supply link's volume."@en .
+
+sn:volume a owl:ObjectProperty ;
+    rdfs:subPropertyOf qb:observation ;
+    rdfs:domain sn:SupplyLink ;
+    rdfs:range sn:Volume ;
+    rdfs:label "volume"@en ;
+    rdfs:comment "Links a supply link's volume."@en .
 
 
 # --- datatype properties ---
     
-sn:quantity a owl:DatatypeProperty , qb:MeasureProperty ;
-    rdfs:label "quantity"@en ;
-    rdfs:comment "Todo."@en ;
+sn:quantity a owl:DatatypeProperty , owl:FunctionalProperty , qb:MeasureProperty ;
     rdfs:subPropertyOf qudt:quantity ;
     rdfs:domain sn:Volume ;
-    rdfs:range xsd:decimal .
+    rdfs:range xsd:decimal ;
+    rdfs:label "quantity"@en ;
+    rdfs:comment "Links the observed quantity of a supply link's volume."@en .
+
+
+# --- individuals ---
+
+sn:SupplyNetworkDataStructure a sn:Abstraction ;
+    qb:component [ qb:dimension sn:from ; qb:componentAttachment sn:SupplyLink ] ,
+            [ qb:dimension sn:into ; qb:componentAttachment sn:SupplyLink ] ,
+            [ qb:dimension sn:time ] ,
+            [ qb:measure sn:quantity] ,
+            [ qb:attribute sn:unit] ;
+    sn:supplyLinkKey sn:SupplyNetworkSupplyLink ;
+    rdfs:label "Supply Network Data Structure"@en ;
+    rdfs:comment "This individual is informative and defines the generic abstraction of a supply network through the data structure of all supply networks."@en .
+
+sn:SupplyNetworkSupplyLink a sn:SupplyLinkKey ;
+    qb:componentProperty sn:from , sn:into ;
+    rdfs:label "Supply Network Supply Link"@en ;
+    rdfs:comment "This individual is informative and defines the generic structure of supply links in all supply networks."@en .
