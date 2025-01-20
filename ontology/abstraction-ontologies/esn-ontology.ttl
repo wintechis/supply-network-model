@@ -107,6 +107,24 @@ esn:EnterpriseDataStructure a qb:DataStructureDefinition ;
     rdfs:label "Enterprise Data Structure"@en ;
     rdfs:comment "Defines the abstraction of all enterpise supply networks through the data structure."@en .
 
+esn:EnterpriseProductTypeDataStructure a qb:DataStructureDefinition ;
+    qb:component [ qb:dimension esn:supplier ; qb:componentAttachment sn:SupplyLink ] ,
+            [ qb:dimension esn:customer ; qb:componentAttachment sn:SupplyLink ] ,
+            [ qb:dimension ptsn:component; qb:componentAttachment sn:SupplyLink ] ,
+            [ qb:dimension ptsn:outcome ; qb:componentAttachment sn:SupplyLink ] ,
+            [ qb:dimension sn:time ] ,
+            [ qb:measure sn:quantity] ,
+            [ qb:attribute sn:unit] ;
+    sn:supplyLinkKey esn:EnterpriseProductTypeSupplyLinkKey ;
+    sn:higherAbstractionLevel fssn:FederalStateDataStructure , csn:CountryDataStructure , cosn:ContinentDataStructure , isn:IndustryDataStructure , isn:IndustryFederalStateDataStructure , isn:IndustryCountryDataStructure , isn:IndustryContinentDataStructure , esn:EnterpriseDataStructure , ptsn:ProductTypeDataStructure ;
+    rdfs:label "Enterprise Product Type Data Structure"@en ;
+    rdfs:comment "Defines the abstraction of all enterpise-product type supply networks through the data structure."@en .
+
+esn:EnterpriseProductTypeSupplyLinkKey a sn:SupplyLinkKey ;
+    qb:componentProperty esn:supplier , esn:customer , ptsn:component , ptsn:outcome ;
+    rdfs:label "Enterprise Product Type Supply Link"@en ;
+    rdfs:comment "Defines the structure of supply links in all enterpises-product type supply networks."@en .
+
 esn:EnterpriseSupplyLinkKey a sn:SupplyLinkKey ;
     qb:componentProperty esn:supplier , esn:customer ;
     rdfs:label "Enterprise Supply Link"@en ;
