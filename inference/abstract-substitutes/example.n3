@@ -1,0 +1,12 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sn: <https://purl.org/supply-network/onto#> .
+@prefix esn: <https://purl.org/supply-network/abstraction/enterprise/onto#> .
+@prefix csn: <https://purl.org/supply-network/abstraction/country/onto#> .
+
+{ ?enterprise esn:registeredInCountry ?country .    
+    ?country csn:inContinent ?continent . } =>
+{ ?enterprise esn:continent ?continent . } .
+
+{ ?enterprise esn:registeredInCountry ?country .    
+    ?enterprise esn:continent ?continent . } =>
+{ ?country csn:inContinent ?continent . } .

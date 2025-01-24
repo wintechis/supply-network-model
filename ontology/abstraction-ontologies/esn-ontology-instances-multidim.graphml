@@ -86,12 +86,12 @@
       <data key="d5" xml:space="preserve"><![CDATA[UMLNote]]></data>
       <data key="d6">
         <y:UMLNoteNode>
-          <y:Geometry height="85.34400000000005" width="377.3553769300637" x="253.9145027802312" y="-54.50200000000609"/>
+          <y:Geometry height="85.34400000000005" width="350.6033769300637" x="280.6665027802312" y="-54.50200000000609"/>
           <y:Fill color="#CCFFFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="16" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="82.40625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="342.84375" x="17.25581346503185" xml:space="preserve" y="1.4688750000000255">Facts: qb:componentProperty esn:supplier,
+          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="16" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="82.40625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="337.515625" x="6.543875965031816" xml:space="preserve" y="1.4688750000000255">Facts: qb:componentProperty esn:supplier,
            qb:componentProperty esn:customer,
-           qb:componentProperty ptsn:componentr,
+           qb:componentProperty ptsn:component,
            qb:componentProperty ptsn:outcomer</y:NodeLabel>
         </y:UMLNoteNode>
       </data>
