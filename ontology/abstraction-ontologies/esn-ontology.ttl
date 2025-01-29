@@ -11,6 +11,7 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix qb: <http://purl.org/linked-data/cube#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <https://schema.org/> .
@@ -45,88 +46,103 @@ esn: a owl:Ontology ;
 esn:Enterprise a owl:Class ;
     rdfs:subClassOf sn:Entity  ;
     rdfs:label "Enterprise"@en ;
-    rdfs:comment "An enterprise sells products to customers."@en .
+    rdfs:comment "An enterprise sells products to customers."@en ;
+    rdfs:isDefinedBy esn: .
 
 
 # --- object properties ---
 
 esn:continent a owl:ObjectProperty , owl:FunctionalProperty ;
-    rdfs:subPropertyOf sn:associatedEntity ;
+    rdfs:subPropertyOf sn:abstractSubstitute ;
     rdfs:domain esn:Enterprise ;
     rdfs:range cosn:Continent ;
     rdfs:label "continent"@en ;
-    rdfs:comment "Links the continent of the country the enterprise is registered in."@en .
+    rdfs:comment "Links the continent of the country the enterprise is registered in."@en ;
+    rdfs:isDefinedBy esn: .
 
 esn:customer a owl:ObjectProperty , owl:FunctionalProperty , qb:DimensionProperty ;
     rdfs:subPropertyOf sn:into ;
-    rdfs:domain sn:SupplyLink ;
+    rdfs:domain sn:SupplyFlow ;
     rdfs:range esn:Enterprise ;
     rdfs:label "customer"@en ;
-    rdfs:comment "Links the customer enterprise in a supply rleation between two enterprises."@en .
+    rdfs:comment "Links the customer enterprise in a supply rleation between two enterprises."@en ;
+    rdfs:isDefinedBy esn: .
 
 esn:industry a owl:ObjectProperty , owl:FunctionalProperty ;
-    rdfs:subPropertyOf sn:associatedEntity ;
+    rdfs:subPropertyOf sn:abstractSubstitute ;
     rdfs:domain esn:Enterprise ;
     rdfs:range isn:Industry ;
     rdfs:label "industry"@en ;
-    rdfs:comment "Links the industry the enterprise operates in."@en .
+    rdfs:comment "Links the industry the enterprise operates in."@en ;
+    rdfs:isDefinedBy esn: .
 
 esn:registeredInCountry a owl:ObjectProperty , owl:FunctionalProperty ;
-    rdfs:subPropertyOf sn:associatedEntity ;
+    rdfs:subPropertyOf sn:abstractSubstitute ;
     rdfs:domain esn:Enterprise ;
     rdfs:range csn:Country ;
     rdfs:label "registered in country"@en ;
-    rdfs:comment "Links the country the enterprise is registered in."@en .
+    rdfs:comment "Links the country the enterprise is registered in."@en ;
+    rdfs:isDefinedBy esn: .
 
 esn:registeredInFederalState a owl:ObjectProperty , owl:FunctionalProperty ;
-    rdfs:subPropertyOf sn:associatedEntity ;
+    rdfs:subPropertyOf sn:abstractSubstitute ;
     rdfs:domain esn:Enterprise ;
     rdfs:range fssn:FederalState ;
     rdfs:label "registered in federal state"@en ;
-    rdfs:comment "Links the federal state the enterprise is registered in."@en .
+    rdfs:comment "Links the federal state the enterprise is registered in."@en ;
+    rdfs:isDefinedBy esn: .
 
 esn:supplier a owl:ObjectProperty , owl:FunctionalProperty , qb:DimensionProperty ;
     rdfs:subPropertyOf sn:from ;
-    rdfs:domain sn:SupplyLink ;
+    rdfs:domain sn:SupplyFlow ;
     rdfs:range esn:Enterprise ;
     rdfs:label "supplier"@en ;
-    rdfs:comment "Links the supplying enterprise in a supply rleation between two enterprises."@en .
+    rdfs:comment "Links the supplying enterprise in a supply rleation between two enterprises."@en ;
+    rdfs:isDefinedBy esn: .
 
 
 # --- individuals ---
 
-esn:EnterpriseDataStructure a qb:DataStructureDefinition ;
-    qb:component [ qb:dimension esn:supplier ; qb:componentAttachment sn:SupplyLink ] ,
-            [ qb:dimension esn:customer ; qb:componentAttachment sn:SupplyLink ] ,
+esn:EnterpriseDataStructure a sn:Abstraction ;
+    sn:followsDataStructure sn:GenericDataStructure ;
+    qb:component [ qb:dimension esn:supplier ; qb:componentAttachment sn:SupplyFlow ] ,
+            [ qb:dimension esn:customer ; qb:componentAttachment sn:SupplyFlow ] ,
             [ qb:dimension sn:time ] ,
             [ qb:measure sn:quantity] ,
             [ qb:attribute sn:unit] ;
-    sn:supplyLinkKey esn:EnterpriseSupplyLinkKey ;
+    sn:supplyLinkKey esn:EnterpriseSupplyFlowKey ;
     sn:similarAbstractionLevel ptsn:ProductTypeDataStructure ;
     sn:higherAbstractionLevel fssn:FederalStateDataStructure , csn:CountryDataStructure , cosn:ContinentDataStructure , isn:IndustryDataStructure , isn:IndustryFederalStateDataStructure , isn:IndustryCountryDataStructure , isn:IndustryContinentDataStructure ;
     rdfs:label "Enterprise Data Structure"@en ;
-    rdfs:comment "Defines the abstraction of all enterpise supply networks through the data structure."@en .
+    rdfs:comment "Defines the abstraction of all enterpise supply networks through the data structure."@en ;
+    rdfs:isDefinedBy esn: .
 
-esn:EnterpriseProductTypeDataStructure a qb:DataStructureDefinition ;
-    qb:component [ qb:dimension esn:supplier ; qb:componentAttachment sn:SupplyLink ] ,
-            [ qb:dimension esn:customer ; qb:componentAttachment sn:SupplyLink ] ,
-            [ qb:dimension ptsn:component; qb:componentAttachment sn:SupplyLink ] ,
-            [ qb:dimension ptsn:outcome ; qb:componentAttachment sn:SupplyLink ] ,
+esn:EnterpriseProductTypeDataStructure a sn:Abstraction ;
+    sn:followsDataStructure sn:GenericDataStructure ;
+    qb:component [ qb:dimension esn:supplier ; qb:componentAttachment sn:SupplyFlow ] ,
+            [ qb:dimension esn:customer ; qb:componentAttachment sn:SupplyFlow ] ,
+            [ qb:dimension ptsn:component; qb:componentAttachment sn:SupplyFlow ] ,
+            [ qb:dimension ptsn:outcome ; qb:componentAttachment sn:SupplyFlow ] ,
             [ qb:dimension sn:time ] ,
             [ qb:measure sn:quantity] ,
             [ qb:attribute sn:unit] ;
-    sn:supplyLinkKey esn:EnterpriseProductTypeSupplyLinkKey ;
+    sn:supplyLinkKey esn:EnterpriseProductTypeSupplyFlowKey ;
     sn:higherAbstractionLevel fssn:FederalStateDataStructure , csn:CountryDataStructure , cosn:ContinentDataStructure , isn:IndustryDataStructure , isn:IndustryFederalStateDataStructure , isn:IndustryCountryDataStructure , isn:IndustryContinentDataStructure , esn:EnterpriseDataStructure , ptsn:ProductTypeDataStructure ;
     rdfs:label "Enterprise Product Type Data Structure"@en ;
-    rdfs:comment "Defines the abstraction of all enterpise-product type supply networks through the data structure."@en .
+    rdfs:comment "Defines the abstraction of all enterpise-product type supply networks through the data structure."@en ;
+    rdfs:isDefinedBy esn: .
 
-esn:EnterpriseProductTypeSupplyLinkKey a sn:SupplyLinkKey ;
+esn:EnterpriseProductTypeSupplyFlowkKey a sn:SupplyFlowKey ;
+    sn:followsSupplyFlowKey sn:GenericSupplyFlowKey ;
     qb:componentProperty esn:supplier , esn:customer , ptsn:component , ptsn:outcome ;
-    rdfs:label "Enterprise Product Type Supply Link"@en ;
-    rdfs:comment "Defines the structure of supply links in all enterpises-product type supply networks."@en .
+    rdfs:label "Enterprise Product Type Supply Flow"@en ;
+    rdfs:comment "Defines the structure of supply flows in all enterpises-product type supply networks."@en ;
+    rdfs:isDefinedBy esn: .
 
-esn:EnterpriseSupplyLinkKey a sn:SupplyLinkKey ;
+esn:EnterpriseSupplyFlowKey a sn:SupplyFlowKey ;
+    sn:followsSupplyFlowKey sn:GenericSupplyFlowKey ;
     qb:componentProperty esn:supplier , esn:customer ;
-    rdfs:label "Enterprise Supply Link"@en ;
-    rdfs:comment "Defines the structure of supply links in all enterpise supply networks."@en .
+    rdfs:label "Enterprise Supply Flow"@en ;
+    rdfs:comment "Defines the structure of supply flows in all enterpise supply networks."@en ;
+    rdfs:isDefinedBy esn: .
     

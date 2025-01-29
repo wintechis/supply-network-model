@@ -1,8 +1,8 @@
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix sn: <https://purl.org/sn/vocab#> .
-@prefix esn: <https://example.org/esn/vocab#> .
-@prefix csn: <https://example.org/csn/vocab#> .
 
-{   ?A $associated-entity-subproperty-1$ ?B .    
-    ?B $associated-entity-subproperty-2$ ?C . } =>
-{   ?A $associated-entity-subproperty-3$ ?C . } .
+{ ?A $abstract-substitute-subproperty-1$ ?B .    
+  ?B $abstract-substitute-subproperty-2$ ?C . } =>
+{ ?A $abstract-substitute-subproperty-3$ ?C . } .
+
+{ ?A $abstract-substitute-subproperty-1$ ?B .    
+  ?A $abstract-substitute-subproperty-3$ ?C . } =>
+{ ?B $abstract-substitute-subproperty-2$ ?C . } .
