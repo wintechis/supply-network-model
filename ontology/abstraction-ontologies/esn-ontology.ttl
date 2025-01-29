@@ -132,17 +132,17 @@ esn:EnterpriseProductTypeDataStructure a sn:Abstraction ;
     rdfs:comment "Defines the abstraction of all enterpise-product type supply networks through the data structure."@en ;
     rdfs:isDefinedBy esn: .
 
-esn:EnterpriseProductTypeSupplyFlowkKey a sn:SupplyFlowKey ;
-    sn:followsSupplyFlowKey sn:GenericSupplyFlowKey ;
-    qb:componentProperty esn:supplier , esn:customer , ptsn:component , ptsn:outcome ;
-    rdfs:label "Enterprise Product Type Supply Flow"@en ;
-    rdfs:comment "Defines the structure of supply flows in all enterpises-product type supply networks."@en ;
-    rdfs:isDefinedBy esn: .
-
 esn:EnterpriseSupplyFlowKey a sn:SupplyFlowKey ;
     sn:followsSupplyFlowKey sn:GenericSupplyFlowKey ;
     qb:componentProperty esn:supplier , esn:customer ;
     rdfs:label "Enterprise Supply Flow"@en ;
     rdfs:comment "Defines the structure of supply flows in all enterpise supply networks."@en ;
+    rdfs:isDefinedBy esn: .
+
+esn:EnterpriseProductTypeSupplyFlowkKey a sn:SupplyFlowKey ;
+    sn:followsSupplyFlowKey sn:GenericSupplyFlowKey ;
+    qb:componentProperty esn:supplier , esn:customer , ptsn:component , ptsn:outcome ;
+    rdfs:label "Enterprise Product Type Supply Flow"@en ;
+    rdfs:comment "Defines the structure of supply flows in all enterpises-product type supply networks."@en ;
     rdfs:isDefinedBy esn: .
     
