@@ -1,17 +1,30 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sn: <https://purl.org/sn/vocab#> .
-@prefix esn: <https://example.org/esn/vocab#> .
-@prefix csn: <https://example.org/csn/vocab#> .
 
+# infer link ?xz
 {   ?x ?xy ?y .
     ?y ?yz ?z .
-    ?xy rdfs:subPropertyOf sn:associatedEntity ;
+    ?xy rdfs:subPropertyOf sn:abstractSubstitute ;
         rdfs:domain ?classx ;
         rdfs:range ?classy .
-    ?yz rdfs:subPropertyOf sn:associatedEntity ;
+    ?yz rdfs:subPropertyOf sn:abstractSubstitute ;
         rdfs:domain ?classy ;
         rdfs:range ?classz .
-    ?xz rdfs:subPropertyOf sn:associatedEntity ;
+    ?xz rdfs:subPropertyOf sn:abstractSubstitute ;
         rdfs:domain ?classx ;
         rdfs:range ?classz . } =>
 {   ?x ?xz ?z . } .
+
+# infer link ?yz
+{   ?x ?xy ?y .
+    ?x ?xz ?z .
+    ?xy rdfs:subPropertyOf sn:abstractSubstitute ;
+        rdfs:domain ?classx ;
+        rdfs:range ?classy .
+    ?yz rdfs:subPropertyOf sn:abstractSubstitute ;
+        rdfs:domain ?classy ;
+        rdfs:range ?classz .
+    ?xz rdfs:subPropertyOf sn:abstractSubstitute ;
+        rdfs:domain ?classx ;
+        rdfs:range ?classz . } =>
+{   ?y ?yz ?z . } .
