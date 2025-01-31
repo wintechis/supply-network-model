@@ -1,8 +1,0 @@
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix sn: <https://purl.org/sn/vocab#> .
-@prefix esn: <https://example.org/esn/vocab#> .
-@prefix csn: <https://example.org/csn/vocab#> .
-
-{   ?enterprise esn:registeredIn ?country .    
-    ?country csn:inContinent ?continent . } =>
-{   ?enterprise esn:continent ?continent . } .
