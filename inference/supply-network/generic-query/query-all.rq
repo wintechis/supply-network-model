@@ -7,7 +7,7 @@ CONSTRUCT {
     # resulting supply network
     ?target_supplyNetwork a sn:SupplyNetwork ;
         sn:structure ?target_supplyNetworkStructure ;
-        sn:supplyLink ?target_supplylink ;
+        sn:supplyFlow ?target_supplyflow ;
         sn:inferredFrom ?source_supplyNetwork .
 
     # resulting entities
@@ -21,8 +21,8 @@ CONSTRUCT {
         rdfs:label ?target_dimB_into_entitylabel .
 
     # resulting supply links
-    ?target_supplylink a sn:SupplyLink ;
-        qb:sliceStructure ?target_supplyLinkKey ;
+    ?target_supplyflow a sn:SupplyFlow ;
+        sn:supplyFlowStructure ?target_supplyFlowKey ;
         ?target_dimA_from_property ?target_dimA_from_entity ;
         ?target_dimA_into_property ?target_dimA_into_entity ;
         ?target_dimB_from_property ?target_dimB_from_entity ;
@@ -36,12 +36,12 @@ CONSTRUCT {
         sn:quantity ?aggregatedQuantity .
 } WHERE {
     {
-        SELECT ?source_supplyNetwork ?target_supplyNetwork ?target_supplylink ?target_volume
+        SELECT ?source_supplyNetwork ?target_supplyNetwork ?target_supplyflow ?target_volume
         ?target_dimA_from_entity ?target_dimA_from_entitylabel ?target_dimA_into_entity ?target_dimA_into_entitylabel
         ?target_dimB_from_entity ?target_dimB_from_entitylabel ?target_dimB_into_entity ?target_dimB_into_entitylabel
         ?target_dimA_from_property ?target_dimA_into_property ?target_dimA_class
         ?target_dimB_from_property ?target_dimB_into_property ?target_dimB_class
-        ?target_supplyLinkKey ?target_supplyNetworkStructure
+        ?target_supplyFlowKey ?target_supplyNetworkStructure
         ?time ?unit (SUM(?quantity) AS ?aggregatedQuantity)
         WHERE {
             {
@@ -51,7 +51,7 @@ CONSTRUCT {
                 # identify supply network
                 ?source_supplyNetwork a sn:SupplyNetwork ;
                     sn:structure ?source_multidim_supplyNetworkStructure ;
-                    sn:supplyLink ?source_supplylink .
+                    sn:supplyFlow ?source_supplyflow .
                 
                 # identify target abstraction and associated entity property that links source and target
                 ?source_multidim_supplyNetworkStructure a qb:DataStructureDefinition ;
@@ -73,32 +73,32 @@ CONSTRUCT {
                 ?source_multidim_supplyNetworkStructure a qb:DataStructureDefinition ;
                     qb:component/qb:dimension ?source_dimB_from_property ;
                     qb:component/qb:dimension ?source_dimB_into_property ;
-                    qb:sliceKey ?source_multidim_supplyLinkKey .
+                    qb:sliceKey ?source_multidim_supplyFlowKey .
                 ?source_dimA_from_property rdfs:subPropertyOf sn:from .
                 ?source_dimA_into_property rdfs:subPropertyOf sn:into .
                 ?source_dimB_from_property rdfs:subPropertyOf sn:from .
                 ?source_dimB_into_property rdfs:subPropertyOf sn:into .
                 FILTER (?source_dimA_from_property != ?source_dimB_from_property)
                 FILTER (?source_dimA_into_property != ?source_dimB_into_property)
-                ?source_multidim_supplyLinkKey a sn:SupplyLinkKey ;
+                ?source_multidim_supplyFlowKey a sn:SupplyFlowKey ;
                     qb:componentProperty ?source_dimA_from_property , ?source_dimA_into_property , ?source_dimB_from_property , ?source_dimB_into_property .
 
                 # identify target dimensions in tbox
-                ?target_supplyLinkKey a sn:SupplyLinkKey ;
+                ?target_supplyFlowKey a sn:SupplyFlowKey ;
                     qb:componentProperty ?target_dimA_from_property , ?target_dimA_into_property .
                 ?target_supplyNetworkStructure a qb:DataStructureDefinition ;
-                    qb:sliceKey ?target_supplyLinkKey .
+                    qb:sliceKey ?target_supplyFlowKey .
                 ?target_dimA_from_property rdfs:subPropertyOf sn:from .
                 ?target_dimA_into_property rdfs:subPropertyOf sn:into .
                 FILTER NOT EXISTS { ?target_supplyNetworkStructure qb:component/qb:dimension ?dim . FILTER (?dim NOT IN (?target_dimA_from_property, ?target_dimA_into_property, sn:time))}
 
                 # identify the source entities for all dimensions in abox
-                ?source_supplylink a sn:SupplyLink ;
+                ?source_supplyflow a sn:SupplyFlow ;
                     ?source_dimA_from_property ?source_dimA_from_entity ;
                     ?source_dimA_into_property ?source_dimA_into_entity ;
                     ?source_dimB_from_property ?source_dimB_from_entity ;
                     ?source_dimB_into_property ?source_dimB_into_entity ;
-                    sn:supplyLinkKey ?source_multidim_supplyLinkKey ;
+                    sn:supplyFlowKey ?source_multidim_supplyFlowKey ;
                     sn:volume ?volume .
                 ?source_dimA_from_entity a ?source_dimA_class .
                 ?source_dimA_into_entity a ?source_dimA_class .
@@ -119,7 +119,7 @@ CONSTRUCT {
                 # identify supply network
                 ?source_supplyNetwork a sn:SupplyNetwork ;
                     sn:structure ?source_multidim_supplyNetworkStructure ;
-                    sn:supplyLink ?source_supplylink .
+                    sn:supplyFlow ?source_supplyflow .
 
                 # identify dimensions in tbox
                 ?source_multidim_supplyNetworkStructure a qb:DataStructureDefinition ;
@@ -127,30 +127,30 @@ CONSTRUCT {
                     qb:component/qb:dimension ?source_dimA_into_property ;
                     qb:component/qb:dimension ?source_dimB_from_property ;
                     qb:component/qb:dimension ?source_dimB_into_property ;
-                    qb:sliceKey ?source_multidim_supplyLinkKey .
+                    qb:sliceKey ?source_multidim_supplyFlowKey .
                 ?source_dimA_from_property rdfs:subPropertyOf sn:from .
                 ?source_dimA_into_property rdfs:subPropertyOf sn:into .
                 ?source_dimB_from_property rdfs:subPropertyOf sn:from .
                 ?source_dimB_into_property rdfs:subPropertyOf sn:into .
                 FILTER (?source_dimA_from_property != ?source_dimB_from_property)
                 FILTER (?source_dimA_into_property != ?source_dimB_into_property)
-                ?source_multidim_supplyLinkKey a sn:SupplyLinkKey ;
+                ?source_multidim_supplyFlowKey a sn:SupplyFlowKey ;
                     qb:componentProperty ?source_dimA_from_property , ?source_dimA_into_property , ?source_dimB_from_property , ?source_dimB_into_property .
-                ?target_supplyLinkKey a sn:SupplyLinkKey ;
+                ?target_supplyFlowKey a sn:SupplyFlowKey ;
                     qb:componentProperty ?source_dimA_from_property , ?source_dimA_into_property .
                 ?target_supplyNetworkStructure a qb:DataStructureDefinition ;
                     qb:component/qb:dimension ?source_dimA_from_property ;
                     qb:component/qb:dimension ?source_dimA_into_property ;
-                    qb:sliceKey ?target_supplyLinkKey .
+                    qb:sliceKey ?target_supplyFlowKey .
                 FILTER NOT EXISTS { ?target_supplyNetworkStructure qb:component/qb:dimension ?dim . FILTER (?dim NOT IN (?source_dimA_from_property, ?source_dimA_into_property, sn:time))}
 
                 # identify the entities for all dimensions in abox
-                ?source_supplylink a sn:SupplyLink ;
+                ?source_supplyflow a sn:SupplyFlow ;
                     ?source_dimA_from_property ?source_dimA_from_entity ;
                     ?source_dimA_into_property ?source_dimA_into_entity ;
                     ?source_dimB_from_property ?source_dimB_from_entity ;
                     ?source_dimB_into_property ?source_dimB_into_entity ;
-                    sn:supplyLinkKey ?source_multidim_supplyLinkKey ;
+                    sn:supplyFlowKey ?source_multidim_supplyFlowKey ;
                     sn:volume ?volume .
                 BIND (?source_dimA_from_property AS ?target_dimA_from_property) .
                 BIND (?source_dimA_into_property AS ?target_dimA_into_property) .
@@ -170,7 +170,7 @@ CONSTRUCT {
                 # identify supply network
                 ?source_supplyNetwork a sn:SupplyNetwork ;
                     sn:structure ?source_singledim_supplyNetworkStructure ;
-                    sn:supplyLink ?source_supplylink .
+                    sn:supplyFlow ?source_supplyflow .
                 
                 # identify target abstraction and associated entity property that links source and target
                 ?source_singledim_supplyNetworkStructure a qb:DataStructureDefinition ;
@@ -191,26 +191,26 @@ CONSTRUCT {
 
                 # identify source dimensions in tbox
                 ?source_singledim_supplyNetworkStructure a qb:DataStructureDefinition ;
-                    qb:sliceKey ?source_singledim_supplyLinkKey .
+                    qb:sliceKey ?source_singledim_supplyFlowKey .
                 ?source_dimA_from_property rdfs:subPropertyOf sn:from .
                 ?source_dimA_into_property rdfs:subPropertyOf sn:into .
-                ?source_singledim_supplyLinkKey a sn:SupplyLinkKey ;
+                ?source_singledim_supplyFlowKey a sn:SupplyFlowKey ;
                     qb:componentProperty ?source_dimA_from_property , ?source_dimA_into_property .
 
                 # identify target dimensions in tbox
-                ?target_supplyLinkKey a sn:SupplyLinkKey ;
+                ?target_supplyFlowKey a sn:SupplyFlowKey ;
                     qb:componentProperty ?target_dimA_from_property , ?target_dimA_into_property .
                 ?target_supplyNetworkStructure a qb:DataStructureDefinition ;
-                    qb:sliceKey ?target_supplyLinkKey .
+                    qb:sliceKey ?target_supplyFlowKey .
                 ?target_dimA_from_property rdfs:subPropertyOf sn:from .
                 ?target_dimA_into_property rdfs:subPropertyOf sn:into .
                 FILTER NOT EXISTS { ?target_supplyNetworkStructure qb:component/qb:dimension ?dim . FILTER (?dim NOT IN (?target_dimA_from_property, ?target_dimA_into_property, sn:time))}
 
                 # identify the source entities for all dimensions in abox
-                ?source_supplylink a sn:SupplyLink ;
+                ?source_supplyflow a sn:SupplyFlow ;
                     ?source_dimA_from_property ?source_dimA_from_entity ;
                     ?source_dimA_into_property ?source_dimA_into_entity ;
-                    sn:supplyLinkKey ?source_singledim_supplyLinkKey ;
+                    sn:supplyFlowKey ?source_singledim_supplyFlowKey ;
                     sn:volume ?volume .
                 ?source_dimA_from_entity a ?source_dimA_class .
                 ?source_dimA_into_entity a ?source_dimA_class .
@@ -225,7 +225,7 @@ CONSTRUCT {
                 # identify supply network
                 ?source_supplyNetwork a sn:SupplyNetwork ;
                     sn:structure ?source_singledim_supplyNetworkStructure ;
-                    sn:supplyLink ?source_supplylink .
+                    sn:supplyFlow ?source_supplyflow .
                 
                 # identify target abstraction and associated entity property that links source and target
                 ?source_singledim_supplyNetworkStructure a qb:DataStructureDefinition ;
@@ -255,17 +255,17 @@ CONSTRUCT {
 
                 # identify source dimensions in tbox
                 ?source_singledim_supplyNetworkStructure a qb:DataStructureDefinition ;
-                    qb:sliceKey ?source_singledim_supplyLinkKey .
+                    qb:sliceKey ?source_singledim_supplyFlowKey .
                 ?source_dimA_from_property rdfs:subPropertyOf sn:from .
                 ?source_dimA_into_property rdfs:subPropertyOf sn:into .
-                ?source_singledim_supplyLinkKey a sn:SupplyLinkKey ;
+                ?source_singledim_supplyFlowKey a sn:SupplyFlowKey ;
                     qb:componentProperty ?source_dimA_from_property , ?source_dimA_into_property .
 
                 # identify target dimensions in tbox
-                ?target_supplyLinkKey a sn:SupplyLinkKey ;
+                ?target_supplyFlowKey a sn:SupplyFlowKey ;
                     qb:componentProperty ?target_dimA_from_property , ?target_dimA_into_property , ?target_dimB_from_property , ?target_dimB_into_property .
                 ?target_supplyNetworkStructure a qb:DataStructureDefinition ;
-                    qb:sliceKey ?target_supplyLinkKey .
+                    qb:sliceKey ?target_supplyFlowKey .
                 ?target_dimA_from_property rdfs:subPropertyOf sn:from .
                 ?target_dimA_into_property rdfs:subPropertyOf sn:into .
                 ?target_dimB_from_property rdfs:subPropertyOf sn:from .
@@ -273,10 +273,10 @@ CONSTRUCT {
                 FILTER NOT EXISTS { ?target_supplyNetworkStructure qb:component/qb:dimension ?dim . FILTER (?dim NOT IN (?target_dimA_from_property, ?target_dimA_into_property, ?target_dimB_from_property, ?target_dimB_into_property, sn:time))}
 
                 # identify the source entities for all dimensions in abox
-                ?source_supplylink a sn:SupplyLink ;
+                ?source_supplyflow a sn:SupplyFlow ;
                     ?source_dimA_from_property ?source_dimA_from_entity ;
                     ?source_dimA_into_property ?source_dimA_into_entity ;
-                    sn:supplyLinkKey ?source_singledim_supplyLinkKey ;
+                    sn:supplyFlowKey ?source_singledim_supplyFlowKey ;
                     sn:volume ?volume .
                 ?source_dimA_from_entity a ?source_dimA_class .
                 ?source_dimA_into_entity a ?source_dimA_class .
@@ -303,7 +303,7 @@ CONSTRUCT {
                 # identify supply network
                 ?source_supplyNetwork a sn:SupplyNetwork ;
                     sn:structure ?source_multidim_supplyNetworkStructure ;
-                    sn:supplyLink ?source_supplylink .
+                    sn:supplyFlow ?source_supplyflow .
                 
                 # identify target abstraction and associated entity property that links source and target
                 ?source_multidim_supplyNetworkStructure a qb:DataStructureDefinition ;
@@ -327,7 +327,7 @@ CONSTRUCT {
                 ?source_multidim_supplyNetworkStructure a qb:DataStructureDefinition ;
                     qb:component/qb:dimension ?source_dimB_from_property ;
                     qb:component/qb:dimension ?source_dimB_into_property ;
-                    qb:sliceKey ?source_multidim_supplyLinkKey .
+                    qb:sliceKey ?source_multidim_supplyFlowKey .
                 ?source_dimA_from_property rdfs:subPropertyOf sn:from .
                 ?source_dimA_into_property rdfs:subPropertyOf sn:into .
                 ?source_dimB_from_property rdfs:subPropertyOf sn:from .
@@ -336,25 +336,25 @@ CONSTRUCT {
                 FILTER (?source_dimA_into_property != ?source_dimB_into_property)
                 FILTER (?target_dimA_from_property != ?source_dimB_from_property)
                 FILTER (?target_dimA_into_property != ?source_dimB_into_property)
-                ?source_multidim_supplyLinkKey a sn:SupplyLinkKey ;
+                ?source_multidim_supplyFlowKey a sn:SupplyFlowKey ;
                     qb:componentProperty ?source_dimA_from_property , ?source_dimA_into_property , ?source_dimB_from_property , ?source_dimB_into_property .
 
                 # identify target dimensions in tbox
-                ?target_supplyLinkKey a sn:SupplyLinkKey ;
+                ?target_supplyFlowKey a sn:SupplyFlowKey ;
                     qb:componentProperty ?target_dimA_from_property , ?target_dimA_into_property , ?source_dimB_from_property , ?source_dimB_into_property .
                 ?target_supplyNetworkStructure a qb:DataStructureDefinition ;
-                    qb:sliceKey ?target_supplyLinkKey .
+                    qb:sliceKey ?target_supplyFlowKey .
                 ?target_dimA_from_property rdfs:subPropertyOf sn:from .
                 ?target_dimA_into_property rdfs:subPropertyOf sn:into .
                 FILTER NOT EXISTS { ?target_supplyNetworkStructure qb:component/qb:dimension ?dim . FILTER (?dim NOT IN (?target_dimA_from_property, ?target_dimA_into_property, ?source_dimB_from_property, ?source_dimB_into_property, sn:time))}
 
                 # identify the source entities for all dimensions in abox
-                ?source_supplylink a sn:SupplyLink ;
+                ?source_supplyflow a sn:SupplyFlow ;
                     ?source_dimA_from_property ?source_dimA_from_entity ;
                     ?source_dimA_into_property ?source_dimA_into_entity ;
                     ?source_dimB_from_property ?source_dimB_from_entity ;
                     ?source_dimB_into_property ?source_dimB_into_entity ;
-                    sn:supplyLinkKey ?source_multidim_supplyLinkKey ;
+                    sn:supplyFlowKey ?source_multidim_supplyFlowKey ;
                     sn:volume ?volume .
                 ?source_dimA_from_entity a ?source_dimA_class .
                 ?source_dimA_into_entity a ?source_dimA_class .
@@ -387,7 +387,7 @@ CONSTRUCT {
                 # identify supply network
                 ?source_supplyNetwork a sn:SupplyNetwork ;
                     sn:structure ?source_multidim_supplyNetworkStructure ;
-                    sn:supplyLink ?source_supplylink .
+                    sn:supplyFlow ?source_supplyflow .
                 
                 # identify target abstraction and associated entity property that links source and target
                 ?source_multidim_supplyNetworkStructure a qb:DataStructureDefinition ;
@@ -419,7 +419,7 @@ CONSTRUCT {
 
                 # identify source dimensions in tbox
                 ?source_multidim_supplyNetworkStructure a qb:DataStructureDefinition ;
-                    qb:sliceKey ?source_multidim_supplyLinkKey .
+                    qb:sliceKey ?source_multidim_supplyFlowKey .
                 ?source_dimA_from_property rdfs:subPropertyOf sn:from .
                 ?source_dimA_into_property rdfs:subPropertyOf sn:into .
                 ?source_dimB_from_property rdfs:subPropertyOf sn:from .
@@ -428,14 +428,14 @@ CONSTRUCT {
                 FILTER (?source_dimA_into_property != ?source_dimB_into_property)
                 FILTER (?target_dimA_from_property != ?target_dimB_from_property)
                 FILTER (?target_dimA_into_property != ?target_dimB_into_property)
-                ?source_multidim_supplyLinkKey a sn:SupplyLinkKey ;
+                ?source_multidim_supplyFlowKey a sn:SupplyFlowKey ;
                     qb:componentProperty ?source_dimA_from_property , ?source_dimA_into_property , ?source_dimB_from_property , ?source_dimB_into_property .
 
                 # identify target dimensions in tbox
-                ?target_supplyLinkKey a sn:SupplyLinkKey ;
+                ?target_supplyFlowKey a sn:SupplyFlowKey ;
                     qb:componentProperty ?target_dimA_from_property , ?target_dimA_into_property , ?target_dimB_from_property , ?target_dimB_into_property .
                 ?target_supplyNetworkStructure a qb:DataStructureDefinition ;
-                    qb:sliceKey ?target_supplyLinkKey .
+                    qb:sliceKey ?target_supplyFlowKey .
                 ?target_dimA_from_property rdfs:subPropertyOf sn:from .
                 ?target_dimA_into_property rdfs:subPropertyOf sn:into .
                 ?target_dimB_from_property rdfs:subPropertyOf sn:from .
@@ -443,12 +443,12 @@ CONSTRUCT {
                 FILTER NOT EXISTS { ?target_supplyNetworkStructure qb:component/qb:dimension ?dim . FILTER (?dim NOT IN (?target_dimA_from_property, ?target_dimA_into_property, ?target_dimB_from_property, ?target_dimB_into_property, sn:time))}
 
                 # identify the source entities for all dimensions in abox
-                ?source_supplylink a sn:SupplyLink ;
+                ?source_supplyflow a sn:SupplyFlow ;
                     ?source_dimA_from_property ?source_dimA_from_entity ;
                     ?source_dimA_into_property ?source_dimA_into_entity ;
                     ?source_dimB_from_property ?source_dimB_from_entity ;
                     ?source_dimB_into_property ?source_dimB_into_entity ;
-                    sn:supplyLinkKey ?source_multidim_supplyLinkKey ;
+                    sn:supplyFlowKey ?source_multidim_supplyFlowKey ;
                     sn:volume ?volume .
                 ?source_dimA_from_entity a ?source_dimA_class .
                 ?source_dimA_into_entity a ?source_dimA_class .
@@ -479,7 +479,7 @@ CONSTRUCT {
                 # identify supply network
                 ?source_supplyNetwork a sn:SupplyNetwork ;
                     sn:structure ?source_multidim_supplyNetworkStructure ;
-                    sn:supplyLink ?source_supplylink .
+                    sn:supplyFlow ?source_supplyflow .
                 
                 # identify target abstraction and associated entity property that links source and target
                 ?source_multidim_supplyNetworkStructure a qb:DataStructureDefinition ;
@@ -511,7 +511,7 @@ CONSTRUCT {
 
                 # identify source dimensions in tbox
                 ?source_multidim_supplyNetworkStructure a qb:DataStructureDefinition ;
-                    qb:sliceKey ?source_multidim_supplyLinkKey .
+                    qb:sliceKey ?source_multidim_supplyFlowKey .
                 ?source_dimA_from_property rdfs:subPropertyOf sn:from .
                 ?source_dimA_into_property rdfs:subPropertyOf sn:into .
                 ?source_dimB_from_property rdfs:subPropertyOf sn:from .
@@ -520,14 +520,14 @@ CONSTRUCT {
                 FILTER (?source_dimA_into_property != ?source_dimB_into_property)
                 FILTER (?target_dimA_from_property != ?target_dimB_from_property)
                 FILTER (?target_dimA_into_property != ?target_dimB_into_property)
-                ?source_multidim_supplyLinkKey a sn:SupplyLinkKey ;
+                ?source_multidim_supplyFlowKey a sn:SupplyFlowKey ;
                     qb:componentProperty ?source_dimA_from_property , ?source_dimA_into_property , ?source_dimB_from_property , ?source_dimB_into_property .
 
                 # identify target dimensions in tbox
-                ?target_supplyLinkKey a sn:SupplyLinkKey ;
+                ?target_supplyFlowKey a sn:SupplyFlowKey ;
                     qb:componentProperty ?target_dimA_from_property , ?target_dimA_into_property , ?target_dimB_from_property , ?target_dimB_into_property .
                 ?target_supplyNetworkStructure a qb:DataStructureDefinition ;
-                    qb:sliceKey ?target_supplyLinkKey .
+                    qb:sliceKey ?target_supplyFlowKey .
                 ?target_dimA_from_property rdfs:subPropertyOf sn:from .
                 ?target_dimA_into_property rdfs:subPropertyOf sn:into .
                 ?target_dimB_from_property rdfs:subPropertyOf sn:from .
@@ -535,12 +535,12 @@ CONSTRUCT {
                 FILTER NOT EXISTS { ?target_supplyNetworkStructure qb:component/qb:dimension ?dim . FILTER (?dim NOT IN (?target_dimA_from_property, ?target_dimA_into_property, ?target_dimB_from_property, ?target_dimB_into_property, sn:time))}
 
                 # identify the source entities for all dimensions in abox
-                ?source_supplylink a sn:SupplyLink ;
+                ?source_supplyflow a sn:SupplyFlow ;
                     ?source_dimA_from_property ?source_dimA_from_entity ;
                     ?source_dimA_into_property ?source_dimA_into_entity ;
                     ?source_dimB_from_property ?source_dimB_from_entity ;
                     ?source_dimB_into_property ?source_dimB_into_entity ;
-                    sn:supplyLinkKey ?source_multidim_supplyLinkKey ;
+                    sn:supplyFlowKey ?source_multidim_supplyFlowKey ;
                     sn:volume ?volume .
                 ?source_dimA_from_entity a ?source_dimA_class .
                 ?source_dimA_into_entity a ?source_dimA_class .
@@ -589,16 +589,16 @@ CONSTRUCT {
             BIND(IF(STR(?target_dimA_from_entity) < STR(?target_dimB_from_id), ?target_dimB_from_id, ?target_dimA_from_entity) AS ?target_second_from_entity) .
             BIND(IF(STR(?target_dimA_into_entity) < STR(?target_dimB_into_id), ?target_dimA_into_entity, ?target_dimB_into_id) AS ?target_first_into_entity) .
             BIND(IF(STR(?target_dimA_into_entity) < STR(?target_dimB_into_id), ?target_dimB_into_id, ?target_dimA_into_entity) AS ?target_second_into_entity) .
-            BIND(IRI(CONCAT("https://www.example.org/",MD5(CONCAT(STR(?target_first_from_entity),STR(?target_first_into_entity),STR(?target_second_from_entity),STR(?target_second_into_entity))))) AS ?target_supplylink) .
-            BIND(IRI(CONCAT("https://www.example.org/",MD5(CONCAT(STR(?target_supplylink),STR(?time),STR(?unit))))) AS ?target_volume) .
+            BIND(IRI(CONCAT("https://www.example.org/",MD5(CONCAT(STR(?target_first_from_entity),STR(?target_first_into_entity),STR(?target_second_from_entity),STR(?target_second_into_entity))))) AS ?target_supplyflow) .
+            BIND(IRI(CONCAT("https://www.example.org/",MD5(CONCAT(STR(?target_supplyflow),STR(?time),STR(?unit))))) AS ?target_volume) .
             
         }
-        GROUP BY ?source_supplyNetwork ?target_supplyNetwork ?target_supplylink ?target_volume
+        GROUP BY ?source_supplyNetwork ?target_supplyNetwork ?target_supplyflow ?target_volume
         ?target_dimA_from_entity ?target_dimA_from_entitylabel ?target_dimA_into_entity ?target_dimA_into_entitylabel
         ?target_dimB_from_entity ?target_dimB_from_entitylabel ?target_dimB_into_entity ?target_dimB_into_entitylabel
         ?target_dimA_from_property ?target_dimA_into_property ?target_dimA_class
         ?target_dimB_from_property ?target_dimB_into_property ?target_dimB_class
-        ?target_supplyLinkKey ?target_supplyNetworkStructure
+        ?target_supplyFlowKey ?target_supplyNetworkStructure
         ?time ?unit 
     }
 }

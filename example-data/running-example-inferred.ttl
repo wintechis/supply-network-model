@@ -6,15 +6,16 @@
 
 ex:Taiwan a csn:Country .
 ex:USA a csn:Country .
-ex:InferredData a sn:SupplyNetwork ;
+ex:efb4ea4170b7d18b2143471ff716bd37 a sn:SupplyNetwork ;
         sn:structure csn:CountryDataStructure ;
         sn:inferredFrom ex:Data ;
-        sn:supplyFlow ex:TaiwanUSA .
-ex:TaiwanUSA a sn:SupplyFlow ;
+        sn:supplyFlow ex:73b183ccdd25ddf406bba03d8922b124 .
+ex:73b183ccdd25ddf406bba03d8922b124 a sn:SupplyFlow ;
         sn:supplyFlowStructure csn:CountrySupplyFlowKey ;
         csn:export ex:Taiwan ;
         csn:import ex:USA ;
-        sn:volume [ a sn:Volume ;
-                sn:time ex:2020Q3 ;
-                sn:quantity  479.0 ;
-                sn:unit cur:MegaUSD ] .
+        sn:volume ex:f5805f150a919733867513d37e9238be .
+ex:f5805f150a919733867513d37e9238be a sn:Volume ;
+        sn:time ex:2020Q3 ;
+        sn:quantity  479.0 ;
+        sn:unit cur:MegaUSD .
