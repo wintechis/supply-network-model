@@ -35,7 +35,7 @@ esn: a owl:Ontology ;
     schema:creativeWorkStatus "Ontology Release"@en ;
     vann:preferredNamespaceUri <https://purl.org/supply-network/abstraction/enterprise/onto#> ;
     vann:preferredNamespacePrefix "esn" ;
-    voaf:extends qb: , sn: ;
+    voaf:extends qb: , sn: , cosn: , csn: , fssn: , isn: , ptsn: ;
     rdfs:isDefinedBy esn: .
 
 <https://danielhenselmann.solidcommunity.net/profile/card#me> foaf:name "Daniel Henselmann" .
@@ -65,7 +65,7 @@ esn:customer a owl:ObjectProperty , owl:FunctionalProperty , qb:DimensionPropert
     rdfs:domain sn:SupplyFlow ;
     rdfs:range esn:Enterprise ;
     rdfs:label "customer"@en ;
-    rdfs:comment "Links the customer enterprise in a supply rleation between two enterprises."@en ;
+    rdfs:comment "Links the customer enterprise in a supply flow between two enterprises."@en ;
     rdfs:isDefinedBy esn: .
 
 esn:industry a owl:ObjectProperty , owl:FunctionalProperty ;
@@ -97,7 +97,7 @@ esn:supplier a owl:ObjectProperty , owl:FunctionalProperty , qb:DimensionPropert
     rdfs:domain sn:SupplyFlow ;
     rdfs:range esn:Enterprise ;
     rdfs:label "supplier"@en ;
-    rdfs:comment "Links the supplying enterprise in a supply rleation between two enterprises."@en ;
+    rdfs:comment "Links the supplying enterprise in a supply flow between two enterprises."@en ;
     rdfs:isDefinedBy esn: .
 
 
@@ -121,15 +121,15 @@ esn:EnterpriseProductTypeDataStructure a sn:Abstraction ;
     sn:followsDataStructure sn:GenericDataStructure ;
     qb:component [ qb:dimension esn:supplier ; qb:componentAttachment sn:SupplyFlow ] ,
             [ qb:dimension esn:customer ; qb:componentAttachment sn:SupplyFlow ] ,
-            [ qb:dimension ptsn:component; qb:componentAttachment sn:SupplyFlow ] ,
+            [ qb:dimension ptsn:component ; qb:componentAttachment sn:SupplyFlow ] ,
             [ qb:dimension ptsn:outcome ; qb:componentAttachment sn:SupplyFlow ] ,
             [ qb:dimension sn:time ] ,
             [ qb:measure sn:quantity] ,
             [ qb:attribute sn:unit] ;
     sn:supplyLinkKey esn:EnterpriseProductTypeSupplyFlowKey ;
-    sn:higherAbstractionLevel fssn:FederalStateDataStructure , csn:CountryDataStructure , cosn:ContinentDataStructure , isn:IndustryDataStructure , isn:IndustryFederalStateDataStructure , isn:IndustryCountryDataStructure , isn:IndustryContinentDataStructure , esn:EnterpriseDataStructure , ptsn:ProductTypeDataStructure ;
-    rdfs:label "Enterprise Product Type Data Structure"@en ;
-    rdfs:comment "Defines the abstraction of all enterpise-product type supply networks through the data structure."@en ;
+    sn:higherAbstractionLevel fssn:FederalStateDataStructure , csn:CountryDataStructure , cosn:ContinentDataStructure , isn:IndustryDataStructure , isn:IndustryFederalStateDataStructure , isn:IndustryCountryDataStructure , isn:IndustryContinentDataStructure , esn:EnterpriseDataStructure , ptsn:ProductTypeDataStructure , ptsn:ProductTypeFederalStateDataStructure , ptsn:ProductTypeCountryDataStructure , ptsn:ProductTypeContinentDataStructure ;
+    rdfs:label "[Enterprise, Product Type] Data Structure"@en ;
+    rdfs:comment "Defines the abstraction of all [enterpise, product type] supply networks through the data structure."@en ;
     rdfs:isDefinedBy esn: .
 
 esn:EnterpriseSupplyFlowKey a sn:SupplyFlowKey ;
@@ -142,7 +142,7 @@ esn:EnterpriseSupplyFlowKey a sn:SupplyFlowKey ;
 esn:EnterpriseProductTypeSupplyFlowkKey a sn:SupplyFlowKey ;
     sn:followsSupplyFlowKey sn:GenericSupplyFlowKey ;
     qb:componentProperty esn:supplier , esn:customer , ptsn:component , ptsn:outcome ;
-    rdfs:label "Enterprise Product Type Supply Flow"@en ;
-    rdfs:comment "Defines the structure of supply flows in all enterpises-product type supply networks."@en ;
+    rdfs:label "[Enterprise, Product Type] Supply Flow"@en ;
+    rdfs:comment "Defines the structure of supply flows in all [enterpise, product type] supply networks."@en ;
     rdfs:isDefinedBy esn: .
     

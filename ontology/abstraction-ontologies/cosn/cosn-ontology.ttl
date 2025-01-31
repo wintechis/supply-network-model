@@ -1,0 +1,90 @@
+# own prefix
+@prefix cosn: <https://purl.org/supply-network/abstraction/continent/onto#> .
+@prefix isn: <https://purl.org/supply-network/abstraction/industry/onto#> .
+@prefix ptsn: <https://purl.org/supply-network/abstraction/protucttype/onto#> .
+@prefix sn: <https://purl.org/supply-network/onto#> .
+
+# other prefixes
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+cosn: a owl:Ontology ;
+    rdfs:label "Continent Supply Network Ontology"@en ;
+    dct:title "Continent Supply Network Ontology"@en ;
+    dct:abstract "todo."@en ;
+    dct:description "todo."@en ;
+    schema:image <https://purl.org/supply-network/abstraction/continent/onto/visualization> ;
+    owl:versionInfo "1.0.0" ;
+    owl:versionIRI <https://purl.org/supply-network/abstraction/continent/onto/1.0.0> ;
+    dct:created "2025-01-31"^^xsd:date ;
+    dct:creator <https://danielhenselmann.solidcommunity.net/profile/card#me> ;
+    dct:publisher [ foaf:name "Center for Applied Research on Supply Chain Services at Fraunhofer IIS"@en ;
+        foaf:homepage <https://www.scs.fraunhofer.de/en.html> ] ;
+    dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+    schema:creativeWorkStatus "Ontology Release"@en ;
+    vann:preferredNamespaceUri <https://purl.org/supply-network/abstraction/continent/onto#> ;
+    vann:preferredNamespacePrefix "cosn" ;
+    voaf:extends qb: , sn: , isn: , ptsn: ;
+    rdfs:isDefinedBy cosn: .
+
+<https://danielhenselmann.solidcommunity.net/profile/card#me> foaf:name "Daniel Henselmann" .
+
+
+# --- classes ---
+
+cosn:Continent a owl:Class ;
+    rdfs:subClassOf sn:Entity  ;
+    rdfs:label "Continent"@en ;
+    rdfs:comment "A geopolictical continent."@en ;
+    rdfs:isDefinedBy cosn: .
+
+
+# --- object properties ---
+
+cosn:export a owl:ObjectProperty , owl:FunctionalProperty , qb:DimensionProperty ;
+    rdfs:subPropertyOf sn:from ;
+    rdfs:domain sn:SupplyFlow ;
+    rdfs:range cosn:Continent ;
+    rdfs:label "export"@en ;
+    rdfs:comment "Links the exporting continent in a supply flow between two continents."@en ;
+    rdfs:isDefinedBy cosn: .
+
+cosn:import a owl:ObjectProperty , owl:FunctionalProperty , qb:DimensionProperty ;
+    rdfs:subPropertyOf sn:into ;
+    rdfs:domain sn:SupplyFlow ;
+    rdfs:range cosn:Continent ;
+    rdfs:label "import"@en ;
+    rdfs:comment "Links the importing continent in a supply flow between two continents."@en ;
+    rdfs:isDefinedBy cosn: .
+
+
+# --- individuals ---
+
+cosn:ContinentDataStructure a sn:Abstraction ;
+    sn:followsDataStructure sn:GenericDataStructure ;
+    qb:component [ qb:dimension cosn:export ; qb:componentAttachment sn:SupplyFlow ] ,
+            [ qb:dimension cosn:import ; qb:componentAttachment sn:SupplyFlow ] ,
+            [ qb:dimension sn:time ] ,
+            [ qb:measure sn:quantity] ,
+            [ qb:attribute sn:unit] ;
+    sn:supplyLinkKey cosn:ContinentSupplyFlowKey ;
+    sn:similarAbstractionLevel ptsn:ProductTypeDataStructure , isn:IndustryTypeDataStructure ;
+    rdfs:label "Continent Data Structure"@en ;
+    rdfs:comment "Defines the abstraction of all continent supply networks through the data structure."@en ;
+    rdfs:isDefinedBy cosn: .
+
+cosn:ContinentSupplyFlowKey a sn:SupplyFlowKey ;
+    sn:followsSupplyFlowKey sn:GenericSupplyFlowKey ;
+    qb:componentProperty cosn:export , cosn:import ;
+    rdfs:label "Continent Supply Flow"@en ;
+    rdfs:comment "Defines the structure of supply flows in all continent supply networks."@en ;
+    rdfs:isDefinedBy cosn: .
+    

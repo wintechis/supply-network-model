@@ -1,0 +1,85 @@
+@prefix cosn:   <https://example.org/cosn/vocab#> .
+@prefix csn:   <https://example.org/csn/vocab#> .
+@prefix cur:   <http://qudt.org/vocab/currency/> .
+@prefix esn:   <https://example.org/esn/vocab#> .
+@prefix ex: <https://www.example.org/> .
+@prefix fssn:   <https://example.org/fssn/vocab#> .
+@prefix isn:   <https://example.org/isn/vocab#> .
+@prefix ptsn:   <https://example.org/ptsn/vocab#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sn:    <https://purl.org/sn/vocab#> .
+
+ex:MultiDimData a sn:SupplyNetwork ;
+        sn:structure esn:EnterpriseProductTypeDataStructure ;
+        sn:supplyFlow ex:FoundryServiceTSMCCPUIntel , ex:FoundryServiceTSMCGPUIntel , ex:FoundryServiceTSMCGPUAMD , ex:FoundryServiceSMICCPUAMD .
+ex:FoundryService a ptsn:ProductType ;
+        ptsn:industry ex:Semiconductor ;
+        rdfs:label "Chip"@en .
+ex:Semiconductor a isn:Industry ;
+        rdfs:label "Semiconductor"@en .
+ex:CPU a ptsn:ProductType ;
+        ptsn:industry ex:Semiconductor ;
+        rdfs:label "CPU"@en , "Central processing unit"@en .
+ex:GPU a ptsn:ProductType ;
+        ptsn:industry ex:Semiconductor ;
+        rdfs:label "GPU"@en , "Graphics processing unit"@en .
+
+ex:FoundryServiceTSMCCPUIntel a sn:SupplyFlow ;
+        sn:supplyFlowKey esn:EnterpriseProductTypeSupplyFlowkKey ;
+        ptsn:component ex:FoundryService ;
+        esn:supplier ex:TSMC ;
+        ptsn:outcome ex:CPU ;
+        esn:customer ex:Intel ;
+        sn:volume [ a sn:Volume ;
+                sn:time ex:2010 ;
+                sn:quantity  100.0 ;
+                sn:unit cur:MegaUSD ] ,
+                [ a sn:Volume ;
+                sn:time ex:2009 ;
+                sn:quantity  10.0 ;
+                sn:unit cur:MegaUSD ] .
+
+ex:FoundryServiceTSMCGPUIntel a sn:SupplyFlow ;
+        sn:supplyFlowKey esn:EnterpriseProductTypeSupplyFlowkKey ;
+        ptsn:component ex:FoundryService ;
+        esn:supplier ex:TSMC ;
+        ptsn:outcome ex:GPU ;
+        esn:customer ex:Intel ;
+        sn:volume [ a sn:Volume ;
+                sn:time ex:2010 ;
+                sn:quantity  1.0 ;
+                sn:unit cur:MegaUSD ] ,
+                [ a sn:Volume ;
+                sn:time ex:2009 ;
+                sn:quantity  0.1 ;
+                sn:unit cur:MegaUSD ] .
+
+ex:FoundryServiceTSMCGPUAMD a sn:SupplyFlow ;
+        sn:supplyFlowKey esn:EnterpriseProductTypeSupplyFlowkKey ;
+        ptsn:component ex:FoundryService ;
+        esn:supplier ex:TSMC ;
+        ptsn:outcome ex:GPU ;
+        esn:customer ex:AMD ;
+        sn:volume [ a sn:Volume ;
+                sn:time ex:2010 ;
+                sn:quantity  0.01 ;
+                sn:unit cur:MegaUSD ] ,
+                [ a sn:Volume ;
+                sn:time ex:2009 ;
+                sn:quantity  0.001 ;
+                sn:unit cur:MegaUSD ] .
+
+ex:FoundryServiceSMICCPUAMD a sn:SupplyFlow ;
+        sn:supplyFlowKey esn:EnterpriseProductTypeSupplyFlowkKey ;
+        ptsn:component ex:FoundryService ;
+        esn:supplier ex:SMIC ;
+        ptsn:outcome ex:CPU ;
+        esn:customer ex:AMD ;
+        sn:volume [ a sn:Volume ;
+                sn:time ex:2010 ;
+                sn:quantity  0.0001 ;
+                sn:unit cur:MegaUSD ] ,
+                [ a sn:Volume ;
+                sn:time ex:2009 ;
+                sn:quantity  0.00001 ;
+                sn:unit cur:MegaUSD ] .

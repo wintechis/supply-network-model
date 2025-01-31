@@ -9,9 +9,9 @@ ex:USA a csn:Country .
 ex:InferredData a sn:SupplyNetwork ;
         sn:structure csn:CountryDataStructure ;
         sn:inferredFrom ex:Data ;
-        sn:supplyLink ex:TaiwanUSA .
-ex:TaiwanUSA a sn:SupplyLink ;
-        sn:supplyLinkStructure csn:CountrySupplyLinkKey ;
+        sn:supplyFlow ex:TaiwanUSA .
+ex:TaiwanUSA a sn:SupplyFlow ;
+        sn:supplyFlowStructure csn:CountrySupplyFlowKey ;
         csn:export ex:Taiwan ;
         csn:import ex:USA ;
         sn:volume [ a sn:Volume ;

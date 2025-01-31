@@ -1,0 +1,168 @@
+# own prefix
+@prefix cosn: <https://purl.org/supply-network/abstraction/continent/onto#> .
+@prefix csn: <https://purl.org/supply-network/abstraction/country/onto#> .
+@prefix esn: <https://purl.org/supply-network/abstraction/enterprise/onto#> .
+@prefix fssn: <https://purl.org/supply-network/abstraction/federalstate/onto#> .
+@prefix isn: <https://purl.org/supply-network/abstraction/industry/onto#> .
+@prefix ptsn: <https://purl.org/supply-network/abstraction/protucttype/onto#> .
+@prefix sn: <https://purl.org/supply-network/onto#> .
+
+# other prefixes
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ptsn: a owl:Ontology ;
+    rdfs:label "Product Type Supply Network Ontology"@en ;
+    dct:title "Product Type Supply Network Ontology"@en ;
+    dct:abstract "todo."@en ;
+    dct:description "todo."@en ;
+    schema:image <https://purl.org/supply-network/abstraction/producttype/onto/visualization> ;
+    owl:versionInfo "1.0.0" ;
+    owl:versionIRI <https://purl.org/supply-network/abstraction/producttype/onto/1.0.0> ;
+    dct:created "2025-01-31"^^xsd:date ;
+    dct:creator <https://danielhenselmann.solidcommunity.net/profile/card#me> ;
+    dct:publisher [ foaf:name "Center for Applied Research on Supply Chain Services at Fraunhofer IIS"@en ;
+        foaf:homepage <https://www.scs.fraunhofer.de/en.html> ] ;
+    dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+    schema:creativeWorkStatus "Ontology Release"@en ;
+    vann:preferredNamespaceUri <https://purl.org/supply-network/abstraction/producttype/onto#> ;
+    vann:preferredNamespacePrefix "ptsn" ;
+    voaf:extends qb: , sn: , cosn: , csn: , fssn: , isn: , esn: ;
+    rdfs:isDefinedBy ptsn: .
+
+<https://danielhenselmann.solidcommunity.net/profile/card#me> foaf:name "Daniel Henselmann" .
+
+
+# --- classes ---
+
+ptsn:ProductType a owl:Class ;
+    rdfs:subClassOf sn:Entity  ;
+    rdfs:label "Product type"@en ;
+    rdfs:comment "A product type."@en ;
+    rdfs:isDefinedBy ptsn: .
+
+
+# --- object properties ---
+
+ptsn:component a owl:ObjectProperty , owl:FunctionalProperty , qb:DimensionProperty ;
+    rdfs:subPropertyOf sn:from ;
+    rdfs:domain sn:SupplyFlow ;
+    rdfs:range ptsn:ProductType ;
+    rdfs:label "component"@en ;
+    rdfs:comment "Links the component product type in a supply flow between two product types."@en ;
+    rdfs:isDefinedBy ptsn: .
+
+ptsn:industry a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:subPropertyOf sn:abstractSubstitute ;
+    rdfs:domain ptsn:ProductType ;
+    rdfs:range isn:Industry ;
+    rdfs:label "industry"@en ;
+    rdfs:comment "Links the industry the product type belongs to."@en ;
+    rdfs:isDefinedBy ptsn: .
+
+ptsn:outcome a owl:ObjectProperty , owl:FunctionalProperty , qb:DimensionProperty ;
+    rdfs:subPropertyOf sn:into ;
+    rdfs:domain sn:SupplyFlow ;
+    rdfs:range ptsn:ProductType ;
+    rdfs:label "outcome"@en ;
+    rdfs:comment "Links the outcome product type in a supply flow between two product types."@en ;
+    rdfs:isDefinedBy ptsn: .
+
+
+# --- individuals ---
+
+ptsn:ProductTypeContinentDataStructure a sn:Abstraction ;
+    sn:followsDataStructure sn:GenericDataStructure ;
+    qb:component [ qb:dimension ptsn:component ; qb:componentAttachment sn:SupplyFlow ] ,
+            [ qb:dimension ptsn:outcome ; qb:componentAttachment sn:SupplyFlow ] ,
+            [ qb:dimension cosn:export ; qb:componentAttachment sn:SupplyFlow ] ,
+            [ qb:dimension cosn:import ; qb:componentAttachment sn:SupplyFlow ] ,
+            [ qb:dimension sn:time ] ,
+            [ qb:measure sn:quantity] ,
+            [ qb:attribute sn:unit] ;
+    sn:supplyLinkKey ptsn:ProductTypeContinentSupplyFlowKey ;
+    sn:higherAbstractionLevel ptsn:ProductTypeDataStructure , isn:IndustryDataStructure , cosn:ContinentDataStructure , isn:IndustryContinentDataStructure ;
+    rdfs:label "[Product Type, Continent] Data Structure"@en ;
+    rdfs:comment "Defines the abstraction of all [product type, continent] supply networks through the data structure."@en ;
+    rdfs:isDefinedBy ptsn: .
+
+ptsn:ProductTypeContinentSupplyFlowkKey a sn:SupplyFlowKey ;
+    sn:followsSupplyFlowKey sn:GenericSupplyFlowKey ;
+    qb:componentProperty ptsn:component , ptsn:outcome , cosn:export , cosn:import ;
+    rdfs:label "[Product Type, Continent] Supply Flow"@en ;
+    rdfs:comment "Defines the structure of supply flows in all [product type, continent] supply networks."@en ;
+    rdfs:isDefinedBy ptsn: .
+
+ptsn:ProductTypeCountryDataStructure a sn:Abstraction ;
+    sn:followsDataStructure sn:GenericDataStructure ;
+    qb:component [ qb:dimension ptsn:component ; qb:componentAttachment sn:SupplyFlow ] ,
+            [ qb:dimension ptsn:outcome ; qb:componentAttachment sn:SupplyFlow ] ,
+            [ qb:dimension csn:export ; qb:componentAttachment sn:SupplyFlow ] ,
+            [ qb:dimension csn:import ; qb:componentAttachment sn:SupplyFlow ] ,
+            [ qb:dimension sn:time ] ,
+            [ qb:measure sn:quantity] ,
+            [ qb:attribute sn:unit] ;
+    sn:supplyLinkKey ptsn:ProductTypeCountrySupplyFlowKey ;
+    sn:higherAbstractionLevel ptsn:ProductTypeDataStructure , isn:IndustryDataStructure , csn:CountryDataStructure , cosn:ContinentDataStructure , isn:IndustryCountryDataStructure , isn:IndustryContinentDataStructure , ptsn:ProductTypeContinentDataStructure ;
+    rdfs:label "[Product Type, Country] Data Structure"@en ;
+    rdfs:comment "Defines the abstraction of all [product type, country] supply networks through the data structure."@en ;
+    rdfs:isDefinedBy ptsn: .
+
+ptsn:ProductTypeCountrySupplyFlowkKey a sn:SupplyFlowKey ;
+    sn:followsSupplyFlowKey sn:GenericSupplyFlowKey ;
+    qb:componentProperty ptsn:component , ptsn:outcome , csn:export , csn:import ;
+    rdfs:label "[Product Type, Country] Supply Flow"@en ;
+    rdfs:comment "Defines the structure of supply flows in all [product type, country] supply networks."@en ;
+    rdfs:isDefinedBy ptsn: .
+
+ptsn:ProductTypeDataStructure a sn:Abstraction ;
+    sn:followsDataStructure sn:GenericDataStructure ;
+    qb:component [ qb:dimension ptsn:component ; qb:componentAttachment sn:SupplyFlow ] ,
+            [ qb:dimension ptsn:outcome ; qb:componentAttachment sn:SupplyFlow ] ,
+            [ qb:dimension sn:time ] ,
+            [ qb:measure sn:quantity] ,
+            [ qb:attribute sn:unit] ;
+    sn:supplyLinkKey ptsn:ProductTypeSupplyFlowKey ;
+    sn:similarAbstractionLevel esn:EnterpriseDataStructure , fssn:FederalStateDataStructure , csn:CountryDataStructure , cosn:ContinentDataStructure ;
+    sn:higherAbstractionLevel isn:IndustryDataStructure ;
+    rdfs:label "Product Type Data Structure"@en ;
+    rdfs:comment "Defines the abstraction of all product type supply networks through the data structure."@en ;
+    rdfs:isDefinedBy ptsn: .
+
+ptsn:ProductTypeFederalStateDataStructure a sn:Abstraction ;
+    sn:followsDataStructure sn:GenericDataStructure ;
+    qb:component [ qb:dimension ptsn:component ; qb:componentAttachment sn:SupplyFlow ] ,
+            [ qb:dimension ptsn:outcome ; qb:componentAttachment sn:SupplyFlow ] ,
+            [ qb:dimension fssn:export ; qb:componentAttachment sn:SupplyFlow ] ,
+            [ qb:dimension fssn:import ; qb:componentAttachment sn:SupplyFlow ] ,
+            [ qb:dimension sn:time ] ,
+            [ qb:measure sn:quantity] ,
+            [ qb:attribute sn:unit] ;
+    sn:supplyLinkKey ptsn:ProductTypeFederalStateSupplyFlowKey ;
+    sn:higherAbstractionLevel ptsn:ProductTypeDataStructure , isn:IndustryDataStructure , fssn:FederalStateDataStructure , csn:CountryDataStructure , cosn:ContinentDataStructure , isn:IndustryFederalStateDataStructure , isn:IndustryCountryDataStructure , isn:IndustryContinentDataStructure , ptsn:ProductTypeCountryDataStructure , ptsn:ProductTypeContinentDataStructure ;
+        rdfs:label "[Product Type, Federal State] Data Structure"@en ;
+    rdfs:comment "Defines the abstraction of all [product type, product type] supply networks through the data structure."@en ;
+    rdfs:isDefinedBy ptsn: .
+
+ptsn:ProductTypeFederalStateSupplyFlowkKey a sn:SupplyFlowKey ;
+    sn:followsSupplyFlowKey sn:GenericSupplyFlowKey ;
+    qb:componentProperty ptsn:component , ptsn:outcome , fssn:export , fssn:import ;
+    rdfs:label "[Product Type, Federal State] Supply Flow"@en ;
+    rdfs:comment "Defines the structure of supply flows in all [product type, product type] supply networks."@en ;
+    rdfs:isDefinedBy ptsn: .
+
+ptsn:ProductTypeSupplyFlowKey a sn:SupplyFlowKey ;
+    sn:followsSupplyFlowKey sn:GenericSupplyFlowKey ;
+    qb:componentProperty ptsn:component , ptsn:outcome ;
+    rdfs:label "Product Type Supply Flow"@en ;
+    rdfs:comment "Defines the structure of supply flows in all product type supply networks."@en ;
+    rdfs:isDefinedBy ptsn: .
+    

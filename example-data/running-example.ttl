@@ -13,13 +13,13 @@ ex:Taiwan a csn:Country .
 ex:USA a csn:Country .
 ex:Data a sn:SupplyNetwork ;
         sn:structure esn:EnterpriseDataStructure ;
-        sn:supplyLink ex:TSMCNvidia .
-ex:TSMCNvidia a sn:SupplyLink ;
-        sn:supplyLinkStructure esn:EnterpriseSupplyFlowKey ;
+        sn:supplyFlow ex:TSMCNvidia .
+ex:TSMCNvidia a sn:SupplyFlow ;
+        sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ;
         esn:supplier ex:TSMC ;
         esn:customer ex:Nvidia ;
         sn:volume [ a sn:Volume ;
                 sn:time ex:2020Q3 ;
                 sn:quantity  479.0 ;
                 sn:unit cur:MegaUSD ] .
-                
+        

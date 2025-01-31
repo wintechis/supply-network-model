@@ -1,0 +1,109 @@
+# own prefix
+@prefix cosn: <https://purl.org/supply-network/abstraction/continent/onto#> .
+@prefix csn: <https://purl.org/supply-network/abstraction/country/onto#> .
+@prefix fssn: <https://purl.org/supply-network/abstraction/federalstate/onto#> .
+@prefix isn: <https://purl.org/supply-network/abstraction/industry/onto#> .
+@prefix ptsn: <https://purl.org/supply-network/abstraction/protucttype/onto#> .
+@prefix sn: <https://purl.org/supply-network/onto#> .
+
+# other prefixes
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+fssn: a owl:Ontology ;
+    rdfs:label "Federal State Supply Network Ontology"@en ;
+    dct:title "Federal State Supply Network Ontology"@en ;
+    dct:abstract "todo."@en ;
+    dct:description "todo."@en ;
+    schema:image <https://purl.org/supply-network/abstraction/federalstate/onto/visualization> ;
+    owl:versionInfo "1.0.0" ;
+    owl:versionIRI <https://purl.org/supply-network/abstraction/federalstate/onto/1.0.0> ;
+    dct:created "2025-01-31"^^xsd:date ;
+    dct:creator <https://danielhenselmann.solidcommunity.net/profile/card#me> ;
+    dct:publisher [ foaf:name "Center for Applied Research on Supply Chain Services at Fraunhofer IIS"@en ;
+        foaf:homepage <https://www.scs.fraunhofer.de/en.html> ] ;
+    dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+    schema:creativeWorkStatus "Ontology Release"@en ;
+    vann:preferredNamespaceUri <https://purl.org/supply-network/abstraction/federalstate/onto#> ;
+    vann:preferredNamespacePrefix "fssn" ;
+    voaf:extends qb: , sn: , cosn: , csn: , isn: , ptsn: ;
+    rdfs:isDefinedBy fssn: .
+
+<https://danielhenselmann.solidcommunity.net/profile/card#me> foaf:name "Daniel Henselmann" .
+
+
+# --- classes ---
+
+fssn:FederalState a owl:Class ;
+    rdfs:subClassOf sn:Entity  ;
+    rdfs:label "FederalState"@en ;
+    rdfs:comment "A federal state."@en ;
+    rdfs:isDefinedBy fssn: .
+
+
+# --- object properties ---
+
+fssn:export a owl:ObjectProperty , owl:FunctionalProperty , qb:DimensionProperty ;
+    rdfs:subPropertyOf sn:from ;
+    rdfs:domain sn:SupplyFlow ;
+    rdfs:range fssn:FederalState ;
+    rdfs:label "export"@en ;
+    rdfs:comment "Links the exporting federal state in a supply flow between two countries."@en ;
+    rdfs:isDefinedBy fssn: .
+
+fssn:import a owl:ObjectProperty , owl:FunctionalProperty , qb:DimensionProperty ;
+    rdfs:subPropertyOf sn:into ;
+    rdfs:domain sn:SupplyFlow ;
+    rdfs:range fssn:FederalState ;
+    rdfs:label "import"@en ;
+    rdfs:comment "Links the importing federal state in a supply flow between two countries."@en ;
+    rdfs:isDefinedBy fssn: .
+
+fssn:inContinent a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:subPropertyOf sn:abstractSubstitute ;
+    rdfs:domain fssn:FederalState ;
+    rdfs:range cosn:Continent ;
+    rdfs:label "in continent"@en ;
+    rdfs:comment "Links the continent of the federal state."@en ;
+    rdfs:isDefinedBy fssn: .
+
+fssn:inCountry a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:subPropertyOf sn:abstractSubstitute ;
+    rdfs:domain fssn:FederalState ;
+    rdfs:range csn:Country ;
+    rdfs:label "in country"@en ;
+    rdfs:comment "Links the country of the federal state."@en ;
+    rdfs:isDefinedBy fssn: .
+
+
+# --- individuals ---
+
+fssn:FederalStateDataStructure a sn:Abstraction ;
+    sn:followsDataStructure sn:GenericDataStructure ;
+    qb:component [ qb:dimension fssn:export ; qb:componentAttachment sn:SupplyFlow ] ,
+            [ qb:dimension fssn:import ; qb:componentAttachment sn:SupplyFlow ] ,
+            [ qb:dimension sn:time ] ,
+            [ qb:measure sn:quantity] ,
+            [ qb:attribute sn:unit] ;
+    sn:supplyLinkKey fssn:FederalStateSupplyFlowKey ;
+    sn:similarAbstractionLevel ptsn:ProductTypeDataStructure , isn:IndustryTypeDataStructure ;
+    sn:higherAbstractionLevel csn:CountryDataStructure , cosn:ContinentDataStructure ;
+    rdfs:label "Federal State Data Structure"@en ;
+    rdfs:comment "Defines the abstraction of all federal state supply networks through the data structure."@en ;
+    rdfs:isDefinedBy fssn: .
+
+fssn:FederalStateSupplyFlowKey a sn:SupplyFlowKey ;
+    sn:followsSupplyFlowKey sn:GenericSupplyFlowKey ;
+    qb:componentProperty fssn:export , fssn:import ;
+    rdfs:label "Federal State Supply Flow"@en ;
+    rdfs:comment "Defines the structure of supply flows in all federal state supply networks."@en ;
+    rdfs:isDefinedBy fssn: .
+    
