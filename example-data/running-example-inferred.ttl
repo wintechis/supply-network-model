@@ -1,0 +1,20 @@
+@prefix csn:   <https://example.org/csn/vocab#> .
+@prefix cur:   <http://qudt.org/vocab/currency/> .
+@prefix ex: <https://www.example.org/> .
+@prefix sn:    <https://purl.org/sn/vocab#> .
+
+
+ex:Taiwan a csn:Country .
+ex:USA a csn:Country .
+ex:InferredData a sn:SupplyNetwork ;
+        sn:structure csn:CountryDataStructure ;
+        sn:inferredFrom ex:Data ;
+        sn:supplyLink ex:TaiwanUSA .
+ex:TaiwanUSA a sn:SupplyLink ;
+        sn:supplyLinkStructure csn:CountrySupplyLinkKey ;
+        csn:export ex:Taiwan ;
+        csn:import ex:USA ;
+        sn:volume [ a sn:Volume ;
+                sn:time ex:2020Q3 ;
+                sn:quantity  479.0 ;
+                sn:unit cur:MegaUSD ] .

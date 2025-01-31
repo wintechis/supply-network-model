@@ -1,0 +1,25 @@
+@prefix csn:   <https://example.org/csn/vocab#> .
+@prefix cur:   <http://qudt.org/vocab/currency/> .
+@prefix esn:   <https://example.org/esn/vocab#> .
+@prefix ex: <https://www.example.org/> .
+@prefix sn:    <https://purl.org/sn/vocab#> .
+
+
+ex:TSMC a esn:Enterprise ;
+        esn:registeredInCountry ex:Taiwan .
+ex:Nvidia a esn:Enterprise ;
+        esn:registeredInCountry ex:USA .
+ex:Taiwan a csn:Country .
+ex:USA a csn:Country .
+ex:Data a sn:SupplyNetwork ;
+        sn:structure esn:EnterpriseDataStructure ;
+        sn:supplyLink ex:TSMCNvidia .
+ex:TSMCNvidia a sn:SupplyLink ;
+        sn:supplyLinkStructure esn:EnterpriseSupplyFlowKey ;
+        esn:supplier ex:TSMC ;
+        esn:customer ex:Nvidia ;
+        sn:volume [ a sn:Volume ;
+                sn:time ex:2020Q3 ;
+                sn:quantity  479.0 ;
+                sn:unit cur:MegaUSD ] .
+                
