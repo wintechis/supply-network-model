@@ -41,19 +41,16 @@ CONSTRUCT {
             sn:volume ?source_volume .
         ?source_volume a sn:Volume ;
             sn:time ?time ;
-            sn:unit ?unit ;
-            sn:quantity ?quantity .
+            sn:quantity ?quantity ;
+            sn:unit ?unit .
         OPTIONAL { ?target_from_entity rdfs:label ?target_from_entitylabel . }
         OPTIONAL { ?target_into_entity rdfs:label ?target_into_entitylabel . }
-        BIND(IRI(CONCAT("https://www.example.org/",
-            MD5(CONCAT(STR(?source_supplyNetwork),STR(csn:CountryDataStructure)))))
-            AS ?target_supplyNetwork) .
-        BIND(IRI(CONCAT("https://www.example.org/",
-            MD5(CONCAT(STR(?target_from_entity),STR(?target_into_entity)))))
-            AS ?target_supplyflow) .
-        BIND(IRI(CONCAT("https://www.example.org/",
-            MD5(CONCAT(STR(?target_supplyflow),STR(?time),STR(?unit)))))
-            AS ?target_volume) .
+        BIND(IRI(CONCAT("https://www.example.org/",MD5(CONCAT(STR(?source_supplyNetwork),
+            STR(csn:CountryDataStructure))))) AS ?target_supplyNetwork) .
+        BIND(IRI(CONCAT("https://www.example.org/",MD5(CONCAT(STR(?target_from_entity),
+            STR(?target_into_entity))))) AS ?target_supplyflow) .
+        BIND(IRI(CONCAT("https://www.example.org/",MD5(CONCAT(STR(?target_supplyflow),
+            STR(?time),STR(?unit))))) AS ?target_volume) .
     } GROUP BY ?target_into_entity ?target_into_entitylabel ?target_from_entity ?target_from_entitylabel
         ?target_supplyNetwork ?source_supplyNetwork
         ?target_supplyflow ?target_volume
