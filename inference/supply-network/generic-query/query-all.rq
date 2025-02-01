@@ -32,8 +32,8 @@ CONSTRUCT {
     # resulting volumes
     ?target_volume a sn:Volume ;
         sn:time ?time ;
-        sn:unit ?unit ;
-        sn:quantity ?aggregatedQuantity .
+        sn:quantity ?aggregatedQuantity ;
+        sn:unit ?unit .
 } WHERE {
     {
         SELECT ?source_supplyNetwork ?target_supplyNetwork ?target_supplyflow ?target_volume
@@ -578,8 +578,8 @@ CONSTRUCT {
             # identify volumes in abox
             ?volume a sn:Volume ;
                 sn:time ?time ;
-                sn:unit ?unit ;
-                sn:quantity ?quantity .
+                sn:quantity ?quantity ;
+                sn:unit ?unit .
 
             # coin uris
             BIND(IRI(CONCAT("https://www.example.org/",MD5(CONCAT(STR(?source_supplyNetwork),STR(?target_supplyNetworkStructure))))) AS ?target_supplyNetwork) .
