@@ -5,15 +5,13 @@
 @prefix sn:    <https://purl.org/sn/vocab#> .
 
 
+ex:Data a sn:SupplyNetwork ;
+        sn:structure esn:EnterpriseDataStructure ;
+        sn:supplyFlow ex:TSMCNvidia .
 ex:TSMC a esn:Enterprise ;
         esn:registeredInCountry ex:Taiwan .
 ex:Nvidia a esn:Enterprise ;
         esn:registeredInCountry ex:USA .
-ex:Taiwan a csn:Country .
-ex:USA a csn:Country .
-ex:Data a sn:SupplyNetwork ;
-        sn:structure esn:EnterpriseDataStructure ;
-        sn:supplyFlow ex:TSMCNvidia .
 ex:TSMCNvidia a sn:SupplyFlow ;
         sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ;
         esn:supplier ex:TSMC ;

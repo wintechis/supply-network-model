@@ -4,12 +4,12 @@
 @prefix sn:    <https://purl.org/sn/vocab#> .
 
 
-ex:Taiwan a csn:Country .
-ex:USA a csn:Country .
 ex:efb4ea4170b7d18b2143471ff716bd37 a sn:SupplyNetwork ;
         sn:structure csn:CountryDataStructure ;
-        sn:inferredFrom ex:Data ;
-        sn:supplyFlow ex:73b183ccdd25ddf406bba03d8922b124 .
+        sn:supplyFlow ex:73b183ccdd25ddf406bba03d8922b124 ;
+        sn:inferredFrom ex:Data .
+ex:Taiwan a csn:Country .
+ex:USA a csn:Country .
 ex:73b183ccdd25ddf406bba03d8922b124 a sn:SupplyFlow ;
         sn:supplyFlowStructure csn:CountrySupplyFlowKey ;
         csn:export ex:Taiwan ;
