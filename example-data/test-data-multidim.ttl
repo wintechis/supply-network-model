@@ -25,7 +25,7 @@ ex:GPU a ptsn:ProductType ;
         rdfs:label "GPU"@en , "Graphics processing unit"@en .
 
 ex:FoundryServiceTSMCCPUIntel a sn:SupplyFlow ;
-        sn:supplyFlowKey esn:EnterpriseProductTypeSupplyFlowkKey ;
+        sn:supplyFlowStructure esn:EnterpriseProductTypeSupplyFlowkKey ;
         ptsn:component ex:FoundryService ;
         esn:supplier ex:TSMC ;
         ptsn:outcome ex:CPU ;
@@ -40,7 +40,7 @@ ex:FoundryServiceTSMCCPUIntel a sn:SupplyFlow ;
                 sn:unit cur:MegaUSD ] .
 
 ex:FoundryServiceTSMCGPUIntel a sn:SupplyFlow ;
-        sn:supplyFlowKey esn:EnterpriseProductTypeSupplyFlowkKey ;
+        sn:supplyFlowStructure esn:EnterpriseProductTypeSupplyFlowkKey ;
         ptsn:component ex:FoundryService ;
         esn:supplier ex:TSMC ;
         ptsn:outcome ex:GPU ;
@@ -55,7 +55,7 @@ ex:FoundryServiceTSMCGPUIntel a sn:SupplyFlow ;
                 sn:unit cur:MegaUSD ] .
 
 ex:FoundryServiceTSMCGPUAMD a sn:SupplyFlow ;
-        sn:supplyFlowKey esn:EnterpriseProductTypeSupplyFlowkKey ;
+        sn:supplyFlowStructure esn:EnterpriseProductTypeSupplyFlowkKey ;
         ptsn:component ex:FoundryService ;
         esn:supplier ex:TSMC ;
         ptsn:outcome ex:GPU ;
@@ -70,7 +70,7 @@ ex:FoundryServiceTSMCGPUAMD a sn:SupplyFlow ;
                 sn:unit cur:MegaUSD ] .
 
 ex:FoundryServiceSMICCPUAMD a sn:SupplyFlow ;
-        sn:supplyFlowKey esn:EnterpriseProductTypeSupplyFlowkKey ;
+        sn:supplyFlowStructure esn:EnterpriseProductTypeSupplyFlowkKey ;
         ptsn:component ex:FoundryService ;
         esn:supplier ex:SMIC ;
         ptsn:outcome ex:CPU ;

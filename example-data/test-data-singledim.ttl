@@ -59,7 +59,7 @@ ex:China a csn:Country ;
         rdfs:label "China"@en .
 
 ex:TSMCIntel a sn:SupplyFlow ;
-        sn:supplyFlowKey esn:EnterpriseSupplyFlowKey ;
+        sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ;
         esn:supplier ex:TSMC ;
         esn:customer ex:Intel ;
         sn:volume [ a sn:Volume ;
@@ -72,7 +72,7 @@ ex:TSMCIntel a sn:SupplyFlow ;
                 sn:unit cur:MegaUSD ] .
 
 ex:TSMCAMD a sn:SupplyFlow ;
-        sn:supplyFlowKey esn:EnterpriseSupplyFlowKey ;
+        sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ;
         esn:supplier ex:TSMC ;
         esn:customer ex:AMD ;
         sn:volume [ a sn:Volume ;
@@ -85,7 +85,7 @@ ex:TSMCAMD a sn:SupplyFlow ;
                 sn:unit cur:MegaUSD ] .
 
 ex:SMICAMD a sn:SupplyFlow ;
-        sn:supplyFlowKey esn:EnterpriseSupplyFlowKey ;
+        sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ;
         esn:supplier ex:SMIC ;
         esn:customer ex:AMD ;
         sn:volume [ a sn:Volume ;
