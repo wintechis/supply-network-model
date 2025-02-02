@@ -84,7 +84,7 @@ isn:IndustryContinentDataStructure a sn:Abstraction ;
     rdfs:comment "Defines the abstraction of all [industry, continent] supply networks through the data structure."@en ;
     rdfs:isDefinedBy isn: .
 
-isn:IndustryContinentSupplyFlowkKey a sn:SupplyFlowKey ;
+isn:IndustryContinentSupplyFlowKey a sn:SupplyFlowKey ;
     sn:followsSupplyFlowKey sn:GenericSupplyFlowKey ;
     qb:componentProperty isn:supply , isn:demand , cosn:export , cosn:import ;
     rdfs:label "[Industry, Continent] Supply Flow"@en ;
@@ -106,7 +106,7 @@ isn:IndustryCountryDataStructure a sn:Abstraction ;
     rdfs:comment "Defines the abstraction of all [industry, country] supply networks through the data structure."@en ;
     rdfs:isDefinedBy isn: .
 
-isn:IndustryCountrySupplyFlowkKey a sn:SupplyFlowKey ;
+isn:IndustryCountrySupplyFlowKey a sn:SupplyFlowKey ;
     sn:followsSupplyFlowKey sn:GenericSupplyFlowKey ;
     qb:componentProperty isn:supply , isn:demand , csn:export , csn:import ;
     rdfs:label "[Industry, Country] Supply Flow"@en ;
@@ -141,7 +141,7 @@ isn:IndustryFederalStateDataStructure a sn:Abstraction ;
     rdfs:comment "Defines the abstraction of all [industry, product type] supply networks through the data structure."@en ;
     rdfs:isDefinedBy isn: .
 
-isn:IndustryFederalStateSupplyFlowkKey a sn:SupplyFlowKey ;
+isn:IndustryFederalStateSupplyFlowKey a sn:SupplyFlowKey ;
     sn:followsSupplyFlowKey sn:GenericSupplyFlowKey ;
     qb:componentProperty isn:supply , isn:demand , fssn:export , fssn:import ;
     rdfs:label "[Industry, Federal State] Supply Flow"@en ;

@@ -12,6 +12,52 @@
 ex:MultiDimData a sn:SupplyNetwork ;
         sn:structure esn:EnterpriseProductTypeDataStructure ;
         sn:supplyFlow ex:FoundryServiceTSMCCPUIntel , ex:FoundryServiceTSMCGPUIntel , ex:FoundryServiceTSMCGPUAMD , ex:FoundryServiceSMICCPUAMD .
+ex:Intel a esn:Enterprise ;
+        esn:industry ex:IDM ;
+        esn:registeredInFederalState ex:California ;
+        esn:registeredInCountry ex:USA ;
+        esn:continent ex:NorthAmerica ;
+        rdfs:label "Intel"@en .
+ex:IDM a isn:Industry ;
+        rdfs:label "IDM"@en .
+ex:California a fssn:FederalState ;
+        rdfs:label "California"@en , "CA"@en .
+ex:USA a csn:Country ;
+        rdfs:label "USA"@en .
+ex:NorthAmerica a cosn:Continent ;
+        rdfs:label "North America"@en .
+ex:AMD a esn:Enterprise ;
+        esn:industry ex:Fabless ;
+        esn:registeredInFederalState ex:California ;
+        esn:registeredInCountry ex:USA ;
+        esn:continent ex:NorthAmerica ;
+        rdfs:label "AMD"@en , "Advanced Micro Devices"@en .
+ex:Fabless a isn:Industry ;
+        rdfs:label "Fabless"@en .
+ex:TSMC a esn:Enterprise ;
+        esn:industry ex:Foundry ;
+        esn:registeredInFederalState ex:HSZ ;
+        esn:registeredInCountry ex:Taiwan ;
+        esn:continent ex:Asia ;
+        rdfs:label "TSMC"@en , "Taiwan Semiconductor Manufacturing Company Limited"@en .
+ex:Foundry a isn:Industry ;
+        rdfs:label "Foundry"@en .
+ex:HSZ a fssn:FederalState ;
+        rdfs:label "Hsinchu City"@en .
+ex:Taiwan a csn:Country ;
+        rdfs:label "Taiwan"@en .
+ex:Asia a cosn:Continent ;
+        rdfs:label "Asia"@en .
+ex:SMIC a esn:Enterprise ;
+        esn:industry ex:Foundry ;
+        esn:registeredInFederalState ex:Shanghai ;
+        esn:registeredInCountry ex:China ;
+        esn:continent ex:Asia ;
+        rdfs:label "SMIC"@en , "Semiconductor Manufacturing International Corporation"@en .
+ex:Shanghai a fssn:FederalState ;
+        rdfs:label "Shanghai"@en .
+ex:China a csn:Country ;
+        rdfs:label "China"@en .
 ex:FoundryService a ptsn:ProductType ;
         ptsn:industry ex:Semiconductor ;
         rdfs:label "Chip"@en .
@@ -25,7 +71,7 @@ ex:GPU a ptsn:ProductType ;
         rdfs:label "GPU"@en , "Graphics processing unit"@en .
 
 ex:FoundryServiceTSMCCPUIntel a sn:SupplyFlow ;
-        sn:supplyFlowStructure esn:EnterpriseProductTypeSupplyFlowkKey ;
+        sn:supplyFlowStructure esn:EnterpriseProductTypeSupplyFlowKey ;
         ptsn:component ex:FoundryService ;
         esn:supplier ex:TSMC ;
         ptsn:outcome ex:CPU ;
@@ -40,7 +86,7 @@ ex:FoundryServiceTSMCCPUIntel a sn:SupplyFlow ;
                 sn:unit cur:MegaUSD ] .
 
 ex:FoundryServiceTSMCGPUIntel a sn:SupplyFlow ;
-        sn:supplyFlowStructure esn:EnterpriseProductTypeSupplyFlowkKey ;
+        sn:supplyFlowStructure esn:EnterpriseProductTypeSupplyFlowKey ;
         ptsn:component ex:FoundryService ;
         esn:supplier ex:TSMC ;
         ptsn:outcome ex:GPU ;
@@ -55,7 +101,7 @@ ex:FoundryServiceTSMCGPUIntel a sn:SupplyFlow ;
                 sn:unit cur:MegaUSD ] .
 
 ex:FoundryServiceTSMCGPUAMD a sn:SupplyFlow ;
-        sn:supplyFlowStructure esn:EnterpriseProductTypeSupplyFlowkKey ;
+        sn:supplyFlowStructure esn:EnterpriseProductTypeSupplyFlowKey ;
         ptsn:component ex:FoundryService ;
         esn:supplier ex:TSMC ;
         ptsn:outcome ex:GPU ;
@@ -70,7 +116,7 @@ ex:FoundryServiceTSMCGPUAMD a sn:SupplyFlow ;
                 sn:unit cur:MegaUSD ] .
 
 ex:FoundryServiceSMICCPUAMD a sn:SupplyFlow ;
-        sn:supplyFlowStructure esn:EnterpriseProductTypeSupplyFlowkKey ;
+        sn:supplyFlowStructure esn:EnterpriseProductTypeSupplyFlowKey ;
         ptsn:component ex:FoundryService ;
         esn:supplier ex:SMIC ;
         ptsn:outcome ex:CPU ;

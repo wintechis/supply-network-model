@@ -94,7 +94,7 @@ ptsn:ProductTypeContinentDataStructure a sn:Abstraction ;
     rdfs:comment "Defines the abstraction of all [product type, continent] supply networks through the data structure."@en ;
     rdfs:isDefinedBy ptsn: .
 
-ptsn:ProductTypeContinentSupplyFlowkKey a sn:SupplyFlowKey ;
+ptsn:ProductTypeContinentSupplyFlowKey a sn:SupplyFlowKey ;
     sn:followsSupplyFlowKey sn:GenericSupplyFlowKey ;
     qb:componentProperty ptsn:component , ptsn:outcome , cosn:export , cosn:import ;
     rdfs:label "[Product Type, Continent] Supply Flow"@en ;
@@ -116,7 +116,7 @@ ptsn:ProductTypeCountryDataStructure a sn:Abstraction ;
     rdfs:comment "Defines the abstraction of all [product type, country] supply networks through the data structure."@en ;
     rdfs:isDefinedBy ptsn: .
 
-ptsn:ProductTypeCountrySupplyFlowkKey a sn:SupplyFlowKey ;
+ptsn:ProductTypeCountrySupplyFlowKey a sn:SupplyFlowKey ;
     sn:followsSupplyFlowKey sn:GenericSupplyFlowKey ;
     qb:componentProperty ptsn:component , ptsn:outcome , csn:export , csn:import ;
     rdfs:label "[Product Type, Country] Supply Flow"@en ;
@@ -152,7 +152,7 @@ ptsn:ProductTypeFederalStateDataStructure a sn:Abstraction ;
     rdfs:comment "Defines the abstraction of all [product type, product type] supply networks through the data structure."@en ;
     rdfs:isDefinedBy ptsn: .
 
-ptsn:ProductTypeFederalStateSupplyFlowkKey a sn:SupplyFlowKey ;
+ptsn:ProductTypeFederalStateSupplyFlowKey a sn:SupplyFlowKey ;
     sn:followsSupplyFlowKey sn:GenericSupplyFlowKey ;
     qb:componentProperty ptsn:component , ptsn:outcome , fssn:export , fssn:import ;
     rdfs:label "[Product Type, Federal State] Supply Flow"@en ;
