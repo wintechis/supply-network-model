@@ -48,11 +48,6 @@ CONSTRUCT {
             # query part to infer single-dimension supply network from multi-dimension supply network
             # where the single-dimension is NOT part of the multi-dimension
 
-                # identify supply network
-                ?source_supplyNetwork a sn:SupplyNetwork ;
-                    sn:structure ?source_supplyNetworkStructure ;
-                    sn:supplyFlow ?source_supplyflow .
-                
                 # identify target abstraction and associated entity property that links source and target
                 ?source_supplyNetworkStructure a sn:Abstraction ;
                     sn:higherAbstractionLevel ?target_supplyNetworkStructure ;
@@ -116,11 +111,6 @@ CONSTRUCT {
             # query part to infer single-dimension supply network from multi-dimension supply network
             # where the single-dimension IS part of the multi-dimension
 
-                # identify supply network
-                ?source_supplyNetwork a sn:SupplyNetwork ;
-                    sn:structure ?source_supplyNetworkStructure ;
-                    sn:supplyFlow ?source_supplyflow .
-
                 # identify dimensions in tbox
                 ?source_supplyNetworkStructure a sn:Abstraction ;
                     qb:component/qb:dimension ?source_dimA_from_property ;
@@ -166,11 +156,6 @@ CONSTRUCT {
 
             } UNION {
             # query part to infer single-dimension supply network from single-dimension supply network
-
-                # identify supply network
-                ?source_supplyNetwork a sn:SupplyNetwork ;
-                    sn:structure ?source_supplyNetworkStructure ;
-                    sn:supplyFlow ?source_supplyflow .
                 
                 # identify target abstraction and associated entity property that links source and target
                 ?source_supplyNetworkStructure a sn:Abstraction ;
@@ -221,11 +206,6 @@ CONSTRUCT {
 
             } UNION {
             # query part to infer multi-dimension supply network from single-dimension supply network
-
-                # identify supply network
-                ?source_supplyNetwork a sn:SupplyNetwork ;
-                    sn:structure ?source_supplyNetworkStructure ;
-                    sn:supplyFlow ?source_supplyflow .
                 
                 # identify target abstraction and associated entity property that links source and target
                 ?source_supplyNetworkStructure a sn:Abstraction ;
@@ -293,17 +273,10 @@ CONSTRUCT {
                 # identify labels and class of entities in abox
                 ?target_dimB_from_entity rdfs:label ?target_dimB_from_entitylabel .
                 ?target_dimB_into_entity rdfs:label ?target_dimB_into_entitylabel .
-                ?target_dimB_from_entity a ?target_dimB_class .
-                ?target_dimB_into_entity a ?target_dimB_class .
 
             } UNION {
             # query part to infer multi-dimension supply network from multi-dimension supply network
             # where ONE of the target dimensions is part of the source multi-dimension
-
-                # identify supply network
-                ?source_supplyNetwork a sn:SupplyNetwork ;
-                    sn:structure ?source_supplyNetworkStructure ;
-                    sn:supplyFlow ?source_supplyflow .
                 
                 # identify target abstraction and associated entity property that links source and target
                 ?source_supplyNetworkStructure a sn:Abstraction ;
@@ -374,8 +347,6 @@ CONSTRUCT {
                 ?target_dimB_class rdfs:subClassOf sn:Entity .
 
                 # identify labels and class of entities in abox
-                ?target_dimB_from_entity a ?target_dimB_class .
-                ?target_dimB_into_entity a ?target_dimB_class .
                 ?target_dimB_from_entity rdfs:label ?target_dimB_from_entitylabel .
                 ?target_dimB_into_entity rdfs:label ?target_dimB_into_entitylabel .
 
@@ -383,11 +354,6 @@ CONSTRUCT {
             # query part to infer multi-dimension supply network from multi-dimension supply network
             # where NONE of the target dimensions is part of the source multi-dimension
             # and both target dimensions infer from THE SAME source dimension
-
-                # identify supply network
-                ?source_supplyNetwork a sn:SupplyNetwork ;
-                    sn:structure ?source_supplyNetworkStructure ;
-                    sn:supplyFlow ?source_supplyflow .
                 
                 # identify target abstraction and associated entity property that links source and target
                 ?source_supplyNetworkStructure a sn:Abstraction ;
@@ -466,8 +432,6 @@ CONSTRUCT {
                 ?target_dimB_class rdfs:subClassOf sn:Entity .
 
                 # identify labels and class of entities in abox
-                ?target_dimB_from_entity a ?target_dimB_class .
-                ?target_dimB_into_entity a ?target_dimB_class .
                 ?target_dimB_from_entity rdfs:label ?target_dimB_from_entitylabel .
                 ?target_dimB_into_entity rdfs:label ?target_dimB_into_entitylabel .
 
@@ -475,11 +439,6 @@ CONSTRUCT {
             # query part to infer multi-dimension supply network from multi-dimension supply network
             # where NONE of the target dimensions is part of the source multi-dimension
             # and both target dimensions infer from TWO DIFFERENT source dimensions
-
-                # identify supply network
-                ?source_supplyNetwork a sn:SupplyNetwork ;
-                    sn:structure ?source_supplyNetworkStructure ;
-                    sn:supplyFlow ?source_supplyflow .
                 
                 # identify target abstraction and associated entity property that links source and target
                 ?source_supplyNetworkStructure a sn:Abstraction ;
@@ -558,22 +517,20 @@ CONSTRUCT {
                 ?target_dimB_class rdfs:subClassOf sn:Entity .
 
                 # identify labels and class of entities in abox
-                ?target_dimB_from_entity a ?target_dimB_class .
-                ?target_dimB_into_entity a ?target_dimB_class .
                 ?target_dimB_from_entity rdfs:label ?target_dimB_from_entitylabel .
                 ?target_dimB_into_entity rdfs:label ?target_dimB_into_entitylabel .
 
             }
 
-            # varify classes in tbox
-            ?source_dimA_class rdfs:subClassOf sn:Entity .
-            ?target_dimA_class rdfs:subClassOf sn:Entity .
+            
+            # identify source supply network
+            ?source_supplyNetwork a sn:SupplyNetwork ;
+                sn:structure ?source_supplyNetworkStructure ;
+                sn:supplyFlow ?source_supplyflow .
 
-            # identify labels and class of entities in abox
+            # identify labels of target entities in abox
             ?target_dimA_from_entity rdfs:label ?target_dimA_from_entitylabel .
             ?target_dimA_into_entity rdfs:label ?target_dimA_into_entitylabel .
-            ?target_dimA_from_entity a ?target_dimA_class .
-            ?target_dimA_into_entity a ?target_dimA_class .
 
             # identify volumes in abox
             ?volume a sn:Volume ;
