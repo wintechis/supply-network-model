@@ -1,0 +1,13 @@
+PREFIX csn: <https://purl.org/supply-network/abstraction/country/onto#>
+PREFIX ex: <https://www.example.org/>
+PREFIX sn: <https://purl.org/supply-network/onto#>
+
+SELECT ?trade_volume ?unit ?time
+WHERE {
+    ?supplyflow a sn:SupplyFlow ;
+        csn:export ex:Taiwan ;
+        csn:import ex:USA ;
+        sn:volume ?volume .
+    ?volume sn:time ?time ;
+        sn:quantity ?trade_volume ;
+        sn:unit ?unit . }

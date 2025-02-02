@@ -1,7 +1,7 @@
-@prefix csn:   <https://example.org/csn/vocab#> .
+@prefix csn:   <https://purl.org/supply-network/abstraction/country/onto#> .
 @prefix cur:   <http://qudt.org/vocab/currency/> .
 @prefix ex: <https://www.example.org/> .
-@prefix sn:    <https://purl.org/sn/vocab#> .
+@prefix sn:    <https://purl.org/supply-network/onto#> .
 
 
 ex:efb4ea4170b7d18b2143471ff716bd37 a sn:SupplyNetwork ;
