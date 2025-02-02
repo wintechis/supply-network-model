@@ -84,7 +84,7 @@ csn:CountryDataStructure a sn:Abstraction ;
             [ qb:dimension sn:time ] ,
             [ qb:measure sn:quantity] ,
             [ qb:attribute sn:unit] ;
-    sn:supplyLinkKey csn:CountrySupplyFlowKey ;
+    sn:supplyFlowKey csn:CountrySupplyFlowKey ;
     sn:similarAbstractionLevel ptsn:ProductTypeDataStructure , isn:IndustryTypeDataStructure ;
     sn:higherAbstractionLevel cosn:ContinentDataStructure ;
     rdfs:label "Country Data Structure"@en ;

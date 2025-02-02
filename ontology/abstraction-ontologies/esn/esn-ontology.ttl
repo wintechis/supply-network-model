@@ -110,7 +110,7 @@ esn:EnterpriseDataStructure a sn:Abstraction ;
             [ qb:dimension sn:time ] ,
             [ qb:measure sn:quantity] ,
             [ qb:attribute sn:unit] ;
-    sn:supplyLinkKey esn:EnterpriseSupplyFlowKey ;
+    sn:supplyFlowKey esn:EnterpriseSupplyFlowKey ;
     sn:similarAbstractionLevel ptsn:ProductTypeDataStructure ;
     sn:higherAbstractionLevel fssn:FederalStateDataStructure , csn:CountryDataStructure , cosn:ContinentDataStructure , isn:IndustryDataStructure , isn:IndustryFederalStateDataStructure , isn:IndustryCountryDataStructure , isn:IndustryContinentDataStructure ;
     rdfs:label "Enterprise Data Structure"@en ;
@@ -126,7 +126,7 @@ esn:EnterpriseProductTypeDataStructure a sn:Abstraction ;
             [ qb:dimension sn:time ] ,
             [ qb:measure sn:quantity] ,
             [ qb:attribute sn:unit] ;
-    sn:supplyLinkKey esn:EnterpriseProductTypeSupplyFlowKey ;
+    sn:supplyFlowKey esn:EnterpriseProductTypeSupplyFlowKey ;
     sn:higherAbstractionLevel fssn:FederalStateDataStructure , csn:CountryDataStructure , cosn:ContinentDataStructure , isn:IndustryDataStructure , isn:IndustryFederalStateDataStructure , isn:IndustryCountryDataStructure , isn:IndustryContinentDataStructure , esn:EnterpriseDataStructure , ptsn:ProductTypeDataStructure , ptsn:ProductTypeFederalStateDataStructure , ptsn:ProductTypeCountryDataStructure , ptsn:ProductTypeContinentDataStructure ;
     rdfs:label "[Enterprise, Product Type] Data Structure"@en ;
     rdfs:comment "Defines the abstraction of all [enterpise, product type] supply networks through the data structure."@en ;

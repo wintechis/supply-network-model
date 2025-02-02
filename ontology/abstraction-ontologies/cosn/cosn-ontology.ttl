@@ -75,7 +75,7 @@ cosn:ContinentDataStructure a sn:Abstraction ;
             [ qb:dimension sn:time ] ,
             [ qb:measure sn:quantity] ,
             [ qb:attribute sn:unit] ;
-    sn:supplyLinkKey cosn:ContinentSupplyFlowKey ;
+    sn:supplyFlowKey cosn:ContinentSupplyFlowKey ;
     sn:similarAbstractionLevel ptsn:ProductTypeDataStructure , isn:IndustryTypeDataStructure ;
     rdfs:label "Continent Data Structure"@en ;
     rdfs:comment "Defines the abstraction of all continent supply networks through the data structure."@en ;

@@ -78,7 +78,7 @@ isn:IndustryContinentDataStructure a sn:Abstraction ;
             [ qb:dimension sn:time ] ,
             [ qb:measure sn:quantity] ,
             [ qb:attribute sn:unit] ;
-    sn:supplyLinkKey isn:IndustryContinentSupplyFlowKey ;
+    sn:supplyFlowKey isn:IndustryContinentSupplyFlowKey ;
     sn:higherAbstractionLevel cosn:ContinentDataStructure , isn:IndustryDataStructure ;
     rdfs:label "[Industry, Continent] Data Structure"@en ;
     rdfs:comment "Defines the abstraction of all [industry, continent] supply networks through the data structure."@en ;
@@ -100,7 +100,7 @@ isn:IndustryCountryDataStructure a sn:Abstraction ;
             [ qb:dimension sn:time ] ,
             [ qb:measure sn:quantity] ,
             [ qb:attribute sn:unit] ;
-    sn:supplyLinkKey isn:IndustryCountrySupplyFlowKey ;
+    sn:supplyFlowKey isn:IndustryCountrySupplyFlowKey ;
     sn:higherAbstractionLevel csn:CountryDataStructure , cosn:ContinentDataStructure , isn:IndustryDataStructure , isn:IndustryContinentDataStructure ;
     rdfs:label "[Industry, Country] Data Structure"@en ;
     rdfs:comment "Defines the abstraction of all [industry, country] supply networks through the data structure."@en ;
@@ -120,7 +120,7 @@ isn:IndustryDataStructure a sn:Abstraction ;
             [ qb:dimension sn:time ] ,
             [ qb:measure sn:quantity] ,
             [ qb:attribute sn:unit] ;
-    sn:supplyLinkKey isn:IndustrySupplyFlowKey ;
+    sn:supplyFlowKey isn:IndustrySupplyFlowKey ;
     sn:similarAbstractionLevel fssn:FederalStateDataStructure , csn:CountryDataStructure , cosn:ContinentDataStructure ;
     rdfs:label "Industry Data Structure"@en ;
     rdfs:comment "Defines the abstraction of all industry supply networks through the data structure."@en ;
@@ -135,7 +135,7 @@ isn:IndustryFederalStateDataStructure a sn:Abstraction ;
             [ qb:dimension sn:time ] ,
             [ qb:measure sn:quantity] ,
             [ qb:attribute sn:unit] ;
-    sn:supplyLinkKey isn:IndustryFederalStateSupplyFlowKey ;
+    sn:supplyFlowKey isn:IndustryFederalStateSupplyFlowKey ;
     sn:higherAbstractionLevel fssn:FederalStateDataStructure , csn:CountryDataStructure , cosn:ContinentDataStructure , isn:IndustryDataStructure , isn:IndustryCountryDataStructure , isn:IndustryContinentDataStructure ;
     rdfs:label "[Industry, Federal State] Data Structure"@en ;
     rdfs:comment "Defines the abstraction of all [industry, product type] supply networks through the data structure."@en ;

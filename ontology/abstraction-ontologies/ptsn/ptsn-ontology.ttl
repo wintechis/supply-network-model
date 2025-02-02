@@ -88,7 +88,7 @@ ptsn:ProductTypeContinentDataStructure a sn:Abstraction ;
             [ qb:dimension sn:time ] ,
             [ qb:measure sn:quantity] ,
             [ qb:attribute sn:unit] ;
-    sn:supplyLinkKey ptsn:ProductTypeContinentSupplyFlowKey ;
+    sn:supplyFlowKey ptsn:ProductTypeContinentSupplyFlowKey ;
     sn:higherAbstractionLevel ptsn:ProductTypeDataStructure , isn:IndustryDataStructure , cosn:ContinentDataStructure , isn:IndustryContinentDataStructure ;
     rdfs:label "[Product Type, Continent] Data Structure"@en ;
     rdfs:comment "Defines the abstraction of all [product type, continent] supply networks through the data structure."@en ;
@@ -110,7 +110,7 @@ ptsn:ProductTypeCountryDataStructure a sn:Abstraction ;
             [ qb:dimension sn:time ] ,
             [ qb:measure sn:quantity] ,
             [ qb:attribute sn:unit] ;
-    sn:supplyLinkKey ptsn:ProductTypeCountrySupplyFlowKey ;
+    sn:supplyFlowKey ptsn:ProductTypeCountrySupplyFlowKey ;
     sn:higherAbstractionLevel ptsn:ProductTypeDataStructure , isn:IndustryDataStructure , csn:CountryDataStructure , cosn:ContinentDataStructure , isn:IndustryCountryDataStructure , isn:IndustryContinentDataStructure , ptsn:ProductTypeContinentDataStructure ;
     rdfs:label "[Product Type, Country] Data Structure"@en ;
     rdfs:comment "Defines the abstraction of all [product type, country] supply networks through the data structure."@en ;
@@ -130,7 +130,7 @@ ptsn:ProductTypeDataStructure a sn:Abstraction ;
             [ qb:dimension sn:time ] ,
             [ qb:measure sn:quantity] ,
             [ qb:attribute sn:unit] ;
-    sn:supplyLinkKey ptsn:ProductTypeSupplyFlowKey ;
+    sn:supplyFlowKey ptsn:ProductTypeSupplyFlowKey ;
     sn:similarAbstractionLevel esn:EnterpriseDataStructure , fssn:FederalStateDataStructure , csn:CountryDataStructure , cosn:ContinentDataStructure ;
     sn:higherAbstractionLevel isn:IndustryDataStructure ;
     rdfs:label "Product Type Data Structure"@en ;
@@ -146,7 +146,7 @@ ptsn:ProductTypeFederalStateDataStructure a sn:Abstraction ;
             [ qb:dimension sn:time ] ,
             [ qb:measure sn:quantity] ,
             [ qb:attribute sn:unit] ;
-    sn:supplyLinkKey ptsn:ProductTypeFederalStateSupplyFlowKey ;
+    sn:supplyFlowKey ptsn:ProductTypeFederalStateSupplyFlowKey ;
     sn:higherAbstractionLevel ptsn:ProductTypeDataStructure , isn:IndustryDataStructure , fssn:FederalStateDataStructure , csn:CountryDataStructure , cosn:ContinentDataStructure , isn:IndustryFederalStateDataStructure , isn:IndustryCountryDataStructure , isn:IndustryContinentDataStructure , ptsn:ProductTypeCountryDataStructure , ptsn:ProductTypeContinentDataStructure ;
         rdfs:label "[Product Type, Federal State] Data Structure"@en ;
     rdfs:comment "Defines the abstraction of all [product type, product type] supply networks through the data structure."@en ;

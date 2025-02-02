@@ -93,7 +93,7 @@ fssn:FederalStateDataStructure a sn:Abstraction ;
             [ qb:dimension sn:time ] ,
             [ qb:measure sn:quantity] ,
             [ qb:attribute sn:unit] ;
-    sn:supplyLinkKey fssn:FederalStateSupplyFlowKey ;
+    sn:supplyFlowKey fssn:FederalStateSupplyFlowKey ;
     sn:similarAbstractionLevel ptsn:ProductTypeDataStructure , isn:IndustryTypeDataStructure ;
     sn:higherAbstractionLevel csn:CountryDataStructure , cosn:ContinentDataStructure ;
     rdfs:label "Federal State Data Structure"@en ;

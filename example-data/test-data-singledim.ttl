@@ -1,12 +1,12 @@
-@prefix cosn:   <https://example.org/cosn/vocab#> .
-@prefix csn:   <https://example.org/csn/vocab#> .
+@prefix cosn:   <https://purl.org/supply-network/abstraction/continent/onto#> .
+@prefix csn:   <https://purl.org/supply-network/abstraction/country/onto#> .
 @prefix cur:   <http://qudt.org/vocab/currency/> .
-@prefix esn:   <https://example.org/esn/vocab#> .
+@prefix esn:   <https://purl.org/supply-network/abstraction/enterprise/onto#> .
 @prefix ex: <https://www.example.org/> .
-@prefix fssn:   <https://example.org/fssn/vocab#> .
-@prefix isn:   <https://example.org/isn/vocab#> .
+@prefix fssn:   <https://purl.org/supply-network/abstraction/federalstate/onto#> .
+@prefix isn:   <https://purl.org/supply-network/abstraction/industry/onto#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix sn:    <https://purl.org/sn/vocab#> .
+@prefix sn:    <https://purl.org/supply-network/onto#> .
 
 ex:SingleDimData a sn:SupplyNetwork ;
         sn:structure esn:EnterpriseDataStructure ;
