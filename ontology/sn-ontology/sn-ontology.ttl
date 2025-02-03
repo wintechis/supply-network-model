@@ -17,8 +17,8 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 sn: a owl:Ontology ;
-    rdfs:label "Supply Network Ontology"@en ;
-    dct:title "Supply Network Ontology"@en ;
+    rdfs:label "Abstraction Independent Supply Network Ontology (AISNO)"@en ;
+    dct:title "Abstraction Independent Supply Network Ontology (AISNO)"@en ;
     dct:abstract "todo."@en ;
     dct:description "todo."@en ;
     schema:image <https://purl.org/supply-network/onto/visualization> ;
