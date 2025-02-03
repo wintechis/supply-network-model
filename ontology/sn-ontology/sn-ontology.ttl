@@ -34,7 +34,7 @@ sn: a owl:Ontology ;
     vann:preferredNamespacePrefix "sn" ;
     voaf:extends qb: , qudt: , time: , skos: , prov: ;
     rdfs:isDefinedBy sn: ;
-    rdfs:seeAlso <https://purl.org/supply-network/abstraction/continent/onto#> , <https://purl.org/supply-network/abstraction/country/onto#> , <https://purl.org/supply-network/abstraction/enterprise/onto#> , <https://purl.org/supply-network/abstraction/federalstate/onto#> , <https://purl.org/supply-network/abstraction/industry/onto#> , <https://purl.org/supply-network/abstraction/protucttype/onto#> .
+    rdfs:seeAlso <https://purl.org/supply-network/abstraction/continent/onto#> , <https://purl.org/supply-network/abstraction/country/onto#> , <https://purl.org/supply-network/abstraction/enterprise/onto#> , <https://purl.org/supply-network/abstraction/federalstate/onto#> , <https://purl.org/supply-network/abstraction/industry/onto#> , <https://purl.org/supply-network/abstraction/producttype/onto#> .
 
 <https://danielhenselmann.solidcommunity.net/profile/card#me> foaf:name "Daniel Henselmann" .
 
