@@ -157,50 +157,41 @@ CONSTRUCT {
             } UNION {
             # query part to infer single-dimension supply network from single-dimension supply network
                 
-                # identify target abstraction and associated entity property that links source and target
+                # identify target abstraction in t-box
                 ?source_supplyNetworkStructure a sn:Abstraction ;
                     sn:higherAbstractionLevel ?target_supplyNetworkStructure ;
                     qb:component/qb:dimension ?source_dimA_from_property ;
                     qb:component/qb:dimension ?source_dimA_into_property .
-    			FILTER NOT EXISTS { ?source_supplyNetworkStructure qb:component/qb:dimension ?dim . FILTER (?dim NOT IN (?source_dimA_from_property, ?source_dimA_into_property, sn:time))}
-                ?source_dimA_from_property rdfs:range ?source_dimA_class .
-                ?source_dimA_into_property rdfs:range ?source_dimA_class .
+    			FILTER NOT EXISTS { ?source_supplyNetworkStructure qb:component/qb:dimension ?dim . FILTER (?dim NOT IN (?source_dimA_from_property, ?source_dimA_into_property, sn:time)) }
                 ?target_supplyNetworkStructure a sn:Abstraction ;
                     qb:component/qb:dimension ?target_dimA_from_property ;
                     qb:component/qb:dimension ?target_dimA_into_property .
+                FILTER NOT EXISTS { ?target_supplyNetworkStructure qb:component/qb:dimension ?dim . FILTER (?dim NOT IN (?target_dimA_from_property, ?target_dimA_into_property, sn:time)) }
+
+                # identify abstract substitute subproperty that links source and target in t-box
+                ?source_dimA_from_property rdfs:range ?source_dimA_class .
+                ?source_dimA_into_property rdfs:range ?source_dimA_class .
                 ?target_dimA_from_property rdfs:range ?target_dimA_class .
                 ?target_dimA_into_property rdfs:range ?target_dimA_class .
                 ?abstractSubstitute_property rdfs:subPropertyOf sn:abstractSubstitute ;
                     rdfs:domain ?source_dimA_class ;
                     rdfs:range ?target_dimA_class .
 
-                # identify source dimensions in tbox
-                ?source_supplyNetworkStructure a sn:Abstraction ;
-                    sn:supplyFlowKey ?source_supplyFlowKey .
+                # identify source dimensions properties in t-box
                 ?source_dimA_from_property rdfs:subPropertyOf sn:from .
                 ?source_dimA_into_property rdfs:subPropertyOf sn:into .
-                ?source_supplyFlowKey a sn:SupplyFlowKey ;
-                    qb:componentProperty ?source_dimA_from_property , ?source_dimA_into_property .
 
-                # identify target dimensions in tbox
-                ?target_supplyFlowKey a sn:SupplyFlowKey ;
-                    qb:componentProperty ?target_dimA_from_property , ?target_dimA_into_property .
-                ?target_supplyNetworkStructure a sn:Abstraction ;
-                    sn:supplyFlowKey ?target_supplyFlowKey .
+                # identify target dimensions properties in t-box
                 ?target_dimA_from_property rdfs:subPropertyOf sn:from .
                 ?target_dimA_into_property rdfs:subPropertyOf sn:into .
-                FILTER NOT EXISTS { ?target_supplyNetworkStructure qb:component/qb:dimension ?dim . FILTER (?dim NOT IN (?target_dimA_from_property, ?target_dimA_into_property, sn:time))}
 
-                # identify the source entities for all dimensions in abox
+                # identify source entities in a-box
                 ?source_supplyflow a sn:SupplyFlow ;
                     ?source_dimA_from_property ?source_dimA_from_entity ;
                     ?source_dimA_into_property ?source_dimA_into_entity ;
-                    sn:supplyFlowStructure ?source_supplyFlowKey ;
                     sn:volume ?volume .
-                ?source_dimA_from_entity a ?source_dimA_class .
-                ?source_dimA_into_entity a ?source_dimA_class .
 
-                # identify the target entities for all dimensions in abox
+                # identify target entities in a-box
                 ?source_dimA_from_entity ?abstractSubstitute_property ?target_dimA_from_entity .
                 ?source_dimA_into_entity ?abstractSubstitute_property ?target_dimA_into_entity .
 
@@ -212,7 +203,7 @@ CONSTRUCT {
                     sn:higherAbstractionLevel ?target_supplyNetworkStructure ;
                     qb:component/qb:dimension ?source_dimA_from_property ;
                     qb:component/qb:dimension ?source_dimA_into_property .
-    			FILTER NOT EXISTS { ?source_supplyNetworkStructure qb:component/qb:dimension ?dim . FILTER (?dim NOT IN (?source_dimA_from_property, ?source_dimA_into_property, sn:time))}
+    			FILTER NOT EXISTS { ?source_supplyNetworkStructure qb:component/qb:dimension ?dim .FILTER (?dim NOT IN (?source_dimA_from_property, ?source_dimA_into_property, sn:time))}
                 ?source_dimA_from_property rdfs:range ?source_class .
                 ?source_dimA_into_property rdfs:range ?source_class .
                 ?target_supplyNetworkStructure a sn:Abstraction ;
@@ -529,8 +520,8 @@ CONSTRUCT {
                 sn:supplyFlow ?source_supplyflow .
 
             # identify labels of target entities in abox
-            ?target_dimA_from_entity rdfs:label ?target_dimA_from_entitylabel .
-            ?target_dimA_into_entity rdfs:label ?target_dimA_into_entitylabel .
+            OPTIONAL { ?target_dimA_from_entity rdfs:label ?target_dimA_from_entitylabel . }
+            OPTIONAL { ?target_dimA_into_entity rdfs:label ?target_dimA_into_entitylabel . }
 
             # identify volumes in abox
             ?volume a sn:Volume ;
