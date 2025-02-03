@@ -55,7 +55,7 @@ sn:Entity a owl:Class ;
 
 sn:SupplyFlow a owl:Class ;
     rdfs:subClassOf qb:Slice ;
-    rdfs:label "Supply LiFlownk"@en ;
+    rdfs:label "Supply Flow"@en ;
     rdfs:comment "A directed supply relation between two entities, typically with a volume."@en ;
     rdfs:isDefinedBy sn: .
 
