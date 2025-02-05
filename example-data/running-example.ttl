@@ -1,23 +1,22 @@
 @prefix csn:   <https://purl.org/supply-network/abstraction/country/onto#> .
 @prefix cur:   <http://qudt.org/vocab/currency/> .
 @prefix esn:   <https://purl.org/supply-network/enterprise/country/onto#> .
-@prefix ex: <https://www.example.org/> .
 @prefix sn:    <https://purl.org/supply-network/onto#> .
+@prefix :      <#> .
 
-
-ex:Data a sn:SupplyNetwork ;
+:Data a sn:SupplyNetwork ;
         sn:structure esn:EnterpriseDataStructure ;
-        sn:supplyFlow ex:TSMCNvidia .
-ex:TSMC a esn:Enterprise ;
-        esn:registeredInCountry ex:Taiwan .
-ex:Nvidia a esn:Enterprise ;
-        esn:registeredInCountry ex:USA .
-ex:TSMCNvidia a sn:SupplyFlow ;
+        sn:supplyFlow :TSMCNvidia .
+:TSMC a esn:Enterprise ;
+        esn:registeredInCountry :Taiwan .
+:Nvidia a esn:Enterprise ;
+        esn:registeredInCountry :USA .
+:TSMCNvidia a sn:SupplyFlow ;
         sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ;
-        esn:supplier ex:TSMC ;
-        esn:customer ex:Nvidia ;
+        esn:supplier :TSMC ;
+        esn:customer :Nvidia ;
         sn:volume [ a sn:Volume ;
-                sn:time ex:2020Q3 ;
+                sn:time :2020Q3 ;
                 sn:quantity  479.0 ;
                 sn:unit cur:MegaUSD ] .
         
