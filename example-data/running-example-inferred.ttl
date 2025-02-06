@@ -2,21 +2,22 @@
 @prefix cur:   <http://qudt.org/vocab/currency/> .
 @prefix ex:    <https://www.example.org/> .
 @prefix sn:    <https://purl.org/supply-network/onto#> .
+@prefix snd:   <https://purl.org/supply-network/any-data/> .
 
     # representation of the supply network
-    <https://purl.org/supply-network/any-data/8ed3413f33232830ddc1090cf563a37e> a sn:SupplyNetwork ;
-            sn:supplyFlow <https://purl.org/supply-network/any-data/73b183ccdd25ddf406bba03d8922b124> .
-    <https://purl.org/supply-network/any-data/73b183ccdd25ddf406bba03d8922b124> a sn:SupplyFlow ;
+    snd:8ed3413f33232830ddc1090cf563a37e a sn:SupplyNetwork ;
+            sn:supplyFlow snd:73b183ccdd25ddf406bba03d8922b124 .
+    snd:73b183ccdd25ddf406bba03d8922b124 a sn:SupplyFlow ;
             sn:supplyFlowStructure csn:CountrySupplyFlowKey ;
             csn:export ex:Taiwan ;
             csn:import ex:USA ;
-            sn:volume <https://purl.org/supply-network/any-data/99c80fd17ea2c7361b04d766297e9412> .
-    <https://purl.org/supply-network/any-data/99c80fd17ea2c7361b04d766297e9412> a sn:Volume ;
+            sn:volume snd:99c80fd17ea2c7361b04d766297e9412 .
+    snd:99c80fd17ea2c7361b04d766297e9412 a sn:Volume ;
             sn:time ex:2020Q3 ;
             sn:quantity  479.0 ;
             sn:unit cur:MegaUSD .
 
     # representation of the abstraction
-    <https://purl.org/supply-network/any-data/8ed3413f33232830ddc1090cf563a37e> sn:structure csn:CountryDataStructure .
+    snd:8ed3413f33232830ddc1090cf563a37e sn:structure csn:CountryDataStructure .
     ex:Taiwan a csn:Country .
     ex:USA a csn:Country .
