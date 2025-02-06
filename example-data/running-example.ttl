@@ -1,22 +1,28 @@
 @prefix csn:   <https://purl.org/supply-network/abstraction/country/onto#> .
 @prefix cur:   <http://qudt.org/vocab/currency/> .
-@prefix esn:   <https://purl.org/supply-network/enterprise/country/onto#> .
+@prefix esn:   <https://purl.org/supply-network/abstraction/enterprise/onto#> .
+@prefix ex:    <https://www.example.org/> .
 @prefix sn:    <https://purl.org/supply-network/onto#> .
-@prefix :      <#> .
 
-:Data a sn:SupplyNetwork ;
-        sn:structure esn:EnterpriseDataStructure ;
-        sn:supplyFlow :TSMCNvidia .
-:TSMC a esn:Enterprise ;
-        esn:registeredInCountry :Taiwan .
-:Nvidia a esn:Enterprise ;
-        esn:registeredInCountry :USA .
-:TSMCNvidia a sn:SupplyFlow ;
-        sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ;
-        esn:supplier :TSMC ;
-        esn:customer :Nvidia ;
+# representation of the supply network
+ex:Data a sn:SupplyNetwork ;
+        sn:supplyFlow ex:TSMCNvidia .
+ex:TSMCNvidia a sn:SupplyFlow ;
+        esn:supplier ex:TSMC ;
+        esn:customer ex:Nvidia ;
         sn:volume [ a sn:Volume ;
-                sn:time :2020Q3 ;
+                sn:time ex:2020Q3 ;
                 sn:quantity  479.0 ;
                 sn:unit cur:MegaUSD ] .
+
+# representation of the abstraction
+ex:Data sn:structure esn:EnterpriseDataStructure .
+ex:TSMC a esn:Enterprise .
+ex:Nvidia a esn:Enterprise .
+ex:TSMCNvidia sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey .
+
+# representation of the mapping
+esn:EnterpriseDataStructure sn:higherAbstractionLevel csn:CountryDataStructure .
+ex:TSMC esn:registeredInCountry ex:Taiwan .
+ex:Nvidia esn:registeredInCountry ex:USA .
         

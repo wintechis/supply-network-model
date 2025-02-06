@@ -1,6 +1,7 @@
+BASE <https://purl.org/supply-network/any-data/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX sn: <https://purl.org/supply-network/onto#>
-PREFIX esn: <https://purl.org/supply-network/enterprise/country/onto#>
+PREFIX esn: <https://purl.org/supply-network/abstraction/enterprise/onto#>
 PREFIX csn: <https://purl.org/supply-network/abstraction/country/onto#>
 
 CONSTRUCT {
@@ -49,12 +50,12 @@ CONSTRUCT {
         OPTIONAL { ?target_into_entity rdfs:label ?target_into_entitylabel . }
         OPTIONAL { ?source_from_entity esn:continent ?target_from_abstractsubstitute . }
         OPTIONAL { ?source_into_entity esn:continent ?target_into_abstractsubstitute . }
-        BIND(IRI(CONCAT("https://www.example.org/",MD5(CONCAT(STR(?source_supplyNetwork),
-            STR(csn:CountryDataStructure))))) AS ?target_supplyNetwork) .
-        BIND(IRI(CONCAT("https://www.example.org/",MD5(CONCAT(STR(?target_from_entity),
-            STR(?target_into_entity))))) AS ?target_supplyflow) .
-        BIND(IRI(CONCAT("https://www.example.org/",MD5(CONCAT(STR(?target_supplyflow),
-            STR(?time),STR(?unit))))) AS ?target_volume) .
+        BIND(IRI(MD5(CONCAT(STR(?source_supplyNetwork),
+            STR(csn:CountryDataStructure)))) AS ?target_supplyNetwork) .
+        BIND(IRI(MD5(CONCAT(STR(?target_from_entity),
+            STR(?target_into_entity)))) AS ?target_supplyflow) .
+        BIND(IRI(MD5(CONCAT(STR(?target_supplyflow),
+            STR(?time),STR(?unit)))) AS ?target_volume) .
     } GROUP BY ?target_from_entity ?target_from_entitylabel ?target_into_entity ?target_into_entitylabel
         ?target_from_abstractsubstitute ?target_into_abstractsubstitute
         ?target_supplyNetwork ?source_supplyNetwork

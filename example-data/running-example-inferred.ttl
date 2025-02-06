@@ -1,21 +1,22 @@
 @prefix csn:   <https://purl.org/supply-network/abstraction/country/onto#> .
 @prefix cur:   <http://qudt.org/vocab/currency/> .
+@prefix ex:    <https://www.example.org/> .
 @prefix sn:    <https://purl.org/supply-network/onto#> .
-@prefix :      <#> .
 
+    # representation of the supply network
+    <https://purl.org/supply-network/any-data/8ed3413f33232830ddc1090cf563a37e> a sn:SupplyNetwork ;
+            sn:supplyFlow <https://purl.org/supply-network/any-data/73b183ccdd25ddf406bba03d8922b124> .
+    <https://purl.org/supply-network/any-data/73b183ccdd25ddf406bba03d8922b124> a sn:SupplyFlow ;
+            sn:supplyFlowStructure csn:CountrySupplyFlowKey ;
+            csn:export ex:Taiwan ;
+            csn:import ex:USA ;
+            sn:volume <https://purl.org/supply-network/any-data/99c80fd17ea2c7361b04d766297e9412> .
+    <https://purl.org/supply-network/any-data/99c80fd17ea2c7361b04d766297e9412> a sn:Volume ;
+            sn:time ex:2020Q3 ;
+            sn:quantity  479.0 ;
+            sn:unit cur:MegaUSD .
 
-:efb4ea4170b7d18b2143471ff716bd37 a sn:SupplyNetwork ;
-        sn:structure csn:CountryDataStructure ;
-        sn:supplyFlow :73b183ccdd25ddf406bba03d8922b124 ;
-        sn:inferredFrom :Data .
-:Taiwan a csn:Country .
-:USA a csn:Country .
-:73b183ccdd25ddf406bba03d8922b124 a sn:SupplyFlow ;
-        sn:supplyFlowStructure csn:CountrySupplyFlowKey ;
-        csn:export :Taiwan ;
-        csn:import :USA ;
-        sn:volume :f5805f150a919733867513d37e9238be .
-:f5805f150a919733867513d37e9238be a sn:Volume ;
-        sn:time :2020Q3 ;
-        sn:quantity  479.0 ;
-        sn:unit cur:MegaUSD .
+    # representation of the abstraction
+    <https://purl.org/supply-network/any-data/8ed3413f33232830ddc1090cf563a37e> sn:structure csn:CountryDataStructure .
+    ex:Taiwan a csn:Country .
+    ex:USA a csn:Country .

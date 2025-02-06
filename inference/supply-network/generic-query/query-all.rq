@@ -1,3 +1,4 @@
+BASE <https://purl.org/supply-network/any-data/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX sn: <https://purl.org/supply-network/onto#>
@@ -530,15 +531,15 @@ CONSTRUCT {
                 sn:unit ?unit .
 
             # coin uris
-            BIND(IRI(CONCAT("https://www.example.org/",MD5(CONCAT(STR(?source_supplyNetwork),STR(?target_supplyNetworkStructure))))) AS ?target_supplyNetwork) .
+            BIND(IRI(MD5(CONCAT(STR(?source_supplyNetwork),STR(?target_supplyNetworkStructure)))) AS ?target_supplyNetwork) .
             BIND(COALESCE(?target_dimB_from_entity, <https://www.dummy.org>) AS ?target_dimB_from_id) . # always have a binding to coin the uri
             BIND(COALESCE(?target_dimB_into_entity, <https://www.dummy.org>) AS ?target_dimB_into_id) .
             BIND(IF(STR(?target_dimA_from_entity) < STR(?target_dimB_from_id), ?target_dimA_from_entity, ?target_dimB_from_id) AS ?target_first_from_entity) . # ensure consistent order so we dont get two uris for each pair
             BIND(IF(STR(?target_dimA_from_entity) < STR(?target_dimB_from_id), ?target_dimB_from_id, ?target_dimA_from_entity) AS ?target_second_from_entity) .
             BIND(IF(STR(?target_dimA_into_entity) < STR(?target_dimB_into_id), ?target_dimA_into_entity, ?target_dimB_into_id) AS ?target_first_into_entity) .
             BIND(IF(STR(?target_dimA_into_entity) < STR(?target_dimB_into_id), ?target_dimB_into_id, ?target_dimA_into_entity) AS ?target_second_into_entity) .
-            BIND(IRI(CONCAT("https://www.example.org/",MD5(CONCAT(STR(?target_first_from_entity),STR(?target_first_into_entity),STR(?target_second_from_entity),STR(?target_second_into_entity))))) AS ?target_supplyflow) .
-            BIND(IRI(CONCAT("https://www.example.org/",MD5(CONCAT(STR(?target_supplyflow),STR(?time),STR(?unit))))) AS ?target_volume) .
+            BIND(IRI(MD5(CONCAT(STR(?target_first_from_entity),STR(?target_first_into_entity),STR(?target_second_from_entity),STR(?target_second_into_entity)))) AS ?target_supplyflow) .
+            BIND(IRI(MD5(CONCAT(STR(?target_supplyflow),STR(?time),STR(?unit)))) AS ?target_volume) .
             
         }
         GROUP BY ?source_supplyNetwork ?target_supplyNetwork ?target_supplyflow ?target_volume
