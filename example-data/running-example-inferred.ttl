@@ -8,7 +8,6 @@
     snd:8ed3413f33232830ddc1090cf563a37e a sn:SupplyNetwork ;
             sn:supplyFlow snd:73b183ccdd25ddf406bba03d8922b124 .
     snd:73b183ccdd25ddf406bba03d8922b124 a sn:SupplyFlow ;
-            sn:supplyFlowStructure csn:CountrySupplyFlowKey ;
             csn:export ex:Taiwan ;
             csn:import ex:USA ;
             sn:volume snd:99c80fd17ea2c7361b04d766297e9412 .
@@ -19,5 +18,6 @@
 
     # representation of the abstraction
     snd:8ed3413f33232830ddc1090cf563a37e sn:structure csn:CountryDataStructure .
+    snd:73b183ccdd25ddf406bba03d8922b124 sn:supplyFlowStructure csn:CountrySupplyFlowKey .
     ex:Taiwan a csn:Country .
     ex:USA a csn:Country .
