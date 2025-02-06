@@ -20,7 +20,7 @@
           <y:Geometry height="30.0" width="30.0" x="473.0" y="241.0"/>
           <y:Fill color="#000000" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Times New Roman" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" horizontalTextPosition="center" iconTextGap="4" modelName="sides" modelPosition="n" textColor="#000000" verticalTextPosition="bottom" visible="true" width="4.0" x="13.0" y="-8.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Times New Roman" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.2890625" horizontalTextPosition="center" iconTextGap="4" modelName="sides" modelPosition="n" textColor="#000000" verticalTextPosition="bottom" visible="true" width="39.982421875" x="-4.9912109375" xml:space="preserve" y="-21.2890625">Taiwan</y:NodeLabel>
           <y:Shape type="ellipse"/>
         </y:ShapeNode>
       </data>
@@ -31,30 +31,8 @@
           <y:Geometry height="30.0" width="30.0" x="619.4402559999997" y="241.0"/>
           <y:Fill color="#000000" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Times New Roman" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" horizontalTextPosition="center" iconTextGap="4" modelName="sides" modelPosition="n" textColor="#000000" verticalTextPosition="bottom" visible="true" width="4.0" x="13.0" y="-8.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Times New Roman" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.2890625" horizontalTextPosition="center" iconTextGap="4" modelName="sides" modelPosition="n" textColor="#000000" verticalTextPosition="bottom" visible="true" width="28.005859375" x="0.9970703125" xml:space="preserve" y="-21.2890625">USA</y:NodeLabel>
           <y:Shape type="ellipse"/>
-        </y:ShapeNode>
-      </data>
-    </node>
-    <node id="n2">
-      <data key="d6">
-        <y:ShapeNode>
-          <y:Geometry height="6.65280000000007" width="8.700800000000072" x="640.7394559999997" y="224.72031999999973"/>
-          <y:Fill hasColor="false" transparent="false"/>
-          <y:BorderStyle hasColor="false" raised="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Times New Roman" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.2890625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="r" textColor="#000000" verticalTextPosition="bottom" visible="true" width="36.66015625" x="-31.959356249999928" xml:space="preserve" y="-5.318131249999965">Nvidia</y:NodeLabel>
-          <y:Shape type="rectangle"/>
-        </y:ShapeNode>
-      </data>
-    </node>
-    <node id="n3">
-      <data key="d6">
-        <y:ShapeNode>
-          <y:Geometry height="6.65280000000007" width="8.700800000000072" x="473.0" y="224.72031999999973"/>
-          <y:Fill hasColor="false" transparent="false"/>
-          <y:BorderStyle hasColor="false" raised="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Times New Roman" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.2890625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="l" textColor="#000000" verticalTextPosition="bottom" visible="true" width="36.677734375" x="4.0" xml:space="preserve" y="-5.318131249999965">TSMC</y:NodeLabel>
-          <y:Shape type="rectangle"/>
         </y:ShapeNode>
       </data>
     </node>

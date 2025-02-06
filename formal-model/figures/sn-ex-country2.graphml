@@ -37,25 +37,23 @@
       </data>
     </node>
     <node id="n2">
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="6.65280000000007" width="8.700800000000072" x="640.7394559999997" y="225.04511999999988"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle hasColor="false" raised="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Times New Roman" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.2890625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="r" textColor="#000000" verticalTextPosition="bottom" visible="true" width="48.6484375" x="-43.94763749999993" xml:space="preserve" y="-5.318131249999965">Germany</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Times New Roman" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.2890625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="r" textColor="#000000" verticalTextPosition="bottom" visible="true" width="28.005859375" x="-23.305059374999928" xml:space="preserve" y="-5.318131249999965">USA</y:NodeLabel>
           <y:Shape type="rectangle"/>
         </y:ShapeNode>
       </data>
     </node>
     <node id="n3">
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="6.65280000000007" width="8.700800000000072" x="473.0" y="225.04511999999988"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle hasColor="false" raised="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Times New Roman" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.2890625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="l" textColor="#000000" verticalTextPosition="bottom" visible="true" width="32.6640625" x="4.0" xml:space="preserve" y="-5.318131249999965">China</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Times New Roman" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.2890625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="l" textColor="#000000" verticalTextPosition="bottom" visible="true" width="39.982421875" x="4.0" xml:space="preserve" y="-5.318131249999965">Taiwan</y:NodeLabel>
           <y:Shape type="rectangle"/>
         </y:ShapeNode>
       </data>
