@@ -24,7 +24,7 @@ sn: a owl:Ontology ;
     schema:image <https://purl.org/supply-network/onto/visualization> ;
     owl:versionInfo "1.0.0" ;
     owl:versionIRI <https://purl.org/supply-network/onto/1.0.0> ;
-    dct:created "2025-01-19"^^xsd:date ;
+    dct:created "2025-02-06"^^xsd:date ;
     dct:creator <https://danielhenselmann.solidcommunity.net/profile/card#me> ;
     dct:publisher [ foaf:name "Center for Applied Research on Supply Chain Services at Fraunhofer IIS"@en ;
         foaf:homepage <https://www.scs.fraunhofer.de/en.html> ] ;
@@ -33,8 +33,7 @@ sn: a owl:Ontology ;
     vann:preferredNamespaceUri <https://purl.org/supply-network/onto#> ;
     vann:preferredNamespacePrefix "sn" ;
     voaf:extends qb: , qudt: , time: , skos: , prov: ;
-    rdfs:isDefinedBy sn: ;
-    rdfs:seeAlso <https://purl.org/supply-network/abstraction/continent/onto#> , <https://purl.org/supply-network/abstraction/country/onto#> , <https://purl.org/supply-network/abstraction/enterprise/onto#> , <https://purl.org/supply-network/abstraction/federalstate/onto#> , <https://purl.org/supply-network/abstraction/industry/onto#> , <https://purl.org/supply-network/abstraction/producttype/onto#> .
+    rdfs:isDefinedBy sn: .
 
 <https://danielhenselmann.solidcommunity.net/profile/card#me> foaf:name "Daniel Henselmann" .
 

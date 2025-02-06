@@ -1,5 +1,5 @@
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX sn: <https://purl.org/sn/vocab#>
+PREFIX sn: <https://purl.org/supply-network/onto#>
 
 INSERT {
     ?B1 a ?classB ;

@@ -1,4 +1,4 @@
-PREFIX csn: <https://purl.org/supply-network/abstraction/country/onto#>
+PREFIX csn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#>
 PREFIX ex: <https://www.example.org/>
 PREFIX sn: <https://purl.org/supply-network/onto#>
 

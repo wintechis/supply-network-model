@@ -1,6 +1,6 @@
 @prefix sn: <https://purl.org/supply-network/onto#> .
-@prefix esn: <https://purl.org/supply-network/abstraction/enterprise/onto#> .
-@prefix csn: <https://purl.org/supply-network/abstraction/country/onto#> .
+@prefix csn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#> .
+@prefix esn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#> .
 
 { ?enterprise esn:registeredInCountry ?country .    
   ?country csn:inContinent ?continent . } =>

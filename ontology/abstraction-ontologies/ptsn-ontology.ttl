@@ -1,10 +1,10 @@
-# own prefix
-@prefix cosn: <https://purl.org/supply-network/abstraction/continent/onto#> .
-@prefix csn: <https://purl.org/supply-network/abstraction/country/onto#> .
-@prefix esn: <https://purl.org/supply-network/abstraction/enterprise/onto#> .
-@prefix fssn: <https://purl.org/supply-network/abstraction/federalstate/onto#> .
-@prefix isn: <https://purl.org/supply-network/abstraction/industry/onto#> .
-@prefix ptsn: <https://purl.org/supply-network/abstraction/protucttype/onto#> .
+# own prefixes
+@prefix cosn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#> .
+@prefix csn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#> .
+@prefix esn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#> .
+@prefix fssn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/fssn-ontology#> .
+@prefix isn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#> .
+@prefix ptsn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/ptsn-ontology#> .
 @prefix sn: <https://purl.org/supply-network/onto#> .
 
 # other prefixes
@@ -22,19 +22,11 @@
 ptsn: a owl:Ontology ;
     rdfs:label "Product Type Supply Network Ontology"@en ;
     dct:title "Product Type Supply Network Ontology"@en ;
-    dct:abstract "todo."@en ;
-    dct:description "todo."@en ;
-    schema:image <https://purl.org/supply-network/abstraction/producttype/onto/visualization> ;
-    owl:versionInfo "1.0.0" ;
-    owl:versionIRI <https://purl.org/supply-network/abstraction/producttype/onto/1.0.0> ;
-    dct:created "2025-01-31"^^xsd:date ;
+    dct:created "2025-02-06"^^xsd:date ;
     dct:creator <https://danielhenselmann.solidcommunity.net/profile/card#me> ;
     dct:publisher [ foaf:name "Center for Applied Research on Supply Chain Services at Fraunhofer IIS"@en ;
         foaf:homepage <https://www.scs.fraunhofer.de/en.html> ] ;
     dct:license <https://creativecommons.org/licenses/by/4.0/> ;
-    schema:creativeWorkStatus "Ontology Release"@en ;
-    vann:preferredNamespaceUri <https://purl.org/supply-network/abstraction/producttype/onto#> ;
-    vann:preferredNamespacePrefix "ptsn" ;
     voaf:extends qb: , sn: , cosn: , csn: , fssn: , isn: , esn: ;
     rdfs:isDefinedBy ptsn: .
 

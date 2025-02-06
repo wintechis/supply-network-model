@@ -1,7 +1,7 @@
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX sn: <https://purl.org/sn/vocab#>
-PREFIX esn: <https://example.org/esn/vocab#>
-PREFIX csn: <https://example.org/csn/vocab#>
+PREFIX sn: <https://purl.org/supply-network/onto#>
+PREFIX csn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#>
+PREFIX esn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#>
 
 CONSTRUCT {
     ?c1 a csn:Country .

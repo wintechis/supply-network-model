@@ -1,0 +1,4 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<#> rdfs:comment "This is a placeholder URI for inferred supply network data."@en ;
+    rdfs:seeAlso <https://purl.org/supply-network/onto#> .

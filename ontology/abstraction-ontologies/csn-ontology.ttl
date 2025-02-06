@@ -1,8 +1,8 @@
 # own prefix
 @prefix cosn: <https://purl.org/supply-network/abstraction/continent/onto#> .
 @prefix csn: <https://purl.org/supply-network/abstraction/country/onto#> .
-@prefix isn: <https://purl.org/supply-network/abstraction/industry/onto#> .
-@prefix ptsn: <https://purl.org/supply-network/abstraction/protucttype/onto#> .
+@prefix isn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#> .
+@prefix ptsn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/ptsn-ontology#> .
 @prefix sn: <https://purl.org/supply-network/onto#> .
 
 # other prefixes
@@ -20,12 +20,7 @@
 csn: a owl:Ontology ;
     rdfs:label "Country Supply Network Ontology"@en ;
     dct:title "Country Supply Network Ontology"@en ;
-    dct:abstract "todo."@en ;
-    dct:description "todo."@en ;
-    schema:image <https://purl.org/supply-network/abstraction/country/onto/visualization> ;
-    owl:versionInfo "1.0.0" ;
-    owl:versionIRI <https://purl.org/supply-network/abstraction/country/onto/1.0.0> ;
-    dct:created "2025-01-31"^^xsd:date ;
+    dct:created "2025-02-06"^^xsd:date ;
     dct:creator <https://danielhenselmann.solidcommunity.net/profile/card#me> ;
     dct:publisher [ foaf:name "Center for Applied Research on Supply Chain Services at Fraunhofer IIS"@en ;
         foaf:homepage <https://www.scs.fraunhofer.de/en.html> ] ;

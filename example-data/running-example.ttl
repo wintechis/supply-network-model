@@ -1,6 +1,6 @@
-@prefix csn:   <https://purl.org/supply-network/abstraction/country/onto#> .
+@prefix csn:   <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#> .
 @prefix cur:   <http://qudt.org/vocab/currency/> .
-@prefix esn:   <https://purl.org/supply-network/abstraction/enterprise/onto#> .
+@prefix esn:   <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#> .
 @prefix ex:    <https://www.example.org/> .
 @prefix sn:    <https://purl.org/supply-network/onto#> .
 

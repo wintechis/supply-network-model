@@ -1,11 +1,11 @@
-@prefix cosn:   <https://purl.org/supply-network/abstraction/continent/onto#> .
-@prefix csn:   <https://purl.org/supply-network/abstraction/country/onto#> .
+@prefix cosn:   <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#> .
+@prefix csn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#> .
 @prefix cur:   <http://qudt.org/vocab/currency/> .
-@prefix esn:   <https://purl.org/supply-network/abstraction/enterprise/onto#> .
+@prefix esn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#> .
 @prefix ex: <https://www.example.org/> .
-@prefix fssn:   <https://purl.org/supply-network/abstraction/federalstate/onto#> .
-@prefix isn:   <https://purl.org/supply-network/abstraction/industry/onto#> .
-@prefix ptsn:   <https://purl.org/supply-network/abstraction/protucttype/onto#> .
+@prefix fssn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/fssn-ontology#> .
+@prefix isn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#> .
+@prefix ptsn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/ptsn-ontology#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sn:    <https://purl.org/supply-network/onto#> .
 
