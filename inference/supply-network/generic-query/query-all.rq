@@ -2,6 +2,7 @@ BASE <https://purl.org/supply-network/any-data/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX sn: <https://purl.org/supply-network/onto#>
+PREFIX snd: <https://purl.org/supply-network/any-data/>
 PREFIX qb:    <http://purl.org/linked-data/cube#>
 
 CONSTRUCT {

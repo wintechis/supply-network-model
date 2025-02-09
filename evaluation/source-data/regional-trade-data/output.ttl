@@ -1,0 +1,99 @@
+@prefix schema: <https://schema.org/> .
+@prefix esn:   <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#> .
+@prefix qudt:  <http://qudt.org/schema/qudt/> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix isn:   <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix snd:   <https://purl.org/supply-network/any-data/> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix voaf:  <http://purl.org/vocommons/voaf#> .
+@prefix cosn:  <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ptsn:  <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/ptsn-ontology#> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix fssn:  <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/fssn-ontology#> .
+@prefix sn:    <https://purl.org/supply-network/onto#> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+@prefix vann:  <http://purl.org/vocab/vann/> .
+@prefix prov:  <http://www.w3.org/ns/prov#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix csn:   <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#> .
+
+snd:07a408e0672e5582a02762bd6f2a98cd
+        a            sn:Volume ;
+        sn:quantity  4.682792184 ;
+        sn:time      <http://data.europa.eu/89h/432cf8a7-fd5e-4816-a70c-633a7380c77c#2010> ;
+        sn:unit      <http://qudt.org/vocab/currency/MegaUSD> .
+
+snd:2e37c4b7423173f4a6be4a7545a245c0
+        a                       sn:SupplyFlow ;
+        isn:demand              <http://data.europa.eu/89h/432cf8a7-fd5e-4816-a70c-633a7380c77c#ss1> ;
+        isn:supply              <http://data.europa.eu/89h/432cf8a7-fd5e-4816-a70c-633a7380c77c#ss2> ;
+        sn:supplyFlowStructure  isn:IndustrySupplyFlowKey ;
+        sn:volume               snd:c12b365871e89c767928f5f168d7a9d0 .
+
+snd:ede00185b1b660939f5997247a087b94
+        a            sn:Volume ;
+        sn:quantity  67.93484823 ;
+        sn:time      <http://data.europa.eu/89h/432cf8a7-fd5e-4816-a70c-633a7380c77c#2010> ;
+        sn:unit      <http://qudt.org/vocab/currency/MegaUSD> .
+
+snd:510277af3b991b8fb7eac6679bf62759
+        a                       sn:SupplyFlow ;
+        fssn:export             <http://data.europa.eu/89h/432cf8a7-fd5e-4816-a70c-633a7380c77c#AT11> ;
+        fssn:import             <http://data.europa.eu/89h/432cf8a7-fd5e-4816-a70c-633a7380c77c#AT11> ;
+        sn:supplyFlowStructure  fssn:FederalStateSupplyFlowKey ;
+        sn:volume               snd:125a88a75d4b31a6b5de4d4b630cda5a .
+
+snd:6d8ad0629141df5d8c18f216524caa9b
+        a            sn:Volume ;
+        sn:quantity  347.7953204 ;
+        sn:time      <http://data.europa.eu/89h/432cf8a7-fd5e-4816-a70c-633a7380c77c#2010> ;
+        sn:unit      <http://qudt.org/vocab/currency/MegaUSD> .
+
+snd:e0f5539051f2fbe921803957475ddeb6
+        a                       sn:SupplyFlow ;
+        isn:demand              <http://data.europa.eu/89h/432cf8a7-fd5e-4816-a70c-633a7380c77c#ss2> ;
+        isn:supply              <http://data.europa.eu/89h/432cf8a7-fd5e-4816-a70c-633a7380c77c#ss2> ;
+        sn:supplyFlowStructure  isn:IndustrySupplyFlowKey ;
+        sn:volume               snd:6d8ad0629141df5d8c18f216524caa9b .
+
+snd:c12b365871e89c767928f5f168d7a9d0
+        a            sn:Volume ;
+        sn:quantity  0.090764568 ;
+        sn:time      <http://data.europa.eu/89h/432cf8a7-fd5e-4816-a70c-633a7380c77c#2010> ;
+        sn:unit      <http://qudt.org/vocab/currency/MegaUSD> .
+
+snd:580221577f79e86e8cf3cefe341b49c8
+        a                       sn:SupplyFlow ;
+        isn:demand              <http://data.europa.eu/89h/432cf8a7-fd5e-4816-a70c-633a7380c77c#ss2> ;
+        isn:supply              <http://data.europa.eu/89h/432cf8a7-fd5e-4816-a70c-633a7380c77c#ss1> ;
+        sn:supplyFlowStructure  isn:IndustrySupplyFlowKey ;
+        sn:volume               snd:07a408e0672e5582a02762bd6f2a98cd .
+
+snd:b4c07f150bc5da110aad73526e9c8608
+        a                sn:SupplyNetwork ;
+        sn:inferredFrom  <http://data.europa.eu/89h/432cf8a7-fd5e-4816-a70c-633a7380c77c> ;
+        sn:structure     fssn:FederalStateDataStructure ;
+        sn:supplyFlow    snd:510277af3b991b8fb7eac6679bf62759 .
+
+snd:125a88a75d4b31a6b5de4d4b630cda5a
+        a            sn:Volume ;
+        sn:quantity  420.503725382 ;
+        sn:time      <http://data.europa.eu/89h/432cf8a7-fd5e-4816-a70c-633a7380c77c#2010> ;
+        sn:unit      <http://qudt.org/vocab/currency/MegaUSD> .
+
+snd:ab798e22dce8694f97f8847b198da1b0
+        a                sn:SupplyNetwork ;
+        sn:inferredFrom  <http://data.europa.eu/89h/432cf8a7-fd5e-4816-a70c-633a7380c77c> ;
+        sn:structure     isn:IndustryDataStructure ;
+        sn:supplyFlow    snd:3fa3434c608ca202045e1894868cf785 , snd:580221577f79e86e8cf3cefe341b49c8 , snd:e0f5539051f2fbe921803957475ddeb6 , snd:2e37c4b7423173f4a6be4a7545a245c0 .
+
+snd:3fa3434c608ca202045e1894868cf785
+        a                       sn:SupplyFlow ;
+        isn:demand              <http://data.europa.eu/89h/432cf8a7-fd5e-4816-a70c-633a7380c77c#ss1> ;
+        isn:supply              <http://data.europa.eu/89h/432cf8a7-fd5e-4816-a70c-633a7380c77c#ss1> ;
+        sn:supplyFlowStructure  isn:IndustrySupplyFlowKey ;
+        sn:volume               snd:ede00185b1b660939f5997247a087b94 .

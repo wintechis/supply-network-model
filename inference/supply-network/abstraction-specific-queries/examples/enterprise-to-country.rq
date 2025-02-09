@@ -1,6 +1,7 @@
 BASE <https://purl.org/supply-network/any-data/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX sn: <https://purl.org/supply-network/onto#>
+PREFIX snd: <https://purl.org/supply-network/any-data/>
 PREFIX csn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#>
 PREFIX esn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#>
 
