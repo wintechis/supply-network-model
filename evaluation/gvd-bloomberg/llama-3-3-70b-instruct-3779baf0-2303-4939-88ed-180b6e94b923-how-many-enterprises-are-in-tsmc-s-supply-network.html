@@ -1,0 +1,275 @@
+<p>Task</p>
+<p>You are Graf von Data, an assistant designed to formulate a query based on input from User.</p>
+<p>Process</p>
+<p>You interact with a knowledge graph in a strict think-act-observe cycle.</p>
+<ol>
+<li>Think: Analyse the question from User and the descriptions in the representations gathered so far.</li>
+<li>Act: Choose available actions (listed below) that will best progress towards formulating the query.</li>
+<li>Observe: HALT. System will provide the result of your chosen actions in the next cycle.</li>
+</ol>
+<p>In your response, start with a <code>Think:</code> section followed by an <code>Act:</code> section.</p>
+<p>Actions</p>
+<p>You can issue one or multiple of the following actions.</p>
+<ul>
+<li><code>search(keywords: string)</code>: Get URIs to resources matching the given <code>keywords</code>. Look for URIs that identify entities, i.e., make two calls: <code>search('foo')</code> and <code>search('bar')</code> instead of <code>search('foo bar')</code>.</li>
+<li><code>describe(resource URI: string)</code>: Get all triples with <code>resource URI</code> in subject position plus more related triples describing <code>resource URI</code>. Expand (https://www.w3.org/TR/curie)[Compact URIs] to absolute URIs for use with <code>describe()</code>.</li>
+<li><code>query(sparql: string)</code>: Evaluate <code>sparql</code> and get solutions. Consider using path expressions, i.e., <code>*</code> or <code>+</code> for paths of transitive properties and <code>|</code> for alternative paths.</li>
+</ul>
+<p>You can run actions concurrently using <code>|</code>, e.g., <code>search('foo') | search('bar')</code>.
+Format action calls as follows: <code>Act: describe("http://foo/bar")</code> or <code>Act: query("PREFIX : &lt;#&gt; SELECT DISTINCT ?x WHERE { ... }")</code>.
+Use quotes for arguments.</p>
+<p>Chat</p>
+<p>Sometimes User does not seek factual information.</p>
+<ul>
+<li><code>chat(text: string)</code>: Issue a <code>chat()</code> action if User does not seek factual information from the knowledge graph.</li>
+</ul>
+<p>Conditions</p>
+<p>Once you have come up with the final query, check the query via <code>query()</code> and then end.</p>
+<ul>
+<li><code>success(text: string)</code>: Confirm the query as final and optionally give User a concise message explaining the relevant steps you took. Do not mention the query or the query solutions.</li>
+</ul>
+<p>When nearing about ten cycles:</p>
+<ul>
+<li><code>fail(text: string)</code>: You have no other choice but to give up. Optionally report to User the relevant steps you tried.</li>
+</ul>
+<p>Stages</p>
+<ul>
+<li>Identify key resources in the User question and find URIs via <code>search()</code>.</li>
+<li>Next, access representations of key resources via <code>describe()</code>.
+Iteratively expand your knowledge about the graph via <code>describe()</code> to gather information required to construct a query.
+Consider obtaining information about classes and properties via <code>describe()</code>, especially domain and range of properties.</li>
+<li>Once you have collected the information required to write a query, make sure to include in the query definite descriptions of the key resources.
+Then, expand the query iteratively with more triple patterns.</li>
+</ul>
+<p>Critical Instructions</p>
+<ul>
+<li>Ensure that all URIs used in the query exist in the knowledge graph.</li>
+<li>Only use URIs that have been previously mentioned or discovered via <code>search()</code> or <code>describe()</code>.</li>
+<li>Never repeat successfully executed actions, the results will be the same.</li>
+</ul>
+<hr />
+<p>on_start("System pmx version 0.1.3 using Model <a href="https://chat-ai.academiccloud.de/v1/">llama-3.3-70b-instruct</a>.")</p>
+<hr />
+<p>on_user("How many enterprises are in TSMC's supply network?")</p>
+<hr />
+<p>Think: The user is asking about the number of enterprises in TSMC's supply network. To answer this question, we need to identify the key resources involved, which are TSMC and its supply network. We can start by searching for TSMC and its supply network to find relevant URIs.</p>
+<p>Act: search("TSMC") | search("supply network") | describe("https://www.tsmc.com/")</p>
+<hr />
+<p>No results for <code>search("TSMC")</code>.</p>
+<hr />
+<p>The search for <code>supply network</code> returned the following matches.</p>
+<p>[{'uri': '<a href="https://purl.org/supply-network/onto#SupplyNetwork">https://purl.org/supply-network/onto#SupplyNetwork</a>', 'score': '"2.2955098"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Supply Network"@en'}, {'uri': '<a href="https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#">https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#</a>', 'score': '"1.6328268"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Continent Supply Network Ontology"@en'}, {'uri': '<a href="https://purl.org/supply-network/abstraction/country/onto#">https://purl.org/supply-network/abstraction/country/onto#</a>', 'score': '"1.6328268"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Country Supply Network Ontology"@en'}, {'uri': '<a href="https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#">https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#</a>', 'score': '"1.6328268"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Enterprise Supply Network Ontology"@en'}, {'uri': '<a href="https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#">https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#</a>', 'score': '"1.6328268"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Industry Supply Network Ontology"@en'}, {'uri': '<a href="https://purl.org/supply-network/onto#">https://purl.org/supply-network/onto#</a>', 'score': '"1.2670474"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Abstraction Independent Supply Network Ontology (AISNO)"@en'}, {'uri': '<a href="https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#supply">https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#supply</a>', 'score': '"1.0839627"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"supply"@en'}, {'uri': '<a href="https://purl.org/supply-network/onto#SupplyFlow">https://purl.org/supply-network/onto#SupplyFlow</a>', 'score': '"0.8639996"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Supply Flow"@en'}, {'uri': '<a href="https://purl.org/supply-network/onto#supplyFlow">https://purl.org/supply-network/onto#supplyFlow</a>', 'score': '"0.8639996"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"supply flow"@en'}, {'uri': '<a href="https://purl.org/supply-network/onto#SupplyFlowKey">https://purl.org/supply-network/onto#SupplyFlowKey</a>', 'score': '"0.71824884"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Supply Flow Key"@en'}]</p>
+<hr />
+<p>No results for <code>describe("https://www.tsmc.com/"")</code>.</p>
+<hr />
+<p>Think: The search for "TSMC" did not return any results, and the describe action for "https://www.tsmc.com/" also did not return any results. However, the search for "supply network" returned several matches, including URIs for different supply network ontologies. We can try to use these ontologies to find information about TSMC's supply network.</p>
+<p>Act: describe("https://purl.org/supply-network/onto#SupplyNetwork") | describe("https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#") | search("TSMC supply network")</p>
+<hr />
+<p>The description of <code>https://purl.org/supply-network/onto#SupplyNetwork</code> is as follows.</p>
+<pre><code>@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix prov: &lt;http://www.w3.org/ns/prov#&gt; .
+@prefix qb: &lt;http://purl.org/linked-data/cube#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+&lt;https://purl.org/supply-network/onto#inferredFrom&gt; a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "inferred from"@en ;
+    rdfs:domain &lt;https://purl.org/supply-network/onto#SupplyNetwork&gt; ;
+    rdfs:range &lt;https://purl.org/supply-network/onto#SupplyNetwork&gt; .
+
+&lt;https://purl.org/supply-network/onto#structure&gt; a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "structure"@en ;
+    rdfs:domain &lt;https://purl.org/supply-network/onto#SupplyNetwork&gt; ;
+    rdfs:range &lt;https://purl.org/supply-network/onto#Abstraction&gt; .
+
+&lt;https://purl.org/supply-network/onto#supplyFlow&gt; a owl:ObjectProperty ;
+    rdfs:label "supply flow"@en ;
+    rdfs:domain &lt;https://purl.org/supply-network/onto#SupplyNetwork&gt; ;
+    rdfs:range &lt;https://purl.org/supply-network/onto#SupplyFlow&gt; .
+
+&lt;https://purl.org/supply-network/onto#Abstraction&gt; a owl:Class ;
+    rdfs:label "Abstraction"@en .
+
+&lt;https://purl.org/supply-network/onto#SupplyFlow&gt; a owl:Class ;
+    rdfs:label "Supply Flow"@en .
+
+&lt;https://purl.org/supply-network/onto#SupplyNetwork&gt; a owl:Class ;
+    rdfs:label "Supply Network"@en ;
+    rdfs:comment "A representation of a supply network as a network of entities an a specific abstraction."@en ;
+    rdfs:isDefinedBy &lt;https://purl.org/supply-network/onto#&gt; ;
+    rdfs:subClassOf qb:DataSet,
+        prov:Entity .
+</code></pre>
+<hr />
+<p>The description of <code>https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#</code> is as follows.</p>
+<pre><code>@prefix dcterms: &lt;http://purl.org/dc/terms/&gt; .
+@prefix ns1: &lt;http://purl.org/vocommons/voaf#&gt; .
+@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix qb: &lt;http://purl.org/linked-data/cube#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#Enterprise&gt; rdfs:isDefinedBy &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#EnterpriseDataStructure&gt; rdfs:isDefinedBy &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#EnterpriseProductTypeDataStructure&gt; rdfs:isDefinedBy &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#EnterpriseProductTypeSupplyFlowKey&gt; rdfs:isDefinedBy &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#EnterpriseSupplyFlowKey&gt; rdfs:isDefinedBy &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#continent&gt; rdfs:isDefinedBy &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#customer&gt; rdfs:isDefinedBy &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#industry&gt; rdfs:isDefinedBy &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#registeredInCountry&gt; rdfs:isDefinedBy &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#registeredInFederalState&gt; rdfs:isDefinedBy &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#supplier&gt; rdfs:isDefinedBy &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#&gt; a owl:Ontology ;
+    rdfs:label "Enterprise Supply Network Ontology"@en ;
+    dcterms:created "2025-02-06"^^xsd:date ;
+    dcterms:creator &lt;https://danielhenselmann.solidcommunity.net/profile/card#me&gt; ;
+    dcterms:license &lt;https://creativecommons.org/licenses/by/4.0/&gt; ;
+    dcterms:publisher [ ] ;
+    dcterms:title "Enterprise Supply Network Ontology"@en ;
+    ns1:extends qb:,
+        &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#&gt;,
+        &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#&gt;,
+        &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/fssn-ontology#&gt;,
+        &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#&gt;,
+        &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/ptsn-ontology#&gt;,
+        &lt;https://purl.org/supply-network/onto#&gt; ;
+    rdfs:isDefinedBy &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#&gt; .
+</code></pre>
+<hr />
+<p>The search for <code>TSMC supply network</code> returned the following matches.</p>
+<p>[{'uri': '<a href="https://purl.org/supply-network/onto#SupplyNetwork">https://purl.org/supply-network/onto#SupplyNetwork</a>', 'score': '"2.2955098"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Supply Network"@en'}, {'uri': '<a href="https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#">https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#</a>', 'score': '"1.6328268"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Continent Supply Network Ontology"@en'}, {'uri': '<a href="https://purl.org/supply-network/abstraction/country/onto#">https://purl.org/supply-network/abstraction/country/onto#</a>', 'score': '"1.6328268"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Country Supply Network Ontology"@en'}, {'uri': '<a href="https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#">https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#</a>', 'score': '"1.6328268"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Enterprise Supply Network Ontology"@en'}, {'uri': '<a href="https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#">https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#</a>', 'score': '"1.6328268"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Industry Supply Network Ontology"@en'}, {'uri': '<a href="https://purl.org/supply-network/onto#">https://purl.org/supply-network/onto#</a>', 'score': '"1.2670474"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Abstraction Independent Supply Network Ontology (AISNO)"@en'}, {'uri': '<a href="https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#supply">https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#supply</a>', 'score': '"1.0839627"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"supply"@en'}, {'uri': '<a href="https://purl.org/supply-network/onto#SupplyFlow">https://purl.org/supply-network/onto#SupplyFlow</a>', 'score': '"0.8639996"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Supply Flow"@en'}, {'uri': '<a href="https://purl.org/supply-network/onto#supplyFlow">https://purl.org/supply-network/onto#supplyFlow</a>', 'score': '"0.8639996"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"supply flow"@en'}, {'uri': '<a href="https://purl.org/supply-network/onto#SupplyFlowKey">https://purl.org/supply-network/onto#SupplyFlowKey</a>', 'score': '"0.71824884"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Supply Flow Key"@en'}]</p>
+<hr />
+<p>Think: The search for "TSMC supply network" returned several matches, but none of them seem to be directly related to TSMC. The matches are mostly related to different supply network ontologies. We can try to use these ontologies to find information about TSMC's supply network. However, we still need to find a way to connect TSMC to these ontologies.</p>
+<p>Act: describe("https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#Enterprise") | search("TSMC enterprise") | search("TSMC company")</p>
+<hr />
+<p>The description of <code>https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#Enterprise</code> is as follows.</p>
+<pre><code>@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix qb: &lt;http://purl.org/linked-data/cube#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#continent&gt; a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "continent"@en ;
+    rdfs:domain &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#Enterprise&gt; ;
+    rdfs:range &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#Continent&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#customer&gt; a qb:DimensionProperty,
+        owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "customer"@en ;
+    rdfs:domain &lt;https://purl.org/supply-network/onto#SupplyFlow&gt; ;
+    rdfs:range &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#Enterprise&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#industry&gt; a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "industry"@en ;
+    rdfs:domain &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#Enterprise&gt; ;
+    rdfs:range &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#Industry&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#registeredInCountry&gt; a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "registered in country"@en ;
+    rdfs:domain &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#Enterprise&gt; ;
+    rdfs:range &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#Country&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#registeredInFederalState&gt; a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "registered in federal state"@en ;
+    rdfs:domain &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#Enterprise&gt; ;
+    rdfs:range &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/fssn-ontology#FederalState&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#supplier&gt; a qb:DimensionProperty,
+        owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "supplier"@en ;
+    rdfs:domain &lt;https://purl.org/supply-network/onto#SupplyFlow&gt; ;
+    rdfs:range &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#Enterprise&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#Continent&gt; a owl:Class ;
+    rdfs:label "Continent"@en .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#Industry&gt; a owl:Class ;
+    rdfs:label "Industry"@en .
+
+&lt;https://purl.org/supply-network/onto#Entity&gt; a owl:Class ;
+    rdfs:label "Entity"@en .
+
+&lt;https://purl.org/supply-network/onto#SupplyFlow&gt; a owl:Class ;
+    rdfs:label "Supply Flow"@en .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#Enterprise&gt; a owl:Class ;
+    rdfs:label "Enterprise"@en ;
+    rdfs:comment "An enterprise sells products to customers."@en ;
+    rdfs:isDefinedBy &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#&gt; ;
+    rdfs:subClassOf &lt;https://purl.org/supply-network/onto#Entity&gt; .
+</code></pre>
+<hr />
+<p>The search for <code>TSMC enterprise</code> returned the following matches.</p>
+<p>[{'uri': '<a href="https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#Enterprise">https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#Enterprise</a>', 'score': '"1.7959542"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Enterprise"@en'}, {'uri': '<a href="https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#EnterpriseDataStructure">https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#EnterpriseDataStructure</a>', 'score': '"1.1900244"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Enterprise Data Structure"@en'}, {'uri': '<a href="https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#EnterpriseSupplyFlowKey">https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#EnterpriseSupplyFlowKey</a>', 'score': '"1.1900244"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Enterprise Supply Flow"@en'}, {'uri': '<a href="https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#">https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#</a>', 'score': '"1.0182524"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Enterprise Supply Network Ontology"@en'}, {'uri': '<a href="https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#EnterpriseProductTypeDataStructure">https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#EnterpriseProductTypeDataStructure</a>', 'score': '"0.88981366"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"[Enterprise, Product Type] Data Structure"@en'}, {'uri': '<a href="https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#EnterpriseProductTypeSupplyFlowKey">https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#EnterpriseProductTypeSupplyFlowKey</a>', 'score': '"0.88981366"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"[Enterprise, Product Type] Supply Flow"@en'}]</p>
+<hr />
+<p>The search for <code>TSMC company</code> returned the following matches.</p>
+<p>[{'uri': '<a href="https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#this">https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#this</a>', 'score': '"1.4949548"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Taiwan Semiconductor Manufacturing Company"@en'}]</p>
+<hr />
+<p>Think: The search for "TSMC company" returned a match with a URI that appears to be related to Taiwan Semiconductor Manufacturing Company, which is the full name of TSMC. We can use this URI to try to find more information about TSMC's supply network.</p>
+<p>Act: describe("https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#this") | search("TSMC supply chain") | search("Taiwan Semiconductor Manufacturing Company supply network")</p>
+<hr />
+<p>The description of <code>https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#this</code> is as follows.</p>
+<pre><code>@prefix ns1: &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ17.ttl#Q20&gt; ns1:supplier &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#Q20&gt; ns1:supplier &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ23.ttl#Q20&gt; ns1:supplier &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ24.ttl#Q20&gt; ns1:supplier &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ25.ttl#Q20&gt; ns1:supplier &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ28.ttl#Q20&gt; ns1:supplier &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ31.ttl#Q20&gt; ns1:supplier &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ59.ttl#Q20&gt; ns1:supplier &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#this&gt; a ns1:Enterprise ;
+    rdfs:label "Taiwan Semiconductor Manufacturing Company"@en ;
+    ns1:industry &lt;https://welektronik.iis.fraunhofer.de/entity/Q287&gt; ;
+    ns1:registeredInCountry &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this&gt; .
+</code></pre>
+<hr />
+<p>The search for <code>TSMC supply chain</code> returned the following matches.</p>
+<p>[{'uri': '<a href="https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#supply">https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#supply</a>', 'score': '"1.0839627"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"supply"@en'}, {'uri': '<a href="https://purl.org/supply-network/onto#SupplyFlow">https://purl.org/supply-network/onto#SupplyFlow</a>', 'score': '"0.8639996"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Supply Flow"@en'}, {'uri': '<a href="https://purl.org/supply-network/onto#SupplyNetwork">https://purl.org/supply-network/onto#SupplyNetwork</a>', 'score': '"0.8639996"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Supply Network"@en'}, {'uri': '<a href="https://purl.org/supply-network/onto#supplyFlow">https://purl.org/supply-network/onto#supplyFlow</a>', 'score': '"0.8639996"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"supply flow"@en'}, {'uri': '<a href="https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#ContinentSupplyFlowKey">https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#ContinentSupplyFlowKey</a>', 'score': '"0.71824884"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Continent Supply Flow"@en'}, {'uri': '<a href="https://purl.org/supply-network/abstraction/country/onto#CountrySupplyFlowKey">https://purl.org/supply-network/abstraction/country/onto#CountrySupplyFlowKey</a>', 'score': '"0.71824884"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Country Supply Flow"@en'}, {'uri': '<a href="https://purl.org/supply-network/onto#GenericSupplyFlowKey">https://purl.org/supply-network/onto#GenericSupplyFlowKey</a>', 'score': '"0.71824884"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Generic Supply Flow"@en'}, {'uri': '<a href="https://purl.org/supply-network/onto#SupplyFlowKey">https://purl.org/supply-network/onto#SupplyFlowKey</a>', 'score': '"0.71824884"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Supply Flow Key"@en'}, {'uri': '<a href="https://purl.org/supply-network/onto#supplyFlowKey">https://purl.org/supply-network/onto#supplyFlowKey</a>', 'score': '"0.71824884"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"supply flow key"@en'}, {'uri': '<a href="https://purl.org/supply-network/onto#supplyFlowStructure">https://purl.org/supply-network/onto#supplyFlowStructure</a>', 'score': '"0.71824884"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"supply flow structure"@en'}]</p>
+<hr />
+<p>The search for <code>Taiwan Semiconductor Manufacturing Company supply network</code> returned the following matches.</p>
+<p>[{'uri': '<a href="https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#this">https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#this</a>', 'score': '"5.813751"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Taiwan Semiconductor Manufacturing Company"@en'}, {'uri': '<a href="https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this">https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this</a>', 'score': '"2.3438392"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Taiwan"@en'}, {'uri': '<a href="https://purl.org/supply-network/onto#SupplyNetwork">https://purl.org/supply-network/onto#SupplyNetwork</a>', 'score': '"2.2955098"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Supply Network"@en'}, {'uri': '<a href="https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#">https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#</a>', 'score': '"1.6328268"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Continent Supply Network Ontology"@en'}, {'uri': '<a href="https://purl.org/supply-network/abstraction/country/onto#">https://purl.org/supply-network/abstraction/country/onto#</a>', 'score': '"1.6328268"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Country Supply Network Ontology"@en'}, {'uri': '<a href="https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#">https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#</a>', 'score': '"1.6328268"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Enterprise Supply Network Ontology"@en'}, {'uri': '<a href="https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#">https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#</a>', 'score': '"1.6328268"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Industry Supply Network Ontology"@en'}, {'uri': '<a href="https://purl.org/supply-network/onto#">https://purl.org/supply-network/onto#</a>', 'score': '"1.2670474"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Abstraction Independent Supply Network Ontology (AISNO)"@en'}, {'uri': '<a href="https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#supply">https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#supply</a>', 'score': '"1.0839627"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"supply"@en'}, {'uri': '<a href="https://purl.org/supply-network/onto#SupplyFlow">https://purl.org/supply-network/onto#SupplyFlow</a>', 'score': '"0.8639996"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Supply Flow"@en'}]</p>
+<hr />
+<p>Think: We have found a URI that represents Taiwan Semiconductor Manufacturing Company, which is <a href="https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#this">https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#this</a>. We also found that this company is an instance of the class Enterprise in the Enterprise Supply Network Ontology. Additionally, we found several other companies that are suppliers to Taiwan Semiconductor Manufacturing Company. We can use this information to construct a query to find the number of enterprises in TSMC's supply network.</p>
+<p>Act: query("PREFIX ns1: <a href="https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#">https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#</a> SELECT (COUNT(DISTINCT ?supplier) AS (?count)) WHERE { ?supplier ns1:supplier <a href="https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#this">https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#this</a> }")</p>
+<hr />
+<hr />
+<p>Exception in <code>query("PREFIX ns1: &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#&gt; SELECT (COUNT(DISTINCT ?supplier) AS (?count)) WHERE { ?supplier ns1:supplier &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#this&gt; }")</code>. Status code: 400</p>
+<hr />
+<p>Think: The query I constructed earlier returned a 400 status code, which indicates a bad request. This could be due to a syntax error in the query. I will try to modify the query to fix the error.</p>
+<p>Act: query("PREFIX ns1: <a href="https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#">https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#</a> SELECT (COUNT(DISTINCT ?supplier) AS ?count) WHERE { ?supplier ns1:supplier <a href="https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#this">https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#this</a> }")</p>
+<hr />
+<p>The query <code>PREFIX ns1: &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#&gt; SELECT (COUNT(DISTINCT ?supplier) AS ?count) WHERE { ?supplier ns1:supplier &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#this&gt; }</code> returned the following solution.</p>
+<p>[{'count': '"8"^^<a href="http://www.w3.org/2001/XMLSchema#integer">http://www.w3.org/2001/XMLSchema#integer</a>'}]</p>
+<hr />
+<p>Think: The query returned a solution with a count of 8, which represents the number of distinct suppliers to Taiwan Semiconductor Manufacturing Company.</p>
+<p>Act: success("The number of enterprises in TSMC's supply network is 8.")</p>
+<p>{'version': '0.1.3', 'client_info': {'model': 'llama-3.3-70b-instruct', 'max_tokens': 4096, 'temperature': 0, 'top_p': 1, 'baseuri': 'https://chat-ai.academiccloud.de/v1/'}, 'platform': {'node': 'r10389', 'platform': 'Windows-10-10.0.19045-SP0', 'system': 'Windows', 'processor': 'Intel64 Family 6 Model 142 Stepping 12, GenuineIntel', 'machine': 'AMD64', 'python_version': '3.12.7'}}</p>

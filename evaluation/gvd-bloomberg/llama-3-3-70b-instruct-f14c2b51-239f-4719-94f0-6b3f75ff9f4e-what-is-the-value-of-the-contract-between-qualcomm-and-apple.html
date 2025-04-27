@@ -1,0 +1,248 @@
+<p>Task</p>
+<p>You are Graf von Data, an assistant designed to formulate a query based on input from User.</p>
+<p>Process</p>
+<p>You interact with a knowledge graph in a strict think-act-observe cycle.</p>
+<ol>
+<li>Think: Analyse the question from User and the descriptions in the representations gathered so far.</li>
+<li>Act: Choose available actions (listed below) that will best progress towards formulating the query.</li>
+<li>Observe: HALT. System will provide the result of your chosen actions in the next cycle.</li>
+</ol>
+<p>In your response, start with a <code>Think:</code> section followed by an <code>Act:</code> section.</p>
+<p>Actions</p>
+<p>You can issue one or multiple of the following actions.</p>
+<ul>
+<li><code>search(keywords: string)</code>: Get URIs to resources matching the given <code>keywords</code>. Look for URIs that identify entities, i.e., make two calls: <code>search('foo')</code> and <code>search('bar')</code> instead of <code>search('foo bar')</code>.</li>
+<li><code>describe(resource URI: string)</code>: Get all triples with <code>resource URI</code> in subject position plus more related triples describing <code>resource URI</code>. Expand (https://www.w3.org/TR/curie)[Compact URIs] to absolute URIs for use with <code>describe()</code>.</li>
+<li><code>query(sparql: string)</code>: Evaluate <code>sparql</code> and get solutions. Consider using path expressions, i.e., <code>*</code> or <code>+</code> for paths of transitive properties and <code>|</code> for alternative paths.</li>
+</ul>
+<p>You can run actions concurrently using <code>|</code>, e.g., <code>search('foo') | search('bar')</code>.
+Format action calls as follows: <code>Act: describe("http://foo/bar")</code> or <code>Act: query("PREFIX : &lt;#&gt; SELECT DISTINCT ?x WHERE { ... }")</code>.
+Use quotes for arguments.</p>
+<p>Chat</p>
+<p>Sometimes User does not seek factual information.</p>
+<ul>
+<li><code>chat(text: string)</code>: Issue a <code>chat()</code> action if User does not seek factual information from the knowledge graph.</li>
+</ul>
+<p>Conditions</p>
+<p>Once you have come up with the final query, check the query via <code>query()</code> and then end.</p>
+<ul>
+<li><code>success(text: string)</code>: Confirm the query as final and optionally give User a concise message explaining the relevant steps you took. Do not mention the query or the query solutions.</li>
+</ul>
+<p>When nearing about ten cycles:</p>
+<ul>
+<li><code>fail(text: string)</code>: You have no other choice but to give up. Optionally report to User the relevant steps you tried.</li>
+</ul>
+<p>Stages</p>
+<ul>
+<li>Identify key resources in the User question and find URIs via <code>search()</code>.</li>
+<li>Next, access representations of key resources via <code>describe()</code>.
+Iteratively expand your knowledge about the graph via <code>describe()</code> to gather information required to construct a query.
+Consider obtaining information about classes and properties via <code>describe()</code>, especially domain and range of properties.</li>
+<li>Once you have collected the information required to write a query, make sure to include in the query definite descriptions of the key resources.
+Then, expand the query iteratively with more triple patterns.</li>
+</ul>
+<p>Critical Instructions</p>
+<ul>
+<li>Ensure that all URIs used in the query exist in the knowledge graph.</li>
+<li>Only use URIs that have been previously mentioned or discovered via <code>search()</code> or <code>describe()</code>.</li>
+<li>Never repeat successfully executed actions, the results will be the same.</li>
+</ul>
+<hr />
+<p>on_start("System pmx version 0.1.3 using Model <a href="https://chat-ai.academiccloud.de/v1/">llama-3.3-70b-instruct</a>.")</p>
+<hr />
+<p>on_user("What is the value of the contract between Qualcomm and Apple?")</p>
+<hr />
+<p>Think: The user is asking about the value of a contract between two specific companies, Qualcomm and Apple. To answer this question, we need to identify the key resources involved, which are the companies Qualcomm and Apple, and the contract between them. We can start by searching for the URIs of these companies in the knowledge graph.</p>
+<p>Act: search("Qualcomm") | search("Apple") | search("contract")</p>
+<hr />
+<p>The search for <code>Qualcomm</code> returned the following matches.</p>
+<p>[{'uri': '<a href="https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ23.ttl#this">https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ23.ttl#this</a>', 'score': '"2.6367435"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Qualcomm"@en'}]</p>
+<hr />
+<p>The search for <code>Apple</code> returned the following matches.</p>
+<p>[{'uri': '<a href="https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#this">https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#this</a>', 'score': '"2.6367435"^^<a href="http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a>', 'literal': '"Apple"@en'}]</p>
+<hr />
+<p>No results for <code>search("contract")</code>.</p>
+<hr />
+<p>Think: We have found the URIs for Qualcomm and Apple, which are https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ23.ttl#this and https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#this, respectively. However, the search for "contract" did not return any results. This suggests that we may need to use a different approach to find information about the contract between Qualcomm and Apple. We can try to describe the companies and see if there are any related triples that might lead us to information about the contract.</p>
+<p>Act: describe("https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ23.ttl#this") | describe("https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#this")</p>
+<hr />
+<p>The description of <code>https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ23.ttl#this</code> is as follows.</p>
+<pre><code>@prefix ns1: &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ143.ttl#Q23&gt; ns1:supplier &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ23.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ23.ttl#Q20&gt; ns1:customer &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ23.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ254.ttl#Q23&gt; ns1:supplier &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ23.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q23&gt; ns1:supplier &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ23.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q23&gt; ns1:supplier &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ23.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ39.ttl#Q23&gt; ns1:supplier &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ23.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#Q23&gt; ns1:supplier &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ23.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ90.ttl#Q23&gt; ns1:supplier &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ23.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ92.ttl#Q23&gt; ns1:supplier &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ23.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ23.ttl#this&gt; a ns1:Enterprise ;
+    rdfs:label "Qualcomm"@en ;
+    ns1:industry &lt;https://welektronik.iis.fraunhofer.de/entity/Q286&gt; ;
+    ns1:registeredInCountry &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this&gt; .
+</code></pre>
+<hr />
+<p>The description of <code>https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#this</code> is as follows.</p>
+<pre><code>@prefix ns1: &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q17&gt; ns1:customer &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q23&gt; ns1:customer &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q24&gt; ns1:customer &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q25&gt; ns1:customer &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q28&gt; ns1:customer &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q31&gt; ns1:customer &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q59&gt; ns1:customer &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#this&gt; a ns1:Enterprise ;
+    rdfs:label "Apple"@en ;
+    ns1:industry &lt;https://welektronik.iis.fraunhofer.de/entity/Q286&gt; ;
+    ns1:registeredInCountry &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this&gt; .
+</code></pre>
+<hr />
+<p>Think: We have obtained the descriptions of Qualcomm and Apple, which include their industries, registered countries, and customer/supplier relationships. Notably, we see that Qualcomm is a supplier to Apple, as indicated by the triple <code>&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q23&gt; ns1:customer &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#this&gt;</code>. This suggests a business relationship between the two companies. However, we still need to find information about the contract between them, specifically its value.</p>
+<p>Act: describe("https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#supplier") | describe("https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#customer") | describe("https://welektronik.iis.fraunhofer.de/entity/Q286") | describe("https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this")</p>
+<hr />
+<p>The description of <code>https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#supplier</code> is as follows.</p>
+<pre><code>@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix qb: &lt;http://purl.org/linked-data/cube#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#supplier&gt; a qb:DimensionProperty,
+        owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "supplier"@en ;
+    rdfs:comment "Links the supplying enterprise in a supply flow between two enterprises."@en ;
+    rdfs:domain &lt;https://purl.org/supply-network/onto#SupplyFlow&gt; ;
+    rdfs:isDefinedBy &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#&gt; ;
+    rdfs:range &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#Enterprise&gt; ;
+    rdfs:subPropertyOf &lt;https://purl.org/supply-network/onto#from&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#Enterprise&gt; a owl:Class ;
+    rdfs:label "Enterprise"@en .
+
+&lt;https://purl.org/supply-network/onto#Entity&gt; a owl:Class ;
+    rdfs:label "Entity"@en .
+
+&lt;https://purl.org/supply-network/onto#from&gt; a qb:DimensionProperty,
+        owl:ObjectProperty ;
+    rdfs:label "from"@en ;
+    rdfs:domain &lt;https://purl.org/supply-network/onto#SupplyFlow&gt; ;
+    rdfs:range &lt;https://purl.org/supply-network/onto#Entity&gt; .
+
+&lt;https://purl.org/supply-network/onto#SupplyFlow&gt; a owl:Class ;
+    rdfs:label "Supply Flow"@en .
+</code></pre>
+<hr />
+<p>The description of <code>https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#customer</code> is as follows.</p>
+<pre><code>@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix qb: &lt;http://purl.org/linked-data/cube#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#customer&gt; a qb:DimensionProperty,
+        owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "customer"@en ;
+    rdfs:comment "Links the customer enterprise in a supply flow between two enterprises."@en ;
+    rdfs:domain &lt;https://purl.org/supply-network/onto#SupplyFlow&gt; ;
+    rdfs:isDefinedBy &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#&gt; ;
+    rdfs:range &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#Enterprise&gt; ;
+    rdfs:subPropertyOf &lt;https://purl.org/supply-network/onto#into&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#Enterprise&gt; a owl:Class ;
+    rdfs:label "Enterprise"@en .
+
+&lt;https://purl.org/supply-network/onto#Entity&gt; a owl:Class ;
+    rdfs:label "Entity"@en .
+
+&lt;https://purl.org/supply-network/onto#into&gt; a qb:DimensionProperty,
+        owl:ObjectProperty ;
+    rdfs:label "into"@en ;
+    rdfs:domain &lt;https://purl.org/supply-network/onto#SupplyFlow&gt; ;
+    rdfs:range &lt;https://purl.org/supply-network/onto#Entity&gt; .
+
+&lt;https://purl.org/supply-network/onto#SupplyFlow&gt; a owl:Class ;
+    rdfs:label "Supply Flow"@en .
+</code></pre>
+<hr />
+<p>The description of <code>https://welektronik.iis.fraunhofer.de/entity/Q286</code> is as follows.</p>
+<pre><code>@prefix ns1: &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ17.ttl#this&gt; ns1:industry &lt;https://welektronik.iis.fraunhofer.de/entity/Q286&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#this&gt; ns1:industry &lt;https://welektronik.iis.fraunhofer.de/entity/Q286&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ23.ttl#this&gt; ns1:industry &lt;https://welektronik.iis.fraunhofer.de/entity/Q286&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ24.ttl#this&gt; ns1:industry &lt;https://welektronik.iis.fraunhofer.de/entity/Q286&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ254.ttl#this&gt; ns1:industry &lt;https://welektronik.iis.fraunhofer.de/entity/Q286&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#this&gt; ns1:industry &lt;https://welektronik.iis.fraunhofer.de/entity/Q286&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ39.ttl#this&gt; ns1:industry &lt;https://welektronik.iis.fraunhofer.de/entity/Q286&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ92.ttl#this&gt; ns1:industry &lt;https://welektronik.iis.fraunhofer.de/entity/Q286&gt; .
+
+&lt;https://welektronik.iis.fraunhofer.de/entity/Q286&gt; a &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#Industry&gt; ;
+    rdfs:label "Fabless"@en .
+</code></pre>
+<hr />
+<p>The description of <code>https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this</code> is as follows.</p>
+<pre><code>@prefix ns1: &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#&gt; .
+@prefix ns2: &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ17.ttl#this&gt; ns1:registeredInCountry &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#this&gt; ns1:registeredInCountry &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ22.ttl#this&gt; ns1:registeredInCountry &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ23.ttl#this&gt; ns1:registeredInCountry &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ24.ttl#this&gt; ns1:registeredInCountry &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ25.ttl#this&gt; ns1:registeredInCountry &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ33.ttl#this&gt; ns1:registeredInCountry &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#this&gt; ns1:registeredInCountry &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ65.ttl#this&gt; ns1:registeredInCountry &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ79.ttl#this&gt; ns1:registeredInCountry &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this&gt; a ns2:Country ;
+    rdfs:label "United States of America"@en ;
+    ns2:inContinent &lt;http://www.wikidata.org/entity/Q49&gt; .
+</code></pre>
+<hr />
+<p>Think: We have gathered more information about the properties and classes related to the companies Qualcomm and Apple, including their industries and registered countries. Specifically, we found that both companies are registered in the United States of America and are part of the "Fabless" industry. However, we still lack information about the contract between them, particularly its value. Since we have not found any direct information about the contract, we can try to query the graph to see if there are any relevant relationships or properties that might lead us to the desired information.</p>
+<p>Act: query("PREFIX ns1: <a href="https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#">https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#</a> PREFIX ns2: <a href="https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#">https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#</a> SELECT ?contract ?value WHERE { ?contract ns1:supplier <a href="https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ23.ttl#this">https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ23.ttl#this</a> . ?contract ns1:customer <a href="https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#this">https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#this</a> . ?contract ns2:value ?value .}")</p>
+<hr />
+<p>The query <code>PREFIX ns1: &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#&gt; PREFIX ns2: &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#&gt; SELECT ?contract ?value WHERE { ?contract ns1:supplier &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ23.ttl#this&gt; . ?contract ns1:customer &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#this&gt; . ?contract ns2:value ?value .}</code> returned the following solution.</p>
+<p>[]</p>
+<hr />
+<p>Think: The query did not return any solutions, which means that there is no contract in the graph that matches the specified conditions (i.e., having Qualcomm as a supplier and Apple as a customer, and having a value). This suggests that the graph may not contain the specific information we are looking for, or that the information is not represented in a way that can be queried using the given prefixes and properties.</p>
+<p>Act: fail("Unable to find contract value between Qualcomm and Apple. The graph may not contain the necessary information or it may be represented in a different way.")</p>
+<p>{'version': '0.1.3', 'client_info': {'model': 'llama-3.3-70b-instruct', 'max_tokens': 4096, 'temperature': 0, 'top_p': 1, 'baseuri': 'https://chat-ai.academiccloud.de/v1/'}, 'platform': {'node': 'r10389', 'platform': 'Windows-10-10.0.19045-SP0', 'system': 'Windows', 'processor': 'Intel64 Family 6 Model 142 Stepping 12, GenuineIntel', 'machine': 'AMD64', 'python_version': '3.12.7'}}</p>
