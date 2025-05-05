@@ -3,3 +3,10 @@ How many enterprises are in TSMC's supply network?
 Is Bosch part of TSMC's supply network?
 What is the value of the contract between Qualcomm and Apple?
 What is the total volume of trade between Nvidia and its customers?
+What country is Intel registered in?
+How many supply relations between enterprises from China and the USA exist?
+What is the total volume of supply links from Taiwan to the USA?
+How many enterprises are in the supply network?
+On what abstraction is the data on the supply network?
+Which abstractions can be derived from the given data?
+How many tiers does the supply network have?

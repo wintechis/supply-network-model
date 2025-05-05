@@ -13,7 +13,70 @@
 @prefix we: <https://welektronik.iis.fraunhofer.de/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-:2020Q3 a time:TemporalEntity .
+:2020Q3 a time:TemporalEntity ;
+    rdfs:label "Third quarter of fiscal year 2020."@en .
+
+
+# supply network
+
+:supplynetwork a sn:SupplyNetwork ;
+    sn:structure esn:EnterpriseDataStructure ;
+    sn:supplyFlow <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ23.ttl#Q20> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ24.ttl#Q20> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#Q20> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ17.ttl#Q20> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ25.ttl#Q20> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ31.ttl#Q20> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ28.ttl#Q20> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ59.ttl#Q20> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q23> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q23> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q59> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q59> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ66.ttl#Q59> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#Q59> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ91.ttl#Q59> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ92.ttl#Q59> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ143.ttl#Q59> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ39.ttl#Q23> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ92.ttl#Q23> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ143.ttl#Q23> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ254.ttl#Q23> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ90.ttl#Q23> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#Q23> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q24> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q24> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ22.ttl#Q24> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ79.ttl#Q24> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ254.ttl#Q24> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ65.ttl#Q24> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q21> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ90.ttl#Q21> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ33.ttl#Q21> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#Q21> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ76.ttl#Q21> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q17> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q17> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#Q17> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q25> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q25> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ22.ttl#Q25> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q31> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q31> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ90.ttl#Q31> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ76.ttl#Q31> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#Q31> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ79.ttl#Q31> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ22.ttl#Q31> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#Q31> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ254.ttl#Q31> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q28> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q28> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ254.ttl#Q28> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ66.ttl#Q28> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ76.ttl#Q28> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#Q28> ,
+        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ90.ttl#Q28> .
 
 
 # TSMC
@@ -25,6 +88,7 @@
         esn:registeredInCountry  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this> .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ23.ttl#Q20> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ23.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -34,6 +98,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ24.ttl#Q20> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ24.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -43,6 +108,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#Q20> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -52,6 +118,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ17.ttl#Q20> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ17.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -61,6 +128,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ25.ttl#Q20> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ25.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -70,6 +138,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ31.ttl#Q20> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ31.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -79,6 +148,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ28.ttl#Q20> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ28.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -88,6 +158,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ59.ttl#Q20> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ59.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -106,6 +177,7 @@
         esn:registeredInCountry  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q23> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ23.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -115,6 +187,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q23> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ23.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -124,6 +197,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ39.ttl#Q23> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ39.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ23.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -133,6 +207,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ92.ttl#Q23> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ92.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ23.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -142,6 +217,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ143.ttl#Q23> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ143.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ23.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -151,6 +227,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ254.ttl#Q23> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ254.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ23.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -160,6 +237,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ90.ttl#Q23> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ90.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ23.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -169,6 +247,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#Q23> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ23.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -187,6 +266,7 @@
         esn:registeredInCountry  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q24> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ24.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -196,6 +276,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q24> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ24.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -205,6 +286,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ22.ttl#Q24> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ22.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ24.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -214,6 +296,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ79.ttl#Q24> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ79.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ24.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -223,6 +306,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ254.ttl#Q24> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ254.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ24.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -232,6 +316,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ65.ttl#Q24> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ65.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ24.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -250,6 +335,7 @@
         esn:registeredInCountry  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q21> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -259,6 +345,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ90.ttl#Q21> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ90.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -268,6 +355,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ33.ttl#Q21> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ33.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -277,6 +365,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#Q21> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -286,6 +375,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ76.ttl#Q21> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ76.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -304,6 +394,7 @@
         esn:registeredInCountry  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q17> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ17.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -313,6 +404,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q17> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ17.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -322,6 +414,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#Q17> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ17.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -340,6 +433,7 @@
         esn:registeredInCountry  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q25> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ25.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -349,6 +443,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q25> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ25.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -358,6 +453,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ22.ttl#Q25> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ22.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ25.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -376,6 +472,7 @@
         esn:registeredInCountry  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this> .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q31> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ31.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -385,6 +482,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q31> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ31.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -394,6 +492,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ90.ttl#Q31> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ90.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ31.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -403,6 +502,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ76.ttl#Q31> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ76.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ31.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -412,6 +512,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#Q31> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ31.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -421,6 +522,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ79.ttl#Q31> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ79.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ31.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -430,6 +532,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ22.ttl#Q31> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ22.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ31.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -439,6 +542,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#Q31> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ31.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -448,6 +552,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ254.ttl#Q31> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ254.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ31.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -466,6 +571,7 @@
         esn:registeredInCountry  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this> .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q28> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ28.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -475,6 +581,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q28> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ28.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -484,6 +591,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ254.ttl#Q28> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ254.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ28.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -493,6 +601,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ66.ttl#Q28> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ66.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ28.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -502,6 +611,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ76.ttl#Q28> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ76.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ28.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -511,6 +621,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#Q28> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ28.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -520,6 +631,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ90.ttl#Q28> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ90.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ28.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -538,6 +650,7 @@
         esn:registeredInCountry  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this> .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q59> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ59.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -547,6 +660,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q59> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ59.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -556,6 +670,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ66.ttl#Q59> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ66.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ59.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -565,6 +680,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#Q59> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ59.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -574,6 +690,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ91.ttl#Q59> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ91.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ59.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -583,6 +700,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ92.ttl#Q59> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ92.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ59.ttl#this> ;
     sn:volume [ a sn:Volume ;
@@ -592,6 +710,7 @@
     ] .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ143.ttl#Q59> a sn:SupplyFlow ;
+    sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
     esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ143.ttl#this> ;
     esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ59.ttl#this> ;
     sn:volume [ a sn:Volume ;
