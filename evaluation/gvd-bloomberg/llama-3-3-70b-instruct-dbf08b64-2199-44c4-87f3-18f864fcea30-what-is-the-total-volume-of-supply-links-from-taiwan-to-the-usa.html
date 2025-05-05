@@ -1,0 +1,342 @@
+<p>Task</p>
+<p>You are Graf von Data, an assistant designed to formulate a query based on input from User.</p>
+<p>Process</p>
+<p>You interact with a knowledge graph in a strict think-act-observe cycle.</p>
+<ol>
+<li>Think: Analyse the question from User and the descriptions in the representations gathered so far.</li>
+<li>Act: Choose available actions (listed below) that will best progress towards formulating the query.</li>
+<li>Observe: HALT. System will provide the result of your chosen actions in the next cycle.</li>
+</ol>
+<p>In your response, start with a <code>&lt;think&gt;...&lt;/think&gt;</code> section followed by an <code>&lt;act&gt;...&lt;/act&gt;</code> section.
+Use the <think> and <act> tags only for marking the sections.</p>
+<p>Actions</p>
+<p>You can issue one or multiple of the following actions.</p>
+<ul>
+<li><code>search(keywords: string)</code>: Get URIs to resources matching the given <code>keywords</code>. Look for URIs that identify entities, i.e., make two calls: <code>search('foo')</code> and <code>search('bar')</code> instead of <code>search('foo bar')</code>.</li>
+<li><code>describe(resource URI: string)</code>: Get all triples with <code>resource URI</code> in subject position plus more related triples describing <code>resource URI</code>. Expand (https://www.w3.org/TR/curie)[Compact URIs] to absolute URIs for use with <code>describe()</code>.</li>
+<li><code>query(sparql: string)</code>: Evaluate <code>sparql</code> and get solutions. Consider using path expressions, i.e., <code>*</code> or <code>+</code> for paths of transitive properties and <code>|</code> for alternative paths.</li>
+</ul>
+<p>You can run actions concurrently using <code>|</code>, e.g., <code>search('foo') | search('bar')</code>.
+Format action calls as follows: <code>&lt;act&gt;describe("http://foo/bar")&lt;/act&gt;</code> or <code>&lt;act&gt;query("PREFIX : &lt;#&gt; SELECT DISTINCT ?x WHERE { ... }")</code>.
+Use quotes for arguments.</p>
+<p>Chat</p>
+<p>Sometimes User does not seek factual information.</p>
+<ul>
+<li><code>chat(text: string)</code>: Issue a <code>chat()</code> action if User does not seek factual information from the knowledge graph.</li>
+</ul>
+<p>Conditions</p>
+<p>Once you have come up with the final query, check the query via <code>query()</code> and then end.</p>
+<ul>
+<li><code>success(text: string)</code>: Confirm the query as final and optionally give User a concise message explaining the relevant steps you took. Do not mention the query or the query solutions.</li>
+</ul>
+<p>When nearing about eight cycles:</p>
+<ul>
+<li><code>fail(text: string)</code>: You have no other choice but to give up. Optionally report to User the relevant steps you tried.</li>
+</ul>
+<p>Stages</p>
+<ul>
+<li>Identify key resources in the User question and find URIs via <code>search()</code>.</li>
+<li>Next, access representations of key resources via <code>describe()</code>.
+Iteratively expand your knowledge about the graph via <code>describe()</code> to gather information required to construct a query.
+Consider obtaining information about classes and properties via <code>describe()</code>, especially domain and range of properties.</li>
+<li>Once you have collected the information required to write a query, make sure to include in the query definite descriptions of the key resources.
+Then, expand the query iteratively with more triple patterns.</li>
+</ul>
+<p>Critical Instructions</p>
+<ul>
+<li>Ensure that all URIs used in the query exist in the knowledge graph.</li>
+<li>Only use URIs that have been previously mentioned or discovered via <code>search()</code> or <code>describe()</code>.</li>
+<li>Never repeat successfully executed actions, the results will be the same.</li>
+</ul>
+<hr />
+<p>on_start("System pmx version 0.1.3 using Model <a href="https://chat-ai.academiccloud.de/v1/">llama-3.3-70b-instruct</a>.")</p>
+<hr />
+<p>on_user("What is the total volume of supply links from Taiwan to the USA?")</p>
+<hr />
+<p><think>The user is asking for the total volume of supply links from Taiwan to the USA. To answer this question, we need to identify the key resources involved, which are Taiwan, the USA, and supply links. We also need to consider the properties that relate these resources, such as the origin and destination of the supply links.</think></p>
+<p><act>search("Taiwan") | search("USA") | search("supply links")</act></p>
+<hr />
+<p>The search for <code>Taiwan</code> returned the following matches.</p>
+<ul>
+<li>https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this 2.3214216</li>
+<li>https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#this 1.3810165</li>
+</ul>
+<hr />
+<p>No results for <code>search("USA")</code>.</p>
+<hr />
+<p>The search for <code>supply links</code> returned the following matches.</p>
+<ul>
+<li>https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#supply 0.8538209</li>
+<li>https://purl.org/supply-network/onto#SupplyFlow 0.69586974</li>
+<li>https://purl.org/supply-network/onto#SupplyNetwork 0.69586974</li>
+<li>https://purl.org/supply-network/onto#supplyFlow 0.69586974</li>
+<li>https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#CountrySupplyFlowKey 0.58723515</li>
+<li>https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#EnterpriseSupplyFlowKey 0.58723515</li>
+<li>https://purl.org/supply-network/onto#GenericSupplyFlowKey 0.58723515</li>
+<li>https://purl.org/supply-network/onto#SupplyFlowKey 0.58723515</li>
+<li>https://purl.org/supply-network/onto#supplyFlowKey 0.58723515</li>
+<li>https://purl.org/supply-network/onto#supplyFlowStructure 0.58723515</li>
+</ul>
+<hr />
+<p><think>We have found potential URIs for Taiwan and supply links, but not for the USA. The search results for Taiwan include two different URIs, one from the region ontology and one from the company ontology. The search results for supply links include several URIs from different ontologies, including the ISN ontology, the CSN ontology, and the supply-network ontology. We need to explore these resources further to understand how they relate to each other and to the USA. Since we didn't find a URI for the USA, we should try searching for it again with different keywords.</think></p>
+<p><act>search("United States of America") | describe("https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this") | describe("https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#supply")</act></p>
+<hr />
+<p>The search for <code>United States of America</code> returned the following matches.</p>
+<ul>
+<li>https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this 5.7664447</li>
+<li>http://www.wikidata.org/entity/Q49 1.891974</li>
+<li>https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ148.ttl#this 1.2619913</li>
+<li>http://server/unset-base/#2020Q3 0.99364233</li>
+</ul>
+<hr />
+<p>The description of <code>https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this</code> is as follows.</p>
+<pre><code>@prefix ns1: &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#&gt; .
+@prefix ns2: &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#this&gt; ns1:registeredInCountry &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ39.ttl#this&gt; ns1:registeredInCountry &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this&gt; a ns2:Country ;
+    rdfs:label "Taiwan"@en ;
+    ns2:inContinent &lt;http://www.wikidata.org/entity/Q48&gt; .
+</code></pre>
+<hr />
+<p>The description of <code>https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#supply</code> is as follows.</p>
+<pre><code>@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix qb: &lt;http://purl.org/linked-data/cube#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#supply&gt; a qb:DimensionProperty,
+        owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "supply"@en ;
+    rdfs:comment "Links the supplying industry in a supply flow between two industries."@en ;
+    rdfs:domain &lt;https://purl.org/supply-network/onto#SupplyFlow&gt; ;
+    rdfs:isDefinedBy &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#&gt; ;
+    rdfs:range &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#Industry&gt; ;
+    rdfs:subPropertyOf &lt;https://purl.org/supply-network/onto#from&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#Industry&gt; a owl:Class ;
+    rdfs:label "Industry"@en .
+
+&lt;https://purl.org/supply-network/onto#Entity&gt; a owl:Class ;
+    rdfs:label "Entity"@en .
+
+&lt;https://purl.org/supply-network/onto#from&gt; a qb:DimensionProperty,
+        owl:ObjectProperty ;
+    rdfs:label "from"@en ;
+    rdfs:domain &lt;https://purl.org/supply-network/onto#SupplyFlow&gt; ;
+    rdfs:range &lt;https://purl.org/supply-network/onto#Entity&gt; .
+
+&lt;https://purl.org/supply-network/onto#SupplyFlow&gt; a owl:Class ;
+    rdfs:label "Supply Flow"@en .
+</code></pre>
+<hr />
+<p><think>We have found a URI for the United States of America and have descriptions for Taiwan and the supply property. The description of Taiwan shows that it is a country and has companies registered in it. The description of the supply property shows that it is a dimension property that links the supplying industry in a supply flow between two industries. The domain of the supply property is SupplyFlow, and the range is Industry. We also see that SupplyFlow is a class that represents a supply flow, and Entity is a class that represents an entity. The from property is a dimension property that has a domain of SupplyFlow and a range of Entity. We need to explore the relationships between these resources further to understand how they relate to each other and to the total volume of supply links from Taiwan to the USA.</think></p>
+<p><act>describe("https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this") | describe("https://purl.org/supply-network/onto#SupplyFlow") | query("PREFIX ns1: <a href="https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#">https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#</a> PREFIX ns2: <a href="https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#">https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#</a> SELECT DISTINCT ?x WHERE { ?x ns1:registeredInCountry <a href="https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this">https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this</a> }")</act></p>
+<hr />
+<p>The description of <code>https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this</code> is as follows.</p>
+<pre><code>@prefix ns1: &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#&gt; .
+@prefix ns2: &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ17.ttl#this&gt; ns1:registeredInCountry &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#this&gt; ns1:registeredInCountry &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ22.ttl#this&gt; ns1:registeredInCountry &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ23.ttl#this&gt; ns1:registeredInCountry &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ24.ttl#this&gt; ns1:registeredInCountry &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ25.ttl#this&gt; ns1:registeredInCountry &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ33.ttl#this&gt; ns1:registeredInCountry &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#this&gt; ns1:registeredInCountry &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ65.ttl#this&gt; ns1:registeredInCountry &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ79.ttl#this&gt; ns1:registeredInCountry &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this&gt; a ns2:Country ;
+    rdfs:label "United States of America"@en ;
+    ns2:inContinent &lt;http://www.wikidata.org/entity/Q49&gt; .
+</code></pre>
+<hr />
+<p>The description of <code>https://purl.org/supply-network/onto#SupplyFlow</code> is as follows.</p>
+<pre><code>@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix qb: &lt;http://purl.org/linked-data/cube#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#export&gt; a qb:DimensionProperty,
+        owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "export"@en ;
+    rdfs:domain &lt;https://purl.org/supply-network/onto#SupplyFlow&gt; ;
+    rdfs:range &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#Continent&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#import&gt; a qb:DimensionProperty,
+        owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "import"@en ;
+    rdfs:domain &lt;https://purl.org/supply-network/onto#SupplyFlow&gt; ;
+    rdfs:range &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#Continent&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#export&gt; a qb:DimensionProperty,
+        owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "export"@en ;
+    rdfs:domain &lt;https://purl.org/supply-network/onto#SupplyFlow&gt; ;
+    rdfs:range &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#Country&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#import&gt; a qb:DimensionProperty,
+        owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "import"@en ;
+    rdfs:domain &lt;https://purl.org/supply-network/onto#SupplyFlow&gt; ;
+    rdfs:range &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#Country&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#customer&gt; a qb:DimensionProperty,
+        owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "customer"@en ;
+    rdfs:domain &lt;https://purl.org/supply-network/onto#SupplyFlow&gt; ;
+    rdfs:range &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#Enterprise&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#supplier&gt; a qb:DimensionProperty,
+        owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "supplier"@en ;
+    rdfs:domain &lt;https://purl.org/supply-network/onto#SupplyFlow&gt; ;
+    rdfs:range &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#Enterprise&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/fssn-ontology#export&gt; a qb:DimensionProperty,
+        owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "export"@en ;
+    rdfs:domain &lt;https://purl.org/supply-network/onto#SupplyFlow&gt; ;
+    rdfs:range &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/fssn-ontology#FederalState&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/fssn-ontology#import&gt; a qb:DimensionProperty,
+        owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "import"@en ;
+    rdfs:domain &lt;https://purl.org/supply-network/onto#SupplyFlow&gt; ;
+    rdfs:range &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/fssn-ontology#FederalState&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#demand&gt; a qb:DimensionProperty,
+        owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "demand"@en ;
+    rdfs:domain &lt;https://purl.org/supply-network/onto#SupplyFlow&gt; ;
+    rdfs:range &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#Industry&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#supply&gt; a qb:DimensionProperty,
+        owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "supply"@en ;
+    rdfs:domain &lt;https://purl.org/supply-network/onto#SupplyFlow&gt; ;
+    rdfs:range &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#Industry&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/ptsn-ontology#component&gt; a qb:DimensionProperty,
+        owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "component"@en ;
+    rdfs:domain &lt;https://purl.org/supply-network/onto#SupplyFlow&gt; ;
+    rdfs:range &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/ptsn-ontology#ProductType&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/ptsn-ontology#outcome&gt; a qb:DimensionProperty,
+        owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "outcome"@en ;
+    rdfs:domain &lt;https://purl.org/supply-network/onto#SupplyFlow&gt; ;
+    rdfs:range &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/ptsn-ontology#ProductType&gt; .
+
+&lt;https://purl.org/supply-network/onto#from&gt; a qb:DimensionProperty,
+        owl:ObjectProperty ;
+    rdfs:label "from"@en ;
+    rdfs:domain &lt;https://purl.org/supply-network/onto#SupplyFlow&gt; ;
+    rdfs:range &lt;https://purl.org/supply-network/onto#Entity&gt; .
+
+&lt;https://purl.org/supply-network/onto#into&gt; a qb:DimensionProperty,
+        owl:ObjectProperty ;
+    rdfs:label "into"@en ;
+    rdfs:domain &lt;https://purl.org/supply-network/onto#SupplyFlow&gt; ;
+    rdfs:range &lt;https://purl.org/supply-network/onto#Entity&gt; .
+
+&lt;https://purl.org/supply-network/onto#supplyFlow&gt; a owl:ObjectProperty ;
+    rdfs:label "supply flow"@en ;
+    rdfs:domain &lt;https://purl.org/supply-network/onto#SupplyNetwork&gt; ;
+    rdfs:range &lt;https://purl.org/supply-network/onto#SupplyFlow&gt; .
+
+&lt;https://purl.org/supply-network/onto#supplyFlowStructure&gt; a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "supply flow structure"@en ;
+    rdfs:domain &lt;https://purl.org/supply-network/onto#SupplyFlow&gt; ;
+    rdfs:range &lt;https://purl.org/supply-network/onto#SupplyFlowKey&gt; .
+
+&lt;https://purl.org/supply-network/onto#volume&gt; a owl:ObjectProperty ;
+    rdfs:label "volume"@en ;
+    rdfs:domain &lt;https://purl.org/supply-network/onto#SupplyFlow&gt; ;
+    rdfs:range &lt;https://purl.org/supply-network/onto#Volume&gt; .
+
+&lt;https://purl.org/supply-network/onto#SupplyFlowKey&gt; a owl:Class ;
+    rdfs:label "Supply Flow Key"@en .
+
+&lt;https://purl.org/supply-network/onto#SupplyNetwork&gt; a owl:Class ;
+    rdfs:label "Supply Network"@en .
+
+&lt;https://purl.org/supply-network/onto#Volume&gt; a owl:Class ;
+    rdfs:label "Volume"@en .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#Continent&gt; a owl:Class ;
+    rdfs:label "Continent"@en .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#Country&gt; a owl:Class ;
+    rdfs:label "Country"@en .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#Enterprise&gt; a owl:Class ;
+    rdfs:label "Enterprise"@en .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/fssn-ontology#FederalState&gt; a owl:Class ;
+    rdfs:label "FederalState"@en .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#Industry&gt; a owl:Class ;
+    rdfs:label "Industry"@en .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/ptsn-ontology#ProductType&gt; a owl:Class ;
+    rdfs:label "Product type"@en .
+
+&lt;https://purl.org/supply-network/onto#Entity&gt; a owl:Class ;
+    rdfs:label "Entity"@en .
+
+&lt;https://purl.org/supply-network/onto#SupplyFlow&gt; a owl:Class ;
+    rdfs:label "Supply Flow"@en ;
+    rdfs:comment "A directed supply relation between two entities, typically with a volume."@en ;
+    rdfs:isDefinedBy &lt;https://purl.org/supply-network/onto#&gt; ;
+    rdfs:subClassOf qb:Slice .
+</code></pre>
+<hr />
+<p>The query <code>PREFIX ns1: &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#&gt; PREFIX ns2: &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#&gt; SELECT DISTINCT ?x WHERE { ?x ns1:registeredInCountry &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this&gt; }</code> returned the following solution.</p>
+<p>[{'x': '<a href="https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#this">https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#this</a>'}, {'x': '<a href="https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ39.ttl#this">https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ39.ttl#this</a>'}]</p>
+<hr />
+<p><think>We have found the descriptions of the United States of America and the SupplyFlow class, and we have executed a query to find companies registered in Taiwan. The query returned two companies, weQ20 and weQ39. We also see that the SupplyFlow class has several properties, including from, into, supplyFlowStructure, and volume. The from and into properties relate a supply flow to its origin and destination entities, respectively. The supplyFlowStructure property relates a supply flow to its structure, and the volume property relates a supply flow to its volume. We need to use these properties to construct a query that finds the total volume of supply links from Taiwan to the USA.</think></p>
+<p><act>query("PREFIX ns1: <a href="https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#">https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#</a> PREFIX ns2: <a href="https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#">https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#</a> PREFIX sn: <a href="https://purl.org/supply-network/onto#">https://purl.org/supply-network/onto#</a> SELECT DISTINCT ?volume WHERE { ?supplyFlow sn:from <a href="https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this">https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this</a> ; sn:into <a href="https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this">https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this</a> ; sn:volume ?volume }")</act></p>
+<hr />
+<p>No results for <code>query("PREFIX ns1: &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#&gt; PREFIX ns2: &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#&gt; PREFIX sn: &lt;https://purl.org/supply-network/onto#&gt; SELECT DISTINCT ?volume WHERE { ?supplyFlow sn:from &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this&gt; ; sn:into &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this&gt; ; sn:volume ?volume }")</code>.</p>
+<hr />
+<p><think>We didn't find any results for the query that searches for the volume of supply links from Taiwan to the USA. This could be because the data is not available or the query is not correctly formulated. We need to try a different approach to find the total volume of supply links from Taiwan to the USA. Since we have the URIs for Taiwan and the USA, and we have the properties of the SupplyFlow class, we can try to find the supply flows that originate from Taiwan and destined to the USA, and then calculate the total volume of these supply flows.</think></p>
+<p><act>query("PREFIX ns1: <a href="https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#">https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#</a> PREFIX ns2: <a href="https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#">https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#</a> PREFIX sn: <a href="https://purl.org/supply-network/onto#">https://purl.org/supply-network/onto#</a> SELECT DISTINCT ?supplyFlow WHERE { ?supplyFlow sn:from <a href="https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this">https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this</a> ; sn:into <a href="https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this">https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this</a> }")</act></p>
+<hr />
+<p>No results for <code>query("PREFIX ns1: &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#&gt; PREFIX ns2: &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#&gt; PREFIX sn: &lt;https://purl.org/supply-network/onto#&gt; SELECT DISTINCT ?supplyFlow WHERE { ?supplyFlow sn:from &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this&gt; ; sn:into &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this&gt; }")</code>.</p>
+<hr />
+<p><think>We didn't find any results for the query that searches for supply flows from Taiwan to the USA. This could be because the data is not available or the query is not correctly formulated. We have tried different approaches to find the total volume of supply links from Taiwan to the USA, but we were not successful. At this point, we have to admit that we cannot find the answer to the user's question with the available data and queries.</think></p>
+<p><act>fail("We cannot find the total volume of supply links from Taiwan to the USA with the available data and queries.")</act></p>
+<hr />
+<p>Loop suspended after 6 cycles in 124 sec with 26434 prompt tokens and 1434 completion tokens (226 tokens/sec).
+Loop id is <code>llama-3-3-70b-instruct-dbf08b64-2199-44c4-87f3-18f864fcea30-what-is-the-total-volume-of-supply-links-from-taiwan-to-the-usa</code>.</p>
+<p>{'version': '0.1.3', 'client_info': {'model': 'llama-3.3-70b-instruct', 'max_tokens': 4096, 'temperature': 0, 'top_p': 1, 'baseuri': 'https://chat-ai.academiccloud.de/v1/'}, 'platform': {'node': 'r10389', 'platform': 'Windows-10-10.0.19045-SP0', 'system': 'Windows', 'processor': 'Intel64 Family 6 Model 142 Stepping 12, GenuineIntel', 'machine': 'AMD64', 'python_version': '3.12.7'}}</p>

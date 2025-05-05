@@ -1,12 +1,76 @@
 Who supplies Bosch?
+    - understands esn:customer and esn:supplier correctly after deref and one wrong query
+    -> correct result
 How many enterprises are in TSMC's supply network?
+    - no result for search("TSMC")
+    - esn:supplier understood in wrong direction
+    - counts sn:SupplyLink instances with TSMC as supplier but checks if the instances are of type esn:Enterprise
+    - does not consider transitive supply relation
+    -> no results
+How many enterprises are in Nvidia's supply network?
+    - only looks for suppliers, but misunderstands direction of esn:supplier
+    - counts sn:SupplyLink instances
+    - does not consider transitive supply relation
+    -> wrong result
 Is Bosch part of TSMC's supply network?
+    - no result for search("TSMC")
+    - searches for "Taiwan Semiconductor Manufacturing Company"
+    - understands the QID of suppliers/customers by the URI of the sn:SupplyLink instances
+    - does not understand that the hash URIs are different, tries to query direct links
+    - runs into exceptions when using ASK query
+    -> no result
 What is the value of the contract between Qualcomm and Apple?
+    - uses describe("esn:supplier")
+    - looks for a contract
+    - writes a query with syntax errors but understands the 400 bad request answer as the queried data not being available in the KG
+    -> no result
+    retry
+    - fails to find information on the volume blank node
 What is the total volume of trade between Nvidia and its customers?
+    - finds blank nodes when querying volumes, understands to continue with a query that includes the sn:quantity property
+    - sums the found quantities in the following query
+    - disregards time
+    -> correct result if units are identical
 What country is Intel registered in?
+    -> correct result
 How many supply relations between enterprises from China and the USA exist?
+    - no result for search("USA")
+    - finds search("United States")
+    - only considers customers from the USA and suppliers from China (which does not exist)
+    -> wrong result
+    - correct result after confronting the agent with "did the question imply the direction of the supply relation?"
 What is the total volume of supply links from Taiwan to the USA?
+    - no result for search("USA")
+    - finds search("United States of America")
+    - finds sn:SupplyFlow with search("supply links") and uses describe("sn:SupplyFlow")
+    - only queries for sn:SupplyFlow instances between both countries, disregarding enterprises
+    -> no result
 How many enterprises are in the supply network?
+    - doesn't find esn:Enterprise with search()
+    - counts all enterprises in KG
+    -> correct result if only one supply network in KG
 On what abstraction is the data on the supply network?
-Which abstractions can be derived from the given data?
+    - returns the URI of the abstraction, i.e., the enterprise data structure instance
+    -> correct result (if "Enterprise" wasn't the desired answer)
+Which supply network abstractions can be derived from the given data?
+    - uses describe() on the ontology URI (with empty hash) found in URIs of searched terms
+    - does not understand that by "derived" other abstractions on higher level are wanted
+    - returns abstarction of given supply network
+    -> wrong result
 How many tiers does the supply network have?
+    - from the sn:SupplyNetwork instance, follows the sn:structure to look for tiers
+    - writes a wierd query
+    - does not grasp tiers
+    - returns number of higher abstraction level links
+    -> wrong result
+
+- How to express direction of esn:supplier?
+- How to express transitive n-ary relations?
+- Do hash URIs for supply links between enterprises help or misinform?
+- How to express derived abstractions?
+- How to express tiers?
+- How to define an abstraction?
+- How harmful are blank nodes?
+- The implementation of the search tool costs cycles
+- A 400 bad request query result should hint the problem
+- only one supply network in the KG is expected

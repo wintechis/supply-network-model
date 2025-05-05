@@ -1,0 +1,170 @@
+<p>Task</p>
+<p>You are Graf von Data, an assistant designed to formulate a query based on input from User.</p>
+<p>Process</p>
+<p>You interact with a knowledge graph in a strict think-act-observe cycle.</p>
+<ol>
+<li>Think: Analyse the question from User and the descriptions in the representations gathered so far.</li>
+<li>Act: Choose available actions (listed below) that will best progress towards formulating the query.</li>
+<li>Observe: HALT. System will provide the result of your chosen actions in the next cycle.</li>
+</ol>
+<p>In your response, start with a <code>&lt;think&gt;...&lt;/think&gt;</code> section followed by an <code>&lt;act&gt;...&lt;/act&gt;</code> section.
+Use the <think> and <act> tags only for marking the sections.</p>
+<p>Actions</p>
+<p>You can issue one or multiple of the following actions.</p>
+<ul>
+<li><code>search(keywords: string)</code>: Get URIs to resources matching the given <code>keywords</code>. Look for URIs that identify entities, i.e., make two calls: <code>search('foo')</code> and <code>search('bar')</code> instead of <code>search('foo bar')</code>.</li>
+<li><code>describe(resource URI: string)</code>: Get all triples with <code>resource URI</code> in subject position plus more related triples describing <code>resource URI</code>. Expand (https://www.w3.org/TR/curie)[Compact URIs] to absolute URIs for use with <code>describe()</code>.</li>
+<li><code>query(sparql: string)</code>: Evaluate <code>sparql</code> and get solutions. Consider using path expressions, i.e., <code>*</code> or <code>+</code> for paths of transitive properties and <code>|</code> for alternative paths.</li>
+</ul>
+<p>You can run actions concurrently using <code>|</code>, e.g., <code>search('foo') | search('bar')</code>.
+Format action calls as follows: <code>&lt;act&gt;describe("http://foo/bar")&lt;/act&gt;</code> or <code>&lt;act&gt;query("PREFIX : &lt;#&gt; SELECT DISTINCT ?x WHERE { ... }")</code>.
+Use quotes for arguments.</p>
+<p>Chat</p>
+<p>Sometimes User does not seek factual information.</p>
+<ul>
+<li><code>chat(text: string)</code>: Issue a <code>chat()</code> action if User does not seek factual information from the knowledge graph.</li>
+</ul>
+<p>Conditions</p>
+<p>Once you have come up with the final query, check the query via <code>query()</code> and then end.</p>
+<ul>
+<li><code>success(text: string)</code>: Confirm the query as final and optionally give User a concise message explaining the relevant steps you took. Do not mention the query or the query solutions.</li>
+</ul>
+<p>When nearing about eight cycles:</p>
+<ul>
+<li><code>fail(text: string)</code>: You have no other choice but to give up. Optionally report to User the relevant steps you tried.</li>
+</ul>
+<p>Stages</p>
+<ul>
+<li>Identify key resources in the User question and find URIs via <code>search()</code>.</li>
+<li>Next, access representations of key resources via <code>describe()</code>.
+Iteratively expand your knowledge about the graph via <code>describe()</code> to gather information required to construct a query.
+Consider obtaining information about classes and properties via <code>describe()</code>, especially domain and range of properties.</li>
+<li>Once you have collected the information required to write a query, make sure to include in the query definite descriptions of the key resources.
+Then, expand the query iteratively with more triple patterns.</li>
+</ul>
+<p>Critical Instructions</p>
+<ul>
+<li>Ensure that all URIs used in the query exist in the knowledge graph.</li>
+<li>Only use URIs that have been previously mentioned or discovered via <code>search()</code> or <code>describe()</code>.</li>
+<li>Never repeat successfully executed actions, the results will be the same.</li>
+</ul>
+<hr />
+<p>on_start("System pmx version 0.1.3 using Model <a href="https://chat-ai.academiccloud.de/v1/">llama-3.3-70b-instruct</a>.")</p>
+<hr />
+<p>on_user("How many enterprises are in Nvidia's supply network?")</p>
+<hr />
+<p><think>Nvidia is a technology company known for its graphics processing units (GPUs) and other related products. To find out how many enterprises are in Nvidia's supply network, we need to identify the key resources involved, which are Nvidia and its supply network. We can start by searching for Nvidia to get its URI.</think>
+<act>search("Nvidia")</act></p>
+<hr />
+<p>The search for <code>Nvidia</code> returned the following matches.</p>
+<ul>
+<li>https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#this 2.6251726</li>
+</ul>
+<hr />
+<p><think>We have found a URI for Nvidia, which is https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#this. Now, we need to gather more information about Nvidia and its supply network. We can use the describe action to get more triples related to Nvidia and its supply network.</think>
+<act>describe("https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#this")</act></p>
+<hr />
+<p>The description of <code>https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#this</code> is as follows.</p>
+<pre><code>@prefix ns1: &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#Q20&gt; ns1:customer &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#Q31&gt; ns1:customer &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ33.ttl#Q21&gt; ns1:supplier &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q21&gt; ns1:supplier &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#Q21&gt; ns1:supplier &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ76.ttl#Q21&gt; ns1:supplier &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ90.ttl#Q21&gt; ns1:supplier &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#this&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#this&gt; a ns1:Enterprise ;
+    rdfs:label "Nvidia"@en ;
+    ns1:industry &lt;https://welektronik.iis.fraunhofer.de/entity/Q286&gt; ;
+    ns1:registeredInCountry &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this&gt; .
+</code></pre>
+<hr />
+<p><think>We have gathered more information about Nvidia, including its suppliers and customers. The description also includes the industry and country where Nvidia is registered. To find out how many enterprises are in Nvidia's supply network, we need to identify the suppliers of Nvidia. From the description, we can see that there are several suppliers listed, including https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ33.ttl#Q21, https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q21, https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#Q21, https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ76.ttl#Q21, and https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ90.ttl#Q21. We can use the describe action to get more information about these suppliers.</think>
+<act>describe("https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ33.ttl#Q21") | describe("https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q21") | describe("https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#Q21") | describe("https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ76.ttl#Q21") | describe("https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ90.ttl#Q21")</act></p>
+<hr />
+<p>The description of <code>https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ33.ttl#Q21</code> is as follows.</p>
+<pre><code>@prefix ns1: &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#&gt; .
+@prefix ns2: &lt;https://purl.org/supply-network/onto#&gt; .
+
+&lt;http://server/unset-base/#supplynetwork&gt; ns2:supplyFlow &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ33.ttl#Q21&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ33.ttl#Q21&gt; a ns2:SupplyFlow ;
+    ns1:customer &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ33.ttl#this&gt; ;
+    ns1:supplier &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#this&gt; ;
+    ns2:supplyFlowStructure ns1:EnterpriseSupplyFlowKey ;
+    ns2:volume [ ] .
+</code></pre>
+<hr />
+<p>The description of <code>https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q21</code> is as follows.</p>
+<pre><code>@prefix ns1: &lt;https://purl.org/supply-network/onto#&gt; .
+@prefix ns2: &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#&gt; .
+
+&lt;http://server/unset-base/#supplynetwork&gt; ns1:supplyFlow &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q21&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q21&gt; a ns1:SupplyFlow ;
+    ns2:customer &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#this&gt; ;
+    ns2:supplier &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#this&gt; ;
+    ns1:supplyFlowStructure ns2:EnterpriseSupplyFlowKey ;
+    ns1:volume [ ] .
+</code></pre>
+<hr />
+<p>The description of <code>https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#Q21</code> is as follows.</p>
+<pre><code>@prefix ns1: &lt;https://purl.org/supply-network/onto#&gt; .
+@prefix ns2: &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#&gt; .
+
+&lt;http://server/unset-base/#supplynetwork&gt; ns1:supplyFlow &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#Q21&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#Q21&gt; a ns1:SupplyFlow ;
+    ns2:customer &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#this&gt; ;
+    ns2:supplier &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#this&gt; ;
+    ns1:supplyFlowStructure ns2:EnterpriseSupplyFlowKey ;
+    ns1:volume [ ] .
+</code></pre>
+<hr />
+<p>The description of <code>https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ76.ttl#Q21</code> is as follows.</p>
+<pre><code>@prefix ns1: &lt;https://purl.org/supply-network/onto#&gt; .
+@prefix ns2: &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#&gt; .
+
+&lt;http://server/unset-base/#supplynetwork&gt; ns1:supplyFlow &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ76.ttl#Q21&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ76.ttl#Q21&gt; a ns1:SupplyFlow ;
+    ns2:customer &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ76.ttl#this&gt; ;
+    ns2:supplier &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#this&gt; ;
+    ns1:supplyFlowStructure ns2:EnterpriseSupplyFlowKey ;
+    ns1:volume [ ] .
+</code></pre>
+<hr />
+<p>The description of <code>https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ90.ttl#Q21</code> is as follows.</p>
+<pre><code>@prefix ns1: &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#&gt; .
+@prefix ns2: &lt;https://purl.org/supply-network/onto#&gt; .
+
+&lt;http://server/unset-base/#supplynetwork&gt; ns2:supplyFlow &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ90.ttl#Q21&gt; .
+
+&lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ90.ttl#Q21&gt; a ns2:SupplyFlow ;
+    ns1:customer &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ90.ttl#this&gt; ;
+    ns1:supplier &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#this&gt; ;
+    ns2:supplyFlowStructure ns1:EnterpriseSupplyFlowKey ;
+    ns2:volume [ ] .
+</code></pre>
+<hr />
+<p><think>We have gathered information about the suppliers of Nvidia. From the descriptions, we can see that all the suppliers are connected to Nvidia through the supply flow relationship. To find out how many enterprises are in Nvidia's supply network, we can count the number of unique suppliers. We have found 5 unique suppliers: https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ33.ttl#Q21, https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q21, https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#Q21, https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ76.ttl#Q21, and https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ90.ttl#Q21. We can use a SPARQL query to count the number of unique suppliers.</think>
+<act>query("PREFIX ns1: <a href="https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#">https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#</a> PREFIX ns2: <a href="https://purl.org/supply-network/onto#">https://purl.org/supply-network/onto#</a> SELECT (COUNT(DISTINCT ?supplier) AS ?count) WHERE { ?supplier ns1:supplier <a href="https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#this">https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#this</a> }")</act></p>
+<hr />
+<p>The query <code>PREFIX ns1: &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#&gt; PREFIX ns2: &lt;https://purl.org/supply-network/onto#&gt; SELECT (COUNT(DISTINCT ?supplier) AS ?count) WHERE { ?supplier ns1:supplier &lt;https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#this&gt; }</code> returned the following solution.</p>
+<p>[{'count': '"5"^^<a href="http://www.w3.org/2001/XMLSchema#integer">http://www.w3.org/2001/XMLSchema#integer</a>'}]</p>
+<hr />
+<p><think>We have executed the SPARQL query and obtained the result, which indicates that there are 5 unique suppliers in Nvidia's supply network. This answer directly addresses the user's question, and we can now confirm that the query is final.</think>
+<act>success("There are 5 enterprises in Nvidia's supply network.")</act></p>
+<hr />
+<p>Loop suspended after 5 cycles in 101 sec with 12152 prompt tokens and 1160 completion tokens (135 tokens/sec).
+Loop id is <code>llama-3-3-70b-instruct-92474912-bac8-45ac-b866-8321738dac3e-how-many-enterprises-are-in-nvidia-s-supply-network</code>.</p>
+<p>{'version': '0.1.3', 'client_info': {'model': 'llama-3.3-70b-instruct', 'max_tokens': 4096, 'temperature': 0, 'top_p': 1, 'baseuri': 'https://chat-ai.academiccloud.de/v1/'}, 'platform': {'node': 'r10389', 'platform': 'Windows-10-10.0.19045-SP0', 'system': 'Windows', 'processor': 'Intel64 Family 6 Model 142 Stepping 12, GenuineIntel', 'machine': 'AMD64', 'python_version': '3.12.7'}}</p>

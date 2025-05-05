@@ -1,0 +1,241 @@
+<p>Task</p>
+<p>You are Graf von Data, an assistant designed to formulate a query based on input from User.</p>
+<p>Process</p>
+<p>You interact with a knowledge graph in a strict think-act-observe cycle.</p>
+<ol>
+<li>Think: Analyse the question from User and the descriptions in the representations gathered so far.</li>
+<li>Act: Choose available actions (listed below) that will best progress towards formulating the query.</li>
+<li>Observe: HALT. System will provide the result of your chosen actions in the next cycle.</li>
+</ol>
+<p>In your response, start with a <code>&lt;think&gt;...&lt;/think&gt;</code> section followed by an <code>&lt;act&gt;...&lt;/act&gt;</code> section.
+Use the <think> and <act> tags only for marking the sections.</p>
+<p>Actions</p>
+<p>You can issue one or multiple of the following actions.</p>
+<ul>
+<li><code>search(keywords: string)</code>: Get URIs to resources matching the given <code>keywords</code>. Look for URIs that identify entities, i.e., make two calls: <code>search('foo')</code> and <code>search('bar')</code> instead of <code>search('foo bar')</code>.</li>
+<li><code>describe(resource URI: string)</code>: Get all triples with <code>resource URI</code> in subject position plus more related triples describing <code>resource URI</code>. Expand (https://www.w3.org/TR/curie)[Compact URIs] to absolute URIs for use with <code>describe()</code>.</li>
+<li><code>query(sparql: string)</code>: Evaluate <code>sparql</code> and get solutions. Consider using path expressions, i.e., <code>*</code> or <code>+</code> for paths of transitive properties and <code>|</code> for alternative paths.</li>
+</ul>
+<p>You can run actions concurrently using <code>|</code>, e.g., <code>search('foo') | search('bar')</code>.
+Format action calls as follows: <code>&lt;act&gt;describe("http://foo/bar")&lt;/act&gt;</code> or <code>&lt;act&gt;query("PREFIX : &lt;#&gt; SELECT DISTINCT ?x WHERE { ... }")</code>.
+Use quotes for arguments.</p>
+<p>Chat</p>
+<p>Sometimes User does not seek factual information.</p>
+<ul>
+<li><code>chat(text: string)</code>: Issue a <code>chat()</code> action if User does not seek factual information from the knowledge graph.</li>
+</ul>
+<p>Conditions</p>
+<p>Once you have come up with the final query, check the query via <code>query()</code> and then end.</p>
+<ul>
+<li><code>success(text: string)</code>: Confirm the query as final and optionally give User a concise message explaining the relevant steps you took. Do not mention the query or the query solutions.</li>
+</ul>
+<p>When nearing about eight cycles:</p>
+<ul>
+<li><code>fail(text: string)</code>: You have no other choice but to give up. Optionally report to User the relevant steps you tried.</li>
+</ul>
+<p>Stages</p>
+<ul>
+<li>Identify key resources in the User question and find URIs via <code>search()</code>.</li>
+<li>Next, access representations of key resources via <code>describe()</code>.
+Iteratively expand your knowledge about the graph via <code>describe()</code> to gather information required to construct a query.
+Consider obtaining information about classes and properties via <code>describe()</code>, especially domain and range of properties.</li>
+<li>Once you have collected the information required to write a query, make sure to include in the query definite descriptions of the key resources.
+Then, expand the query iteratively with more triple patterns.</li>
+</ul>
+<p>Critical Instructions</p>
+<ul>
+<li>Ensure that all URIs used in the query exist in the knowledge graph.</li>
+<li>Only use URIs that have been previously mentioned or discovered via <code>search()</code> or <code>describe()</code>.</li>
+<li>Never repeat successfully executed actions, the results will be the same.</li>
+</ul>
+<hr />
+<p>on_start("System pmx version 0.1.3 using Model <a href="https://chat-ai.academiccloud.de/v1/">llama-3.3-70b-instruct</a>.")</p>
+<hr />
+<p>on_user("Which supply network abstractions can be derived from the given data?")</p>
+<hr />
+<p><think>The user is asking about deriving supply network abstractions from given data. To answer this question, we need to identify the key resources and concepts related to supply networks and data analysis. We can start by searching for relevant keywords to find URIs that identify entities in the knowledge graph.</think></p>
+<p><act>search("supply network") | search("data analysis") | search("abstraction")</act></p>
+<hr />
+<p>The search for <code>supply network</code> returned the following matches.</p>
+<ul>
+<li>https://purl.org/supply-network/onto#SupplyNetwork 1.9947708</li>
+<li>https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology# 1.4560515</li>
+<li>https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology# 1.4560515</li>
+<li>https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology# 1.4560515</li>
+<li>https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology# 1.4560515</li>
+<li>https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/fssn-ontology# 1.2828273</li>
+<li>https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/ptsn-ontology# 1.2828273</li>
+<li>https://purl.org/supply-network/onto# 1.1464375</li>
+<li>https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#supply 0.8538209</li>
+<li>https://purl.org/supply-network/onto#SupplyFlow 0.69586974</li>
+</ul>
+<hr />
+<p>The search for <code>data analysis</code> returned the following matches.</p>
+<ul>
+<li>https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#ContinentDataStructure 0.8504274</li>
+<li>https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#CountryDataStructure 0.8504274</li>
+<li>https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#EnterpriseDataStructure 0.8504274</li>
+<li>https://purl.org/supply-network/onto#GenericDataStructure 0.8504274</li>
+<li>https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#IndustryDataStructure 0.8504274</li>
+<li>https://purl.org/supply-network/onto#followsDataStructure 0.8504274</li>
+<li>https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/fssn-ontology#FederalStateDataStructure 0.73559165</li>
+<li>https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/ptsn-ontology#ProductTypeDataStructure 0.73559165</li>
+<li>https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#IndustryContinentDataStructure 0.73559165</li>
+<li>https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#IndustryCountryDataStructure 0.73559165</li>
+</ul>
+<hr />
+<p>The search for <code>abstraction</code> returned the following matches.</p>
+<ul>
+<li>https://purl.org/supply-network/onto#Abstraction 1.9719073</li>
+<li>https://purl.org/supply-network/onto#higherAbstractionLevel 1.356225</li>
+<li>https://purl.org/supply-network/onto#similarAbstractionLevel 1.356225</li>
+<li>https://purl.org/supply-network/onto# 0.9236448</li>
+</ul>
+<hr />
+<p><think>We have obtained a list of URIs related to supply networks, data analysis, and abstraction. The next step is to access representations of these key resources via <code>describe()</code> to gather more information about the concepts and relationships in the knowledge graph. We can start by describing the URIs that seem most relevant to the user's question, such as the supply network ontology and the abstraction concepts.</think></p>
+<p><act>describe("https://purl.org/supply-network/onto#SupplyNetwork") | describe("https://purl.org/supply-network/onto#Abstraction") | describe("https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#")</act></p>
+<hr />
+<p>The description of <code>https://purl.org/supply-network/onto#SupplyNetwork</code> is as follows.</p>
+<pre><code>@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix prov: &lt;http://www.w3.org/ns/prov#&gt; .
+@prefix qb: &lt;http://purl.org/linked-data/cube#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+&lt;https://purl.org/supply-network/onto#inferredFrom&gt; a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "inferred from"@en ;
+    rdfs:domain &lt;https://purl.org/supply-network/onto#SupplyNetwork&gt; ;
+    rdfs:range &lt;https://purl.org/supply-network/onto#SupplyNetwork&gt; .
+
+&lt;https://purl.org/supply-network/onto#structure&gt; a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "structure"@en ;
+    rdfs:domain &lt;https://purl.org/supply-network/onto#SupplyNetwork&gt; ;
+    rdfs:range &lt;https://purl.org/supply-network/onto#Abstraction&gt; .
+
+&lt;https://purl.org/supply-network/onto#supplyFlow&gt; a owl:ObjectProperty ;
+    rdfs:label "supply flow"@en ;
+    rdfs:domain &lt;https://purl.org/supply-network/onto#SupplyNetwork&gt; ;
+    rdfs:range &lt;https://purl.org/supply-network/onto#SupplyFlow&gt; .
+
+&lt;https://purl.org/supply-network/onto#Abstraction&gt; a owl:Class ;
+    rdfs:label "Abstraction"@en .
+
+&lt;https://purl.org/supply-network/onto#SupplyFlow&gt; a owl:Class ;
+    rdfs:label "Supply Flow"@en .
+
+&lt;https://purl.org/supply-network/onto#SupplyNetwork&gt; a owl:Class ;
+    rdfs:label "Supply Network"@en ;
+    rdfs:comment "A representation of a supply network as a network of entities an a specific abstraction."@en ;
+    rdfs:isDefinedBy &lt;https://purl.org/supply-network/onto#&gt; ;
+    rdfs:subClassOf qb:DataSet,
+        prov:Entity .
+</code></pre>
+<hr />
+<p>The description of <code>https://purl.org/supply-network/onto#Abstraction</code> is as follows.</p>
+<pre><code>@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix prov: &lt;http://www.w3.org/ns/prov#&gt; .
+@prefix qb: &lt;http://purl.org/linked-data/cube#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix skos: &lt;http://www.w3.org/2004/02/skos/core#&gt; .
+
+&lt;https://purl.org/supply-network/onto#followsDataStructure&gt; a qb:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "follows data structure"@en ;
+    rdfs:domain &lt;https://purl.org/supply-network/onto#Abstraction&gt; ;
+    rdfs:range &lt;https://purl.org/supply-network/onto#Abstraction&gt; .
+
+&lt;https://purl.org/supply-network/onto#higherAbstractionLevel&gt; a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "higher abstraction level"@en ;
+    rdfs:domain &lt;https://purl.org/supply-network/onto#Abstraction&gt; ;
+    rdfs:range &lt;https://purl.org/supply-network/onto#Abstraction&gt; .
+
+&lt;https://purl.org/supply-network/onto#similarAbstractionLevel&gt; a owl:ObjectProperty,
+        owl:SymmetricProperty ;
+    rdfs:label "similar abstraction level"@en ;
+    rdfs:domain &lt;https://purl.org/supply-network/onto#Abstraction&gt; ;
+    rdfs:range &lt;https://purl.org/supply-network/onto#Abstraction&gt; .
+
+&lt;https://purl.org/supply-network/onto#structure&gt; a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "structure"@en ;
+    rdfs:domain &lt;https://purl.org/supply-network/onto#SupplyNetwork&gt; ;
+    rdfs:range &lt;https://purl.org/supply-network/onto#Abstraction&gt; .
+
+&lt;https://purl.org/supply-network/onto#supplyFlowKey&gt; a owl:FunctionalProperty,
+        owl:InverseFunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "supply flow key"@en ;
+    rdfs:domain &lt;https://purl.org/supply-network/onto#Abstraction&gt; ;
+    rdfs:range &lt;https://purl.org/supply-network/onto#SupplyFlowKey&gt; .
+
+&lt;https://purl.org/supply-network/onto#SupplyFlowKey&gt; a owl:Class ;
+    rdfs:label "Supply Flow Key"@en .
+
+&lt;https://purl.org/supply-network/onto#SupplyNetwork&gt; a owl:Class ;
+    rdfs:label "Supply Network"@en .
+
+&lt;https://purl.org/supply-network/onto#Abstraction&gt; a owl:Class ;
+    rdfs:label "Abstraction"@en ;
+    rdfs:comment "A specific abstraction of entities that represent a supply network."@en ;
+    rdfs:isDefinedBy &lt;https://purl.org/supply-network/onto#&gt; ;
+    rdfs:subClassOf qb:DataStructureDefinition,
+        skos:Concept,
+        prov:Entity .
+</code></pre>
+<hr />
+<p>The description of <code>https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#</code> is as follows.</p>
+<pre><code>@prefix dcterms: &lt;http://purl.org/dc/terms/&gt; .
+@prefix ns1: &lt;http://purl.org/vocommons/voaf#&gt; .
+@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix qb: &lt;http://purl.org/linked-data/cube#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#Continent&gt; rdfs:isDefinedBy &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#ContinentDataStructure&gt; rdfs:isDefinedBy &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#ContinentSupplyFlowKey&gt; rdfs:isDefinedBy &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#export&gt; rdfs:isDefinedBy &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#import&gt; rdfs:isDefinedBy &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#&gt; ns1:extends &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#&gt; ns1:extends &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/fssn-ontology#&gt; ns1:extends &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#&gt; ns1:extends &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/ptsn-ontology#&gt; ns1:extends &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#&gt; .
+
+&lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#&gt; a owl:Ontology ;
+    rdfs:label "Continent Supply Network Ontology"@en ;
+    dcterms:created "2025-02-06"^^xsd:date ;
+    dcterms:creator &lt;https://danielhenselmann.solidcommunity.net/profile/card#me&gt; ;
+    dcterms:license &lt;https://creativecommons.org/licenses/by/4.0/&gt; ;
+    dcterms:publisher [ ] ;
+    dcterms:title "Continent Supply Network Ontology"@en ;
+    ns1:extends qb:,
+        &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#&gt;,
+        &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/ptsn-ontology#&gt;,
+        &lt;https://purl.org/supply-network/onto#&gt; ;
+    rdfs:isDefinedBy &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#&gt; .
+</code></pre>
+<hr />
+<p><think>We have gathered more information about the supply network ontology, abstraction concepts, and a specific ontology for continent supply networks. The <code>https://purl.org/supply-network/onto#SupplyNetwork</code> description provides information about the properties and classes related to supply networks, including the <code>structure</code> property that links a supply network to an abstraction. The <code>https://purl.org/supply-network/onto#Abstraction</code> description provides more details about the abstraction concept, including its properties and relationships to other concepts. The <code>https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#</code> description provides information about a specific ontology for continent supply networks, including its classes, properties, and relationships to other ontologies. We can use this information to construct a query that retrieves the desired supply network abstractions.</think></p>
+<p><act>query("PREFIX sn: <a href="https://purl.org/supply-network/onto#">https://purl.org/supply-network/onto#</a> PREFIX cosn: <a href="https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#">https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#</a> SELECT DISTINCT ?abstraction WHERE { ?supplyNetwork sn:structure ?abstraction . ?abstraction a sn:Abstraction . }")</act></p>
+<hr />
+<p>The query <code>PREFIX sn: &lt;https://purl.org/supply-network/onto#&gt; PREFIX cosn: &lt;https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#&gt; SELECT DISTINCT ?abstraction WHERE { ?supplyNetwork sn:structure ?abstraction . ?abstraction a sn:Abstraction . }</code> returned the following solution.</p>
+<p>[{'abstraction': '<a href="https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#EnterpriseDataStructure">https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#EnterpriseDataStructure</a>'}]</p>
+<hr />
+<p><think>We have executed the query and obtained a solution that provides a specific abstraction, <code>https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#EnterpriseDataStructure</code>, which is an instance of the <code>Abstraction</code> class. This abstraction is related to the enterprise data structure in the context of supply networks. We can now use this information to provide a final answer to the user's question.</think></p>
+<p><act>success("The supply network abstraction that can be derived from the given data is the Enterprise Data Structure.")</act></p>
+<hr />
+<p>Loop suspended after 4 cycles in 59 sec with 11494 prompt tokens and 638 completion tokens (214 tokens/sec).
+Loop id is <code>llama-3-3-70b-instruct-adf5cf83-e430-4754-a8ff-cfc13a8ea530-which-supply-network-abstractions-can-be-derived-from-the-given-data</code>.</p>
+<p>{'version': '0.1.3', 'client_info': {'model': 'llama-3.3-70b-instruct', 'max_tokens': 4096, 'temperature': 0, 'top_p': 1, 'baseuri': 'https://chat-ai.academiccloud.de/v1/'}, 'platform': {'node': 'r10389', 'platform': 'Windows-10-10.0.19045-SP0', 'system': 'Windows', 'processor': 'Intel64 Family 6 Model 142 Stepping 12, GenuineIntel', 'machine': 'AMD64', 'python_version': '3.12.7'}}</p>
