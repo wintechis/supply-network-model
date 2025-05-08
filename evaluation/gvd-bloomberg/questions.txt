@@ -66,11 +66,11 @@ How many tiers does the supply network have?
 
 - How to express direction of esn:supplier?
 - How to express transitive n-ary relations?
-- Do hash URIs for supply links between enterprises help or misinform?
+- Do hash URIs for supply links between enterprises help or misinform? -> new dimension for knowledge representation for KGQA
 - How to express derived abstractions?
 - How to express tiers?
 - How to define an abstraction?
 - How harmful are blank nodes?
 - The implementation of the search tool costs cycles
 - A 400 bad request query result should hint the problem
-- only one supply network in the KG is expected
+- only one supply network in the KG is expected -> sn:supplyFlow comment unklar
