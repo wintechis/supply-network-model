@@ -1,0 +1,23 @@
+PREFIX : <#>
+PREFIX esn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#>
+PREFIX pv: <http://ld.company.org/prod-vocab/>
+PREFIX sn: <https://purl.org/supply-network/onto#>
+CONSTRUCT {
+    :supplynetwork a sn:SupplyNetwork ;
+        sn:structure esn:EnterpriseDataStructure ;
+        sn:supplyFlow ?supplyFlow .
+    ?supplyFlow a sn:SupplyFlow ;
+        sn:supplyFlowStructure esn:EnterpriseSupplyFlowKey ; 
+        esn:customer ?customer ;
+        esn:supplier ?supplier .
+    ?supplier a esn:Enterprise .
+    ?customer a esn:Enterprise .
+}
+WHERE {
+    ?product pv:hasSupplier ?supplier .
+    ?product a ?type .
+    FILTER (?type IN (pv:Hardware, pv:Product))
+    ?supplier a pv:Supplier .
+    BIND(IRI(MD5(STR(?supplier))) AS ?supplyFlow) .
+    BIND (<http://ld.company.org> AS ?customer) .
+}

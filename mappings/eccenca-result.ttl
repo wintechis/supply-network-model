@@ -1,0 +1,2237 @@
+PREFIX :        <http://server/unset-base/#>
+PREFIX dbpedia: <http://dbpedia.org/resource/>
+PREFIX dct:     <http://purl.org/dc/terms/>
+PREFIX ecc:     <https://ns.eccenca.com/>
+PREFIX esn:     <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#>
+PREFIX foaf:    <http://xmlns.com/foaf/0.1/>
+PREFIX owl:     <http://www.w3.org/2002/07/owl#>
+PREFIX prodi:   <http://ld.company.org/prod-instances/>
+PREFIX pv:      <http://ld.company.org/prod-vocab/>
+PREFIX rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sn:      <https://purl.org/supply-network/onto#>
+PREFIX vann:    <http://purl.org/vocab/vann/>
+PREFIX void:    <http://rdfs.org/ns/void#>
+PREFIX wgs84:   <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>
+
+prodi:suppl-2318f317-967e-4282-aceb-c17a6349f86e
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/8f145a0453a437f1d11bfde787dbaf74>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-2318f317-967e-4282-aceb-c17a6349f86e;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-e9e1b979-df68-4c17-99a4-64dfee7f1926
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/160a92ec5f0e345e6fc4af78d3dc0aa9>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-e9e1b979-df68-4c17-99a4-64dfee7f1926;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-f76eb805-4d84-4b4b-9aa3-95c287be41d0
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/4383fc3f563e1162de30ea6830af0029>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-f76eb805-4d84-4b4b-9aa3-95c287be41d0;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-f7a4c865-f6d4-4896-bc48-e5ec6b2bf283
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/9087a2edeafe143012dc1edeec64e356>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-f7a4c865-f6d4-4896-bc48-e5ec6b2bf283;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-ba01e204-e74e-4f87-bc55-1a43c099f199
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/8b4d9a4f51c244728a2fee6addbf408f>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-ba01e204-e74e-4f87-bc55-1a43c099f199;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-cd395f35-74dc-4858-8bb9-5fdf0add00ee
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/a0c0291e4f3dd0b6e90c329d3aca0eed>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-cd395f35-74dc-4858-8bb9-5fdf0add00ee;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-7c4b3772-ee27-4915-8166-359d068db153
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/95e22314ba4351dc02601cf27ef782b3>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-7c4b3772-ee27-4915-8166-359d068db153;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-f0feb132-7033-41f2-99e2-fdb8834302ec
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/f52256a3934ea0ae179618d3138e4932>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-f0feb132-7033-41f2-99e2-fdb8834302ec;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-f19beb89-6c1f-45e9-8864-8a832bf17a55
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/4014504c1bcc25e189ea9da6eca0e548>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-f19beb89-6c1f-45e9-8864-8a832bf17a55;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-518d3d05-716c-483f-9ed0-03c4e81e683c
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/2662199b90141a0087ccd9f47172a22c>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-518d3d05-716c-483f-9ed0-03c4e81e683c;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-bdd38a8e-1976-4f90-ad0b-fb5e7932fd03
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/edc75aa8685908d33c83a162b53d9dd9>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-bdd38a8e-1976-4f90-ad0b-fb5e7932fd03;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-67db6571-5c2f-4c52-9d0b-1584a74bb116
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/6e31b6b727ae9cf25b9a56ccb123a789>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-67db6571-5c2f-4c52-9d0b-1584a74bb116;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-4d849ba4-b932-4ffc-8b52-61a704dddf0b
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/6955fc842d2bb77b36bdd4cdbb31b781>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-4d849ba4-b932-4ffc-8b52-61a704dddf0b;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-8486f6f9-18fe-440e-b3ed-9be6cc7dbaeb
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/799a20beb03dcace9a0aa3ad38a84062>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-8486f6f9-18fe-440e-b3ed-9be6cc7dbaeb;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-fd5556a6-46fc-4d68-846b-e543ce6f4ec9
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/8498e5bfdaf429a0770d143ce3931ffd>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-fd5556a6-46fc-4d68-846b-e543ce6f4ec9;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-e157b0e5-1085-4999-83a0-02a46d7a8994
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/93533773adfefe5f06f60a7ea04d7785>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-e157b0e5-1085-4999-83a0-02a46d7a8994;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-534df54e-82c6-430e-ad50-d80a3a745e11
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/262d85649158bed5c08e5b680dee403d>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-534df54e-82c6-430e-ad50-d80a3a745e11;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-6268ab7c-e25c-44ff-8431-e631679623b5
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/ffeba8089373fed49f6160f674aa6f2f>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-6268ab7c-e25c-44ff-8431-e631679623b5;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-42f054a5-0aba-4b02-b68a-851130c639fc
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/06caa826eae7162a952ea85c6cc246ea>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-42f054a5-0aba-4b02-b68a-851130c639fc;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-3ad032a1-2e9f-4629-93c7-0ee0b5bb0e25
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/7ff9b15dc1d9eb9dbed72c2c04b7080d>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-3ad032a1-2e9f-4629-93c7-0ee0b5bb0e25;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-89dbd72a-3118-4fdf-bdf4-671c351a4b66
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/a249d1437b7edef14d2047fea2bed082>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-89dbd72a-3118-4fdf-bdf4-671c351a4b66;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-f9bfd642-7152-407c-8158-d53fbc55f45b
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/e89c7b37b6243c5d063345b8f8b8359d>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-f9bfd642-7152-407c-8158-d53fbc55f45b;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-d0f6eeee-24cc-4a72-9331-d0ebbb83643b
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/7b3177e2307caff2b6a079494568edca>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-d0f6eeee-24cc-4a72-9331-d0ebbb83643b;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-a6815a96-329d-414e-89fa-27619179f857
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/b9d0848297c9b20ccd391242b09be961>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-a6815a96-329d-414e-89fa-27619179f857;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-05b5a686-c821-41c4-bc2c-b66d35bac1d8
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/dc14013a0f1385687f1c174652133877>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-05b5a686-c821-41c4-bc2c-b66d35bac1d8;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-fbc53ab7-1c1e-41c8-afe2-44b405858cda
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/6f88af95854437922a3249a6126313cc>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-fbc53ab7-1c1e-41c8-afe2-44b405858cda;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-8943ee5e-5f73-4765-85cd-0c2c934f8877
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/87006c0b0f2142d0423df68d1060898c>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-8943ee5e-5f73-4765-85cd-0c2c934f8877;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-f3de43d3-4bd7-4641-be54-2db60238aa14
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/ee5b1665b723a9c531b1ad99376bb20a>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-f3de43d3-4bd7-4641-be54-2db60238aa14;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-267680ea-eafe-4d40-a3c6-4807c0d195b1
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/a2098c140ea2693dc02a9faa8b9e127f>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-267680ea-eafe-4d40-a3c6-4807c0d195b1;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-fb607751-7ff0-4cea-8e23-d22b4b1c67ad
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/984e23c7762ee961af59a3f8bbe0644c>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-fb607751-7ff0-4cea-8e23-d22b4b1c67ad;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-35f7b6ea-9412-41f4-9652-8e419db45ce8
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/ed16e205e9e6130e156bee75c93fd748>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-35f7b6ea-9412-41f4-9652-8e419db45ce8;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-a0f25cc7-1407-452e-98e2-8fa5083d4041
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/6924e69e34ac2f3399d302c2380ac51e>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-a0f25cc7-1407-452e-98e2-8fa5083d4041;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-5f36c064-46dd-4351-b0e8-9cb2c76bfbab
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/e0d48e697b2d1eedc24e7a6d4488666b>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-5f36c064-46dd-4351-b0e8-9cb2c76bfbab;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-d2a60059-73f4-4fae-9a4a-0ab93f5203eb
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/66d207bcd3357bc9ea4e8e2f3d80a1ec>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-d2a60059-73f4-4fae-9a4a-0ab93f5203eb;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-3dc28ff8-fb6c-46fc-9fa6-5b12826cedc3
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/a2a0edb6e7f141ce9ce3cafa5d77ec64>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-3dc28ff8-fb6c-46fc-9fa6-5b12826cedc3;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-a10b61e6-8288-499d-bd8c-d89b9625fb1f
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/788b14ea4ddcc0ee7c7bb9e42c2d5b5c>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-a10b61e6-8288-499d-bd8c-d89b9625fb1f;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-4f22034e-f299-442a-a1e3-3d9dc974ed8f
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/35c7388e1c2e597f4781717f8c55604d>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-4f22034e-f299-442a-a1e3-3d9dc974ed8f;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-b8b7794e-329e-4bdc-9fcb-5ddfe9b71248
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/9009f87b1f2959877e9315e018b00427>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-b8b7794e-329e-4bdc-9fcb-5ddfe9b71248;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-114d6a02-02d8-4038-97a3-fd39a9701f79
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/e85a5435a39ee1232740ab766f6d56b7>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-114d6a02-02d8-4038-97a3-fd39a9701f79;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-658f838d-0e84-4f36-978c-95602545977c
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/f790c586659e3d4ecb79f1967d1028d1>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-658f838d-0e84-4f36-978c-95602545977c;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-65131e0d-addc-41f9-a33f-e9f3b7f00566
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/2f8eab837064247d99499fdce23ea806>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-65131e0d-addc-41f9-a33f-e9f3b7f00566;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-feeda1ce-d6af-42b2-b6ff-7516ba39ad6c
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/761fd013392dc40994f94d11c8c3b29e>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-feeda1ce-d6af-42b2-b6ff-7516ba39ad6c;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-cccd3023-1267-4fe6-9fbe-2441662cbb46
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/fe6cfafc2c2763983f543f8114910a3b>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-cccd3023-1267-4fe6-9fbe-2441662cbb46;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-23be71fa-4280-4114-9750-025c224be098
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/4f1cbc8df326c0784e8024f3eca91fb5>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-23be71fa-4280-4114-9750-025c224be098;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-cb74384a-d91a-4ce8-9266-44a578c2b505
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/2e2c2954b7d3877f195d7f1165198438>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-cb74384a-d91a-4ce8-9266-44a578c2b505;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-0817f6f5-8011-4c46-aeab-ba89def6df14
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/119b4b32b5fda2d0754fe0d93e7293c2>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-0817f6f5-8011-4c46-aeab-ba89def6df14;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-23933f2a-5407-45d9-8bbb-ec36287a1425
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/b4afde879f1c7f38be4a8ee02abeb5e3>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-23933f2a-5407-45d9-8bbb-ec36287a1425;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-2b70d47e-fa6a-4329-8112-22287096bc44
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/299bb65f18bf3cdf8335752b46380183>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-2b70d47e-fa6a-4329-8112-22287096bc44;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-701e751f-51dc-482f-86d5-544b4af40076
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/7493ae589b328550f4e410f2063e8fc6>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-701e751f-51dc-482f-86d5-544b4af40076;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-7d33e910-5889-4f75-bd2b-193ec2434d0f
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/fa267e8f5e55e25ecb7eab2d92d1d49b>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-7d33e910-5889-4f75-bd2b-193ec2434d0f;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-aed0f6a6-37b1-4359-a136-cc011522ca85
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/eb83c60a49c0b2fe769602a0c87c96b8>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-aed0f6a6-37b1-4359-a136-cc011522ca85;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-9c71665d-ca2e-44e3-b9ba-f1e47dec6dfe
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/00153367da6777520ba0b4bc6c991e90>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-9c71665d-ca2e-44e3-b9ba-f1e47dec6dfe;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-d7f501f6-e595-473c-90fc-89933505411e
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/7605404ff9bc4d88c75cd5236ba77bb2>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-d7f501f6-e595-473c-90fc-89933505411e;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-91be13e0-b467-48d9-8ff7-cbed652b49cb
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/484be10008f8a83a2782796690e00389>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-91be13e0-b467-48d9-8ff7-cbed652b49cb;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-0d183bba-b1df-4c41-be10-c0896378b406
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/7102ace49a1dc37d4391f6fb65b2e64a>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-0d183bba-b1df-4c41-be10-c0896378b406;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-49231eda-bbab-475b-aa59-47e6c8c81166
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/5d054ffec838e46b284b92cbcd46e997>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-49231eda-bbab-475b-aa59-47e6c8c81166;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-b508d6ec-f430-4496-9c08-bd54f1541023
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/4e2dc6942f306e9ff184a517e452509b>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-b508d6ec-f430-4496-9c08-bd54f1541023;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-3c198782-cb13-4253-aefc-f48aa8ded00a
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/a2ea74c44ba8a5392dd33b28b71154e8>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-3c198782-cb13-4253-aefc-f48aa8ded00a;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-9fdd4db4-fed8-4e24-ba3c-8bbe6c499ec7
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/1b96aacee46fa61b3acd67015e95c7e4>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-9fdd4db4-fed8-4e24-ba3c-8bbe6c499ec7;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-29c1b979-da61-4df4-ae3d-a2e303ea4444
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/5f190a4ea8bcaf1bbe5fa2856e72144e>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-29c1b979-da61-4df4-ae3d-a2e303ea4444;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-c39c750f-2398-4f5a-a389-2c200e84c45b
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/699b4bd03388472773216f9e12a8ad8b>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-c39c750f-2398-4f5a-a389-2c200e84c45b;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-ae3e7157-5d50-464c-9b47-e14e1b30ce4c
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/6c11245aab0c75f945046bc4c1a6b649>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-ae3e7157-5d50-464c-9b47-e14e1b30ce4c;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-9b333a39-4f8b-4f38-8bc8-3aea5aa24cd8
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/620e262aa153b899fc909a7affa61e88>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-9b333a39-4f8b-4f38-8bc8-3aea5aa24cd8;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-79274f67-b225-49fa-ad8c-fb20560cb1d5
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/c72a13575a796045e87094fc2275f980>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-79274f67-b225-49fa-ad8c-fb20560cb1d5;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-6ca36744-76bd-47bd-b4fd-6319ed8c87c7
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/efa4e6c3d1e0b55f17e789c09d4681b1>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-6ca36744-76bd-47bd-b4fd-6319ed8c87c7;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-4b796fba-c152-4137-b01d-fce80aef6e3c
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/1fd0fee6d8c79e9ef72d04037bcd9dff>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-4b796fba-c152-4137-b01d-fce80aef6e3c;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-1f275c2a-8e37-4032-a54e-86b99ec56351
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/60a2d60ffa6398072efdb5be5934a8ee>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-1f275c2a-8e37-4032-a54e-86b99ec56351;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-f2db56ae-0856-4a72-a5a1-497f97e728e5
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/d350c635fad2ddffa3e99f9b98d111d2>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-f2db56ae-0856-4a72-a5a1-497f97e728e5;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-bf300186-9235-481d-be21-15c8e216dcf1
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/23715874f3d7ca5cf315bdf275bb0712>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-bf300186-9235-481d-be21-15c8e216dcf1;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-36060220-55ab-4726-9b30-30de76c56344
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/9a852f198d8cb41cbf042c010a0b7e6b>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-36060220-55ab-4726-9b30-30de76c56344;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-8518fe84-b0e0-40c5-9a86-351b91eb3828
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/ea3cbc4764c0846e6ef5a75b89db8fdb>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-8518fe84-b0e0-40c5-9a86-351b91eb3828;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-dff64a17-e085-4289-9196-a1e7ae8b0c22
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/2d1dba23658d4a2d3cd62c17abbdad30>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-dff64a17-e085-4289-9196-a1e7ae8b0c22;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-3288e7a5-6b1b-482e-8c95-3265f948ae03
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/dd0de56e82edcf0c6e99c6faf2279d43>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-3288e7a5-6b1b-482e-8c95-3265f948ae03;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-9484418b-c487-4050-9094-050f3bab0817
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/664c7e487e4a90e9cc67c79e4a279628>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-9484418b-c487-4050-9094-050f3bab0817;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-47c86e10-e667-4725-bbe3-ac372da0b472
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/5a9b8a55a87f9103c0f2808ba34e35dd>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-47c86e10-e667-4725-bbe3-ac372da0b472;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-afa65b2a-f046-47f4-b352-97b579c77c21
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/e4747dc4840e334e4694f327473d794d>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-afa65b2a-f046-47f4-b352-97b579c77c21;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-84101fbf-6743-43d4-ba46-a35b6a4456ee
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/cab4ff43c22295d1efb47c91095449b7>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-84101fbf-6743-43d4-ba46-a35b6a4456ee;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-12566cfa-500d-4e07-8117-e0bf16d7fb8c
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/956ae4f14845bfdf1b2631963d738e92>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-12566cfa-500d-4e07-8117-e0bf16d7fb8c;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-6746c17d-5e49-47bc-82a1-90ac0c7aa01c
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/2443efff5a1a3b098a659d32ecf664bc>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-6746c17d-5e49-47bc-82a1-90ac0c7aa01c;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-1e0eae5f-25ae-4ef9-807e-4ce162fa2934
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/7686090afe878ab08c9118116cf78c53>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-1e0eae5f-25ae-4ef9-807e-4ce162fa2934;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-9093f9c5-0f56-40d7-b129-c13135c46a14
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/052af95882f2da0228393cee0168bacf>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-9093f9c5-0f56-40d7-b129-c13135c46a14;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-dc1364ba-300b-4fcb-949a-4cd90afee69b
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/79fa22dd9c761912d7ae8eec99452402>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-dc1364ba-300b-4fcb-949a-4cd90afee69b;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-27f8059f-fe10-4a39-aa68-d66210c9cc59
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/6c38e917548620dc51579245a4e0537c>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-27f8059f-fe10-4a39-aa68-d66210c9cc59;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-a29b2c3f-4db3-4f4d-a947-5f512d615a1d
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/7f65567bf60719c041860d1d31e880c7>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-a29b2c3f-4db3-4f4d-a947-5f512d615a1d;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-47528cbf-c41b-4897-b917-6f4c1394fe1f
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/db29b51fdd547cfd1e52676627faa80e>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-47528cbf-c41b-4897-b917-6f4c1394fe1f;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-238c3f06-3708-4b59-8617-f94611d6f3a3
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/6d778c44acc9af3e03fc9ab710c85ce4>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-238c3f06-3708-4b59-8617-f94611d6f3a3;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-ac3591e8-16d9-4c35-a73e-7ee8466155c6
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/a60774cd9159a98253079ad2d1351279>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-ac3591e8-16d9-4c35-a73e-7ee8466155c6;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-cc8fb083-225e-4d29-960d-5d74b02adeda
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/6333eed7262406100de17d2390feb6de>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-cc8fb083-225e-4d29-960d-5d74b02adeda;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-2731aa23-7ea4-4661-b79b-6f0d4d17d5b3
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/7ca7f9854cf081bc6a08c6c8566fa496>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-2731aa23-7ea4-4661-b79b-6f0d4d17d5b3;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-9bd9e5d6-1726-4bd6-8765-be37a59f5d93
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/99e6a0f8e0fac1c31b89416693ec0d6e>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-9bd9e5d6-1726-4bd6-8765-be37a59f5d93;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-15bdf688-23a7-4f52-be5c-fe82bba7add7
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/e633ba5b1a7bd1588e4ca225a8f36d69>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-15bdf688-23a7-4f52-be5c-fe82bba7add7;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-30dc6bac-5604-4e78-a48d-eed66f4d4dc8
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/43a8c63981759e58e52d14df8f669756>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-30dc6bac-5604-4e78-a48d-eed66f4d4dc8;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-dafc3247-7fb3-406b-976c-9e656e9a6b45
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/0de10dc857e88c2364eaec6e533513dd>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-dafc3247-7fb3-406b-976c-9e656e9a6b45;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-816202d7-9e53-402c-94a2-fb21b0e37c0e
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/a50684e4e04678e3bbb7645182377920>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-816202d7-9e53-402c-94a2-fb21b0e37c0e;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-7ce25e4c-5894-4e77-ada2-d2bb434fdae9
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/3a2134acd86b20845b4cc2813a4f0aa0>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-7ce25e4c-5894-4e77-ada2-d2bb434fdae9;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-cfe8ae59-a7a8-4772-8bd5-bbd6991af811
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/ae46fc136090412d773487923d9072d2>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-cfe8ae59-a7a8-4772-8bd5-bbd6991af811;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-f7c5fad9-9f0c-4206-a338-e162bfe54de1
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/4d45d016204330596c15bf49542aa47a>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-f7c5fad9-9f0c-4206-a338-e162bfe54de1;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-29fa5aeb-0830-4490-abed-20aaed11e786
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/4c366ea3046f588e68402f83a4b628ad>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-29fa5aeb-0830-4490-abed-20aaed11e786;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-248fa1c7-dd1e-41fe-931a-9f00777ee0fe
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/9d810922ff45b64d50b84291be1057b4>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-248fa1c7-dd1e-41fe-931a-9f00777ee0fe;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-63ab664f-80d7-46e1-97cb-39a4f713f937
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/55e4aab6a96ea8e1a0ee39b16d2633ce>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-63ab664f-80d7-46e1-97cb-39a4f713f937;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-e9d8bb44-d19d-4453-8db2-d6d656f411be
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/ff2a1a8265d21bff8013b3af2e6ae269>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-e9d8bb44-d19d-4453-8db2-d6d656f411be;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-e68696c9-d9e7-4d2b-b467-d923c91ce47b
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/69617a490d2da5e35e7faffef982ee55>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-e68696c9-d9e7-4d2b-b467-d923c91ce47b;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-1ee8f22a-1460-4875-b1a8-89d7cb2607d6
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/f36afcbb40f16600bb817f2184d33ef4>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-1ee8f22a-1460-4875-b1a8-89d7cb2607d6;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-f1067c74-aa84-4a06-9fbd-16f914be2e65
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/32e87aea4277ac9a1fe372f120852094>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-f1067c74-aa84-4a06-9fbd-16f914be2e65;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-d42974b3-923e-4f26-9bfa-1176e0073791
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/7621f36dba7b1235a53b7a202894d475>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-d42974b3-923e-4f26-9bfa-1176e0073791;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-e18d93fc-f1db-4ac7-b138-e158c6fb2e69
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/d190a18bd7c8a06f32e2fe5c2d3efb02>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-e18d93fc-f1db-4ac7-b138-e158c6fb2e69;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-a6f1f4bd-bdd5-4a35-b683-2aee89aa8ed3
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/1f79390835c01155f6b89755907f6934>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-a6f1f4bd-bdd5-4a35-b683-2aee89aa8ed3;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-78ecdd96-9fd7-46ca-9174-f4170ce51eff
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/b5ef4a9d0110db6b518bfc255bea94fc>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-78ecdd96-9fd7-46ca-9174-f4170ce51eff;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-45d529da-5989-484a-a60d-acba0442a929
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/d99b25529715ce40cc6a388485ea5e81>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-45d529da-5989-484a-a60d-acba0442a929;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-625a4b1a-07b2-4ed1-a197-cc5fd96d110e
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/011b9510aa4b2b7e2e5020c43c0eb422>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-625a4b1a-07b2-4ed1-a197-cc5fd96d110e;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-66558286-cf29-4320-80a9-de2c12aa2f3c
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/dca50798d4ec60dfd4efe5dfa8924894>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-66558286-cf29-4320-80a9-de2c12aa2f3c;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-cd24daf1-7f42-48a1-a2f2-74127303eaee
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/575ec4b02d64126a517f3eae52401043>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-cd24daf1-7f42-48a1-a2f2-74127303eaee;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-9e95d78d-7f95-4752-9e1f-d522e67e63d7
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/9e2b54dfe423becbd651550daa622bfd>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-9e95d78d-7f95-4752-9e1f-d522e67e63d7;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-63168792-6134-48e8-a709-8e3cc0d5811c
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/f62f25cf7ee8eff32b990a37b221fb76>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-63168792-6134-48e8-a709-8e3cc0d5811c;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-6b6e148d-449f-4e88-808d-cdf9cdc9bba3
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/8fe860f2d01eb4d823638cfc2703aac0>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-6b6e148d-449f-4e88-808d-cdf9cdc9bba3;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-d66c8d06-9bac-4663-94a5-ef971423f2ce
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/1cfb305b14f415178e3ccd10b469b990>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-d66c8d06-9bac-4663-94a5-ef971423f2ce;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-3f49ac31-7bb0-4a52-8798-548b5cdb9451
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/0f11a1a0847061371521c820d89650e9>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-3f49ac31-7bb0-4a52-8798-548b5cdb9451;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-66cdfd7b-f68e-40d1-b9dc-0dd54c50b6a1
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/01a4c34e0b8afb3fb39a3cbe1727154f>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-66cdfd7b-f68e-40d1-b9dc-0dd54c50b6a1;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-183cf105-b1a6-42ee-b8a9-002709f1b582
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/5221d8f7350e5fd26eb05fc3fcbafd6b>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-183cf105-b1a6-42ee-b8a9-002709f1b582;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-caeb974d-5803-4419-b316-2245f15f73d4
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/4b439b9a9f6305c291e7742231ef051d>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-caeb974d-5803-4419-b316-2245f15f73d4;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-169db3fc-b253-465a-ba91-33f3617a9313
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/60b4a0bbb21d987270ef7b07bf4c20a0>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-169db3fc-b253-465a-ba91-33f3617a9313;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-2f7172a0-e935-4dfc-98a6-b48dcec0ad18
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/6d35336b5c60f7f11f9bee6fec24c547>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-2f7172a0-e935-4dfc-98a6-b48dcec0ad18;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-88964aa2-4b9a-4427-8232-6c2ea65a851f
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/43b73edd37c15999d5f0ee98dd9ae921>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-88964aa2-4b9a-4427-8232-6c2ea65a851f;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-92524340-7cee-4873-8d5a-1b3e607d0da7
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/6734fd96fa33859b62b6fe224b868b07>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-92524340-7cee-4873-8d5a-1b3e607d0da7;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-db55e5ad-918e-42a0-97b4-1f496f9574dd
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/cfdeab39d3d087cb124b9aecd37cd349>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-db55e5ad-918e-42a0-97b4-1f496f9574dd;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-847abdb2-44de-41ba-a4ec-235dc4f4a617
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/ba3859c95b17518d185f3d4871452216>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-847abdb2-44de-41ba-a4ec-235dc4f4a617;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-fab306a0-9ab2-4834-949a-58804bddc9a4
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/b346bb26f744e2f4f66e2f0a8b882ab9>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-fab306a0-9ab2-4834-949a-58804bddc9a4;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-07335cfb-9bbc-4be5-b546-bdd8af104e7e
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/3df37741fcd786255884ce70a3c41e25>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-07335cfb-9bbc-4be5-b546-bdd8af104e7e;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-aaaa3f68-318a-4d8d-b080-79490e9e9dfa
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/8f2e4c9e4743eb9ef0932e9a6e168b92>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-aaaa3f68-318a-4d8d-b080-79490e9e9dfa;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-f494b5db-7627-4a97-809e-8e8f9d92fb51
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/4dbbec3bab044f739c45eecf42088bbf>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-f494b5db-7627-4a97-809e-8e8f9d92fb51;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-2a78338a-084a-4595-88ec-98f141e653f7
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/972401bf3d040deb24e2bc36e858af92>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-2a78338a-084a-4595-88ec-98f141e653f7;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-a1a85cfc-109a-47fe-91a2-632334d35f44
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/2aa2dd08b84c0e0dd846e5ed39627607>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-a1a85cfc-109a-47fe-91a2-632334d35f44;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-79126b93-df5a-4170-b80e-546a837605f3
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/259760a1db72faac5d0d1db3fac2847f>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-79126b93-df5a-4170-b80e-546a837605f3;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-95881d4c-8788-46b1-948f-8b359464556d
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/d70bcd56e795a55e6b6c662877141927>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-95881d4c-8788-46b1-948f-8b359464556d;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-532fc460-676f-4727-b5b2-6d3771db9ba1
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/172b2629a477f7c5683c91f00ccd1b5a>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-532fc460-676f-4727-b5b2-6d3771db9ba1;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-79614820-e391-46f2-8ab9-c5022ad154d8
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/b73f09776b7b1f7c932932f9435cf712>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-79614820-e391-46f2-8ab9-c5022ad154d8;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-06034b22-8e1b-435f-902e-88739f77d86a
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/e68a9086d2b4a68578f4247b689633f7>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-06034b22-8e1b-435f-902e-88739f77d86a;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-c7727eb2-7951-47e3-9021-df78e52c2d35
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/de72ccf2955f3975f04a79d8152f6172>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-c7727eb2-7951-47e3-9021-df78e52c2d35;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-42a20063-bd30-49d3-8506-ceac4ceb2d9e
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/c74e1c740eb6face338d91ebdbc2a0b0>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-42a20063-bd30-49d3-8506-ceac4ceb2d9e;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-acc9fdfb-2811-4b87-8231-7168c70e7497
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/bbadd2c199c3119b95a861b0b7c839b1>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-acc9fdfb-2811-4b87-8231-7168c70e7497;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-6259c66a-0eec-4f7f-b4a4-a0c2be80461e
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/fc84d04d1162c521c177c2f322ce30fe>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-6259c66a-0eec-4f7f-b4a4-a0c2be80461e;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-8d98799f-d657-4acf-9ca6-9b90420ff681
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/59d89e0d2d8c238dc92373f572bbb9cf>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-8d98799f-d657-4acf-9ca6-9b90420ff681;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-d0c9f303-04ac-44b3-9cbc-afed50b7a260
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/0c86aab3b4c2b9bec3db581d4f9cbe48>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-d0c9f303-04ac-44b3-9cbc-afed50b7a260;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-b5028bba-a927-45d7-9032-ee90825311c5
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/d74a9005f50af6053ebdd37d9c95ce7d>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-b5028bba-a927-45d7-9032-ee90825311c5;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-816e4baa-8158-4e2a-8ff4-c9f969998389
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/9d2ab8cf6913d63c51974386bed94030>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-816e4baa-8158-4e2a-8ff4-c9f969998389;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-854314d4-9505-4765-b22a-a2ff53549b0b
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/2b5d70e2aff178aae6f8d10670b6658c>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-854314d4-9505-4765-b22a-a2ff53549b0b;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-888698ef-ad70-4022-9624-4dc111f56c01
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/10b7e0b666f52988159c1934252d73cd>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-888698ef-ad70-4022-9624-4dc111f56c01;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-64902ce8-7950-458e-bcee-5df3cabc7972
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/8dc2b9f8c50ed231d7a2a42f3c54108e>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-64902ce8-7950-458e-bcee-5df3cabc7972;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-da35429e-b1b6-4780-9fcc-f1b17b40d4e3
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/5e441255dcb07c6e5daff4a3dd05a902>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-da35429e-b1b6-4780-9fcc-f1b17b40d4e3;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-b9ed885f-282e-4836-bede-f1dc9f9f5c41
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/e389249098d8c71a7383c4e03c049c78>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-b9ed885f-282e-4836-bede-f1dc9f9f5c41;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-034022f5-5327-45c2-aaff-524b1be2fbd5
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/d16b1e9aedde85d851c2f279353cdf50>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-034022f5-5327-45c2-aaff-524b1be2fbd5;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-2805bfc6-fe9f-49fc-90ba-d4c779a38af2
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/d6a259310d1b19501e4123bed70c6ed5>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-2805bfc6-fe9f-49fc-90ba-d4c779a38af2;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-82869f9c-fa06-45cb-922a-00675cde9676
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/0122b3fe61298d114259df902fc05166>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-82869f9c-fa06-45cb-922a-00675cde9676;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-d396349e-7772-49c3-bcdf-0afbeae658fa
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/fd631f8c03e9baf962c1b439e58df18a>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-d396349e-7772-49c3-bcdf-0afbeae658fa;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-0058fc5e-e9e8-46eb-ac6d-673e436a5d7a
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/f65073bfdd8a437200f9efd88dbf6e1c>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-0058fc5e-e9e8-46eb-ac6d-673e436a5d7a;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-7608b763-1e52-4ad9-94b0-d574af19612c
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/5c9518dd1c98eef3d52a1622a31a3210>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-7608b763-1e52-4ad9-94b0-d574af19612c;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-e27932a5-487a-4eca-9f9a-d82d5e5c467b
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/adaaf6a71992fbc76f59d084744de8ed>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-e27932a5-487a-4eca-9f9a-d82d5e5c467b;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-0ca3c664-7fb2-446a-b5c6-73fe140c4f02
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/f18f01426fc76e767d4385fcae13364e>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-0ca3c664-7fb2-446a-b5c6-73fe140c4f02;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-cd18146d-c073-4d58-97b4-ac079baa9b65
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/7f1dd4649a660d923ec223bdeebdc48e>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-cd18146d-c073-4d58-97b4-ac079baa9b65;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-0c327a40-c6d8-44da-ba2d-e84f924c5208
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/8873de3d4b3b9287405785d4fa3dd7df>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-0c327a40-c6d8-44da-ba2d-e84f924c5208;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-266084c2-dcbc-406b-8371-9adcbc81521a
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/42e84a60a0b71c67bf510331ecfa8a9d>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-266084c2-dcbc-406b-8371-9adcbc81521a;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-ce5caf26-49fb-4813-812b-4675c58b4164
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/8ff646b826ee4557e3a0a121e520be07>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-ce5caf26-49fb-4813-812b-4675c58b4164;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-b7f007d8-137c-4d3f-9ceb-03326f71a6c9
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/2ad7bc598d409bd16953e1345b67def1>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-b7f007d8-137c-4d3f-9ceb-03326f71a6c9;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-7478aeec-1a1e-4d96-95ff-05d5b3a5522b
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/438e432875dcdc157d167050393b637c>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-7478aeec-1a1e-4d96-95ff-05d5b3a5522b;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-a6367485-a91c-41dc-9e18-8939ef990b5b
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/ae3eab1caaf9675214820fd35ec8bdd5>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-a6367485-a91c-41dc-9e18-8939ef990b5b;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-88745cef-2133-4d0c-a1de-00fa0740eb26
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/f9fc828a8e0f45a6ea4c422487c40268>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-88745cef-2133-4d0c-a1de-00fa0740eb26;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-092bb1b2-b39f-4521-9c21-c853db9d9a09
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/89b3b76191adbe3df4e559deabf497e9>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-092bb1b2-b39f-4521-9c21-c853db9d9a09;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-11f1284a-d6f0-4822-b716-3e70d1fb91df
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/bbdddd1821ccdec0386ca5a091d99acf>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-11f1284a-d6f0-4822-b716-3e70d1fb91df;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-445081d6-305c-4fb7-b89e-82c86969d4bd
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/5616c3b2dff9ade5aba869aef2d55a09>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-445081d6-305c-4fb7-b89e-82c86969d4bd;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-a2a17a94-b064-4682-86ba-1c933616568f
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/8cfc0745c156bbca216c5de4e270942c>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-a2a17a94-b064-4682-86ba-1c933616568f;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-a167cc0e-4bd5-4831-b9e7-8fef7705d61b
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/5fccf64ab7c21eb61927f5c063505db6>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-a167cc0e-4bd5-4831-b9e7-8fef7705d61b;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-13dabe70-36c5-4a87-bc13-15664eda25a9
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/ce49e1b23df276f4a5d560139f716d1b>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-13dabe70-36c5-4a87-bc13-15664eda25a9;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-9a27c6be-84c6-4fe8-a671-d9d6a5ec7f6a
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/a9a8304669c0567868a0ea1d89949fd5>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-9a27c6be-84c6-4fe8-a671-d9d6a5ec7f6a;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-0301f65d-2290-456b-a3f7-b2096a632198
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/6f96cf072435aa70af70ae71f4184114>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-0301f65d-2290-456b-a3f7-b2096a632198;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-d615c5f3-9db3-4bea-bbf3-0d42edf45c2d
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/f4878758a08eea04c27996c9eedecb3c>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-d615c5f3-9db3-4bea-bbf3-0d42edf45c2d;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-93760e27-ee36-44a9-960f-cb1ccdd336c7
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/3b6f6a2275b0babc8944721e5ffc6001>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-93760e27-ee36-44a9-960f-cb1ccdd336c7;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-fcdf3268-b0f0-4e2b-8fbd-6008cb4a6d0e
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/21e6664557c395b3b87cda0e0d7c6acf>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-fcdf3268-b0f0-4e2b-8fbd-6008cb4a6d0e;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-e39aa402-6c12-4c0e-a638-c572784d0e78
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/4e4f330e24ec83b36776ec9b640aa1de>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-e39aa402-6c12-4c0e-a638-c572784d0e78;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-ea372457-5016-4c1d-a8fc-9d84d6a1138d
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/5bdf531040f0160408561148c6e205a1>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-ea372457-5016-4c1d-a8fc-9d84d6a1138d;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-22b9733f-4b49-4e82-82b9-d4f87d2b5916
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/5cefc28bd1c0079a9e542135fff3908f>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-22b9733f-4b49-4e82-82b9-d4f87d2b5916;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-8a148e6d-972c-4135-930a-c6d9ea6957fd
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/943acf611446923f63dae062351d2f42>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-8a148e6d-972c-4135-930a-c6d9ea6957fd;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-b2c1bb54-0977-4eb6-9635-f44843578083
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/4fe130310074b45961d5facdb52ef9a3>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-b2c1bb54-0977-4eb6-9635-f44843578083;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-ebbcad78-26fa-4d33-95ca-84decc4209a4
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/1452921de3b58188b0634ee0eae6f3da>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-ebbcad78-26fa-4d33-95ca-84decc4209a4;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-93e3958e-3e49-4cb3-8ab2-2c2bae697be5
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/17e7dd729cf7b5f27befa570741aa712>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-93e3958e-3e49-4cb3-8ab2-2c2bae697be5;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-373cc68d-3c51-43d9-878a-36aa0aeb86c6
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/37adf63a7ac6d60b1f5714e0a44f97e2>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-373cc68d-3c51-43d9-878a-36aa0aeb86c6;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-f8337d39-2d97-423a-9f94-35a45ee9ade6
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/744c536876d4b86610506ac8569944e0>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-f8337d39-2d97-423a-9f94-35a45ee9ade6;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-a28a6f2f-a549-4a38-98ac-6eaeff8472ce
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/d75527cb5f0691ecb8ebd2e587f71ba6>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-a28a6f2f-a549-4a38-98ac-6eaeff8472ce;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-a35a7e67-e729-455a-9dbc-1bf661456179
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/b591d17f12167ec530591708f18f71f8>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-a35a7e67-e729-455a-9dbc-1bf661456179;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-3f0439ac-320f-4d70-b9a4-2fef9281ff49
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/01cc69b5ea1bdfcf562589ce8aaf32cb>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-3f0439ac-320f-4d70-b9a4-2fef9281ff49;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-297508c6-6074-4625-8dec-7bab342010a1
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/16876104e6da533894a62215a3c3bb35>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-297508c6-6074-4625-8dec-7bab342010a1;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-d5b857ce-34b9-4bad-9018-216dbe06258c
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/9a23f448f9be0ec720027939dceb614e>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-d5b857ce-34b9-4bad-9018-216dbe06258c;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-fbfe40db-81e4-4b35-93d5-a996307a266e
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/88c6f8c0917bb17f1370829d15ac399c>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-fbfe40db-81e4-4b35-93d5-a996307a266e;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-cba23738-b63d-4845-a168-1fd1fc6082aa
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/bcb8bb804ac52cf1b1f73465ea03ccf5>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-cba23738-b63d-4845-a168-1fd1fc6082aa;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-22b67f9e-45e9-449e-8269-a31bd550324a
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/6a26298551c04d4ea3145918daa70ac4>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-22b67f9e-45e9-449e-8269-a31bd550324a;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-57f3326a-e53b-4cb6-9b32-658df4cc11a4
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/a702f166344de0e25f5b79eeae2a9621>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-57f3326a-e53b-4cb6-9b32-658df4cc11a4;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-7f0c3d05-f16c-44c0-b9f4-5ff9d2892270
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/0ffeeead923376e94c13e4d880c5ff4d>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-7f0c3d05-f16c-44c0-b9f4-5ff9d2892270;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-2a51afd9-a3de-45ee-8ada-b74203fed37b
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/d77e72a3251c173110865e2b08726530>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-2a51afd9-a3de-45ee-8ada-b74203fed37b;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-2451f479-fe10-4322-a8c9-3f4f21f39779
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/4d7cc074157e6b154971055e0ad48272>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-2451f479-fe10-4322-a8c9-3f4f21f39779;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-33da751a-1358-4530-b0e5-e3b9a509e952
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/8e69e92bb0316c2ca76bdad74d5f6bfa>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-33da751a-1358-4530-b0e5-e3b9a509e952;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-a04a193e-3025-4ae3-aec0-4a464ccd95a9
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/43ab988f78f52bbdb9c886b954a64ba9>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-a04a193e-3025-4ae3-aec0-4a464ccd95a9;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-db1a07bc-c946-4ddd-8f47-b836c2f35281
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/b0812298ba05df0853523b76409d4be1>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-db1a07bc-c946-4ddd-8f47-b836c2f35281;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-fdd83431-425f-4291-b8e4-f08805b6b89d
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/71afd3fd35e8d049adcd50d7adb73eeb>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-fdd83431-425f-4291-b8e4-f08805b6b89d;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-6463b573-32bd-4bc5-b2dc-c8e9a96965ba
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/c6d3426dabff6f011a2d0f8354c64ee3>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-6463b573-32bd-4bc5-b2dc-c8e9a96965ba;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-2617dc37-a7c6-4c6c-b89d-4e4f367f3d78
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/1dd80440f31a4fc6e35f4490eb135e19>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-2617dc37-a7c6-4c6c-b89d-4e4f367f3d78;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-f78ea3cf-fe86-4b17-ba41-96dd934e043e
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/b05628e4acfa50e901e6315d85f3a01a>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-f78ea3cf-fe86-4b17-ba41-96dd934e043e;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-3a9702b1-ea92-4fd3-871c-9108ef23921b
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/8561f88b9ad67f29b5cf86373781ea86>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-3a9702b1-ea92-4fd3-871c-9108ef23921b;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-cb43b726-1b2f-44dd-b960-18b361c7288e
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/765eadc1bc2373d140099e047077363b>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-cb43b726-1b2f-44dd-b960-18b361c7288e;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-4f66d217-8106-4b87-922b-fbe6e8d6d699
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/1996b6d33da1addfefc3449837aa15a7>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-4f66d217-8106-4b87-922b-fbe6e8d6d699;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-f80817bf-7010-48c7-a3be-b015b09309d0
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/8163ac1916185b3517e36104c84a1a64>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-f80817bf-7010-48c7-a3be-b015b09309d0;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-83983274-a805-4fcd-a909-1c2e14651637
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/b39f8123a7c61a4d29fd04d3a8627b29>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-83983274-a805-4fcd-a909-1c2e14651637;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-bd9aec71-4218-45ce-b6c6-d076ad07f8cd
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/0e46661f900f6fc3910c0a574ef497c9>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-bd9aec71-4218-45ce-b6c6-d076ad07f8cd;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-f118463c-1952-4db0-b089-99dbd89ff9d9
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/87b5c542912c8e04dd18985333e914ef>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-f118463c-1952-4db0-b089-99dbd89ff9d9;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-6d5eddf9-7c6f-4a88-8aba-2ef65267d78b
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/f133fafd07426ec2cd97c5e3a64d9271>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-6d5eddf9-7c6f-4a88-8aba-2ef65267d78b;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-06d152e4-f062-46da-b6be-750b192a5a4b
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/e849768db5afa3e2cdd1650ab489aa27>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-06d152e4-f062-46da-b6be-750b192a5a4b;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-7c930e8b-b9f3-450a-856b-5e03c6b3965e
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/1da8a287926d064ca564d21c2f3e7b10>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-7c930e8b-b9f3-450a-856b-5e03c6b3965e;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-29cf8eca-50be-460e-9816-5ae505fc9491
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/62f9f8ca3af05e8859243ddea3fa7975>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-29cf8eca-50be-460e-9816-5ae505fc9491;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-6de163f7-8aa2-434a-a210-78fea02e490c
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/4ed29ec927e56e9d22463f62dbf1c355>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-6de163f7-8aa2-434a-a210-78fea02e490c;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-12417d4e-b119-46a1-8c47-a560c2d103dd
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/a52f0d4f21c7a956151f4bdcaab9140c>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-12417d4e-b119-46a1-8c47-a560c2d103dd;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-f26204e2-83cc-4526-a8f0-d4c86f295774
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/4297d9056327fdb852dfabd432cf871d>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-f26204e2-83cc-4526-a8f0-d4c86f295774;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-671512dd-f11c-41c7-845d-1a00ae9f40c4
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/3627556ef7768e2015fade1406727150>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-671512dd-f11c-41c7-845d-1a00ae9f40c4;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-7273d4f8-9c3a-4279-a18c-bb0f425bc8eb
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/25167e6715686c753281319e4b0cd849>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-7273d4f8-9c3a-4279-a18c-bb0f425bc8eb;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-d0f56bf6-b7f2-4032-be8f-95269c626667
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/366d0cc4e34cd85e7b986f31d057423c>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-d0f56bf6-b7f2-4032-be8f-95269c626667;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-d7ca1d2e-6b21-4c0c-821a-c4e8d5a3c65c
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/75de092fd8e6c250d88bde4a8988f901>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-d7ca1d2e-6b21-4c0c-821a-c4e8d5a3c65c;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-25e44a18-cb4f-48aa-bb6a-c05189268df6
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/96e69ec2aa98b0629af323207802ae4f>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-25e44a18-cb4f-48aa-bb6a-c05189268df6;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-1b447fbd-a0fe-4385-8141-ab5aa43fbedb
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/7fae314f99986d79c879b85645f494c6>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-1b447fbd-a0fe-4385-8141-ab5aa43fbedb;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-7f696243-08d9-458c-8041-e114a223b897
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/f1d5fdcceffae55fa340ae3396f09fde>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-7f696243-08d9-458c-8041-e114a223b897;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-784f7f15-1a8c-43f5-923c-de0beb82f32f
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/7fc41ed3d630b24985db9a7d37329d91>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-784f7f15-1a8c-43f5-923c-de0beb82f32f;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-2fd79a0c-24b5-4361-8b5b-df720d2c7eac
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/d3f600842927ea7201b6e373d1314b0e>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-2fd79a0c-24b5-4361-8b5b-df720d2c7eac;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-d541c0b3-1e4b-4521-9f57-d5be820d4cbc
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/934605a8d1e57e1c082f0b64694c9197>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-d541c0b3-1e4b-4521-9f57-d5be820d4cbc;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-ab8fb795-35cd-42c4-827d-6fd907d6b81d
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/daf1152ce2b75209f59a7b4913f15a29>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-ab8fb795-35cd-42c4-827d-6fd907d6b81d;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-3a54413c-eb58-4ce0-a538-383fd9c79ba9
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/e12868cd768b0ef1025b88bec3615d10>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-3a54413c-eb58-4ce0-a538-383fd9c79ba9;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-de70a51b-3263-411b-9820-d7c21676e4d6
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/9b81e51d7dfebacb3aa8354559226199>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-de70a51b-3263-411b-9820-d7c21676e4d6;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-dd4262b0-805f-49f8-94b0-12dcadea9e73
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/c48f212f60a75e1a1daab0556605ded8>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-dd4262b0-805f-49f8-94b0-12dcadea9e73;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-17c52e07-d5ce-4cfd-87cf-5ac7e3554c0c
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/7b9b73421cc6a64e2e7171eac137bc2e>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-17c52e07-d5ce-4cfd-87cf-5ac7e3554c0c;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-b66c44e8-057e-4267-8a38-29324107705f
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/4bd9fecdc9f4e7ca33815c1a519047b8>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-b66c44e8-057e-4267-8a38-29324107705f;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-40a29030-eccd-43f8-974b-ef788e2d3f00
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/3002c4c28df42ebb320719a70fb0b8ff>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-40a29030-eccd-43f8-974b-ef788e2d3f00;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-9da10220-7964-4a7a-a1ea-571a63cc483d
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/a9d751aa54bf30b9a876e023a2f5851e>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-9da10220-7964-4a7a-a1ea-571a63cc483d;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-6b879d25-7222-419e-8f1a-d9c9ceda2600
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/421102d17c26495280995b9515c91ad1>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-6b879d25-7222-419e-8f1a-d9c9ceda2600;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-199401f4-32dd-46f1-b07f-aa38ce75bd07
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/1465d6fc9455837c4e3d6ead8e062f98>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-199401f4-32dd-46f1-b07f-aa38ce75bd07;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-46bae099-f191-415a-aefa-3cab4b0e8c2e
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/af35499addaacefb02df983daab8819e>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-46bae099-f191-415a-aefa-3cab4b0e8c2e;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-1b032f32-5734-44da-8758-554ad059b03e
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/5bb10e4d270d96b0823f39a2d57c09f2>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-1b032f32-5734-44da-8758-554ad059b03e;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-9c9d9974-bea3-4bf9-882e-c16a80b17e84
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/38f644bf8a2e144de8bbac7661f73631>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-9c9d9974-bea3-4bf9-882e-c16a80b17e84;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-b9dfb874-fb5d-4d34-8a13-e4f1395f3c6e
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/15f56882c8a00ca673bbfdbac1d686d4>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-b9dfb874-fb5d-4d34-8a13-e4f1395f3c6e;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-ee3143c4-d3eb-4457-b884-651cac99ee9d
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/9c696b2d8ae80b56de7e6a5c2288c7d6>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-ee3143c4-d3eb-4457-b884-651cac99ee9d;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+prodi:suppl-a8d712db-e0d5-45ab-a8cc-c752ad53f8e6
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/5a5af832d4ca73a5824356dee820a4ea>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-a8d712db-e0d5-45ab-a8cc-c752ad53f8e6;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+<http://ld.company.org>
+        rdf:type  esn:Enterprise .
+
+prodi:suppl-8f607810-ca93-4274-9c27-d0a8dcba7c4a
+        rdf:type  esn:Enterprise .
+
+<http://server/unset-base/289f8220a0fff26f88aae7aa0adfa51a>
+        rdf:type                sn:SupplyFlow;
+        esn:customer            <http://ld.company.org>;
+        esn:supplier            prodi:suppl-8f607810-ca93-4274-9c27-d0a8dcba7c4a;
+        sn:supplyFlowStructure  esn:EnterpriseSupplyFlowKey .
+
+:supplynetwork  rdf:type  sn:SupplyNetwork;
+        sn:structure   esn:EnterpriseDataStructure;
+        sn:supplyFlow  <http://server/unset-base/8f145a0453a437f1d11bfde787dbaf74> , <http://server/unset-base/160a92ec5f0e345e6fc4af78d3dc0aa9> , <http://server/unset-base/4383fc3f563e1162de30ea6830af0029> , <http://server/unset-base/9087a2edeafe143012dc1edeec64e356> , <http://server/unset-base/8b4d9a4f51c244728a2fee6addbf408f> , <http://server/unset-base/a0c0291e4f3dd0b6e90c329d3aca0eed> , <http://server/unset-base/95e22314ba4351dc02601cf27ef782b3> , <http://server/unset-base/f52256a3934ea0ae179618d3138e4932> , <http://server/unset-base/4014504c1bcc25e189ea9da6eca0e548> , <http://server/unset-base/2662199b90141a0087ccd9f47172a22c> , <http://server/unset-base/edc75aa8685908d33c83a162b53d9dd9> , <http://server/unset-base/6e31b6b727ae9cf25b9a56ccb123a789> , <http://server/unset-base/6955fc842d2bb77b36bdd4cdbb31b781> , <http://server/unset-base/799a20beb03dcace9a0aa3ad38a84062> , <http://server/unset-base/8498e5bfdaf429a0770d143ce3931ffd> , <http://server/unset-base/93533773adfefe5f06f60a7ea04d7785> , <http://server/unset-base/262d85649158bed5c08e5b680dee403d> , <http://server/unset-base/ffeba8089373fed49f6160f674aa6f2f> , <http://server/unset-base/06caa826eae7162a952ea85c6cc246ea> , <http://server/unset-base/7ff9b15dc1d9eb9dbed72c2c04b7080d> , <http://server/unset-base/a249d1437b7edef14d2047fea2bed082> , <http://server/unset-base/e89c7b37b6243c5d063345b8f8b8359d> , <http://server/unset-base/7b3177e2307caff2b6a079494568edca> , <http://server/unset-base/b9d0848297c9b20ccd391242b09be961> , <http://server/unset-base/dc14013a0f1385687f1c174652133877> , <http://server/unset-base/6f88af95854437922a3249a6126313cc> , <http://server/unset-base/87006c0b0f2142d0423df68d1060898c> , <http://server/unset-base/ee5b1665b723a9c531b1ad99376bb20a> , <http://server/unset-base/a2098c140ea2693dc02a9faa8b9e127f> , <http://server/unset-base/984e23c7762ee961af59a3f8bbe0644c> , <http://server/unset-base/ed16e205e9e6130e156bee75c93fd748> , <http://server/unset-base/6924e69e34ac2f3399d302c2380ac51e> , <http://server/unset-base/e0d48e697b2d1eedc24e7a6d4488666b> , <http://server/unset-base/66d207bcd3357bc9ea4e8e2f3d80a1ec> , <http://server/unset-base/a2a0edb6e7f141ce9ce3cafa5d77ec64> , <http://server/unset-base/788b14ea4ddcc0ee7c7bb9e42c2d5b5c> , <http://server/unset-base/35c7388e1c2e597f4781717f8c55604d> , <http://server/unset-base/9009f87b1f2959877e9315e018b00427> , <http://server/unset-base/e85a5435a39ee1232740ab766f6d56b7> , <http://server/unset-base/f790c586659e3d4ecb79f1967d1028d1> , <http://server/unset-base/2f8eab837064247d99499fdce23ea806> , <http://server/unset-base/761fd013392dc40994f94d11c8c3b29e> , <http://server/unset-base/fe6cfafc2c2763983f543f8114910a3b> , <http://server/unset-base/4f1cbc8df326c0784e8024f3eca91fb5> , <http://server/unset-base/2e2c2954b7d3877f195d7f1165198438> , <http://server/unset-base/119b4b32b5fda2d0754fe0d93e7293c2> , <http://server/unset-base/b4afde879f1c7f38be4a8ee02abeb5e3> , <http://server/unset-base/299bb65f18bf3cdf8335752b46380183> , <http://server/unset-base/7493ae589b328550f4e410f2063e8fc6> , <http://server/unset-base/fa267e8f5e55e25ecb7eab2d92d1d49b> , <http://server/unset-base/eb83c60a49c0b2fe769602a0c87c96b8> , <http://server/unset-base/00153367da6777520ba0b4bc6c991e90> , <http://server/unset-base/7605404ff9bc4d88c75cd5236ba77bb2> , <http://server/unset-base/484be10008f8a83a2782796690e00389> , <http://server/unset-base/7102ace49a1dc37d4391f6fb65b2e64a> , <http://server/unset-base/5d054ffec838e46b284b92cbcd46e997> , <http://server/unset-base/4e2dc6942f306e9ff184a517e452509b> , <http://server/unset-base/a2ea74c44ba8a5392dd33b28b71154e8> , <http://server/unset-base/1b96aacee46fa61b3acd67015e95c7e4> , <http://server/unset-base/5f190a4ea8bcaf1bbe5fa2856e72144e> , <http://server/unset-base/699b4bd03388472773216f9e12a8ad8b> , <http://server/unset-base/6c11245aab0c75f945046bc4c1a6b649> , <http://server/unset-base/620e262aa153b899fc909a7affa61e88> , <http://server/unset-base/c72a13575a796045e87094fc2275f980> , <http://server/unset-base/efa4e6c3d1e0b55f17e789c09d4681b1> , <http://server/unset-base/1fd0fee6d8c79e9ef72d04037bcd9dff> , <http://server/unset-base/60a2d60ffa6398072efdb5be5934a8ee> , <http://server/unset-base/d350c635fad2ddffa3e99f9b98d111d2> , <http://server/unset-base/23715874f3d7ca5cf315bdf275bb0712> , <http://server/unset-base/9a852f198d8cb41cbf042c010a0b7e6b> , <http://server/unset-base/ea3cbc4764c0846e6ef5a75b89db8fdb> , <http://server/unset-base/2d1dba23658d4a2d3cd62c17abbdad30> , <http://server/unset-base/dd0de56e82edcf0c6e99c6faf2279d43> , <http://server/unset-base/664c7e487e4a90e9cc67c79e4a279628> , <http://server/unset-base/5a9b8a55a87f9103c0f2808ba34e35dd> , <http://server/unset-base/e4747dc4840e334e4694f327473d794d> , <http://server/unset-base/cab4ff43c22295d1efb47c91095449b7> , <http://server/unset-base/956ae4f14845bfdf1b2631963d738e92> , <http://server/unset-base/2443efff5a1a3b098a659d32ecf664bc> , <http://server/unset-base/7686090afe878ab08c9118116cf78c53> , <http://server/unset-base/052af95882f2da0228393cee0168bacf> , <http://server/unset-base/79fa22dd9c761912d7ae8eec99452402> , <http://server/unset-base/6c38e917548620dc51579245a4e0537c> , <http://server/unset-base/7f65567bf60719c041860d1d31e880c7> , <http://server/unset-base/db29b51fdd547cfd1e52676627faa80e> , <http://server/unset-base/6d778c44acc9af3e03fc9ab710c85ce4> , <http://server/unset-base/a60774cd9159a98253079ad2d1351279> , <http://server/unset-base/6333eed7262406100de17d2390feb6de> , <http://server/unset-base/7ca7f9854cf081bc6a08c6c8566fa496> , <http://server/unset-base/99e6a0f8e0fac1c31b89416693ec0d6e> , <http://server/unset-base/e633ba5b1a7bd1588e4ca225a8f36d69> , <http://server/unset-base/43a8c63981759e58e52d14df8f669756> , <http://server/unset-base/0de10dc857e88c2364eaec6e533513dd> , <http://server/unset-base/a50684e4e04678e3bbb7645182377920> , <http://server/unset-base/3a2134acd86b20845b4cc2813a4f0aa0> , <http://server/unset-base/ae46fc136090412d773487923d9072d2> , <http://server/unset-base/4d45d016204330596c15bf49542aa47a> , <http://server/unset-base/4c366ea3046f588e68402f83a4b628ad> , <http://server/unset-base/9d810922ff45b64d50b84291be1057b4> , <http://server/unset-base/55e4aab6a96ea8e1a0ee39b16d2633ce> , <http://server/unset-base/ff2a1a8265d21bff8013b3af2e6ae269> , <http://server/unset-base/69617a490d2da5e35e7faffef982ee55> , <http://server/unset-base/f36afcbb40f16600bb817f2184d33ef4> , <http://server/unset-base/32e87aea4277ac9a1fe372f120852094> , <http://server/unset-base/7621f36dba7b1235a53b7a202894d475> , <http://server/unset-base/d190a18bd7c8a06f32e2fe5c2d3efb02> , <http://server/unset-base/1f79390835c01155f6b89755907f6934> , <http://server/unset-base/b5ef4a9d0110db6b518bfc255bea94fc> , <http://server/unset-base/d99b25529715ce40cc6a388485ea5e81> , <http://server/unset-base/011b9510aa4b2b7e2e5020c43c0eb422> , <http://server/unset-base/dca50798d4ec60dfd4efe5dfa8924894> , <http://server/unset-base/575ec4b02d64126a517f3eae52401043> , <http://server/unset-base/9e2b54dfe423becbd651550daa622bfd> , <http://server/unset-base/f62f25cf7ee8eff32b990a37b221fb76> , <http://server/unset-base/8fe860f2d01eb4d823638cfc2703aac0> , <http://server/unset-base/1cfb305b14f415178e3ccd10b469b990> , <http://server/unset-base/0f11a1a0847061371521c820d89650e9> , <http://server/unset-base/01a4c34e0b8afb3fb39a3cbe1727154f> , <http://server/unset-base/5221d8f7350e5fd26eb05fc3fcbafd6b> , <http://server/unset-base/4b439b9a9f6305c291e7742231ef051d> , <http://server/unset-base/60b4a0bbb21d987270ef7b07bf4c20a0> , <http://server/unset-base/6d35336b5c60f7f11f9bee6fec24c547> , <http://server/unset-base/43b73edd37c15999d5f0ee98dd9ae921> , <http://server/unset-base/6734fd96fa33859b62b6fe224b868b07> , <http://server/unset-base/cfdeab39d3d087cb124b9aecd37cd349> , <http://server/unset-base/ba3859c95b17518d185f3d4871452216> , <http://server/unset-base/b346bb26f744e2f4f66e2f0a8b882ab9> , <http://server/unset-base/3df37741fcd786255884ce70a3c41e25> , <http://server/unset-base/8f2e4c9e4743eb9ef0932e9a6e168b92> , <http://server/unset-base/4dbbec3bab044f739c45eecf42088bbf> , <http://server/unset-base/972401bf3d040deb24e2bc36e858af92> , <http://server/unset-base/2aa2dd08b84c0e0dd846e5ed39627607> , <http://server/unset-base/259760a1db72faac5d0d1db3fac2847f> , <http://server/unset-base/d70bcd56e795a55e6b6c662877141927> , <http://server/unset-base/172b2629a477f7c5683c91f00ccd1b5a> , <http://server/unset-base/b73f09776b7b1f7c932932f9435cf712> , <http://server/unset-base/e68a9086d2b4a68578f4247b689633f7> , <http://server/unset-base/de72ccf2955f3975f04a79d8152f6172> , <http://server/unset-base/c74e1c740eb6face338d91ebdbc2a0b0> , <http://server/unset-base/bbadd2c199c3119b95a861b0b7c839b1> , <http://server/unset-base/fc84d04d1162c521c177c2f322ce30fe> , <http://server/unset-base/59d89e0d2d8c238dc92373f572bbb9cf> , <http://server/unset-base/0c86aab3b4c2b9bec3db581d4f9cbe48> , <http://server/unset-base/d74a9005f50af6053ebdd37d9c95ce7d> , <http://server/unset-base/9d2ab8cf6913d63c51974386bed94030> , <http://server/unset-base/2b5d70e2aff178aae6f8d10670b6658c> , <http://server/unset-base/10b7e0b666f52988159c1934252d73cd> , <http://server/unset-base/8dc2b9f8c50ed231d7a2a42f3c54108e> , <http://server/unset-base/5e441255dcb07c6e5daff4a3dd05a902> , <http://server/unset-base/e389249098d8c71a7383c4e03c049c78> , <http://server/unset-base/d16b1e9aedde85d851c2f279353cdf50> , <http://server/unset-base/d6a259310d1b19501e4123bed70c6ed5> , <http://server/unset-base/0122b3fe61298d114259df902fc05166> , <http://server/unset-base/fd631f8c03e9baf962c1b439e58df18a> , <http://server/unset-base/f65073bfdd8a437200f9efd88dbf6e1c> , <http://server/unset-base/5c9518dd1c98eef3d52a1622a31a3210> , <http://server/unset-base/adaaf6a71992fbc76f59d084744de8ed> , <http://server/unset-base/f18f01426fc76e767d4385fcae13364e> , <http://server/unset-base/7f1dd4649a660d923ec223bdeebdc48e> , <http://server/unset-base/8873de3d4b3b9287405785d4fa3dd7df> , <http://server/unset-base/42e84a60a0b71c67bf510331ecfa8a9d> , <http://server/unset-base/8ff646b826ee4557e3a0a121e520be07> , <http://server/unset-base/2ad7bc598d409bd16953e1345b67def1> , <http://server/unset-base/438e432875dcdc157d167050393b637c> , <http://server/unset-base/ae3eab1caaf9675214820fd35ec8bdd5> , <http://server/unset-base/f9fc828a8e0f45a6ea4c422487c40268> , <http://server/unset-base/89b3b76191adbe3df4e559deabf497e9> , <http://server/unset-base/bbdddd1821ccdec0386ca5a091d99acf> , <http://server/unset-base/5616c3b2dff9ade5aba869aef2d55a09> , <http://server/unset-base/8cfc0745c156bbca216c5de4e270942c> , <http://server/unset-base/5fccf64ab7c21eb61927f5c063505db6> , <http://server/unset-base/ce49e1b23df276f4a5d560139f716d1b> , <http://server/unset-base/a9a8304669c0567868a0ea1d89949fd5> , <http://server/unset-base/6f96cf072435aa70af70ae71f4184114> , <http://server/unset-base/f4878758a08eea04c27996c9eedecb3c> , <http://server/unset-base/3b6f6a2275b0babc8944721e5ffc6001> , <http://server/unset-base/21e6664557c395b3b87cda0e0d7c6acf> , <http://server/unset-base/4e4f330e24ec83b36776ec9b640aa1de> , <http://server/unset-base/5bdf531040f0160408561148c6e205a1> , <http://server/unset-base/5cefc28bd1c0079a9e542135fff3908f> , <http://server/unset-base/943acf611446923f63dae062351d2f42> , <http://server/unset-base/4fe130310074b45961d5facdb52ef9a3> , <http://server/unset-base/1452921de3b58188b0634ee0eae6f3da> , <http://server/unset-base/17e7dd729cf7b5f27befa570741aa712> , <http://server/unset-base/37adf63a7ac6d60b1f5714e0a44f97e2> , <http://server/unset-base/744c536876d4b86610506ac8569944e0> , <http://server/unset-base/d75527cb5f0691ecb8ebd2e587f71ba6> , <http://server/unset-base/b591d17f12167ec530591708f18f71f8> , <http://server/unset-base/01cc69b5ea1bdfcf562589ce8aaf32cb> , <http://server/unset-base/16876104e6da533894a62215a3c3bb35> , <http://server/unset-base/9a23f448f9be0ec720027939dceb614e> , <http://server/unset-base/88c6f8c0917bb17f1370829d15ac399c> , <http://server/unset-base/bcb8bb804ac52cf1b1f73465ea03ccf5> , <http://server/unset-base/6a26298551c04d4ea3145918daa70ac4> , <http://server/unset-base/a702f166344de0e25f5b79eeae2a9621> , <http://server/unset-base/0ffeeead923376e94c13e4d880c5ff4d> , <http://server/unset-base/d77e72a3251c173110865e2b08726530> , <http://server/unset-base/4d7cc074157e6b154971055e0ad48272> , <http://server/unset-base/8e69e92bb0316c2ca76bdad74d5f6bfa> , <http://server/unset-base/43ab988f78f52bbdb9c886b954a64ba9> , <http://server/unset-base/b0812298ba05df0853523b76409d4be1> , <http://server/unset-base/71afd3fd35e8d049adcd50d7adb73eeb> , <http://server/unset-base/c6d3426dabff6f011a2d0f8354c64ee3> , <http://server/unset-base/1dd80440f31a4fc6e35f4490eb135e19> , <http://server/unset-base/b05628e4acfa50e901e6315d85f3a01a> , <http://server/unset-base/8561f88b9ad67f29b5cf86373781ea86> , <http://server/unset-base/765eadc1bc2373d140099e047077363b> , <http://server/unset-base/1996b6d33da1addfefc3449837aa15a7> , <http://server/unset-base/8163ac1916185b3517e36104c84a1a64> , <http://server/unset-base/b39f8123a7c61a4d29fd04d3a8627b29> , <http://server/unset-base/0e46661f900f6fc3910c0a574ef497c9> , <http://server/unset-base/87b5c542912c8e04dd18985333e914ef> , <http://server/unset-base/f133fafd07426ec2cd97c5e3a64d9271> , <http://server/unset-base/e849768db5afa3e2cdd1650ab489aa27> , <http://server/unset-base/1da8a287926d064ca564d21c2f3e7b10> , <http://server/unset-base/62f9f8ca3af05e8859243ddea3fa7975> , <http://server/unset-base/4ed29ec927e56e9d22463f62dbf1c355> , <http://server/unset-base/a52f0d4f21c7a956151f4bdcaab9140c> , <http://server/unset-base/4297d9056327fdb852dfabd432cf871d> , <http://server/unset-base/3627556ef7768e2015fade1406727150> , <http://server/unset-base/25167e6715686c753281319e4b0cd849> , <http://server/unset-base/366d0cc4e34cd85e7b986f31d057423c> , <http://server/unset-base/75de092fd8e6c250d88bde4a8988f901> , <http://server/unset-base/96e69ec2aa98b0629af323207802ae4f> , <http://server/unset-base/7fae314f99986d79c879b85645f494c6> , <http://server/unset-base/f1d5fdcceffae55fa340ae3396f09fde> , <http://server/unset-base/7fc41ed3d630b24985db9a7d37329d91> , <http://server/unset-base/d3f600842927ea7201b6e373d1314b0e> , <http://server/unset-base/934605a8d1e57e1c082f0b64694c9197> , <http://server/unset-base/daf1152ce2b75209f59a7b4913f15a29> , <http://server/unset-base/e12868cd768b0ef1025b88bec3615d10> , <http://server/unset-base/9b81e51d7dfebacb3aa8354559226199> , <http://server/unset-base/289f8220a0fff26f88aae7aa0adfa51a> , <http://server/unset-base/5a5af832d4ca73a5824356dee820a4ea> , <http://server/unset-base/9c696b2d8ae80b56de7e6a5c2288c7d6> , <http://server/unset-base/15f56882c8a00ca673bbfdbac1d686d4> , <http://server/unset-base/38f644bf8a2e144de8bbac7661f73631> , <http://server/unset-base/5bb10e4d270d96b0823f39a2d57c09f2> , <http://server/unset-base/af35499addaacefb02df983daab8819e> , <http://server/unset-base/1465d6fc9455837c4e3d6ead8e062f98> , <http://server/unset-base/421102d17c26495280995b9515c91ad1> , <http://server/unset-base/a9d751aa54bf30b9a876e023a2f5851e> , <http://server/unset-base/3002c4c28df42ebb320719a70fb0b8ff> , <http://server/unset-base/4bd9fecdc9f4e7ca33815c1a519047b8> , <http://server/unset-base/7b9b73421cc6a64e2e7171eac137bc2e> , <http://server/unset-base/c48f212f60a75e1a1daab0556605ded8> .
