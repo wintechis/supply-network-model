@@ -1,0 +1,43 @@
+BASE <https://purl.org/supply-network/any-data/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sn: <https://purl.org/supply-network/onto#>
+PREFIX snd: <https://purl.org/supply-network/any-data/>
+PREFIX csn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#>
+PREFIX esn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#>
+PREFIX isn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#>
+
+CONSTRUCT {
+    ?target_supplyflow a sn:SupplyFlow ;
+        sn:from [
+            csn:country ?target_from_country ;
+            isn:industry ?target_from_industry ;
+            ] ;
+        sn:into [
+            csn:country ?target_into_country ;
+            isn:industry ?target_into_industry ;
+            ] ;
+        sn:volume ?target_volume .
+    ?target_volume a sn:Volume ;
+        sn:time ?time ;
+        sn:quantity ?aggregatedQuantity ;
+        sn:unit ?unit .
+} WHERE {
+    { SELECT ?target_from_country ?target_into_country ?target_from_industry ?target_into_industry
+        ?target_supplyflow ?target_volume ?time ?unit (SUM(?quantity) AS ?aggregatedQuantity)
+    WHERE {
+        ?source_supplyflow a sn:SupplyFlow ;
+            sn:from/csn:country ?target_from_country ;
+            sn:into/csn:country ?target_into_country ;
+            sn:from/isn:industry ?target_from_industry ;
+            sn:into/isn:industry ?target_into_industry ;
+            sn:volume ?source_volume .
+        ?source_volume a sn:Volume ;
+            sn:time ?time ;
+            sn:quantity ?quantity ;
+            sn:unit ?unit .
+        BIND(IRI(MD5(CONCAT(STR(?target_from_country),STR(?target_from_industry),STR(?target_into_industry),
+            STR(?target_into_country)))) AS ?target_supplyflow) .
+        BIND(IRI(MD5(CONCAT(STR(?target_supplyflow),
+            STR(?time),STR(?unit)))) AS ?target_volume) .
+    } GROUP BY ?target_from_country ?target_into_country ?target_from_industry ?target_into_industry
+        ?target_supplyflow ?target_volume ?time ?unit } }

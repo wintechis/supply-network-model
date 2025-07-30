@@ -95,3 +95,46 @@ esn:supplier a owl:ObjectProperty , owl:FunctionalProperty , qb:DimensionPropert
 
 # --- individuals ---
 
+esn:EnterpriseDataStructure a sn:Abstraction ;
+    sn:followsDataStructure sn:GenericDataStructure ;
+    qb:component [ qb:dimension esn:supplier ; qb:componentAttachment sn:SupplyFlow ] ,
+            [ qb:dimension esn:customer ; qb:componentAttachment sn:SupplyFlow ] ,
+            [ qb:dimension sn:time ] ,
+            [ qb:measure sn:quantity] ,
+            [ qb:attribute sn:unit] ;
+    sn:supplyFlowKey esn:EnterpriseSupplyFlowKey ;
+    sn:similarAbstractionLevel ptsn:ProductTypeDataStructure ;
+    sn:higherAbstractionLevel fssn:FederalStateDataStructure , csn:CountryDataStructure , cosn:ContinentDataStructure , isn:IndustryDataStructure , isn:IndustryFederalStateDataStructure , isn:IndustryCountryDataStructure , isn:IndustryContinentDataStructure ;
+    rdfs:label "Enterprise Data Structure"@en ;
+    rdfs:comment "Defines the abstraction of all enterpise supply networks through the data structure."@en ;
+    rdfs:isDefinedBy esn: .
+
+esn:EnterpriseProductTypeDataStructure a sn:Abstraction ;
+    sn:followsDataStructure sn:GenericDataStructure ;
+    qb:component [ qb:dimension esn:supplier ; qb:componentAttachment sn:SupplyFlow ] ,
+            [ qb:dimension esn:customer ; qb:componentAttachment sn:SupplyFlow ] ,
+            [ qb:dimension ptsn:component ; qb:componentAttachment sn:SupplyFlow ] ,
+            [ qb:dimension ptsn:outcome ; qb:componentAttachment sn:SupplyFlow ] ,
+            [ qb:dimension sn:time ] ,
+            [ qb:measure sn:quantity] ,
+            [ qb:attribute sn:unit] ;
+    sn:supplyFlowKey esn:EnterpriseProductTypeSupplyFlowKey ;
+    sn:higherAbstractionLevel fssn:FederalStateDataStructure , csn:CountryDataStructure , cosn:ContinentDataStructure , isn:IndustryDataStructure , isn:IndustryFederalStateDataStructure , isn:IndustryCountryDataStructure , isn:IndustryContinentDataStructure , esn:EnterpriseDataStructure , ptsn:ProductTypeDataStructure , ptsn:ProductTypeFederalStateDataStructure , ptsn:ProductTypeCountryDataStructure , ptsn:ProductTypeContinentDataStructure ;
+    rdfs:label "[Enterprise, Product Type] Data Structure"@en ;
+    rdfs:comment "Defines the abstraction of all [enterpise, product type] supply networks through the data structure."@en ;
+    rdfs:isDefinedBy esn: .
+
+esn:EnterpriseSupplyFlowKey a sn:SupplyFlowKey ;
+    sn:followsSupplyFlowKey sn:GenericSupplyFlowKey ;
+    qb:componentProperty esn:supplier , esn:customer ;
+    rdfs:label "Enterprise Supply Flow"@en ;
+    rdfs:comment "Defines the structure of supply flows in all enterpise supply networks."@en ;
+    rdfs:isDefinedBy esn: .
+
+esn:EnterpriseProductTypeSupplyFlowKey a sn:SupplyFlowKey ;
+    sn:followsSupplyFlowKey sn:GenericSupplyFlowKey ;
+    qb:componentProperty esn:supplier , esn:customer , ptsn:component , ptsn:outcome ;
+    rdfs:label "[Enterprise, Product Type] Supply Flow"@en ;
+    rdfs:comment "Defines the structure of supply flows in all [enterpise, product type] supply networks."@en ;
+    rdfs:isDefinedBy esn: .
+    

@@ -1,6 +1,6 @@
 # own prefix
-@prefix cosn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#> .
-@prefix csn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#> .
+@prefix cosn: <https://purl.org/supply-network/abstraction/continent/onto#> .
+@prefix csn: <https://purl.org/supply-network/abstraction/country/onto#> .
 @prefix isn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#> .
 @prefix ptsn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/ptsn-ontology#> .
 @prefix sn: <https://purl.org/supply-network/onto#> .
@@ -72,4 +72,24 @@ csn:inContinent a owl:ObjectProperty , owl:FunctionalProperty ;
 
 # --- individuals ---
 
+csn:CountryDataStructure a sn:Abstraction ;
+    sn:followsDataStructure sn:GenericDataStructure ;
+    qb:component [ qb:dimension csn:export ; qb:componentAttachment sn:SupplyFlow ] ,
+            [ qb:dimension csn:import ; qb:componentAttachment sn:SupplyFlow ] ,
+            [ qb:dimension sn:time ] ,
+            [ qb:measure sn:quantity] ,
+            [ qb:attribute sn:unit] ;
+    sn:supplyFlowKey csn:CountrySupplyFlowKey ;
+    sn:similarAbstractionLevel ptsn:ProductTypeDataStructure , isn:IndustryTypeDataStructure ;
+    sn:higherAbstractionLevel cosn:ContinentDataStructure ;
+    rdfs:label "Country Data Structure"@en ;
+    rdfs:comment "Defines the abstraction of all enterpise supply networks through the data structure."@en ;
+    rdfs:isDefinedBy csn: .
+
+csn:CountrySupplyFlowKey a sn:SupplyFlowKey ;
+    sn:followsSupplyFlowKey sn:GenericSupplyFlowKey ;
+    qb:componentProperty csn:export , csn:import ;
+    rdfs:label "Country Supply Flow"@en ;
+    rdfs:comment "Defines the structure of supply flows in all enterpise supply networks."@en ;
+    rdfs:isDefinedBy csn: .
     

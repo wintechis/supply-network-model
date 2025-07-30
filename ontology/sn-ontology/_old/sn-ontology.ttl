@@ -1,0 +1,227 @@
+# own prefix
+@prefix sn: <https://purl.org/supply-network/onto#> .
+
+# other prefixes
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+sn: a owl:Ontology ;
+    rdfs:label "Abstraction Independent Supply Network Ontology (AISNO)"@en ;
+    dct:title "Abstraction Independent Supply Network Ontology (AISNO)"@en ;
+    dct:abstract "todo."@en ;
+    dct:description "todo."@en ;
+    schema:image <https://purl.org/supply-network/onto/visualization> ;
+    owl:versionInfo "1.0.0" ;
+    owl:versionIRI <https://purl.org/supply-network/onto/1.0.0> ;
+    dct:created "2025-02-06"^^xsd:date ;
+    dct:creator <https://danielhenselmann.solidcommunity.net/profile/card#me> ;
+    dct:publisher [ foaf:name "Center for Applied Research on Supply Chain Services at Fraunhofer IIS"@en ;
+        foaf:homepage <https://www.scs.fraunhofer.de/en.html> ] ;
+    dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+    schema:creativeWorkStatus "Ontology Release"@en ;
+    vann:preferredNamespaceUri <https://purl.org/supply-network/onto#> ;
+    vann:preferredNamespacePrefix "sn" ;
+    voaf:extends qb: , qudt: , time: , skos: , prov: ;
+    rdfs:isDefinedBy sn: .
+
+<https://danielhenselmann.solidcommunity.net/profile/card#me> foaf:name "Daniel Henselmann" .
+
+
+# --- classes ---
+
+sn:Abstraction a owl:Class ;
+    rdfs:subClassOf qb:DataStructureDefinition , skos:Concept , prov:Entity ;
+    rdfs:label "Abstraction"@en ;
+    rdfs:comment "A specific abstraction of entities that represent a supply network."@en ;
+    rdfs:isDefinedBy sn: .
+    
+sn:Entity a owl:Class ;
+    rdfs:subClassOf skos:Concept ;
+    rdfs:label "Entity"@en ;
+    rdfs:comment "Abstract class. An entity that can represent a vertex in a supply network on an abstraction."@en ;
+    rdfs:isDefinedBy sn: .
+
+sn:SupplyFlow a owl:Class ;
+    rdfs:subClassOf qb:Slice ;
+    rdfs:label "Supply Flow"@en ;
+    rdfs:comment "A directed supply relation between two entities, typically with a volume."@en ;
+    rdfs:isDefinedBy sn: .
+
+sn:SupplyFlowKey a owl:Class ;
+    rdfs:subClassOf qb:SliceKey , prov:Entity ;
+    rdfs:label "Supply Flow Key"@en ;
+    rdfs:comment "A fixed subset of dimension properties that are fixed for corresponding supply flows."@en ;
+    rdfs:isDefinedBy sn: .
+
+sn:SupplyNetwork a owl:Class ;
+    rdfs:subClassOf qb:DataSet , prov:Entity ;
+    rdfs:label "Supply Network"@en ;
+    rdfs:comment "A representation of a supply network as a network of entities an a specific abstraction."@en ;
+    rdfs:isDefinedBy sn: .
+
+sn:Volume a owl:Class ;
+    rdfs:subClassOf qb:Observation ;
+    rdfs:label "Volume"@en ;
+    rdfs:comment "A volume of a supply flow."@en ;
+    rdfs:isDefinedBy sn: .
+
+
+# --- object properties ---
+
+sn:abstractSubstitute a owl:ObjectProperty ;
+    rdfs:subPropertyOf skos:broader ;
+    rdfs:domain sn:Entity ;
+    rdfs:range sn:Entity ;
+    rdfs:label "abstract substitute"@en ;
+    rdfs:comment "Links an associated entity on another abstraction. This property is abstract, i.e. only abstraction-specific subproperties are used with instance data."@en ;
+    rdfs:isDefinedBy sn: .
+
+sn:followsDataStructure a owl:ObjectProperty , qb:FunctionalProperty ;
+    rdfs:subPropertyOf prov:specializationOf ;
+    rdfs:domain sn:Abstraction ;
+    rdfs:range sn:Abstraction ;
+    rdfs:label "follows data structure"@en ;
+    rdfs:comment "Indicates that an abstraction entity follows the generic structure of a supply network."@en ;
+    rdfs:isDefinedBy sn: .
+
+sn:followsSupplyFlowKey a owl:ObjectProperty , qb:FunctionalProperty ;
+    rdfs:subPropertyOf prov:specializationOf ;
+    rdfs:domain sn:SupplyFlowKey ;
+    rdfs:range sn:SupplyFlowKey ;
+    rdfs:label "follows supply flow key"@en ;
+    rdfs:comment "Indicates that a supply flow key entity follows the generic structure of a supply network."@en ;
+    rdfs:isDefinedBy sn: .
+    
+sn:from a owl:ObjectProperty , qb:DimensionProperty ;
+    rdfs:domain sn:SupplyFlow ;
+    rdfs:range sn:Entity ;
+    rdfs:label "from"@en ;
+    rdfs:comment "Links the entity that is the origin/source of a directed supply flow between two entities. This property is abstract, i.e. only abstraction-specific subproperties are used with instance data."@en ;
+    rdfs:isDefinedBy sn: .
+
+sn:higherAbstractionLevel a owl:ObjectProperty , owl:TransitiveProperty ;
+    rdfs:subPropertyOf skos:broaderTransitive ;
+    rdfs:domain sn:Abstraction ;
+    rdfs:range sn:Abstraction ;
+    rdfs:label "higher abstraction level"@en ;
+    rdfs:comment "Links an abstraction on higher level."@en ;
+    rdfs:isDefinedBy sn: .
+
+sn:inferredFrom a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:subPropertyOf prov:wasDerivedFrom ;
+    rdfs:domain sn:SupplyNetwork ;
+    rdfs:range sn:SupplyNetwork ;
+    rdfs:label "inferred from"@en ;
+    rdfs:comment "Links the source supply network on a lower abstraction the supply network was inferred from."@en ;
+    rdfs:isDefinedBy sn: .
+
+sn:into a owl:ObjectProperty , qb:DimensionProperty ;
+    rdfs:domain sn:SupplyFlow ;
+    rdfs:range sn:Entity ;
+    rdfs:label "into"@en ;
+    rdfs:comment "Links the entity that is the target of a directed supply flow between two entities. This property is abstract, i.e. only abstraction-specific subproperties are used with instance data."@en ;
+    rdfs:isDefinedBy sn: .
+
+sn:similarAbstractionLevel a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:subPropertyOf skos:related ;
+    rdfs:domain sn:Abstraction ;
+    rdfs:range sn:Abstraction ;
+    rdfs:label "similar abstraction level"@en ;
+    rdfs:comment "Links an abstraction on similar level."@en ;
+    rdfs:isDefinedBy sn: .
+
+sn:structure a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:subPropertyOf qb:structure ;
+    rdfs:domain sn:SupplyNetwork ;
+    rdfs:range sn:Abstraction ;
+    rdfs:label "structure"@en ;
+    rdfs:comment "The abstraction of the supply nerwork and all entities in it that also defines the structure of the supply network dataset."@en ;
+    rdfs:isDefinedBy sn: .
+
+sn:supplyFlow a owl:ObjectProperty ;
+    rdfs:subPropertyOf qb:slice ;
+    rdfs:domain sn:SupplyNetwork ;
+    rdfs:range sn:SupplyFlow ;
+    rdfs:label "supply flow"@en ;
+    rdfs:comment "Links all supply flows between entities of the supply network."@en ;
+    rdfs:isDefinedBy sn: .
+
+sn:supplyFlowKey a owl:ObjectProperty , owl:FunctionalProperty , owl:InverseFunctionalProperty ;
+    rdfs:subPropertyOf qb:sliceKey ;
+    rdfs:domain sn:Abstraction ;
+    rdfs:range sn:SupplyFlowKey ;
+    rdfs:label "supply flow key"@en ;
+    rdfs:comment "Links the corresponding supply flow key of the abstraction."@en ;
+    rdfs:isDefinedBy sn: .
+
+sn:supplyFlowStructure a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:subPropertyOf qb:sliceStructure ;
+    rdfs:domain sn:SupplyFlow ;
+    rdfs:range sn:SupplyFlowKey ;
+    rdfs:label "supply flow structure"@en ;
+    rdfs:comment "Links the supply flow's structure/key."@en ;
+    rdfs:isDefinedBy sn: .
+
+sn:time a owl:ObjectProperty , owl:FunctionalProperty , qb:DimensionProperty ;
+    rdfs:domain sn:Volume ;
+    rdfs:range time:TemporalEntity ;
+    rdfs:label "time"@en ;
+    rdfs:comment "Links the time instance or interval of a supply flow's volume."@en ;
+    rdfs:isDefinedBy sn: .
+
+sn:unit a owl:ObjectProperty , owl:FunctionalProperty , qb:AttributeProperty ;
+    rdfs:domain sn:Volume ;
+    rdfs:range qudt:Unit ;
+    rdfs:label "unit"@en ;
+    rdfs:comment "Links the unit of the observed quantity of a supply flow's volume."@en ;
+    rdfs:isDefinedBy sn: .
+
+sn:volume a owl:ObjectProperty ;
+    rdfs:subPropertyOf qb:observation ;
+    rdfs:domain sn:SupplyFlow ;
+    rdfs:range sn:Volume ;
+    rdfs:label "volume"@en ;
+    rdfs:comment "Links a supply flow's volume."@en ;
+    rdfs:isDefinedBy sn: .
+
+
+# --- datatype properties ---
+    
+sn:quantity a owl:DatatypeProperty , owl:FunctionalProperty , qb:MeasureProperty ;
+    rdfs:subPropertyOf qudt:quantity ;
+    rdfs:domain sn:Volume ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "quantity"@en ;
+    rdfs:comment "Links the observed quantity of a supply flow's volume."@en ;
+    rdfs:isDefinedBy sn: .
+
+
+# --- individuals ---
+
+sn:GenericDataStructure a sn:Abstraction ;
+    qb:component [ qb:dimension sn:from ; qb:componentAttachment sn:SupplyFlow ] ,
+            [ qb:dimension sn:into ; qb:componentAttachment sn:SupplyFlow ] ,
+            [ qb:dimension sn:time ] ,
+            [ qb:measure sn:quantity] ,
+            [ qb:attribute sn:unit] ;
+    sn:supplyFlowKey sn:GenericSupplyFlowKey ;
+    rdfs:label "Generic Data Structure"@en ;
+    rdfs:comment "This individual is informative and defines the generic abstraction of all supply networks through the data structure."@en ;
+    rdfs:isDefinedBy sn: .
+
+sn:GenericSupplyFlowKey a sn:SupplyFlowKey ;
+    qb:componentProperty sn:from , sn:into ;
+    rdfs:label "Generic Supply Flow"@en ;
+    rdfs:comment "This individual is informative and defines the generic structure of supply flows in all supply networks."@en ;
+    rdfs:isDefinedBy sn: .

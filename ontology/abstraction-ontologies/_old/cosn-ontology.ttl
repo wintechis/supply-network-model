@@ -60,4 +60,23 @@ cosn:import a owl:ObjectProperty , owl:FunctionalProperty , qb:DimensionProperty
 
 # --- individuals ---
 
+cosn:ContinentDataStructure a sn:Abstraction ;
+    sn:followsDataStructure sn:GenericDataStructure ;
+    qb:component [ qb:dimension cosn:export ; qb:componentAttachment sn:SupplyFlow ] ,
+            [ qb:dimension cosn:import ; qb:componentAttachment sn:SupplyFlow ] ,
+            [ qb:dimension sn:time ] ,
+            [ qb:measure sn:quantity] ,
+            [ qb:attribute sn:unit] ;
+    sn:supplyFlowKey cosn:ContinentSupplyFlowKey ;
+    sn:similarAbstractionLevel ptsn:ProductTypeDataStructure , isn:IndustryTypeDataStructure ;
+    rdfs:label "Continent Data Structure"@en ;
+    rdfs:comment "Defines the abstraction of all continent supply networks through the data structure."@en ;
+    rdfs:isDefinedBy cosn: .
+
+cosn:ContinentSupplyFlowKey a sn:SupplyFlowKey ;
+    sn:followsSupplyFlowKey sn:GenericSupplyFlowKey ;
+    qb:componentProperty cosn:export , cosn:import ;
+    rdfs:label "Continent Supply Flow"@en ;
+    rdfs:comment "Defines the structure of supply flows in all continent supply networks."@en ;
+    rdfs:isDefinedBy cosn: .
     
