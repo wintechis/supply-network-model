@@ -1,0 +1,23 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+
+CONSTRUCT {
+  ?countryURI wdt:P30 ?continent .
+  ?continent rdf:type wd:Q5107 ;
+             rdfs:label ?label .
+}
+WHERE {
+  ?country wdt:P30 ?continent ;
+           wdt:P31 ?class .
+  ?continent rdfs:label ?label .
+  BIND(IRI(CONCAT(
+    "https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wd",
+    STRAFTER(STR(?country), "http://www.wikidata.org/entity/"),
+    ".ttl#this"
+  )) AS ?countryURI)
+
+  FILTER (?class IN (wd:Q6256, wd:Q3624078))
+  FILTER (lang(?label) = "en")
+}

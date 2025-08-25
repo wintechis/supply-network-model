@@ -1,14 +1,13 @@
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sn: <https://purl.org/sn/vocab#> .
 
 # infer link ?xz
 {   ?x ?xy ?y .
     ?y ?yz ?z .
-    ?xy rdfs:subPropertyOf sn:abstractSubstitute .
-    ?yz rdfs:subPropertyOf sn:abstractSubstitute .
-    ?x rdf:type ?classx .
-    ?z rdf:type ?classz .
+    ?xy rdfs:subPropertyOf sn:abstractSubstitute ;
+        rdfs:domain ?classx .
+    ?yz rdfs:subPropertyOf sn:abstractSubstitute ;
+        rdfs:range ?classz .
     ?xz rdfs:subPropertyOf sn:abstractSubstitute ;
         rdfs:domain ?classx ;
         rdfs:range ?classz . } =>
@@ -17,11 +16,11 @@
 # infer link ?yz
 {   ?x ?xy ?y .
     ?x ?xz ?z .
-    ?xy rdfs:subPropertyOf sn:abstractSubstitute .
-    ?xz rdfs:subPropertyOf sn:abstractSubstitute .
-    ?y rdf:type ?classy .
-    ?z rdf:type ?classz .
+    ?xy rdfs:subPropertyOf sn:abstractSubstitute ;
+        rdfs:range ?classy .
     ?yz rdfs:subPropertyOf sn:abstractSubstitute ;
         rdfs:domain ?classy ;
+        rdfs:range ?classz .
+    ?xz rdfs:subPropertyOf sn:abstractSubstitute ;
         rdfs:range ?classz . } =>
 {   ?y ?yz ?z . } .

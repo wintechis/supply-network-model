@@ -1,0 +1,438 @@
+PREFIX : <#>
+PREFIX csn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#>
+PREFIX cur: <http://qudt.org/vocab/currency/>
+PREFIX esn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#>
+PREFIX isn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#>
+PREFIX org: <https://www.w3.org/ns/org#>
+PREFIX cosn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sn: <https://purl.org/supply-network/onto#>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX we: <https://welektronik.iis.fraunhofer.de/entity/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+# time
+
+:2020Q3 a time:TemporalEntity ;
+    rdfs:label "Third quarter of fiscal year 2020."@en .
+
+
+# TSMC
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ23.ttl#Q20> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 537.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ24.ttl#Q20> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 498.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#Q20> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 479.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ17.ttl#Q20> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 430.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ25.ttl#Q20> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 299.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ31.ttl#Q20> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 235.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ28.ttl#Q20> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 230.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ59.ttl#Q20> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 181.0 ;
+    ] .
+
+
+# Qualcomm
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q23> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 572.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q23> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 517.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ39.ttl#Q23> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 30.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ92.ttl#Q23> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 16.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ143.ttl#Q23> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 10.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ254.ttl#Q23> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 32.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ90.ttl#Q23> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 61.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#Q23> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 19.0 ;
+    ] .
+
+
+# Broadcom
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q24> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 1700.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q24> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 149.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ22.ttl#Q24> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 32.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ79.ttl#Q24> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 12.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ254.ttl#Q24> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 31.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ65.ttl#Q24> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 18.0 ;
+    ] .
+
+
+# Nvidia
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q21> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 30.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ90.ttl#Q21> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 8.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ33.ttl#Q21> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 0.4 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#Q21> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 20.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ76.ttl#Q21> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 16.0 ;
+    ] .
+
+
+# AMD
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q17> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 71.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q17> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 43.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#Q17> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 261.0 ;
+    ] .
+
+
+# Texas Instruments
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q25> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 57.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q25> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 383.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ22.ttl#Q25> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 12.0 ;
+    ] .
+
+
+# STMicroelectronics
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q31> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 143.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q31> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 611.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ90.ttl#Q31> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 34.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ76.ttl#Q31> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 118.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#Q31> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 0.4 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ79.ttl#Q31> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 35.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ22.ttl#Q31> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 76.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#Q31> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 20.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ254.ttl#Q31> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 3.0 ;
+    ] .
+
+
+# NXP
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q28> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 72.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q28> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 235.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ254.ttl#Q28> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 14.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ66.ttl#Q28> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 1.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ76.ttl#Q28> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 76.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#Q28> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 2.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ90.ttl#Q28> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 70.0 ;
+    ] .
+
+
+# Renesas
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ36.ttl#Q59> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 22.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q59> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 23.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ66.ttl#Q59> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 39.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ68.ttl#Q59> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 15.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ91.ttl#Q59> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 10.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ92.ttl#Q59> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 6.0 ;
+    ] .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ143.ttl#Q59> a sn:SupplyFlow ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 15.0 ;
+    ] .

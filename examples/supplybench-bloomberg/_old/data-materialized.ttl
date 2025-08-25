@@ -1,0 +1,90 @@
+PREFIX : <#>
+PREFIX csn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#>
+PREFIX cur: <http://qudt.org/vocab/currency/>
+PREFIX esn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#>
+PREFIX isn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#>
+PREFIX org: <https://www.w3.org/ns/org#>
+PREFIX cosn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sn: <https://purl.org/supply-network/onto#>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX we: <https://welektronik.iis.fraunhofer.de/entity/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+# time
+
+:2020Q3 a time:TemporalEntity ;
+    rdfs:label "Third quarter of fiscal year 2020."@en .
+
+# supply flow
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#Q20> a sn:SupplyFlow ;
+        esn:supplier <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#this> ;
+        isn:supply     we:Q287 ;
+        csn:export  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this> ;
+        cosn:export wd:Q48 ;
+        esn:customer <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#this> ;
+        isn:demand      we:Q286 ;
+        csn:import  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> ;
+        cosn:import wd:Q49 ;
+    sn:volume [ a sn:Volume ;
+        sn:time :2020Q3 ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 537.0 ;
+    ] .
+
+# enterprises
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#this>
+        a                 esn:Enterprise ;
+        rdfs:label        "Taiwan Semiconductor Manufacturing Company"@en ;
+        esn:industry      we:Q287 ;
+        esn:continent     wd:Q48 ;
+        esn:registeredInCountry  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this> .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ35.ttl#this>
+        a                 esn:Enterprise ;
+        rdfs:label        "Apple"@en ;
+        esn:industry      we:Q286 ;
+        esn:continent     wd:Q49 ;
+        esn:registeredInCountry  <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this> .
+
+# countries      
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#this>
+        a                csn:Country ;
+        rdfs:label       "Taiwan"@en ;
+        csn:inContinent  wd:Q48 .
+
+<https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#this>
+        a                csn:Country ;
+        rdfs:label       "United States of America"@en ;
+        csn:inContinent  wd:Q49 .
+
+# continents
+
+wd:Q48  a           cosn:Continent ;
+        rdfs:label  "Asia"@en .
+
+wd:Q49  a           cosn:Continent ;
+        rdfs:label  "North America"@en .
+
+wd:Q46  a           cosn:Continent ;
+        rdfs:label  "Europe"@en .
+
+
+# industry sectors
+
+we:Q287  a          isn:Industry ;
+        rdfs:label  "Foundry"@en .
+
+we:Q286  a          isn:Industry ;
+        rdfs:label  "Fabless"@en .
+
+we:Q285  a          isn:Industry ;
+        rdfs:label  "Integrated Device Manufacturer"@en .
+
+we:Q1023  a         isn:Industry ;
+        rdfs:label  "Equipment manufacturer"@en .

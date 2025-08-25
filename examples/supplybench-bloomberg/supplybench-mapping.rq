@@ -1,0 +1,15 @@
+PREFIX esn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#>
+PREFIX geonames: <http://www.geonames.org/ontology#>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sb: <https://purl.org/sb#>
+PREFIX sn: <https://purl.org/supply-network/onto#>
+
+INSERT {
+  ?org esn:registeredInCountry ?country .
+  esn:registeredInCountry rdfs:subPropertyOf sn:abstractSubstitute .
+  sb:organizationType rdfs:subPropertyOf sn:abstractSubstitute .
+}
+WHERE {
+  OPTIONAL { ?org org:hasRegisteredSite/geonames:parentCountry ?country . }
+}

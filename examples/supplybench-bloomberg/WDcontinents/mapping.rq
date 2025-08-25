@@ -1,0 +1,7 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sn: <https://purl.org/supply-network/onto#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+
+INSERT DATA {
+  wdt:P30 rdfs:subPropertyOf sn:abstractSubstitute .
+}
