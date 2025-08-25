@@ -9,7 +9,6 @@ INSERT {
   ?org esn:registeredInCountry ?country .
   esn:registeredInCountry rdfs:subPropertyOf sn:abstractSubstitute .
   sb:organizationType rdfs:subPropertyOf sn:abstractSubstitute .
-}
-WHERE {
+} WHERE {
   OPTIONAL { ?org org:hasRegisteredSite/geonames:parentCountry ?country . }
 }
