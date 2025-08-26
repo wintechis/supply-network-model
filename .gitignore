@@ -1,4 +1,4 @@
-evaluation/source-data/regional-trade-data/*.zip
-evaluation/source-data/regional-trade-data/*.ods
-evaluation/source-data/regional-trade-data/*.csv
-evaluation/source-data/regional-trade-data/*.nt
+examples/regional-trade-data/*.zip
+examples/regional-trade-data/*.ods
+examples/regional-trade-data/*.csv
+examples/regional-trade-data/*.nt
