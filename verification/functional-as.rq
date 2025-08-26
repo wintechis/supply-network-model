@@ -1,0 +1,12 @@
+PREFIX sn: <https://purl.org/supply-network/onto#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?entity ?entityLabel ?abstractSubstitute (COUNT(DISTINCT ?substitute) AS ?substituteCount) 
+WHERE {
+  ?entity ?abstractSubstitute ?substitute ;
+      rdfs:label ?entityLabel .
+  ?abstractSubstitute rdfs:subPropertyOf sn:abstractSubstitute .
+}
+GROUP BY ?entity ?entityLabel ?abstractSubstitute
+HAVING (COUNT(DISTINCT ?substitute) > 1)
+ORDER BY DESC(?substituteCount)
