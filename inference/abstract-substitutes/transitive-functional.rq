@@ -1,16 +1,16 @@
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX sn: <https://purl.org/sn/vocab#>
+PREFIX sn: <https://purl.org/supply-network/onto#>
 
 INSERT {
     ?y ?yz ?z .
 } WHERE {
     ?x ?xy ?y .
     ?x ?xz ?z .
-    ?xy rdfs:subPropertyOf sn:abstractSubstitute .
-    ?xz rdfs:subPropertyOf sn:abstractSubstitute .
-    ?y rdf:type ?classy .
-    ?z rdf:type ?classz .
+    ?xy rdfs:subPropertyOf sn:abstractSubstitute ;
+        rdfs:range ?classy .
+    ?xz rdfs:subPropertyOf sn:abstractSubstitute ;
+        rdfs:range ?classz .
     ?yz rdfs:subPropertyOf sn:abstractSubstitute ;
         rdfs:domain ?classy ;
         rdfs:range ?classz .

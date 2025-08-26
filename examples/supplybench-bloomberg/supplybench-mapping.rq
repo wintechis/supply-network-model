@@ -1,14 +1,39 @@
+PREFIX : <#>
+PREFIX csn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#>
 PREFIX esn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#>
 PREFIX geonames: <http://www.geonames.org/ontology#>
 PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX sb: <https://purl.org/sb#>
 PREFIX sn: <https://purl.org/supply-network/onto#>
 
 INSERT {
+  # required because no direct link existed to abstract substitute
   ?org esn:registeredInCountry ?country .
-  esn:registeredInCountry rdfs:subPropertyOf sn:abstractSubstitute .
-  sb:organizationType rdfs:subPropertyOf sn:abstractSubstitute .
+  # required because class was too generic
+  ?country rdf:type csn:Country .
+
+  esn:customer rdfs:subPropertyOf sn:into ;
+    rdfs:range org:Organization.
+  esn:supplier rdfs:subPropertyOf sn:from ;
+    rdfs:range org:Organization .
+  esn:registeredInCountry rdfs:subPropertyOf sn:abstractSubstitute ;
+    rdfs:domain org:Organization ;
+    rdfs:range csn:Country .
+  csn:import rdfs:subPropertyOf sn:into ;
+    rdfs:range csn:Country .
+  csn:export rdfs:subPropertyOf sn:from ;
+    rdfs:range csn:Country .
+  # required because class was too generic
+  csn:Country rdfs:subClassOf geonames:Feature .
+  sb:organizationType rdfs:subPropertyOf sn:abstractSubstitute ;
+    rdfs:domain org:Organization ;
+    rdfs:range sb:OrganizationType .
+  :receiver rdfs:subPropertyOf sn:into ;
+    rdfs:range sb:OrganizationType .
+  :provider rdfs:subPropertyOf sn:from ;
+    rdfs:range sb:OrganizationType .
 } WHERE {
   OPTIONAL { ?org org:hasRegisteredSite/geonames:parentCountry ?country . }
 }

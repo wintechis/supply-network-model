@@ -1,27 +1,22 @@
-BASE <https://purl.org/supply-network/any-data/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX sn: <https://purl.org/supply-network/onto#>
-PREFIX snd: <https://purl.org/supply-network/any-data/>
 
-CONSTRUCT {
-    ?supplyflow a sn:SupplyFlow ;
-        ?higherlevelInto ?higherLevelIntoEntity ;
+INSERT {
+    ?supplyflow ?higherlevelInto ?higherLevelIntoEntity ;
         ?higherlevelFrom ?higherLevelFromEntity .
 } WHERE {
-    ?supplyflow a sn:SupplyFlow ;
+    ?supplyflow rdf:type sn:SupplyFlow ;
         ?lowerlevelInto ?lowerLevelIntoEntity ;
         ?lowerlevelFrom ?lowerLevelFromEntity .
+    ?lowerlevelInto rdfs:subPropertyOf sn:into .
+    ?lowerlevelFrom rdfs:subPropertyOf sn:from .
     ?lowerLevelIntoEntity ?abstractSubstitute ?higherLevelIntoEntity .
     ?lowerLevelFromEntity ?abstractSubstitute ?higherLevelFromEntity .
-    ?lowerlevelInto rdfs:subPropertyOf sn:into ;
-        rdfs:range ?lowerlevelClass .
-    ?lowerlevelFrom rdfs:subPropertyOf sn:from ;
-        rdfs:range ?lowerlevelClass .
+    ?abstractSubstitute rdfs:subPropertyOf sn:abstractSubstitute ;
+        rdfs:range ?higherlevelClass .
     ?higherlevelInto rdfs:subPropertyOf sn:into ;
         rdfs:range ?higherlevelClass .
     ?higherlevelFrom rdfs:subPropertyOf sn:from ;
-        rdfs:range ?higherlevelClass .
-    ?abstractSubstitute rdfs:subPropertyOf sn:abstractSubstitute ;
-        rdfs:domain ?lowerlevelClass ;
         rdfs:range ?higherlevelClass .
 }
