@@ -1,18 +1,18 @@
-@prefix dblp: <https://dblp.org/rdf/schema#> .
-@prefix esn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix geonames: <http://www.geonames.org/ontology#> .
-@prefix org: <http://www.w3.org/ns/org#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix qb: <http://purl.org/linked-data/cube#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix sb: <https://purl.org/sb#> .
-@prefix sn: <https://purl.org/supply-network/onto#> .
-@prefix time: <http://www.w3.org/2006/time#> .
-@prefix wd: <http://www.wikidata.org/entity/> .
-@prefix we: <https://welektronik.iis.fraunhofer.de/entity/> .
-@prefix wgs1: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+PREFIX dblp: <https://dblp.org/rdf/schema#>
+PREFIX esn: <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX geonames: <http://www.geonames.org/ontology#>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sb: <https://purl.org/sb#>
+PREFIX sn: <https://purl.org/supply-network/onto#>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX we: <https://welektronik.iis.fraunhofer.de/entity/>
+PREFIX wgs1: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ101.ttl#capex2019> a qb:Observation ;
     rdfs:comment "Capex of Lextar in 2019: +28448993 United States dollar."@en ;
