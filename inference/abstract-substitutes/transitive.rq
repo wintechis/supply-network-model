@@ -13,5 +13,4 @@ INSERT {
         rdfs:range ?classz .
     ?xz rdfs:subPropertyOf sn:abstractSubstitute ;
         rdfs:domain ?classx ;
-        rdfs:range ?classz .
-}
+        rdfs:range ?classz . }
