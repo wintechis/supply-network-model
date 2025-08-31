@@ -59,6 +59,11 @@ time:TemporalEntity rdf:type owl:Class ;
     rdfs:comment "A temporal interval or instant."@en ;
     rdfs:isDefinedBy time: .
 
+qudt:Unit a owl:Class ;
+    rdfs:label "Unit"@en ;
+    rdfs:comment "A unit of measure, or unit, is a particular quantity value that has been chosen as a scale for measuring other quantities the same kind (more generally of equivalent dimension)."@en ;
+    rdfs:isDefinedBy qudt: .
+
 sn:Volume a owl:Class ;
     rdfs:subClassOf qb:Observation ;
     rdfs:label "Volume"@en ;
@@ -115,9 +120,6 @@ sn:volume a owl:ObjectProperty , owl:InverseFunctionalProperty ;
 
 # --- datatype properties ---
 
-# use sn:value instead?
-# have sn:sum/sn:total, sn:average, sn:count, sn:min, sn:max as subproperties?
-# have sn:count/sn:number as additional property?
 sn:quantity a owl:DatatypeProperty , owl:FunctionalProperty , qb:MeasureProperty ;
     rdfs:subPropertyOf qudt:quantity ;
     rdfs:domain sn:Volume ;
@@ -128,4 +130,3 @@ sn:quantity a owl:DatatypeProperty , owl:FunctionalProperty , qb:MeasureProperty
 
 
 # --- individuals ---
-
