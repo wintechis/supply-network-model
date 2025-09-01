@@ -6,8 +6,7 @@ INSERT {
     ?supplyflow ?higherlevelInto ?higherLevelIntoEntity ;
         ?higherlevelFrom ?higherLevelFromEntity .
 } WHERE {
-    ?supplyflow rdf:type sn:SupplyFlow ;
-        ?lowerlevelInto ?lowerLevelIntoEntity ;
+    ?supplyflow ?lowerlevelInto ?lowerLevelIntoEntity ;
         ?lowerlevelFrom ?lowerLevelFromEntity .
     ?lowerlevelInto rdfs:subPropertyOf sn:into .
     ?lowerlevelFrom rdfs:subPropertyOf sn:from .
@@ -18,5 +17,4 @@ INSERT {
     ?higherlevelInto rdfs:subPropertyOf sn:into ;
         rdfs:range ?higherlevelClass .
     ?higherlevelFrom rdfs:subPropertyOf sn:from ;
-        rdfs:range ?higherlevelClass .
-}
+        rdfs:range ?higherlevelClass . }

@@ -8,12 +8,12 @@ PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 
 INSERT DATA {
-  wdt:P30 rdfs:subPropertyOf sn:abstractSubstitute ;
-    rdfs:domain csn:Country ;
-    rdfs:range wd:Q5107 .
-
   esn:continent rdfs:subPropertyOf sn:abstractSubstitute ;
     rdfs:domain org:Organization ;
+    rdfs:range wd:Q5107 .
+
+  wdt:P30 rdfs:subPropertyOf sn:abstractSubstitute ;
+    rdfs:domain csn:Country ;
     rdfs:range wd:Q5107 .
 
   cosn:import rdfs:subPropertyOf sn:into ;
