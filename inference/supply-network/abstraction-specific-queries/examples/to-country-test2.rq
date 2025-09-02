@@ -15,11 +15,10 @@ CONSTRUCT {
         sn:quantity ?aggregatedQuantity ;
         sn:unit ?unit .
 } WHERE {
-    { SELECT ?target_from_entity ?target_into_entity
-        ?target_supplyflow ?target_volume ?time ?unit (SUM(?quantity) AS ?aggregatedQuantity)
+    { SELECT ?target_from_entity ?target_into_entity ?target_supplyflow
+        ?target_volume ?time ?unit (SUM(?quantity) AS ?aggregatedQuantity)
     WHERE {
-        ?source_supplyflow a sn:SupplyFlow ;
-            csn:export ?target_from_entity ;
+        ?source_supplyflow csn:export ?target_from_entity ;
             csn:import ?target_into_entity ;
             sn:volume ?source_volume .
         ?source_volume a sn:Volume ;
