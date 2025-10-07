@@ -1,18 +1,44 @@
-dppdata:dpp a dpp-odp:DPP ;
-        dpp-odp:describes dppdata:product ;
-        dpp-info:containsInformation dppdata:cf .
-dppdata:product a dpp-odp:Product ;
-        dpp-odp:hasPart dppdata:component .
-dppdata:cf a dpp-info:DPPInformation .
-_:derivation a psn:Derivation ;
-        psn:from dppdata:component ;
-        psn:into dppdata:product ;
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dpp-odp: <http://w3id.org/dppo/ontology/dpp-odp/> .
+@prefix dpp-info: <http://w3id.org/dppo/ontology/dpp-info/> .
+@prefix psn: <https://purl.org/psn/vocab#> .
+@prefix gs1: <https://ref.gs1.org/voc/> .
+@prefix schema: <http://schema.org/> .
+@prefix data: <#> .
+
+data:DPP a dpp-odp:DPP ;
+        dpp-odp:describes data:Product ;
+        dpp-info:containsInformation data:Derivation , data:Price , data:CF .
+data:Product a dpp-odp:Product , gs1:Product , psn:Product ;
+        gs1:manufacturer data:Org ; 
+        dpp-info:hasCompositionInformation data:Derivation ;
+        schema:hasMeasurement data:CF .
+data:Org a gs1:Organization , psn:Enterprise ;
+        psn:sells data:Product .
+data:Derivation a psn:Derivation , dpp-info:DPPInformation , dpp-info:CompositionInformation ;
+        psn:from data:Component ;
+        psn:into data:Product ;
         psn:quantity 4.0 .
-_:composition a ceon-product:Composition ;
-        ceon-product:compositionOf dppdata:product ;
-        ceon-product:compositionQuantity 4.0 .
-_:bom a pv:BillOfMaterial ;
-        pv:hasBomPart _:bompart .
-_:bompart a pv:BomPart ;
-        pv:hasPart dppdata:component
-        pv:quantity "4" .
+data:Component a dpp-odp:Product , gs1:Product , psn:Product .
+data:Price a gs1:PriceSpecification , dpp-info:DPPInformation ;
+        gs1:price 249.99 ;
+        gs1:priceCurrency "USD" .
+data:CF a schema:QuantitativeValue , gs1:QuantitativeValue , dpp-info:DPPInformation ;
+        schema:description "CO2e footprint"@en ;
+        gs1:value 0.5 ;
+        gs1:unitCode "GRM" .
+
+
+
+# @prefix ceon-product: <http://w3id.org/CEON/ontology/product/> .
+# @prefix pv: <http://ld.company.org/prod-vocab/> .
+# # CEON ontology (also has :Item)
+# _:composition a ceon-product:Composition ;
+#         ceon-product:compositionOf data:product ;
+#         ceon-product:compositionQuantity 4.0 .
+# # Eccenca ontology
+# _:bom a pv:BillOfMaterial ;
+#         pv:hasBomPart _:bompart .
+# _:bompart a pv:BomPart ;
+#         pv:hasPart data:component ;
+#         pv:quantity "4" .
