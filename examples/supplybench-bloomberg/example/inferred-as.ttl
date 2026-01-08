@@ -1,0 +1,15 @@
+@prefix cur: <http://qudt.org/vocab/currency/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sb: <https://purl.org/supplybench#> .
+@prefix sn: <https://purl.org/supply-network/onto#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix we: <https://welektronik.iis.fraunhofer.de/entity/> .
+@prefix tsmc: <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#> .
+@prefix nvidia: <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#> .
+@prefix taiwan: <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#> .
+@prefix usa: <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#> .
+
+tsmc:this :continent wd:Q48 .
+nvidia:this :continent wd:Q49 .

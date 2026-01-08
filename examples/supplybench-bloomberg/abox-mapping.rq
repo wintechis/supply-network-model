@@ -1,0 +1,12 @@
+PREFIX : <https://purl.org/supply-network/examples#>
+PREFIX geonames: <http://www.geonames.org/ontology#>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+INSERT {
+    # required because no direct link existed to abstract substitute
+    ?org :registeredInCountry ?country .
+    # required because class was too generic
+    ?country rdf:type :Country .
+} WHERE {
+    ?org org:hasRegisteredSite/geonames:parentCountry ?country }

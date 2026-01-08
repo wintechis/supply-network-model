@@ -1,0 +1,25 @@
+@prefix cur: <http://qudt.org/vocab/currency/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sb: <https://purl.org/supplybench#> .
+@prefix sn: <https://purl.org/supply-network/onto#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix we: <https://welektronik.iis.fraunhofer.de/entity/> .
+@prefix tsmc: <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#> .
+@prefix nvidia: <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#> .
+@prefix taiwan: <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#> .
+@prefix usa: <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#> .
+
+_:tsmcnvidia a sn:SupplyFlow ;
+        sb:supplier tsmc:this ;
+        sb:customer nvidia:this ;
+        :export taiwan:this ;
+        :import usa:this ;
+        :provider we:Q287 ;
+        :receiver we:Q286 ;
+        :continent_export wd:Q48 ;
+        :continent_import wd:Q49 ;
+        sn:volume [ a sn:Volume ;
+                sn:time <#2020Q3> ;
+                sn:quantity  479.0 ;
+                sn:unit cur:MegaUSD ] .

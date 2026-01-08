@@ -1,0 +1,18 @@
+PREFIX : <https://purl.org/supply-network/examples#>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sn: <https://purl.org/supply-network/onto#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+
+INSERT DATA {
+    :continent_import rdfs:subPropertyOf sn:into ;
+        rdfs:range wd:Q5107 .
+    :continent_export rdfs:subPropertyOf sn:from ;
+        rdfs:range wd:Q5107 . 
+    wdt:P30 rdfs:subPropertyOf sn:abstractSubstitute ;
+        rdfs:domain :Country ;
+        rdfs:range wd:Q5107 .
+    :continent rdfs:subPropertyOf sn:abstractSubstitute ;
+        rdfs:domain org:Organization ;
+        rdfs:range wd:Q5107 . }

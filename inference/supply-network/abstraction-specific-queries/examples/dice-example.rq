@@ -1,0 +1,27 @@
+BASE <https://purl.org/supply-network/any-data/>
+PREFIX : <https://purl.org/supply-network/examples#>
+PREFIX sn: <https://purl.org/supply-network/onto#>
+
+INSERT {
+    ?target_supplyflow a sn:SupplyFlow ;
+        :export ?target_from_entity ;
+        :import ?target_into_entity ;
+        sn:volume _:target_volume .
+    _:target_volume a sn:Volume ;
+        sn:time ?time ;
+        sn:quantity ?aggregatedQuantity ;
+        sn:unit ?unit .
+} WHERE {
+    { SELECT ?target_from_entity ?target_into_entity
+        ?target_supplyflow ?time ?unit (SUM(?quantity) AS ?aggregatedQuantity)
+    WHERE {
+        ?source_supplyflow :export ?target_from_entity ;
+            :import ?target_into_entity ;
+            sn:volume ?source_volume .
+        ?source_volume sn:time ?time ;
+            sn:quantity ?quantity ;
+            sn:unit ?unit .
+        BIND(IRI(MD5(CONCAT(STR(?target_from_entity),
+            STR(?target_into_entity)))) AS ?target_supplyflow) .
+    } GROUP BY ?target_from_entity ?target_into_entity
+        ?target_supplyflow ?time ?unit } }

@@ -1,0 +1,39 @@
+# Example abstraction-specific terms
+
+# The terms in this document are used to implement demonstration examples for the Supply Network Abstraction Pattern Ontology (SNAPO).
+# The terms were not curated with the carefulness of a high-quality ontology.
+
+@prefix : <https://purl.org/supply-network/examples#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sb: <https://purl.org/supplybench#> .
+@prefix sn: <https://purl.org/supply-network/onto#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+:import rdfs:subPropertyOf sn:into ;
+    rdfs:range :Country .
+:export rdfs:subPropertyOf sn:from ;
+    rdfs:range :Country .
+
+:receiver rdfs:subPropertyOf sn:into ;
+    rdfs:range sb:OrganizationType .
+:provider rdfs:subPropertyOf sn:from ;
+    rdfs:range sb:OrganizationType .
+
+:continent_import rdfs:subPropertyOf sn:into ;
+    rdfs:range wd:Q5107 .
+:continent_export rdfs:subPropertyOf sn:from ;
+    rdfs:range wd:Q5107 .
+
+:registeredInCountry rdfs:subPropertyOf sn:abstractSubstitute ;
+    rdfs:domain org:Organization ;
+    rdfs:range :Country .
+
+:inContinent rdfs:subPropertyOf sn:abstractSubstitute ;
+    rdfs:domain :Country ;
+    rdfs:range wd:Q5107 .
+
+:continent rdfs:subPropertyOf sn:abstractSubstitute ;
+    rdfs:domain org:Organization ;
+    rdfs:range wd:Q5107 .
+    
