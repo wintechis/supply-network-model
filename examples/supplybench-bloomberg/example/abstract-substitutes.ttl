@@ -1,4 +1,5 @@
 @prefix cur: <http://qudt.org/vocab/currency/> .
+@prefix geonames: <http://www.geonames.org/ontology#> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sb: <https://purl.org/supplybench#> .
@@ -11,15 +12,17 @@
 @prefix taiwan: <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#> .
 @prefix usa: <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#> .
 
-tsmc:this :registeredInCountry taiwan:this ;
+tsmc:this org:hasRegisteredSite tsmc:headquarter ;
 	sb:organizationType we:Q287 .
+taiwan:headquarter geonames:parentCountry taiwan:this .
 taiwan:this a :Country ;
 	rdfs:label "Taiwan"@en ;
 	wdt:P30	wd:Q48 .
 wd:Q48 a wd:Q5107 ;
 	rdfs:label "Asia"@en .
-nvidia:this :registeredInCountry usa:this ;
+nvidia:this org:hasRegisteredSite nvidia:headquarter ;
 	sb:organizationType we:Q286 .
+taiwan:headquarter geonames:parentCountry usa:this .
 usa:this a :Country ;
 	rdfs:label "United States of America"@en ;
 	wdt:P30	wd:Q49 .
