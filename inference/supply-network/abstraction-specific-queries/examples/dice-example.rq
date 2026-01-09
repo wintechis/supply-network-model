@@ -2,7 +2,7 @@ BASE <https://purl.org/supply-network/examples#>
 PREFIX : <https://purl.org/supply-network/examples#>
 PREFIX sn: <https://purl.org/supply-network/onto#>
 
-INSERT {
+CONSTRUCT {
     ?target_supplyflow a sn:SupplyFlow ;
         :export ?target_from_entity ;
         :import ?target_into_entity ;
@@ -15,9 +15,9 @@ INSERT {
     { SELECT ?target_from_entity ?target_into_entity
         ?target_supplyflow ?time ?unit (SUM(?quantity) AS ?aggregatedQuantity)
     WHERE {
-        ?source_supplyflow :export ?target_from_entity ;
-            :import ?target_into_entity ;
-            sn:volume ?source_volume .
+        ?source_supplyflow sn:volume ?source_volume ;
+            :export ?target_from_entity ;
+            :import ?target_into_entity .
         ?source_volume sn:time ?time ;
             sn:quantity ?quantity ;
             sn:unit ?unit .

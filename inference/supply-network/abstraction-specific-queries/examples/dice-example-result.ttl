@@ -1,0 +1,130 @@
+PREFIX :         <https://purl.org/supply-network/examples#>
+PREFIX cosn:     <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#>
+PREFIX csn:      <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#>
+PREFIX cur:      <http://qudt.org/vocab/currency/>
+PREFIX dblp:     <https://dblp.org/rdf/schema#>
+PREFIX dbo:      <https://dbpedia.org/ontology/>
+PREFIX dct:      <http://purl.org/dc/terms/>
+PREFIX esn:      <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/esn-ontology#>
+PREFIX ex:       <http://example.com/>
+PREFIX foaf:     <http://xmlns.com/foaf/0.1/>
+PREFIX fssn:     <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/fssn-ontology#>
+PREFIX geonames: <http://www.geonames.org/ontology#>
+PREFIX isn:      <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/isn-ontology#>
+PREFIX nvidia:   <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#>
+PREFIX org:      <http://www.w3.org/ns/org#>
+PREFIX org1:     <https://www.w3.org/ns/org#>
+PREFIX owl:      <http://www.w3.org/2002/07/owl#>
+PREFIX prov:     <http://www.w3.org/ns/prov#>
+PREFIX ptsn:     <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/ptsn-ontology#>
+PREFIX qb:       <http://purl.org/linked-data/cube#>
+PREFIX qudt:     <http://qudt.org/schema/qudt/>
+PREFIX rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sb:       <https://purl.org/supplybench#>
+PREFIX schema:   <https://schema.org/>
+PREFIX skos:     <http://www.w3.org/2004/02/skos/core#>
+PREFIX sn:       <https://purl.org/supply-network/onto#>
+PREFIX sosa:     <http://www.w3.org/ns/sosa/>
+PREFIX taiwan:   <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#>
+PREFIX time:     <http://www.w3.org/2006/time#>
+PREFIX tsmc:     <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#>
+PREFIX usa:      <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#>
+PREFIX vann:     <http://purl.org/vocab/vann/>
+PREFIX voaf:     <http://purl.org/vocommons/voaf#>
+PREFIX wd:       <http://www.wikidata.org/entity/>
+PREFIX wdt:      <http://www.wikidata.org/prop/direct/>
+PREFIX we:       <https://welektronik.iis.fraunhofer.de/entity/>
+PREFIX wgs:      <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX wgs1:     <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX xsd:      <http://www.w3.org/2001/XMLSchema#>
+
+<https://purl.org/supply-network/f5f4fc0c25c545e2b32b36b6ed47d08d>
+        rdf:type   sn:SupplyFlow;
+        :export    <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this>;
+        :import    usa:this;
+        sn:volume  [ rdf:type     sn:Volume;
+                     sn:quantity  470.0;
+                     sn:time      <http://fuseki.iis.fraunhofer.de/test/data#2020Q3>;
+                     sn:unit      cur:MegaUSD
+                   ] .
+
+<https://purl.org/supply-network/57728cef5ca7cdf01714f5f6b8025e49>
+        rdf:type   sn:SupplyFlow;
+        :export    taiwan:this;
+        :import    <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this>;
+        sn:volume  [ rdf:type     sn:Volume;
+                     sn:quantity  460.0;
+                     sn:time      <http://fuseki.iis.fraunhofer.de/test/data#2020Q3>;
+                     sn:unit      cur:MegaUSD
+                   ] .
+
+<https://purl.org/supply-network/a97618b7e64d3c3701257daf3ba22e43>
+        rdf:type   sn:SupplyFlow;
+        :export    <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ17.ttl#this>;
+        :import    usa:this;
+        sn:volume  [ rdf:type     sn:Volume;
+                     sn:quantity  46.0;
+                     sn:time      <http://fuseki.iis.fraunhofer.de/test/data#2020Q3>;
+                     sn:unit      cur:MegaUSD
+                   ] .
+
+<https://purl.org/supply-network/6516ac05e44aaea513e681d91c999524>
+        rdf:type   sn:SupplyFlow;
+        :export    taiwan:this;
+        :import    usa:this;
+        sn:volume  [ rdf:type     sn:Volume;
+                     sn:quantity  4486.0;
+                     sn:time      <http://fuseki.iis.fraunhofer.de/test/data#2020Q3>;
+                     sn:unit      cur:MegaUSD
+                   ] .
+
+<https://purl.org/supply-network/ca321e94b508420c9f957e7ca284ba12>
+        rdf:type   sn:SupplyFlow;
+        :export    usa:this;
+        :import    <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this>;
+        sn:volume  [ rdf:type     sn:Volume;
+                     sn:quantity  114.0;
+                     sn:time      <http://fuseki.iis.fraunhofer.de/test/data#2020Q3>;
+                     sn:unit      cur:MegaUSD
+                   ] .
+
+<https://purl.org/supply-network/7643c14af68650184a433f73eeec9d2c>
+        rdf:type   sn:SupplyFlow;
+        :export    <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this>;
+        :import    <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this>;
+        sn:volume  [ rdf:type     sn:Volume;
+                     sn:quantity  286.0;
+                     sn:time      <http://fuseki.iis.fraunhofer.de/test/data#2020Q3>;
+                     sn:unit      cur:MegaUSD
+                   ] .
+
+<https://purl.org/supply-network/e268c4bc13b9200d0ed150195c5548d5>
+        rdf:type   sn:SupplyFlow;
+        :export    usa:this;
+        :import    usa:this;
+        sn:volume  [ rdf:type     sn:Volume;
+                     sn:quantity  5496.0;
+                     sn:time      <http://fuseki.iis.fraunhofer.de/test/data#2020Q3>;
+                     sn:unit      cur:MegaUSD
+                   ] .
+
+<https://purl.org/supply-network/b1bf439697f29d5029b83c8e655e5ec9>
+        rdf:type   sn:SupplyFlow;
+        :export    <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ55.ttl#this>;
+        :import    <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this>;
+        sn:volume  [ rdf:type     sn:Volume;
+                     sn:quantity  144.0;
+                     sn:time      <http://fuseki.iis.fraunhofer.de/test/data#2020Q3>;
+                     sn:unit      cur:MegaUSD
+                   ] .
+
+<https://purl.org/supply-network/a3cf1edbbc49897d2eefcedad98ebd78>
+        rdf:type   sn:SupplyFlow;
+        :export    <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this>;
+        :import    usa:this;
+        sn:volume  [ rdf:type     sn:Volume;
+                     sn:quantity  1292.0;
+                     sn:time      <http://fuseki.iis.fraunhofer.de/test/data#2020Q3>;
+                     sn:unit      cur:MegaUSD
+                   ] .

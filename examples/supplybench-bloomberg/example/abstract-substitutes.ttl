@@ -15,6 +15,7 @@
 
 tsmc:this org:hasRegisteredSite tsmc:headquarter ;
 	sb:organizationType we:Q287 .
+we:Q287 rdfs:label "Foundry"@en .
 tsmc:headquarter geonames:parentCountry taiwan:this .
 taiwan:this a :Country ;
 	rdfs:label "Taiwan"@en ;
@@ -23,6 +24,7 @@ wd:Q48 a wd:Q5107 ;
 	rdfs:label "Asia"@en .
 nvidia:this org:hasRegisteredSite nvidia:headquarter ;
 	sb:organizationType we:Q286 .
+we:Q286 rdfs:label "Fabless"@en .
 nvidia:headquarter geonames:parentCountry usa:this .
 usa:this a :Country ;
 	rdfs:label "United States of America"@en ;
