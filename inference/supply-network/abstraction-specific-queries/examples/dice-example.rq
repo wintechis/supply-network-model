@@ -1,4 +1,4 @@
-BASE <https://purl.org/supply-network/any-data/>
+BASE <https://purl.org/supply-network/examples#>
 PREFIX : <https://purl.org/supply-network/examples#>
 PREFIX sn: <https://purl.org/supply-network/onto#>
 

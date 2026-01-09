@@ -10,7 +10,7 @@ tsmc:this a org:Organization ;
 	rdfs:label "Taiwan Semiconductor Manufacturing Company"@en .
 nvidia:this a org:Organization ;     
 	rdfs:label "Nvidia"@en .
-_:tsmcnvidia a sn:SupplyFlow ;
+nvidia:Q20 a sn:SupplyFlow ;
 	sb:supplier tsmc:this ;
 	sb:customer nvidia:this ;
 	sn:volume [ a sn:Volume ;

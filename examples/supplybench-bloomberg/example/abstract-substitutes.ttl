@@ -1,3 +1,4 @@
+@prefix : <https://purl.org/supply-network/examples#> .
 @prefix cur: <http://qudt.org/vocab/currency/> .
 @prefix geonames: <http://www.geonames.org/ontology#> .
 @prefix org: <http://www.w3.org/ns/org#> .
@@ -14,7 +15,7 @@
 
 tsmc:this org:hasRegisteredSite tsmc:headquarter ;
 	sb:organizationType we:Q287 .
-taiwan:headquarter geonames:parentCountry taiwan:this .
+tsmc:headquarter geonames:parentCountry taiwan:this .
 taiwan:this a :Country ;
 	rdfs:label "Taiwan"@en ;
 	wdt:P30	wd:Q48 .
@@ -22,7 +23,7 @@ wd:Q48 a wd:Q5107 ;
 	rdfs:label "Asia"@en .
 nvidia:this org:hasRegisteredSite nvidia:headquarter ;
 	sb:organizationType we:Q286 .
-taiwan:headquarter geonames:parentCountry usa:this .
+nvidia:headquarter geonames:parentCountry usa:this .
 usa:this a :Country ;
 	rdfs:label "United States of America"@en ;
 	wdt:P30	wd:Q49 .
