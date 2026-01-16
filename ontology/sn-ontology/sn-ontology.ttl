@@ -1,5 +1,4 @@
 # own prefix
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix sn: <https://purl.org/supply-network/onto#> .
 
 # other prefixes
@@ -8,6 +7,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix qb: <http://purl.org/linked-data/cube#> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <https://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -42,29 +42,29 @@ sn: a owl:Ontology ;
 
 # --- classes ---
     
-sn:Entity a owl:Class ;
+sn:Entity a rdfs:Class ;
     rdfs:subClassOf skos:Concept ;
     rdfs:label "Entity"@en ;
     rdfs:comment "Abstract class. An entity that can represent a vertex in a supply network on an abstraction."@en ;
     rdfs:isDefinedBy sn: .
 
-sn:SupplyFlow a owl:Class ;
+sn:SupplyFlow a rdfs:Class ;
     rdfs:subClassOf qb:Slice ;
     rdfs:label "Supply Flow"@en ;
     rdfs:comment "A directed supply relation between two entities, typically with a volume."@en ;
     rdfs:isDefinedBy sn: .
 
-time:TemporalEntity rdf:type owl:Class ;
+time:TemporalEntity rdf:type rdfs:Class ;
     rdfs:label "Temporal entity"@en ;
     rdfs:comment "A temporal interval or instant."@en ;
     rdfs:isDefinedBy time: .
 
-qudt:Unit a owl:Class ;
+qudt:Unit a rdfs:Class ;
     rdfs:label "Unit"@en ;
     rdfs:comment "A unit of measure, or unit, is a particular quantity value that has been chosen as a scale for measuring other quantities the same kind (more generally of equivalent dimension)."@en ;
     rdfs:isDefinedBy qudt: .
 
-sn:Volume a owl:Class ;
+sn:Volume a rdfs:Class ;
     rdfs:subClassOf qb:Observation ;
     rdfs:label "Volume"@en ;
     rdfs:comment "A volume of a supply flow."@en ;
@@ -73,7 +73,7 @@ sn:Volume a owl:Class ;
 
 # --- object properties ---
 
-sn:abstractSubstitute a owl:ObjectProperty ;
+sn:abstractSubstitute a owl:ObjectProperty , rdf:Property ;
     rdfs:subPropertyOf skos:broader ;
     rdfs:domain sn:Entity ;
     rdfs:range sn:Entity ;
@@ -81,35 +81,35 @@ sn:abstractSubstitute a owl:ObjectProperty ;
     rdfs:comment "Links an associated entity on another abstraction. This property is abstract, i.e. only abstraction-specific subproperties are used with instance data."@en ;
     rdfs:isDefinedBy sn: .
     
-sn:from a owl:ObjectProperty , qb:DimensionProperty ;
+sn:from a owl:ObjectProperty , rdf:Property , qb:DimensionProperty ;
     rdfs:domain sn:SupplyFlow ;
     rdfs:range sn:Entity ;
     rdfs:label "from"@en ;
     rdfs:comment "Links the entity that is the origin/source of a directed supply flow between two entities. This property is abstract, i.e. only abstraction-specific subproperties are used with instance data."@en ;
     rdfs:isDefinedBy sn: .
 
-sn:into a owl:ObjectProperty , qb:DimensionProperty ;
+sn:into a owl:ObjectProperty , rdf:Property , qb:DimensionProperty ;
     rdfs:domain sn:SupplyFlow ;
     rdfs:range sn:Entity ;
     rdfs:label "into"@en ;
     rdfs:comment "Links the entity that is the target of a directed supply flow between two entities. This property is abstract, i.e. only abstraction-specific subproperties are used with instance data."@en ;
     rdfs:isDefinedBy sn: .
 
-sn:time a owl:ObjectProperty , owl:FunctionalProperty , qb:DimensionProperty ;
+sn:time a owl:ObjectProperty , rdf:Property , owl:FunctionalProperty , qb:DimensionProperty ;
     rdfs:domain sn:Volume ;
     rdfs:range time:TemporalEntity ;
     rdfs:label "time"@en ;
     rdfs:comment "Links the time instance or interval of a supply flow's volume."@en ;
     rdfs:isDefinedBy sn: .
 
-sn:unit a owl:ObjectProperty , owl:FunctionalProperty , qb:AttributeProperty ;
+sn:unit a owl:ObjectProperty , rdf:Property , owl:FunctionalProperty , qb:AttributeProperty ;
     rdfs:domain sn:Volume ;
     rdfs:range qudt:Unit ;
     rdfs:label "unit"@en ;
     rdfs:comment "Links the unit of the observed quantity of a supply flow's volume."@en ;
     rdfs:isDefinedBy sn: .
 
-sn:volume a owl:ObjectProperty , owl:InverseFunctionalProperty ;
+sn:volume a owl:ObjectProperty , rdf:Property , owl:InverseFunctionalProperty ;
     rdfs:subPropertyOf qb:observation ;
     rdfs:domain sn:SupplyFlow ;
     rdfs:range sn:Volume ;
@@ -120,7 +120,7 @@ sn:volume a owl:ObjectProperty , owl:InverseFunctionalProperty ;
 
 # --- datatype properties ---
 
-sn:quantity a owl:DatatypeProperty , owl:FunctionalProperty , qb:MeasureProperty ;
+sn:quantity a owl:DatatypeProperty , rdf:Property , owl:FunctionalProperty , qb:MeasureProperty ;
     rdfs:subPropertyOf qudt:quantity ;
     rdfs:domain sn:Volume ;
     rdfs:range xsd:decimal ;
