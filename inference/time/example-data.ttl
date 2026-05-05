@@ -1,0 +1,30 @@
+@prefix cur: <http://qudt.org/vocab/currency/> .
+@prefix greg: <http://www.w3.org/ns/time/gregorian/> .
+@prefix sn: <https://purl.org/supply-network/onto#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix tsmc: <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#> .
+@prefix nvidia: <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#> .
+
+nvidia:Q20 a sn:SupplyFlow ;
+    sn:from tsmc:this , tsmc:that ;
+    sn:into nvidia:this , nvidia:that ;
+    sn:volume [ a sn:Volume ;
+        sn:time <#January2026> ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 11.22 ] ,
+        [ a sn:Volume ;
+        sn:time <#February2026> ;
+        sn:unit cur:MegaUSD ;
+        sn:quantity 33.44 ] .
+
+<#January2026> a time:TemporalEntity , time:DateTimeInterval ;
+    time:hasDateTimeDescription <#January2026> ;
+    time:unitType time:unitMonth ;
+    time:monthOfYear greg:January ;
+    time:year 2026 .
+
+<#February2026> a time:TemporalEntity , time:DateTimeInterval ;
+    time:hasDateTimeDescription <#February2026> ;
+    time:unitType time:unitMonth ;
+    time:monthOfYear greg:February ;
+    time:year 2026 .

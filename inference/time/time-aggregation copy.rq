@@ -1,0 +1,28 @@
+BASE <https://purl.org/supply-network/examples#>
+PREFIX : <https://purl.org/supply-network/examples#>
+PREFIX sn: <https://purl.org/supply-network/onto#>
+PREFIX time: <http://www.w3.org/2006/time#>
+
+
+CONSTRUCT  {
+    ?flow sn:volume _:target_volume .
+    _:target_volume a sn:Volume ;
+        sn:time ?target_time ;
+        sn:unit ?unit ;
+        sn:quantity ?aggregatedQuantity .
+    ?target_time a time:TemporalEntity , time:DateTimeInterval ;
+        time:hasDateTimeDescription ?target_time ;
+        time:unitType time:unitYear ;
+        time:year ?year .
+} WHERE {
+    { SELECT ?flow ?target_time ?unit ?year (SUM(?quantity) AS ?aggregatedQuantity)
+    WHERE {
+        ?flow sn:volume ?source_volume .
+        ?source_volume sn:time ?source_time ;
+            sn:unit ?unit ;
+            sn:quantity ?quantity .
+        ?source_time a time:TemporalEntity , time:DateTimeInterval ;
+            time:unitType time:unitMonth ;
+            time:year ?year .
+        BIND(IRI(STR(?year)) AS ?target_time) .
+    } GROUP BY ?flow ?target_time ?unit ?year } }
