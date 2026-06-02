@@ -7,7 +7,7 @@ PREFIX sn: <https://purl.org/supply-network/onto#>
 
 INSERT DATA {
     sb:customer rdfs:subPropertyOf sn:into ;
-        rdfs:range org:Organization.
+        rdfs:range org:Organization .
     sb:supplier rdfs:subPropertyOf sn:from ;
         rdfs:range org:Organization .
     :registeredInCountry rdfs:subPropertyOf sn:abstractSubstitute ;
@@ -24,4 +24,15 @@ INSERT DATA {
     :receiver rdfs:subPropertyOf sn:into ;
         rdfs:range sb:OrganizationType .
     :provider rdfs:subPropertyOf sn:from ;
-        rdfs:range sb:OrganizationType . }
+        rdfs:range sb:OrganizationType . 
+        
+    # if we need a grain per level
+    :OrganizationGrain a sn:Grain ;
+        sn:dimension org:Organization .
+    :CountryGrain a sn:Grain ;
+        sn:dimension :Country .
+    :OrganizationTypeGrain a sn:Grain ;
+        sn:dimension sb:OrganizationType .
+    :CountryOrganizationTypeGrain a sn:Grain ;
+        sn:dimension :Country ;
+        sn:dimension sb:OrganizationType . }

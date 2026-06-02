@@ -2,7 +2,7 @@ BASE <https://purl.org/supply-network/examples#>
 PREFIX : <https://purl.org/supply-network/examples#>
 PREFIX sn: <https://purl.org/supply-network/onto#>
 
-CONSTRUCT {
+INSERT {
     ?target_supplyflow a sn:SupplyFlow ;
         :export ?target_from_entity ;
         :import ?target_into_entity ;
@@ -23,5 +23,20 @@ CONSTRUCT {
             sn:unit ?unit .
         BIND(IRI(MD5(CONCAT(STR(?target_from_entity),
             STR(?target_into_entity)))) AS ?target_supplyflow) .
+
+        # extension to distinct select only flows fully identified by the 
+        FILTER NOT EXISTS {
+            {   ?source_supplyflow ?into ?x.
+                ?into rdfs:subPropertyOf sn:into ; rdfs:range ?parallelclass .
+            } UNION {
+                ?source_supplyflow ?from ?y .
+                ?from rdfs:subPropertyOf sn:from ; rdfs:range ?parallelclass . }
+            :export rdfs:range ?class .
+            # a path of abstarct substitute subproperties from ?class to ?parallelclass
+            FILTER NOT EXISTS {
+                ?p rdfs:domain ?class ; rdfs:subPropertyOf sn:abstractSubstitute ; rdfs:range+/(^rdfs:domain/rdfs:range)* ?parallelclass } }
+
+        # extension for grain
+        ?source_supplyflow sn:grain :OrganizationGrain .
     } GROUP BY ?target_from_entity ?target_into_entity
         ?target_supplyflow ?time ?unit } }

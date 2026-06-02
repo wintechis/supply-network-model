@@ -4,7 +4,7 @@ PREFIX sn: <https://purl.org/supply-network/onto#>
 PREFIX time: <http://www.w3.org/2006/time#>
 
 
-CONSTRUCT  {
+INSERT  {
     ?flow a sn:SupplyFlow ;
         sn:from ?from ;
         sn:into ?into ;
