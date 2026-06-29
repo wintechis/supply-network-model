@@ -1,4 +1,4 @@
-PREFIX :         <https://purl.org/supply-network/examples#>
+PREFIX :         <https://purl.org/supply-network/examples/>
 PREFIX cosn:     <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/cosn-ontology#>
 PREFIX csn:      <https://paul.ti.rw.fau.de/~ju32haqi/supply-networks/abstraction-examples/csn-ontology#>
 PREFIX cur:      <http://qudt.org/vocab/currency/>

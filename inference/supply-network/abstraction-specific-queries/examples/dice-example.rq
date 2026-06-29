@@ -1,5 +1,5 @@
-BASE <https://purl.org/supply-network/examples#>
-PREFIX : <https://purl.org/supply-network/examples#>
+BASE <https://purl.org/supply-network/examples/>
+PREFIX : <https://purl.org/supply-network/examples/>
 PREFIX sn: <https://purl.org/supply-network/onto#>
 
 INSERT {

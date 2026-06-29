@@ -1,4 +1,4 @@
-PREFIX : <https://purl.org/supply-network/examples#>
+PREFIX : <https://purl.org/supply-network/examples/>
 PREFIX geonames: <http://www.geonames.org/ontology#>
 PREFIX org: <http://www.w3.org/ns/org#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>

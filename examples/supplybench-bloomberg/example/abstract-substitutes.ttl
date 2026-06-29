@@ -1,4 +1,4 @@
-@prefix : <https://purl.org/supply-network/examples#> .
+@prefix : <https://purl.org/supply-network/examples/> .
 @prefix cur: <http://qudt.org/vocab/currency/> .
 @prefix geonames: <http://www.geonames.org/ontology#> .
 @prefix org: <http://www.w3.org/ns/org#> .

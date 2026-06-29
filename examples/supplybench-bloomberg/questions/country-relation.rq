@@ -1,4 +1,4 @@
-PREFIX : <https://purl.org/supply-network/examples#>
+PREFIX : <https://purl.org/supply-network/examples/>
 PREFIX sn: <https://purl.org/supply-network/onto#>
 PREFIX taiwan: <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#>
 PREFIX usa: <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#>

@@ -3,7 +3,7 @@
 # The terms in this document are used to implement demonstration examples for the Supply Network Abstraction Pattern Ontology (SNAPO).
 # The terms were not curated with the carefulness of a high-quality ontology.
 
-@prefix : <https://purl.org/supply-network/examples#> .
+@prefix : <https://purl.org/supply-network/examples/> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sb: <https://purl.org/supplybench#> .
