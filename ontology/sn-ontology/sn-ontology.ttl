@@ -24,7 +24,7 @@ sn: a owl:Ontology ;
     schema:image <https://purl.org/supply-network/onto/visualization> ;
     owl:versionInfo "1.0.0" ;
     owl:versionIRI <https://purl.org/supply-network/onto/1.0.0> ;
-    dct:created "2025-07-22"^^xsd:date ;
+    dct:created "2026-06-30"^^xsd:date ;
     dct:creator <https://danielhenselmann.solidcommunity.net/profile/card#me> ;
     dct:contributor <https://aharth.solidcommunity.net/profile/card#me> ;
     dct:publisher [ foaf:name "Center for Applied Research on Supply Chain Services at Fraunhofer IIS"@en ;
@@ -45,13 +45,18 @@ sn: a owl:Ontology ;
 sn:Entity a rdfs:Class ;
     rdfs:subClassOf skos:Concept ;
     rdfs:label "Entity"@en ;
-    rdfs:comment "Abstract class. An entity that can represent a vertex in a supply network on an abstraction."@en ;
+    rdfs:comment "An entity that can represent a vertex in a supply network on an abstraction. This class is abstract, i.e. abstraction-specific subclasses are expected."@en ;
     rdfs:isDefinedBy sn: .
 
 sn:SupplyFlow a rdfs:Class ;
     rdfs:subClassOf qb:Slice ;
     rdfs:label "Supply Flow"@en ;
     rdfs:comment "A directed supply relation between two entities, typically with a volume."@en ;
+    rdfs:isDefinedBy sn: .
+
+sn:AbstractionLevel a rdfs:Class ;
+    rdfs:label "Abstraction Level"@en ;
+    rdfs:comment "An abstraction level of a supply flow, identified via abstraction-specific subproperties of sn:from and sn:into."@en ;
     rdfs:isDefinedBy sn: .
 
 time:TemporalEntity rdf:type rdfs:Class ;
@@ -78,21 +83,43 @@ sn:abstractSubstitute a owl:ObjectProperty , rdf:Property ;
     rdfs:domain sn:Entity ;
     rdfs:range sn:Entity ;
     rdfs:label "abstract substitute"@en ;
-    rdfs:comment "Links an associated entity on another abstraction. This property is abstract, i.e. only abstraction-specific subproperties are used with instance data."@en ;
+    rdfs:comment "Links an associated entity on another abstraction. This property is abstract, i.e. abstraction-specific subproperties are expected."@en ;
     rdfs:isDefinedBy sn: .
     
 sn:from a owl:ObjectProperty , rdf:Property , qb:DimensionProperty ;
     rdfs:domain sn:SupplyFlow ;
     rdfs:range sn:Entity ;
     rdfs:label "from"@en ;
-    rdfs:comment "Links the entity that is the origin/source of a directed supply flow between two entities. This property is abstract, i.e. only abstraction-specific subproperties are used with instance data."@en ;
+    rdfs:comment "Links the entity that is the origin/source of a directed supply flow between two entities. This property is abstract, i.e. abstraction-specific subproperties are expecteda."@en ;
     rdfs:isDefinedBy sn: .
 
 sn:into a owl:ObjectProperty , rdf:Property , qb:DimensionProperty ;
     rdfs:domain sn:SupplyFlow ;
     rdfs:range sn:Entity ;
     rdfs:label "into"@en ;
-    rdfs:comment "Links the entity that is the target of a directed supply flow between two entities. This property is abstract, i.e. only abstraction-specific subproperties are used with instance data."@en ;
+    rdfs:comment "Links the entity that is the target of a directed supply flow between two entities. This property is abstract, i.e. abstraction-specific subproperties are expected."@en ;
+    rdfs:isDefinedBy sn: .
+
+sn:level a owl:ObjectProperty , rdf:Property , owl:FunctionalProperty ;
+    rdfs:domain sn:SupplyFlow ;
+    rdfs:range sn:AbstractionLevel ;
+    rdfs:label "level"@en ;
+    rdfs:comment "Links the abstraction level of a directed supply flow."@en ;
+    rdfs:isDefinedBy sn: .
+
+sn:discriminativeProperty a owl:ObjectProperty , rdf:Property ;
+    rdfs:domain sn:AbstractionLevel ;
+    rdfs:range rdf:Property ;
+    rdfs:label "discriminative property"@en ;
+    rdfs:comment "Links the abstraction-specific subproperties of sn:from and sn:into that are discriminative for the abstraction level."@en ;
+    rdfs:isDefinedBy sn: .
+
+sn:volume a owl:ObjectProperty , rdf:Property , owl:InverseFunctionalProperty ;
+    rdfs:subPropertyOf qb:observation ;
+    rdfs:domain sn:SupplyFlow ;
+    rdfs:range sn:Volume ;
+    rdfs:label "volume"@en ;
+    rdfs:comment "Links a supply flow's volume."@en ;
     rdfs:isDefinedBy sn: .
 
 sn:time a owl:ObjectProperty , rdf:Property , owl:FunctionalProperty , qb:DimensionProperty ;
@@ -109,14 +136,6 @@ sn:unit a owl:ObjectProperty , rdf:Property , owl:FunctionalProperty , qb:Attrib
     rdfs:comment "Links the unit of the observed quantity of a supply flow's volume."@en ;
     rdfs:isDefinedBy sn: .
 
-sn:volume a owl:ObjectProperty , rdf:Property , owl:InverseFunctionalProperty ;
-    rdfs:subPropertyOf qb:observation ;
-    rdfs:domain sn:SupplyFlow ;
-    rdfs:range sn:Volume ;
-    rdfs:label "volume"@en ;
-    rdfs:comment "Links a supply flow's volume."@en ;
-    rdfs:isDefinedBy sn: .
-
 
 # --- datatype properties ---
 
@@ -127,6 +146,3 @@ sn:quantity a owl:DatatypeProperty , rdf:Property , owl:FunctionalProperty , qb:
     rdfs:label "quantity"@en ;
     rdfs:comment "Links the observed quantity of a supply flow's volume."@en ;
     rdfs:isDefinedBy sn: .
-
-
-# --- individuals ---
