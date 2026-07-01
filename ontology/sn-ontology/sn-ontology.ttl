@@ -33,7 +33,7 @@ sn: a owl:Ontology ;
     schema:creativeWorkStatus "Ontology Release"@en ;
     vann:preferredNamespaceUri <https://purl.org/supply-network/onto#> ;
     vann:preferredNamespacePrefix "sn" ;
-    voaf:extends qb: , qudt: , time: , skos: ;
+    voaf:extends owl: , qb: , qudt: , time: , skos: ;
     rdfs:isDefinedBy sn: .
 
 <https://danielhenselmann.solidcommunity.net/profile/card#me> foaf:name "Daniel Henselmann" .
@@ -107,11 +107,11 @@ sn:level a owl:ObjectProperty , rdf:Property , owl:FunctionalProperty ;
     rdfs:comment "Links the abstraction level of a directed supply flow."@en ;
     rdfs:isDefinedBy sn: .
 
-sn:discriminativeProperty a owl:ObjectProperty , rdf:Property ;
+sn:discriminativeProperties a owl:ObjectProperty , rdf:Property , owl:FunctionalProperty ;
     rdfs:domain sn:AbstractionLevel ;
-    rdfs:range rdf:Property ;
-    rdfs:label "discriminative property"@en ;
-    rdfs:comment "Links the abstraction-specific subproperties of sn:from and sn:into that are discriminative for the abstraction level."@en ;
+    rdfs:range rdf:List ;
+    rdfs:label "discriminative properties"@en ;
+    rdfs:comment "Links the abstraction-specific subproperties of sn:from and sn:into that are discriminative for the abstraction level. Inspired by owl:hasKey, but determines an instance's keys via its sn:level relation instead of class."@en ;
     rdfs:isDefinedBy sn: .
 
 sn:volume a owl:ObjectProperty , rdf:Property , owl:InverseFunctionalProperty ;
