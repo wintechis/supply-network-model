@@ -1,0 +1,25 @@
+# own prefix
+@prefix sn: <https://purl.org/supply-network/onto#> .
+@prefix : <https://purl.org/supply-network/examples/> .
+
+# other prefixes
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sb: <https://purl.org/supplybench#> .
+
+    
+org:Organization rdfs:subClassOf sn:Entity .
+sb:supplier rdfs:subPropertyOf sn:from ;
+    rdfs:domain sn:SupplyFlow ;
+    rdfs:range org:Organization .
+sb:customer rdfs:subPropertyOf sn:into ;
+    rdfs:domain sn:SupplyFlow ;
+    rdfs:range org:Organization .
+:EnterpriseLevel a sn:AbstractionLevel ;
+    sn:discriminativeProperties ( sb:supplier sb:customer ) .
+:registeredInCountry rdfs:subPropertyOf sn:abstractSubstitute ;
+    rdfs:domain org:Organization ;
+    rdfs:range :Country .
+    
