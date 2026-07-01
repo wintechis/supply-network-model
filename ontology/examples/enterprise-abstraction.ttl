@@ -19,7 +19,4 @@ sb:customer rdfs:subPropertyOf sn:into ;
     rdfs:range org:Organization .
 :EnterpriseLevel a sn:AbstractionLevel ;
     sn:discriminativeProperties ( sb:supplier sb:customer ) .
-:registeredInCountry rdfs:subPropertyOf sn:abstractSubstitute ;
-    rdfs:domain org:Organization ;
-    rdfs:range :Country .
     
