@@ -55,6 +55,7 @@ sn:SupplyFlow a rdfs:Class ;
     rdfs:isDefinedBy sn: .
 
 sn:AbstractionLevel a rdfs:Class ;
+    rdfs:subClassOf qb:SliceKey ;
     rdfs:label "Abstraction Level"@en ;
     rdfs:comment "An abstraction level of a supply flow, identified via abstraction-specific subproperties of sn:from and sn:into."@en ;
     rdfs:isDefinedBy sn: .
@@ -101,17 +102,19 @@ sn:into a owl:ObjectProperty , rdf:Property , qb:DimensionProperty ;
     rdfs:isDefinedBy sn: .
 
 sn:level a owl:ObjectProperty , rdf:Property , owl:FunctionalProperty ;
+    rdfs:subPropertyOf qb:sliceStructure ;
     rdfs:domain sn:SupplyFlow ;
     rdfs:range sn:AbstractionLevel ;
     rdfs:label "level"@en ;
     rdfs:comment "Links the abstraction level of a directed supply flow."@en ;
     rdfs:isDefinedBy sn: .
 
-sn:discriminativeProperties a owl:ObjectProperty , rdf:Property , owl:FunctionalProperty ;
+sn:discriminativeProperty a owl:ObjectProperty , rdf:Property , owl:FunctionalProperty ;
+    rdfs:subPropertyOf qb:componentProperty ;
     rdfs:domain sn:AbstractionLevel ;
-    rdfs:range rdf:List ;
-    rdfs:label "discriminative properties"@en ;
-    rdfs:comment "Links the abstraction-specific subproperties of sn:from and sn:into that are discriminative for the abstraction level. Inspired by owl:hasKey, but determines an instance's keys via its sn:level relation instead of class."@en ;
+    rdfs:range qb:DimensionProperty ;
+    rdfs:label "discriminative property"@en ;
+    rdfs:comment "Links an abstraction-specific subproperty of sn:from or sn:into that is discriminative for the abstraction level. Similar to owl:hasKey, but determines an instance's keys via its sn:level relation instead of class."@en ;
     rdfs:isDefinedBy sn: .
 
 sn:volume a owl:ObjectProperty , rdf:Property , owl:InverseFunctionalProperty ;
