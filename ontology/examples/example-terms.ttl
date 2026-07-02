@@ -14,6 +14,8 @@
     rdfs:range :Country .
 :export rdfs:subPropertyOf sn:from ;
     rdfs:range :Country .
+:CountryLevel a sn:AbstractionLevel ;
+    sn:discriminativeProperties :import , :export .
 
 :receiver rdfs:subPropertyOf sn:into ;
     rdfs:range sb:OrganizationType .

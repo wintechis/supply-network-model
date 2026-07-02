@@ -18,5 +18,5 @@ sb:customer rdfs:subPropertyOf sn:into ;
     rdfs:domain sn:SupplyFlow ;
     rdfs:range org:Organization .
 :EnterpriseLevel a sn:AbstractionLevel ;
-    sn:discriminativeProperties ( sb:supplier sb:customer ) .
+    sn:discriminativeProperties sb:supplier , sb:customer .
     
