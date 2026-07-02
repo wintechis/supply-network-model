@@ -79,7 +79,7 @@ sn:Volume a rdfs:Class ;
 
 # --- object properties ---
 
-sn:abstractSubstitute a owl:ObjectProperty , rdf:Property ;
+sn:abstractSubstitute a owl:ObjectProperty , rdf:Property , owl:TransitiveProperty ;
     rdfs:subPropertyOf skos:broader ;
     rdfs:domain sn:Entity ;
     rdfs:range sn:Entity ;

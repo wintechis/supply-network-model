@@ -1,0 +1,9 @@
+PREFIX sn: <https://purl.org/supply-network/onto#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+ASK {
+    ?level a sn:AbstractionLevel ;
+        sn:discriminativeProperty ?prop .
+    VALUES ?frominto { sn:from sn:into }
+    FILTER NOT EXISTS { ?prop rdfs:subPropertyOf ?frominto . }
+}
