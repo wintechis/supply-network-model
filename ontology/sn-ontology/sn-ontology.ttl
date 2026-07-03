@@ -109,7 +109,7 @@ sn:level a owl:ObjectProperty , rdf:Property , owl:FunctionalProperty ;
     rdfs:comment "Links the abstraction level of a directed supply flow."@en ;
     rdfs:isDefinedBy sn: .
 
-sn:discriminativeProperty a owl:ObjectProperty , rdf:Property , owl:FunctionalProperty ;
+sn:discriminativeProperty a owl:ObjectProperty , rdf:Property ;
     rdfs:subPropertyOf qb:componentProperty ;
     rdfs:domain sn:AbstractionLevel ;
     rdfs:range qb:DimensionProperty ;
