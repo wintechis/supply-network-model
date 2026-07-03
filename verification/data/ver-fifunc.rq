@@ -1,0 +1,8 @@
+PREFIX sn: <https://purl.org/supply-network/onto#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+ASK { ?supplyflow ?fromintosp ?entity .
+  ?fromintosp rdfs:subPropertyOf ?frominto .
+  FILTER ( ?frominto IN ( sn:from , sn:into ) ) }
+GROUP BY ?supplyflow ?frominto
+HAVING (COUNT(DISTINCT ?entity) > 1)

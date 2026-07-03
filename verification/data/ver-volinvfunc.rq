@@ -1,0 +1,6 @@
+PREFIX sn: <https://purl.org/supply-network/onto#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+ASK { ?supplyflow sn:volume ?volume . }
+GROUP BY ?volume
+HAVING (COUNT(DISTINCT ?supplyflow) > 1)
