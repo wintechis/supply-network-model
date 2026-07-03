@@ -1,10 +1,8 @@
 PREFIX sn: <https://purl.org/supply-network/onto#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-ASK {
-    ?as rdfs:subPropertyOf sn:abstractSubstitute ;
+ASK { ?as rdfs:subPropertyOf sn:abstractSubstitute ;
         rdfs:domain ?subclassD ;
         rdfs:range ?subclassR .
     FILTER NOT EXISTS { ?subclassD rdfs:subClassOf sn:Entity .
-        ?subclassR rdfs:subClassOf sn:Entity . }
-}
+        ?subclassR rdfs:subClassOf sn:Entity . } }
