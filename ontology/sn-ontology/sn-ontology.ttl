@@ -33,7 +33,7 @@ sn: a owl:Ontology ;
     schema:creativeWorkStatus "Ontology Release"@en ;
     vann:preferredNamespaceUri <https://purl.org/supply-network/onto#> ;
     vann:preferredNamespacePrefix "sn" ;
-    voaf:extends owl: , qb: , qudt: , time: , skos: ;
+    voaf:extends qb: , qudt: , time: , skos: ;
     rdfs:isDefinedBy sn: .
 
 <https://danielhenselmann.solidcommunity.net/profile/card#me> foaf:name "Daniel Henselmann" .
@@ -79,7 +79,7 @@ sn:Volume a rdfs:Class ;
 
 # --- object properties ---
 
-sn:abstractSubstitute a owl:ObjectProperty , rdf:Property , owl:TransitiveProperty ;
+sn:abstractSubstitute a rdf:Property ;
     rdfs:subPropertyOf skos:broader ;
     rdfs:domain sn:Entity ;
     rdfs:range sn:Entity ;
@@ -87,21 +87,21 @@ sn:abstractSubstitute a owl:ObjectProperty , rdf:Property , owl:TransitiveProper
     rdfs:comment "Links an associated entity on another abstraction. This property is abstract, i.e. abstraction-specific subproperties are expected."@en ;
     rdfs:isDefinedBy sn: .
     
-sn:from a owl:ObjectProperty , rdf:Property , qb:DimensionProperty ;
+sn:from a rdf:Property , qb:DimensionProperty ;
     rdfs:domain sn:SupplyFlow ;
     rdfs:range sn:Entity ;
     rdfs:label "from"@en ;
     rdfs:comment "Links the entity that is the origin/source of a directed supply flow between two entities. This property is abstract, i.e. abstraction-specific subproperties are expecteda."@en ;
     rdfs:isDefinedBy sn: .
 
-sn:into a owl:ObjectProperty , rdf:Property , qb:DimensionProperty ;
+sn:into a rdf:Property , qb:DimensionProperty ;
     rdfs:domain sn:SupplyFlow ;
     rdfs:range sn:Entity ;
     rdfs:label "into"@en ;
     rdfs:comment "Links the entity that is the target of a directed supply flow between two entities. This property is abstract, i.e. abstraction-specific subproperties are expected."@en ;
     rdfs:isDefinedBy sn: .
 
-sn:level a owl:ObjectProperty , rdf:Property , owl:FunctionalProperty ;
+sn:level a rdf:Property ;
     rdfs:subPropertyOf qb:sliceStructure ;
     rdfs:domain sn:SupplyFlow ;
     rdfs:range sn:AbstractionLevel ;
@@ -109,7 +109,7 @@ sn:level a owl:ObjectProperty , rdf:Property , owl:FunctionalProperty ;
     rdfs:comment "Links the abstraction level of a directed supply flow."@en ;
     rdfs:isDefinedBy sn: .
 
-sn:discriminativeProperty a owl:ObjectProperty , rdf:Property ;
+sn:discriminativeProperty a rdf:Property ;
     rdfs:subPropertyOf qb:componentProperty ;
     rdfs:domain sn:AbstractionLevel ;
     rdfs:range qb:DimensionProperty ;
@@ -117,7 +117,7 @@ sn:discriminativeProperty a owl:ObjectProperty , rdf:Property ;
     rdfs:comment "Links an abstraction-specific subproperty of sn:from or sn:into that is discriminative for the abstraction level. Similar to owl:hasKey, but determines an instance's keys via its sn:level relation instead of class."@en ;
     rdfs:isDefinedBy sn: .
 
-sn:volume a owl:ObjectProperty , rdf:Property , owl:InverseFunctionalProperty ;
+sn:volume a rdf:Property ;
     rdfs:subPropertyOf qb:observation ;
     rdfs:domain sn:SupplyFlow ;
     rdfs:range sn:Volume ;
@@ -125,14 +125,14 @@ sn:volume a owl:ObjectProperty , rdf:Property , owl:InverseFunctionalProperty ;
     rdfs:comment "Links a supply flow's volume."@en ;
     rdfs:isDefinedBy sn: .
 
-sn:time a owl:ObjectProperty , rdf:Property , owl:FunctionalProperty , qb:DimensionProperty ;
+sn:time a rdf:Property , qb:DimensionProperty ;
     rdfs:domain sn:Volume ;
     rdfs:range time:TemporalEntity ;
     rdfs:label "time"@en ;
     rdfs:comment "Links the time instance or interval of a supply flow's volume."@en ;
     rdfs:isDefinedBy sn: .
 
-sn:unit a owl:ObjectProperty , rdf:Property , owl:FunctionalProperty , qb:AttributeProperty ;
+sn:unit a rdf:Property , qb:AttributeProperty ;
     rdfs:domain sn:Volume ;
     rdfs:range qudt:Unit ;
     rdfs:label "unit"@en ;
@@ -142,7 +142,7 @@ sn:unit a owl:ObjectProperty , rdf:Property , owl:FunctionalProperty , qb:Attrib
 
 # --- datatype properties ---
 
-sn:quantity a owl:DatatypeProperty , rdf:Property , owl:FunctionalProperty , qb:MeasureProperty ;
+sn:quantity a rdf:Property , qb:MeasureProperty ;
     rdfs:subPropertyOf qudt:quantity ;
     rdfs:domain sn:Volume ;
     rdfs:range xsd:decimal ;
