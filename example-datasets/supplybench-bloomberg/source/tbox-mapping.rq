@@ -6,33 +6,30 @@ PREFIX sb: <https://purl.org/supplybench#>
 PREFIX sn: <https://purl.org/supply-network/onto#>
 
 INSERT DATA {
+    org:Organization rdfs:subClassOf sn:Entity .
     sb:customer rdfs:subPropertyOf sn:into ;
         rdfs:range org:Organization .
     sb:supplier rdfs:subPropertyOf sn:from ;
         rdfs:range org:Organization .
+    :EnterpriseLevel a sn:AbstractionLevel ;
+        sn:discriminativeProperties sb:supplier , sb:customer .
     :registeredInCountry rdfs:subPropertyOf sn:abstractSubstitute ;
         rdfs:domain org:Organization ;
         rdfs:range :Country .
+    :Country rdfs:subClassOf geonames:Feature , sn:Entity  .
     :import rdfs:subPropertyOf sn:into ;
         rdfs:range :Country .
     :export rdfs:subPropertyOf sn:from ;
         rdfs:range :Country .
-    :Country rdfs:subClassOf geonames:Feature .
+    :CountryLevel a sn:AbstractionLevel ;
+        sn:discriminativeProperties :import , :export .
     sb:organizationType rdfs:subPropertyOf sn:abstractSubstitute ;
         rdfs:domain org:Organization ;
         rdfs:range sb:OrganizationType .
+    sb:OrganizationType rdfs:subClassOf sn:Entity .
     :receiver rdfs:subPropertyOf sn:into ;
         rdfs:range sb:OrganizationType .
     :provider rdfs:subPropertyOf sn:from ;
-        rdfs:range sb:OrganizationType . 
-        
-    # if we need a grain per level
-    :OrganizationGrain a sn:Grain ;
-        sn:dimension org:Organization .
-    :CountryGrain a sn:Grain ;
-        sn:dimension :Country .
-    :OrganizationTypeGrain a sn:Grain ;
-        sn:dimension sb:OrganizationType .
-    :CountryOrganizationTypeGrain a sn:Grain ;
-        sn:dimension :Country ;
-        sn:dimension sb:OrganizationType . }
+        rdfs:range sb:OrganizationType .
+    :OrgTypeLevel a sn:AbstractionLevel ;
+        sn:discriminativeProperties :receiver , :provider . }

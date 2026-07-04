@@ -9,7 +9,13 @@
 @prefix sb: <https://purl.org/supplybench#> .
 @prefix sn: <https://purl.org/supply-network/onto#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
 
+
+:EnterpriseLevel a sn:AbstractionLevel ;
+    sn:discriminativeProperties sb:supplier , sb:customer .
+
+:Country rdfs:subClassOf sn:Entity .
 :import rdfs:subPropertyOf sn:into ;
     rdfs:range :Country .
 :export rdfs:subPropertyOf sn:from ;
@@ -21,17 +27,29 @@
     rdfs:range sb:OrganizationType .
 :provider rdfs:subPropertyOf sn:from ;
     rdfs:range sb:OrganizationType .
+:OrgTypeLevel a sn:AbstractionLevel ;
+    sn:discriminativeProperties :receiver , :provider .
 
 :continent_import rdfs:subPropertyOf sn:into ;
     rdfs:range wd:Q5107 .
 :continent_export rdfs:subPropertyOf sn:from ;
     rdfs:range wd:Q5107 .
+:ContinentLevel a sn:AbstractionLevel ;
+    sn:discriminativeProperties :continent_import , :continent_export .
 
 :registeredInCountry rdfs:subPropertyOf sn:abstractSubstitute ;
     rdfs:domain org:Organization ;
     rdfs:range :Country .
 
 :inContinent rdfs:subPropertyOf sn:abstractSubstitute ;
+    rdfs:domain :Country ;
+    rdfs:range wd:Q5107 .
+
+:continent rdfs:subPropertyOf sn:abstractSubstitute ;
+    rdfs:domain org:Organization ;
+    rdfs:range wd:Q5107 .
+
+wdt:P30 rdfs:subPropertyOf sn:abstractSubstitute ;
     rdfs:domain :Country ;
     rdfs:range wd:Q5107 .
 

@@ -1,3 +1,4 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix cur: <http://qudt.org/vocab/currency/> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -10,7 +11,8 @@
 @prefix taiwan: <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#> .
 @prefix usa: <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#> .
 
-_:tsmcnvidia a sn:SupplyFlow ;
+nvidia:Q20 a sn:SupplyFlow ;
+        sn:level :EnterpriseLevel ;
         sb:supplier tsmc:this ;
         sb:customer nvidia:this ;
         :export taiwan:this ;

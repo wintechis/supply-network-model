@@ -2210,8 +2210,7 @@
         we:Q110 ;
     org:hasRegisteredSite <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ110.ttl#headquarter> ;
     org:hasSite <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/site/weQ586.ttl#this> ;
-    sb:organizationType we:Q1023,
-        we:Q287 ;
+    sb:organizationType we:Q287 ;
     sb:providesService we:Q291 ;
     sb:size we:Q1046 .
 
@@ -2869,8 +2868,7 @@
     owl:sameAs wd:Q125124965,
         we:Q1165 ;
     org:hasRegisteredSite <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ1165.ttl#headquarter> ;
-    sb:organizationType we:Q1023,
-        we:Q1060 .
+    sb:organizationType we:Q1023 .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ1166.ttl#this> a org:Organization,
         sb:Enterprise ;
@@ -2894,8 +2892,7 @@
     owl:sameAs wd:Q125125229,
         we:Q1168 ;
     org:hasRegisteredSite <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ1168.ttl#headquarter> ;
-    sb:organizationType we:Q1023,
-        we:Q1060 .
+    sb:organizationType we:Q1060 .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ117.ttl#totalrevenue2022> a qb:Observation ;
     rdfs:comment "Total revenue of Entrepix in 2022: +26700000 United States dollar."@en ;
@@ -20863,8 +20860,7 @@
         we:Q117 ;
     org:hasRegisteredSite <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ117.ttl#headquarter> ;
     org:hasSite <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/site/weQ592.ttl#this> ;
-    sb:organizationType we:Q1023,
-        we:Q287 ;
+    sb:organizationType we:Q1023 ;
     sb:providesService we:Q291 ;
     sb:size we:Q1046 .
 
@@ -21351,8 +21347,7 @@
         org:Site ;
     rdfs:label "Headquarter of United Monolithic Semiconductors"@en ;
     geonames:featureClass geonames:S ;
-    geonames:parentCountry <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ142.ttl#this>,
-        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this> ;
+    geonames:parentCountry <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ183.ttl#this> ;
     geonames:parentFeature <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ3012.ttl#this>,
         <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ828625.ttl#this> ;
     wgs1:lat 48.6876838074379 ;
@@ -23233,8 +23228,7 @@
         org:Site ;
     rdfs:label "Headquarter of MultiLane"@en ;
     geonames:featureClass geonames:S ;
-    geonames:parentCountry <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ822.ttl#this>,
-        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ878.ttl#this> ;
+    geonames:parentCountry <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ878.ttl#this> ;
     geonames:parentFeature <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ12199152.ttl#this>,
         <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ612.ttl#this> ;
     wgs1:lat 33.8055 ;
@@ -23806,8 +23800,7 @@
         org:Site ;
     rdfs:label "Headquarter of ABB"@en ;
     geonames:featureClass geonames:S ;
-    geonames:parentCountry <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ34.ttl#this>,
-        <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this> ;
+    geonames:parentCountry <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ39.ttl#this> ;
     geonames:parentFeature <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ25412.ttl#this>,
         <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ72.ttl#this> ;
     wgs1:lat 47.41148425006246 ;
@@ -36058,8 +36051,7 @@
         <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/site/weQ619.ttl#this>,
         <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/site/weQ620.ttl#this>,
         <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/site/weQ621.ttl#this> ;
-    sb:organizationType we:Q1023,
-        we:Q285 ;
+    sb:organizationType we:Q1023 ;
     sb:providesService we:Q288,
         we:Q289,
         we:Q290,
@@ -39420,8 +39412,7 @@
         <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/site/weQ968.ttl#this>,
         <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/site/weQ969.ttl#this>,
         <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/site/weQ970.ttl#this> ;
-    sb:organizationType we:Q1023,
-        we:Q879 ;
+    sb:organizationType we:Q879 ;
     sb:providesService we:Q289,
         we:Q290 .
 
@@ -40590,8 +40581,7 @@
         <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/site/weQ492.ttl#this>,
         <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/site/weQ493.ttl#this> ;
     foaf:homepage <https://www.hitachi.com/> ;
-    sb:organizationType we:Q1023,
-        we:Q285 ;
+    sb:organizationType we:Q1023;
     sb:size we:Q1049 .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ16963.ttl#this> a geonames:Feature ;
@@ -40654,8 +40644,7 @@
         <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/site/weQ1273.ttl#this>,
         <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/site/weQ1274.ttl#this> ;
     foaf:homepage <http://www.siltronic.com> ;
-    sb:organizationType we:Q1023,
-        we:Q1060 ;
+    sb:organizationType we:Q1060 ;
     sb:size we:Q1048 .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ65.ttl#this> a org:Organization,
@@ -41292,8 +41281,7 @@
         <https://csa.canon.com>,
         <https://global.canon/>,
         <https://imagesquare.in.canon/> ;
-    sb:organizationType we:Q1023,
-        we:Q285 ;
+    sb:organizationType we:Q1023 ;
     sb:size we:Q1049 .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ142.ttl#this> a geonames:Feature ;
@@ -41714,8 +41702,7 @@
     owl:sameAs wd:Q745099,
         we:Q143 ;
     org:hasRegisteredSite <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ143.ttl#headquarter> ;
-    sb:organizationType we:Q1023,
-        we:Q285 ;
+    sb:organizationType we:Q1023 ;
     sb:providesService we:Q290 ;
     sb:size we:Q1049 .
 
@@ -41866,8 +41853,7 @@
         we:Q721 ;
     org:hasRegisteredSite <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ721.ttl#headquarter> ;
     foaf:homepage <https://www.kla.com/> ;
-    sb:organizationType we:Q1023,
-        we:Q286 ;
+    sb:organizationType we:Q1023 ;
     sb:providesService we:Q291 ;
     sb:size we:Q1048 .
 
@@ -41881,8 +41867,7 @@
         <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/site/weQ786.ttl#this>,
         <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/site/weQ787.ttl#this> ;
     foaf:homepage <https://www.appliedmaterials.com/> ;
-    sb:organizationType we:Q1023,
-        we:Q285 ;
+    sb:organizationType we:Q285 ;
     sb:size we:Q1049 .
 
 <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ884.ttl#this> a geonames:Feature ;

@@ -4,5 +4,5 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 ASK { ?supplyflow ?fromintosp ?entity .
   ?fromintosp rdfs:subPropertyOf ?frominto .
   FILTER ( ?frominto IN ( sn:from , sn:into ) ) }
-GROUP BY ?supplyflow ?frominto
+GROUP BY ?supplyflow ?fromintosp
 HAVING (COUNT(DISTINCT ?entity) > 1)

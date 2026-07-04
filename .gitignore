@@ -1,6 +1,6 @@
-examples/regional-trade-data/*.zip
-examples/regional-trade-data/*.ods
-examples/regional-trade-data/*.csv
-examples/regional-trade-data/*.nt
+example-datasets/regional-trade-data/*.zip
+example-datasets/regional-trade-data/*.ods
+example-datasets/regional-trade-data/*.csv
+example-datasets/regional-trade-data/*.nt
 
 todo.txt

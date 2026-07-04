@@ -6,10 +6,13 @@ PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 
 INSERT DATA {
+    wd:Q5107 rdfs:subClassOf sn:Entity .
     :continent_import rdfs:subPropertyOf sn:into ;
         rdfs:range wd:Q5107 .
     :continent_export rdfs:subPropertyOf sn:from ;
-        rdfs:range wd:Q5107 . 
+        rdfs:range wd:Q5107 .
+    :ContinentLevel a sn:AbstractionLevel ;
+        sn:discriminativeProperties :continent_import , :continent_export .
     wdt:P30 rdfs:subPropertyOf sn:abstractSubstitute ;
         rdfs:domain :Country ;
         rdfs:range wd:Q5107 .
