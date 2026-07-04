@@ -1,0 +1,15 @@
+PREFIX : <https://purl.org/supply-network/examples/>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX sb: <https://purl.org/supplybench#>
+PREFIX sn: <https://purl.org/supply-network/onto#>
+
+SELECT ?enterprise ((COUNT(DISTINCT ?flowIn) + COUNT(DISTINCT ?flowOut)) AS ?degree)
+WHERE { ?enterprise a org:Organization .
+    {	?flowIn a sn:SupplyFlow ;
+			sn:level :EnterpriseLevel ;
+            sb:customer ?enterprise .
+	} UNION {
+        ?flowOut a sn:SupplyFlow ;
+			sn:level :EnterpriseLevel ;
+            sb:supplier ?enterprise . } }
+GROUP BY ?enterprise ORDER BY DESC(?degree) LIMIT 1

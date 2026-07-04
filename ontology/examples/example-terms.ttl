@@ -37,6 +37,9 @@
 :ContinentLevel a sn:AbstractionLevel ;
     sn:discriminativeProperties :continent_import , :continent_export .
 
+:CountryOrgTypeLevel a sn:AbstractionLevel ;
+    sn:discriminativeProperties :import , :export , :receiver , :provider .
+
 :registeredInCountry rdfs:subPropertyOf sn:abstractSubstitute ;
     rdfs:domain org:Organization ;
     rdfs:range :Country .

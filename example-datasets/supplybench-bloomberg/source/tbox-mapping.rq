@@ -32,4 +32,6 @@ INSERT DATA {
     :provider rdfs:subPropertyOf sn:from ;
         rdfs:range sb:OrganizationType .
     :OrgTypeLevel a sn:AbstractionLevel ;
-        sn:discriminativeProperties :receiver , :provider . }
+        sn:discriminativeProperties :receiver , :provider .
+    :CountryOrgTypeLevel a sn:AbstractionLevel ;
+        sn:discriminativeProperties :import , :export , :receiver , :provider . }

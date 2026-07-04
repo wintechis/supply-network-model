@@ -1,0 +1,9 @@
+PREFIX : <https://purl.org/supply-network/examples/>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX sb: <https://purl.org/supplybench#>
+PREFIX sn: <https://purl.org/supply-network/onto#>
+
+SELECT ?enterprise (COUNT(DISTINCT ?supplier) AS ?degree)
+WHERE { ?enterprise a org:Organization ;
+    (^sb:customer/sb:supplier)+ ?supplier . }
+GROUP BY ?enterprise ORDER BY DESC(?degree)
