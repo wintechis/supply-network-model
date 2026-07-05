@@ -1,0 +1,11 @@
+PREFIX : <https://purl.org/supply-network/examples/>
+PREFIX sn: <https://purl.org/supply-network/onto#>
+
+SELECT ?state (SUM(?quantity) AS ?throughput)
+# WHERE { ?flow sn:level :StateIndustryLevel ;
+WHERE { ?flow sn:level :StateLevel ;
+        sn:volume/sn:quantity ?quantity .
+    {   ?flow :state_import ?state .
+    } UNION {
+        ?flow :state_export ?state . } }
+GROUP BY ?state ORDER BY DESC(?throughput) LIMIT 10
