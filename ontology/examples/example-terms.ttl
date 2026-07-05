@@ -11,10 +11,11 @@
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix wdt: <http://www.wikidata.org/prop/direct/> .
 
-
+# EnterpriseLevel
 :EnterpriseLevel a sn:AbstractionLevel ;
     sn:discriminativeProperties sb:supplier , sb:customer .
 
+# CountryLevel
 :Country rdfs:subClassOf sn:Entity .
 :import rdfs:subPropertyOf sn:into ;
     rdfs:range :Country .
@@ -23,6 +24,7 @@
 :CountryLevel a sn:AbstractionLevel ;
     sn:discriminativeProperties :import , :export .
 
+# OrgTypeLevel
 :receiver rdfs:subPropertyOf sn:into ;
     rdfs:range sb:OrganizationType .
 :provider rdfs:subPropertyOf sn:from ;
@@ -30,6 +32,7 @@
 :OrgTypeLevel a sn:AbstractionLevel ;
     sn:discriminativeProperties :receiver , :provider .
 
+# ContinentLevel
 :continent_import rdfs:subPropertyOf sn:into ;
     rdfs:range wd:Q5107 .
 :continent_export rdfs:subPropertyOf sn:from ;
@@ -37,26 +40,47 @@
 :ContinentLevel a sn:AbstractionLevel ;
     sn:discriminativeProperties :continent_import , :continent_export .
 
+# StateLevel
+:State rdfs:subClassOf sn:Entity .
+:state_import rdfs:subPropertyOf sn:into ;
+    rdfs:range :State .
+:state_export rdfs:subPropertyOf sn:from ;
+    rdfs:range :State .
+:StateLevel a sn:AbstractionLevel ;
+    sn:discriminativeProperties :state_import , :state_export .
+
+# IndustryLevel
+:Industry rdfs:subClassOf sn:Entity .
+:demand rdfs:subPropertyOf sn:into ;
+    rdfs:range :Industry .
+:supply rdfs:subPropertyOf sn:from ;
+    rdfs:range :Industry .
+:IndustryLevel a sn:AbstractionLevel ;
+    sn:discriminativeProperties :demand , :supply .
+
+# combined levels
 :CountryOrgTypeLevel a sn:AbstractionLevel ;
     sn:discriminativeProperties :import , :export , :receiver , :provider .
+:StateIndustryLevel a sn:AbstractionLevel ;
+    sn:discriminativeProperties :state_import , :state_export , :demand , :supply .
 
+# abstract substitutes
 :registeredInCountry rdfs:subPropertyOf sn:abstractSubstitute ;
     rdfs:domain org:Organization ;
     rdfs:range :Country .
-
 :inContinent rdfs:subPropertyOf sn:abstractSubstitute ;
     rdfs:domain :Country ;
     rdfs:range wd:Q5107 .
-
 :continent rdfs:subPropertyOf sn:abstractSubstitute ;
     rdfs:domain org:Organization ;
     rdfs:range wd:Q5107 .
-
 wdt:P30 rdfs:subPropertyOf sn:abstractSubstitute ;
     rdfs:domain :Country ;
     rdfs:range wd:Q5107 .
-
 :continent rdfs:subPropertyOf sn:abstractSubstitute ;
     rdfs:domain org:Organization ;
     rdfs:range wd:Q5107 .
+:inCountry rdfs:subPropertyOf sn:abstractSubstitute ;
+    rdfs:domain :State ;
+    rdfs:range :Country .
     
