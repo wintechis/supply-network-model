@@ -1,0 +1,44 @@
+@prefix : <https://purl.org/supply-network/examples/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sb: <https://purl.org/supplybench#> .
+@prefix sn: <https://purl.org/supply-network/onto#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+
+# CountryLevel
+:Country rdfs:subClassOf sn:Entity .
+:import rdfs:subPropertyOf sn:into ;
+    rdfs:range :Country .
+:export rdfs:subPropertyOf sn:from ;
+    rdfs:range :Country .
+:CountryLevel a sn:AbstractionLevel ;
+    sn:discriminativeProperties :import , :export .
+
+# StateLevel
+:State rdfs:subClassOf sn:Entity .
+:state_import rdfs:subPropertyOf sn:into ;
+    rdfs:range :State .
+:state_export rdfs:subPropertyOf sn:from ;
+    rdfs:range :State .
+:StateLevel a sn:AbstractionLevel ;
+    sn:discriminativeProperties :state_import , :state_export .
+
+# IndustryLevel
+:Industry rdfs:subClassOf sn:Entity .
+:demand rdfs:subPropertyOf sn:into ;
+    rdfs:range :Industry .
+:supply rdfs:subPropertyOf sn:from ;
+    rdfs:range :Industry .
+:IndustryLevel a sn:AbstractionLevel ;
+    sn:discriminativeProperties :demand , :supply .
+
+# combined levels
+:StateIndustryLevel a sn:AbstractionLevel ;
+    sn:discriminativeProperties :state_import , :state_export , :demand , :supply .
+
+# abstract substitutes
+:inCountry rdfs:subPropertyOf sn:abstractSubstitute ;
+    rdfs:domain :State ;
+    rdfs:range :Country .
+    
