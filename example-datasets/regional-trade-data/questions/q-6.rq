@@ -1,0 +1,13 @@
+PREFIX : <https://purl.org/supply-network/examples/>
+PREFIX sn: <https://purl.org/supply-network/onto#>
+
+SELECT ?industry (SUM(?flowValue) AS ?netflow)
+WHERE { ?flow sn:level :IndustryLevel .
+    {   ?flow :demand ?industry ;
+            sn:volume/sn:quantity ?q .
+        BIND(-?q AS ?flowValue)
+    } UNION {
+        ?flow :supply ?industry ;
+            sn:volume/sn:quantity ?q .
+        BIND(?q AS ?flowValue) } }
+GROUP BY ?industry ORDER BY DESC(?netflow) LIMIT 1

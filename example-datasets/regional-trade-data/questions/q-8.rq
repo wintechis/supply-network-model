@@ -1,0 +1,13 @@
+PREFIX : <https://purl.org/supply-network/examples/>
+PREFIX sn: <https://purl.org/supply-network/onto#>
+PREFIX tradedata: <http://data.europa.eu/89h/432cf8a7-fd5e-4816-a70c-633a7380c77c#>
+
+SELECT (SUM(?quantity) AS ?trade)
+WHERE { ?flow sn:level :CountryLevel ;
+        :export tradedata:AT ;
+        :import tradedata:BE ;
+        sn:volume ?volume .
+    ?volume sn:time ?time ;
+        sn:quantity ?quantity .
+    VALUES ?time {tradedata:2006 tradedata:2007
+        tradedata:2008 tradedata:2009 tradedata:2010} }

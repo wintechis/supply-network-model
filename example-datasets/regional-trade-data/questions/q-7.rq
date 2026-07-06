@@ -1,0 +1,13 @@
+PREFIX : <https://purl.org/supply-network/examples/>
+PREFIX sn: <https://purl.org/supply-network/onto#>
+PREFIX tradedata: <http://data.europa.eu/89h/432cf8a7-fd5e-4816-a70c-633a7380c77c#>
+
+SELECT ?industry (SUM(?quantity) AS ?exports)
+WHERE { ?flow sn:level :CountryIndustryLevel ;
+        :export tradedata:AT ;
+        :import tradedata:BE ;
+        :supply ?industry ;
+        sn:volume ?volume .
+    ?volume sn:time tradedata:2010 ;
+        sn:quantity ?quantity .}
+GROUP BY ?industry ORDER BY DESC(?exports) LIMIT 5

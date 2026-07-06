@@ -63,6 +63,8 @@
     sn:discriminativeProperties :import , :export , :receiver , :provider .
 :StateIndustryLevel a sn:AbstractionLevel ;
     sn:discriminativeProperties :state_import , :state_export , :demand , :supply .
+:CountryIndustryLevel a sn:AbstractionLevel ;
+    sn:discriminativeProperties :import , :export , :demand , :supply .
 
 # abstract substitutes
 :registeredInCountry rdfs:subPropertyOf sn:abstractSubstitute ;

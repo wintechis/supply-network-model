@@ -36,6 +36,8 @@
 # combined levels
 :StateIndustryLevel a sn:AbstractionLevel ;
     sn:discriminativeProperties :state_import , :state_export , :demand , :supply .
+:CountryIndustryLevel a sn:AbstractionLevel ;
+    sn:discriminativeProperties :import , :export , :demand , :supply .
 
 # abstract substitutes
 :inCountry rdfs:subPropertyOf sn:abstractSubstitute ;

@@ -1,0 +1,34 @@
+BASE <https://purl.org/supply-network/examples/>
+PREFIX : <https://purl.org/supply-network/examples/>
+PREFIX sn: <https://purl.org/supply-network/onto#>
+
+INSERT {
+    ?target_supplyflow sn:level :CountryIndustryLevel ;
+        :export ?target_from_entity_c ;
+        :import ?target_into_entity_c ;
+        :supply ?target_from_entity_i ;
+        :demand ?target_into_entity_i ;
+        sn:volume _:target_volume .
+    _:target_volume sn:time ?time ;
+        sn:unit ?unit ;
+        sn:quantity ?aggregatedQuantity .
+} WHERE {
+    { SELECT ?target_from_entity_c ?target_into_entity_c
+        ?target_from_entity_i ?target_into_entity_i
+        ?target_supplyflow ?time ?unit (SUM(?quantity) AS ?aggregatedQuantity)
+    WHERE {
+        ?source_supplyflow sn:level :StateIndustryLevel ;
+            sn:volume ?source_volume ;
+            :export ?target_from_entity_c ;
+            :import ?target_into_entity_c ;
+            :supply ?target_from_entity_i ;
+            :demand ?target_into_entity_i .
+        ?source_volume sn:time ?time ;
+            sn:unit ?unit ;
+            sn:quantity ?quantity .
+        BIND(IRI(MD5(CONCAT(STR(?target_from_entity_c),
+            STR(?target_into_entity_c), STR(?target_from_entity_i),
+            STR(?target_into_entity_i)))) AS ?target_supplyflow) .
+    } GROUP BY ?target_from_entity_c ?target_into_entity_c
+        ?target_from_entity_i ?target_into_entity_i
+        ?target_supplyflow ?time ?unit } }
