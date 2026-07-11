@@ -1,0 +1,16 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX sn: <https://purl.org/supply-network/onto#>
+
+ASK { { SELECT ?level (COUNT(DISTINCT ?p) AS ?allCount)
+        WHERE { ?level sn:discriminativeProperty ?p . }
+        GROUP BY ?level }
+    {   SELECT ?level ?supplyflow_1 ?supplyflow_2 (COUNT(DISTINCT ?p) AS ?sharedCount)
+        WHERE { ?level sn:discriminativeProperty ?p .
+            ?supplyflow_1 sn:level ?level ;
+                ?p ?value .
+            ?supplyflow_2 sn:level ?level ;
+                ?p ?value . }
+        GROUP BY ?level ?supplyflow_1 ?supplyflow_2 }
+    FILTER ( ?allCount = ?sharedCount ) }
