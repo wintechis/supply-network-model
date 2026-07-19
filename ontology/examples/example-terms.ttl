@@ -58,6 +58,15 @@
 :IndustryLevel a sn:AbstractionLevel ;
     sn:discriminativeProperties :demand , :supply .
 
+# ProductTypeLevel
+:ProductType rdfs:subClassOf sn:Entity .
+:input rdfs:subPropertyOf sn:into ;
+    rdfs:range :ProductType .
+:output rdfs:subPropertyOf sn:from ;
+    rdfs:range :ProductType .
+:ProductTypeLevel a sn:AbstractionLevel ;
+    sn:discriminativeProperties :input , :output .
+
 # combined levels
 :CountryOrgTypeLevel a sn:AbstractionLevel ;
     sn:discriminativeProperties :import , :export , :receiver , :provider .

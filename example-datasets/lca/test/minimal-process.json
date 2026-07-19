@@ -1,0 +1,82 @@
+{
+    "@type":"Process",
+    "@id":"0a8dedfc-dea5-32df-865d-9bd6900d03a6",
+    "name":"Natural gas combustion; internal combustion engines, commercial/institutional, natural gas, turbine:cogeneration,pre-combustion chamber; at turbine",
+    "category":"Equipment",
+    "processType":"UNIT_PROCESS",
+    "defaultAllocationMethod":"PHYSICAL_ALLOCATION",
+    "isInfrastructureProcess":false,
+    "location":
+        {
+            "@type":"Location",
+            "@id":"0b3b97fa-6688-3c56-88ee-4ae80ec0c3c2",
+            "name":"United States of America (the)",
+            "category":"Country"
+        },
+    "exchanges":
+    [
+        {
+            "@type":"Exchange",
+            "isAvoidedProduct":false,
+            "isInput":false,
+            "amount":4.2393504057720465E-11,
+            "flow":
+                {
+                    "@type":"Flow",
+                    "@id":"43aed9d7-5a9b-3f3e-8d51-cc8bebd9a9a1",
+                    "name":"Acenaphthene",
+                    "category":"Elementary flows/emission/air",
+                    "flowType":"ELEMENTARY_FLOW",
+                    "refUnit":"kg"
+                },
+            "unit":
+                {
+                    "@type":"Unit",
+                    "@id":"20aadc24-a391-41cf-b340-3e4529f44bde",
+                    "name":"kg"
+                }
+        },
+        {
+            "@type":"Exchange",
+            "isAvoidedProduct":false,
+            "isInput":false,
+            "amount":4.2393504057720465E-11,
+            "flow":
+                {
+                    "@type":"Flow",
+                    "@id":"34b07e52-3833-3665-aeec-01aed3f78362",
+                    "name":"Acenaphthylene",
+                    "category":"Elementary flows/emission/air",
+                    "flowType":"ELEMENTARY_FLOW",
+                    "refUnit":"kg"
+                },
+            "unit":
+                {
+                    "@type":"Unit",
+                    "@id":"20aadc24-a391-41cf-b340-3e4529f44bde",
+                    "name":"kg"
+                }
+        },
+        {
+            "@type":"Exchange",
+            "isAvoidedProduct":false,
+            "isInput":true,
+            "amount":1.0,
+            "flow":
+                {
+                    "@type":"Flow",
+                    "@id":"1a34bf95-f897-4af9-b70c-368fce9e41d6",
+                    "name":"Natural gas; production mixture; to energy use",
+                    "category":"Technosphere flows/21: Mining, Quarrying, and Oil and Gas Extraction/2111: Oil and Gas Extraction",
+                    "flowType":"PRODUCT_FLOW",
+                    "refUnit":"kg"
+                },
+            "unit":
+                {
+                    "@type":"Unit",
+                    "@id":"20aadc24-a391-41cf-b340-3e4529f44bde",
+                    "name":"kg"
+                }
+        }
+    ]
+}
