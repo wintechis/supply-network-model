@@ -6,7 +6,7 @@
 
 `USLCI_Database` downloaded from [lcacommons.gov](https://www.lcacommons.gov/lca-collaboration/National_Renewable_Energy_Laboratory/USLCI_Database_Public/datasets).
 
-`transform-lca.py` creates a proper RDF graph from the dataset. Even though the `USLCI_Database` is available as JSON-LD, the data only uses `@type` and `@id` annotations, resulting in only `rdf:type` triples.
+`quick-transform-lca.py` creates a proper RDF graph from the dataset. Even though the `USLCI_Database` is available as JSON-LD, the data only uses `@type` and `@id` annotations, resulting in only `rdf:type` triples.
 
 Example of a resulting supply flow modelled with SNAPO:
 
