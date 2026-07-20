@@ -3,14 +3,14 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX sn: <https://purl.org/supply-network/onto#>
 
-ASK { { SELECT ?level (COUNT(DISTINCT ?p) AS ?allCount)
-        WHERE { ?level sn:discriminativeProperty ?p . }
-        GROUP BY ?level }
-    {   SELECT ?level ?supplyflow_1 ?supplyflow_2 (COUNT(DISTINCT ?p) AS ?sharedCount)
-        WHERE { ?level sn:discriminativeProperty ?p .
-            ?supplyflow_1 sn:abstraction ?level ;
+ASK { { SELECT ?profile (COUNT(DISTINCT ?p) AS ?allCount)
+        WHERE { ?profile sn:discriminativeProperty ?p . }
+        GROUP BY ?profile }
+    {   SELECT ?profile ?supplyflow_1 ?supplyflow_2 (COUNT(DISTINCT ?p) AS ?sharedCount)
+        WHERE { ?profile sn:discriminativeProperty ?p .
+            ?supplyflow_1 sn:abstraction ?profile ;
                 ?p ?value .
-            ?supplyflow_2 sn:abstraction ?level ;
+            ?supplyflow_2 sn:abstraction ?profile ;
                 ?p ?value . }
-        GROUP BY ?level ?supplyflow_1 ?supplyflow_2 }
+        GROUP BY ?profile ?supplyflow_1 ?supplyflow_2 }
     FILTER ( ?allCount = ?sharedCount ) }
