@@ -10,7 +10,6 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <https://schema.org/> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
@@ -33,7 +32,7 @@ sn: a owl:Ontology ;
     schema:creativeWorkStatus "Ontology Release"@en ;
     vann:preferredNamespaceUri <https://purl.org/supply-network/onto#> ;
     vann:preferredNamespacePrefix "sn" ;
-    voaf:extends qb: , qudt: , time: , skos: ;
+    voaf:extends qb: , qudt: , time: ;
     rdfs:isDefinedBy sn: .
 
 <https://danielhenselmann.solidcommunity.net/profile/card#me> foaf:name "Daniel Henselmann" .
@@ -43,7 +42,6 @@ sn: a owl:Ontology ;
 # --- classes ---
     
 sn:Entity a rdfs:Class ;
-    rdfs:subClassOf skos:Concept ;
     rdfs:label "Entity"@en ;
     rdfs:comment "An entity that can represent a vertex in a supply network on an abstraction. This class is abstract, i.e. abstraction-specific subclasses are expected."@en ;
     rdfs:isDefinedBy sn: .
