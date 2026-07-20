@@ -54,7 +54,7 @@ sn:SupplyFlow a rdfs:Class ;
     rdfs:comment "A directed supply relation between two entities, typically with a volume."@en ;
     rdfs:isDefinedBy sn: .
 
-sn:AbstractionLevel a rdfs:Class ;
+sn:AbstractionProfile a rdfs:Class ;
     rdfs:subClassOf qb:SliceKey ;
     rdfs:label "Abstraction Level"@en ;
     rdfs:comment "An abstraction level of a supply flow, identified via abstraction-specific subproperties of sn:from and sn:into."@en ;
@@ -101,20 +101,20 @@ sn:into a rdf:Property , qb:DimensionProperty ;
     rdfs:comment "Links the entity that is the target of a directed supply flow between two entities. This property is abstract, i.e. abstraction-specific subproperties are expected."@en ;
     rdfs:isDefinedBy sn: .
 
-sn:level a rdf:Property ;
+sn:abstraction a rdf:Property ;
     rdfs:subPropertyOf qb:sliceStructure ;
     rdfs:domain sn:SupplyFlow ;
-    rdfs:range sn:AbstractionLevel ;
+    rdfs:range sn:AbstractionProfile ;
     rdfs:label "level"@en ;
     rdfs:comment "Links the abstraction level of a directed supply flow."@en ;
     rdfs:isDefinedBy sn: .
 
 sn:discriminativeProperty a rdf:Property ;
     rdfs:subPropertyOf qb:componentProperty ;
-    rdfs:domain sn:AbstractionLevel ;
+    rdfs:domain sn:AbstractionProfile ;
     rdfs:range qb:DimensionProperty ;
     rdfs:label "discriminative property"@en ;
-    rdfs:comment "Links an abstraction-specific subproperty of sn:from or sn:into that is discriminative for the abstraction level. Similar to owl:hasKey, but determines an instance's keys via its sn:level relation instead of class."@en ;
+    rdfs:comment "Links an abstraction-specific subproperty of sn:from or sn:into that is discriminative for the abstraction level. Similar to owl:hasKey, but determines an instance's keys via its sn:abstraction relation instead of class."@en ;
     rdfs:isDefinedBy sn: .
 
 sn:volume a rdf:Property ;

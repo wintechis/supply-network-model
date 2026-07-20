@@ -3,7 +3,7 @@ PREFIX sn: <https://purl.org/supply-network/onto#>
 PREFIX wd: <http://www.wikidata.org/entity/>
 
 SELECT (SUM(?quantity) AS ?aggregatedQuantity) ?unit ?time
-WHERE { ?supplyflow sn:level :ContinentLevel ;
+WHERE { ?supplyflow sn:abstraction :ContinentLevel ;
   	:continent_export wd:Q48 ;
 	:continent_import ?continent ;
 	sn:volume ?volume .

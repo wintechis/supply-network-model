@@ -8,9 +8,9 @@ ASK { { SELECT ?level (COUNT(DISTINCT ?p) AS ?allCount)
         GROUP BY ?level }
     {   SELECT ?level ?supplyflow_1 ?supplyflow_2 (COUNT(DISTINCT ?p) AS ?sharedCount)
         WHERE { ?level sn:discriminativeProperty ?p .
-            ?supplyflow_1 sn:level ?level ;
+            ?supplyflow_1 sn:abstraction ?level ;
                 ?p ?value .
-            ?supplyflow_2 sn:level ?level ;
+            ?supplyflow_2 sn:abstraction ?level ;
                 ?p ?value . }
         GROUP BY ?level ?supplyflow_1 ?supplyflow_2 }
     FILTER ( ?allCount = ?sharedCount ) }

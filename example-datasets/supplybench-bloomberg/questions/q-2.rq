@@ -4,7 +4,7 @@ PREFIX taiwan: <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-gra
 PREFIX usa: <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#>
 
 SELECT ?quantity ?unit ?time
-WHERE { ?supplyflow sn:level :CountryLevel ;
+WHERE { ?supplyflow sn:abstraction :CountryLevel ;
   	:export taiwan:this ;            
 	:import usa:this ;            
 	sn:volume ?volume .        

@@ -3,7 +3,7 @@ PREFIX : <https://purl.org/supply-network/examples/>
 PREFIX sn: <https://purl.org/supply-network/onto#>
 
 INSERT {
-    ?target_supplyflow sn:level :StateLevel ;
+    ?target_supplyflow sn:abstraction :StateLevel ;
         :state_export ?target_from_entity ;
         :state_import ?target_into_entity ;
         sn:volume _:target_volume .
@@ -14,7 +14,7 @@ INSERT {
     { SELECT ?target_from_entity ?target_into_entity
         ?target_supplyflow ?time ?unit (SUM(?quantity) AS ?aggregatedQuantity)
     WHERE {
-        ?source_supplyflow sn:level :StateIndustryLevel ;
+        ?source_supplyflow sn:abstraction :StateIndustryLevel ;
             sn:volume ?source_volume ;
             :state_export ?target_from_entity ;
             :state_import ?target_into_entity .

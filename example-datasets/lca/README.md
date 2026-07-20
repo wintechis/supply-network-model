@@ -16,7 +16,7 @@ uslci:1a34bf95-f897-4af9-b70c-368fce9e41d6 a :ProductType ;
 uslci:43aed9d7-5a9b-3f3e-8d51-cc8bebd9a9a1 a :ProductType ;
     rdfs:label "Acenaphthene" .
 uslci:xx a sn:SupplyFlow ;
-    sn:level :ProductTypeLevel ;
+    sn:abstraction :ProductTypeLevel ;
     :input uslci:1a34bf95-f897-4af9-b70c-368fce9e41d6 ;
     :output uslci:43aed9d7-5a9b-3f3e-8d51-cc8bebd9a9a1 ;
     sn:volume [ a sn:Volume ;

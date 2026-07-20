@@ -11,7 +11,7 @@ INSERT DATA {
         rdfs:range wd:Q5107 .
     :continent_export rdfs:subPropertyOf sn:from ;
         rdfs:range wd:Q5107 .
-    :ContinentLevel a sn:AbstractionLevel ;
+    :ContinentLevel a sn:AbstractionProfile ;
         sn:discriminativeProperties :continent_import , :continent_export .
     wdt:P30 rdfs:subPropertyOf sn:abstractSubstitute ;
         rdfs:domain :Country ;

@@ -3,7 +3,7 @@ PREFIX sn: <https://purl.org/supply-network/onto#>
 PREFIX tradedata: <http://data.europa.eu/89h/432cf8a7-fd5e-4816-a70c-633a7380c77c#>
 
 SELECT ?state (SUM(?quantity) AS ?throughput)
-WHERE { ?flow sn:level :StateLevel ;
+WHERE { ?flow sn:abstraction :StateLevel ;
         sn:volume ?volume .
         ?volume sn:time tradedata:2010 ;
             sn:quantity ?quantity .

@@ -12,7 +12,7 @@
 @prefix wdt: <http://www.wikidata.org/prop/direct/> .
 
 # EnterpriseLevel
-:EnterpriseLevel a sn:AbstractionLevel ;
+:EnterpriseLevel a sn:AbstractionProfile ;
     sn:discriminativeProperties sb:supplier , sb:customer .
 
 # CountryLevel
@@ -21,7 +21,7 @@
     rdfs:range :Country .
 :export rdfs:subPropertyOf sn:from ;
     rdfs:range :Country .
-:CountryLevel a sn:AbstractionLevel ;
+:CountryLevel a sn:AbstractionProfile ;
     sn:discriminativeProperties :import , :export .
 
 # OrgTypeLevel
@@ -29,7 +29,7 @@
     rdfs:range sb:OrganizationType .
 :provider rdfs:subPropertyOf sn:from ;
     rdfs:range sb:OrganizationType .
-:OrgTypeLevel a sn:AbstractionLevel ;
+:OrgTypeLevel a sn:AbstractionProfile ;
     sn:discriminativeProperties :receiver , :provider .
 
 # ContinentLevel
@@ -37,7 +37,7 @@
     rdfs:range wd:Q5107 .
 :continent_export rdfs:subPropertyOf sn:from ;
     rdfs:range wd:Q5107 .
-:ContinentLevel a sn:AbstractionLevel ;
+:ContinentLevel a sn:AbstractionProfile ;
     sn:discriminativeProperties :continent_import , :continent_export .
 
 # StateLevel
@@ -46,7 +46,7 @@
     rdfs:range :State .
 :state_export rdfs:subPropertyOf sn:from ;
     rdfs:range :State .
-:StateLevel a sn:AbstractionLevel ;
+:StateLevel a sn:AbstractionProfile ;
     sn:discriminativeProperties :state_import , :state_export .
 
 # IndustryLevel
@@ -55,7 +55,7 @@
     rdfs:range :Industry .
 :supply rdfs:subPropertyOf sn:from ;
     rdfs:range :Industry .
-:IndustryLevel a sn:AbstractionLevel ;
+:IndustryLevel a sn:AbstractionProfile ;
     sn:discriminativeProperties :demand , :supply .
 
 # ProductTypeLevel
@@ -64,15 +64,15 @@
     rdfs:range :ProductType .
 :output rdfs:subPropertyOf sn:from ;
     rdfs:range :ProductType .
-:ProductTypeLevel a sn:AbstractionLevel ;
+:ProductTypeLevel a sn:AbstractionProfile ;
     sn:discriminativeProperties :input , :output .
 
 # combined levels
-:CountryOrgTypeLevel a sn:AbstractionLevel ;
+:CountryOrgTypeLevel a sn:AbstractionProfile ;
     sn:discriminativeProperties :import , :export , :receiver , :provider .
-:StateIndustryLevel a sn:AbstractionLevel ;
+:StateIndustryLevel a sn:AbstractionProfile ;
     sn:discriminativeProperties :state_import , :state_export , :demand , :supply .
-:CountryIndustryLevel a sn:AbstractionLevel ;
+:CountryIndustryLevel a sn:AbstractionProfile ;
     sn:discriminativeProperties :import , :export , :demand , :supply .
 
 # abstract substitutes

@@ -11,7 +11,7 @@ INSERT DATA {
         rdfs:range org:Organization .
     sb:supplier rdfs:subPropertyOf sn:from ;
         rdfs:range org:Organization .
-    :EnterpriseLevel a sn:AbstractionLevel ;
+    :EnterpriseLevel a sn:AbstractionProfile ;
         sn:discriminativeProperties sb:supplier , sb:customer .
     :registeredInCountry rdfs:subPropertyOf sn:abstractSubstitute ;
         rdfs:domain org:Organization ;
@@ -21,7 +21,7 @@ INSERT DATA {
         rdfs:range :Country .
     :export rdfs:subPropertyOf sn:from ;
         rdfs:range :Country .
-    :CountryLevel a sn:AbstractionLevel ;
+    :CountryLevel a sn:AbstractionProfile ;
         sn:discriminativeProperties :import , :export .
     sb:organizationType rdfs:subPropertyOf sn:abstractSubstitute ;
         rdfs:domain org:Organization ;
@@ -31,7 +31,7 @@ INSERT DATA {
         rdfs:range sb:OrganizationType .
     :provider rdfs:subPropertyOf sn:from ;
         rdfs:range sb:OrganizationType .
-    :OrgTypeLevel a sn:AbstractionLevel ;
+    :OrgTypeLevel a sn:AbstractionProfile ;
         sn:discriminativeProperties :receiver , :provider .
-    :CountryOrgTypeLevel a sn:AbstractionLevel ;
+    :CountryOrgTypeLevel a sn:AbstractionProfile ;
         sn:discriminativeProperties :import , :export , :receiver , :provider . }

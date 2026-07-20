@@ -6,10 +6,10 @@ PREFIX sn: <https://purl.org/supply-network/onto#>
 SELECT ?enterprise ((COUNT(DISTINCT ?flowIn) + COUNT(DISTINCT ?flowOut)) AS ?degree)
 WHERE { ?enterprise a org:Organization .
     {	?flowIn a sn:SupplyFlow ;
-			sn:level :EnterpriseLevel ;
+			sn:abstraction :EnterpriseLevel ;
             sb:customer ?enterprise .
 	} UNION {
         ?flowOut a sn:SupplyFlow ;
-			sn:level :EnterpriseLevel ;
+			sn:abstraction :EnterpriseLevel ;
             sb:supplier ?enterprise . } }
 GROUP BY ?enterprise ORDER BY DESC(?degree) LIMIT 1

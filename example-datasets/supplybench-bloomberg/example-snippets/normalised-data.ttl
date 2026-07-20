@@ -12,7 +12,7 @@
 @prefix usa: <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#> .
 
 nvidia:Q20 a sn:SupplyFlow ;
-        sn:level :EnterpriseLevel ;
+        sn:abstraction :EnterpriseLevel ;
         sb:supplier tsmc:this ;
         sb:customer nvidia:this ;
         :export taiwan:this ;

@@ -10,7 +10,7 @@ INSERT {
     # required because class was too generic
     ?country rdf:type :Country .
     # required level
-    ?supplyflow sn:level :EnterpriseLevel .
+    ?supplyflow sn:abstraction :EnterpriseLevel .
 } WHERE {
     ?org org:hasRegisteredSite/geonames:parentCountry ?country .
     ?supplyflow a sn:SupplyFlow . }

@@ -5,7 +5,7 @@ PREFIX usa: <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-
 PREFIX we: <https://welektronik.iis.fraunhofer.de/entity/>
 
 SELECT ?quantity ?unit ?time
-WHERE { ?supplyflow sn:level :CountryOrgTypeLevel ;
+WHERE { ?supplyflow sn:abstraction :CountryOrgTypeLevel ;
   	:export taiwan:this ;
 	:import usa:this ;
 	:provider we:Q287 ;

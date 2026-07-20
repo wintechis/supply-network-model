@@ -2,7 +2,7 @@ PREFIX : <https://purl.org/supply-network/examples/>
 PREFIX sn: <https://purl.org/supply-network/onto#>
 
 SELECT ?industry (SUM(?flowValue) AS ?netflow)
-WHERE { ?flow sn:level :IndustryLevel .
+WHERE { ?flow sn:abstraction :IndustryLevel .
     {   ?flow :demand ?industry ;
             sn:volume/sn:quantity ?q .
         BIND(-?q AS ?flowValue)
