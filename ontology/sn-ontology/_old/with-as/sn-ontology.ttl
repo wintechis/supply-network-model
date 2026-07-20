@@ -79,6 +79,14 @@ sn:Volume a rdfs:Class ;
 
 # --- object properties ---
 
+sn:abstractSubstitute a rdf:Property ;
+    rdfs:subPropertyOf skos:broader ;
+    rdfs:domain sn:Entity ;
+    rdfs:range sn:Entity ;
+    rdfs:label "abstract substitute"@en ;
+    rdfs:comment "Links an associated entity on another abstraction. This property is abstract, i.e. abstraction-specific subproperties are expected."@en ;
+    rdfs:isDefinedBy sn: .
+    
 sn:from a rdf:Property , qb:DimensionProperty ;
     rdfs:domain sn:SupplyFlow ;
     rdfs:range sn:Entity ;
