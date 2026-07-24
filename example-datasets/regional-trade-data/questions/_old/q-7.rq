@@ -2,12 +2,12 @@ PREFIX : <https://purl.org/supply-network/examples/>
 PREFIX sn: <https://purl.org/supply-network/onto#>
 PREFIX tradedata: <http://data.europa.eu/89h/432cf8a7-fd5e-4816-a70c-633a7380c77c#>
 
-# Which five industries in Burgenland had the most exports to Wien in 2010? The query aggregates all Wien industries.
+# Which five Austrian industries had the most exports to Belgium in 2010? The query utilises a prior sum aggregation of the supply flows to the (country, industry) abstraction profile and itself aggregates all Belgian industries.
 
 SELECT ?industry (SUM(?quantity) AS ?exports)
-WHERE { ?flow sn:abstraction :StateIndustryAbstraction ;
-        :state_export tradedata:AT11 ;
-        :state_import tradedata:AT13 ;
+WHERE { ?flow sn:abstraction :CountryIndustryAbstraction ;
+        :export tradedata:AT ;
+        :import tradedata:BE ;
         :supply ?industry ;
         sn:volume ?volume .
     ?volume sn:time tradedata:2010 ;

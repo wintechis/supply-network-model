@@ -2,12 +2,14 @@ PREFIX : <https://purl.org/supply-network/examples/>
 PREFIX sn: <https://purl.org/supply-network/onto#>
 PREFIX tradedata: <http://data.europa.eu/89h/432cf8a7-fd5e-4816-a70c-633a7380c77c#>
 
-SELECT (SUM(?quantity) AS ?trade)
-WHERE { ?flow sn:abstraction :CountryAbstraction ;
-        :export tradedata:AT ;
-        :import tradedata:BE ;
+# What was the trade volume from Burgenland's agriculture to Wien's food industry in 2010? The query retrieves the volume of the respective supply flow.
+
+SELECT ?quantity ?unit
+WHERE { ?flow sn:abstraction :StateIndustryAbstraction ;
+        :state_export tradedata:AT11 ;
+        :state_import tradedata:AT13 ;
+        :supply tradedata:ss1 ;
+        :demand tradedata:ss3 ;
         sn:volume ?volume .
-    ?volume sn:time ?time ;
-        sn:quantity ?quantity .
-    VALUES ?time {tradedata:2006 tradedata:2007
-        tradedata:2008 tradedata:2009 tradedata:2010} }
+    ?volume sn:time tradedata:2010 ;
+        sn:quantity ?quantity .}

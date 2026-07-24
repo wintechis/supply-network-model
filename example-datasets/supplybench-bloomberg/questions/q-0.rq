@@ -3,6 +3,8 @@ PREFIX org: <http://www.w3.org/ns/org#>
 PREFIX sb: <https://purl.org/supplybench#>
 PREFIX sn: <https://purl.org/supply-network/onto#>
 
+# Which enterprise has the highest degree centrality in the supply network? The query leverages the enterprise supply flows spanning a network.
+
 SELECT ?enterprise ((COUNT(DISTINCT ?flowIn) + COUNT(DISTINCT ?flowOut)) AS ?degree)
 WHERE { ?enterprise a org:Organization .
     {	?flowIn a sn:SupplyFlow ;

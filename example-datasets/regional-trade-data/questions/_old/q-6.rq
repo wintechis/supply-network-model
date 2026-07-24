@@ -1,10 +1,10 @@
 PREFIX : <https://purl.org/supply-network/examples/>
 PREFIX sn: <https://purl.org/supply-network/onto#>
 
-# Which industry had the highest net flow across all years? The query aggregates per industry.
+# Which industry had the highest net flow across all years? The query utilises a prior sum aggregation of the supply flows to the industry abstraction profile and itself aggregates per industry.
 
 SELECT ?industry (SUM(?flowValue) AS ?netflow)
-WHERE { ?flow sn:abstraction :StateIndustryAbstraction .
+WHERE { ?flow sn:abstraction :IndustryAbstraction .
     {   ?flow :demand ?industry ;
             sn:volume/sn:quantity ?q .
         BIND(-?q AS ?flowValue)

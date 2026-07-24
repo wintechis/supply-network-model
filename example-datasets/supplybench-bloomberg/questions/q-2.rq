@@ -1,13 +1,16 @@
 PREFIX : <https://purl.org/supply-network/examples/>
 PREFIX sn: <https://purl.org/supply-network/onto#>
-PREFIX taiwan: <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ865.ttl#>
-PREFIX usa: <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/region/wdQ30.ttl#>
+PREFIX sn: <https://purl.org/supply-network/onto#>
+PREFIX tsmc: <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#>
+PREFIX nvidia: <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#>
+
+# What are the semiconductor trade volumes from TSMC to Nvidia? The query retrieves all volumes of the respective supply flow.
 
 SELECT ?quantity ?unit ?time
-WHERE { ?supplyflow sn:abstraction :CountryAbstraction ;
-  	:export taiwan:this ;            
-	:import usa:this ;            
-	sn:volume ?volume .        
-  ?volume sn:time ?time ;            
-	sn:quantity ?quantity ;            
+WHERE { ?supplyflow sn:abstraction :EnterpriseAbstraction ;
+  	sb:supplier tsmc:this ;
+	sb:customer nvidia:this ;
+	sn:volume ?volume .
+  ?volume sn:time ?time ;
+	sn:quantity ?quantity ;
 	sn:unit ?unit . }
