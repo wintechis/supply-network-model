@@ -12,7 +12,7 @@
     rdfs:range :Country .
 :export rdfs:subPropertyOf sn:from ;
     rdfs:range :Country .
-:CountryLevel a sn:AbstractionProfile ;
+:CountryAbstraction a sn:AbstractionProfile ;
     sn:discriminativeProperties :import , :export .
 
 # StateLevel
@@ -21,7 +21,7 @@
     rdfs:range :State .
 :state_export rdfs:subPropertyOf sn:from ;
     rdfs:range :State .
-:StateLevel a sn:AbstractionProfile ;
+:StateAbstraction a sn:AbstractionProfile ;
     sn:discriminativeProperties :state_import , :state_export .
 
 # IndustryLevel
@@ -30,13 +30,13 @@
     rdfs:range :Industry .
 :supply rdfs:subPropertyOf sn:from ;
     rdfs:range :Industry .
-:IndustryLevel a sn:AbstractionProfile ;
+:IndustryAbstraction a sn:AbstractionProfile ;
     sn:discriminativeProperties :demand , :supply .
 
 # combined levels
-:StateIndustryLevel a sn:AbstractionProfile ;
+:StateIndustryAbstraction a sn:AbstractionProfile ;
     sn:discriminativeProperties :state_import , :state_export , :demand , :supply .
-:CountryIndustryLevel a sn:AbstractionProfile ;
+:CountryIndustryAbstraction a sn:AbstractionProfile ;
     sn:discriminativeProperties :import , :export , :demand , :supply .
 
 # abstract substitutes

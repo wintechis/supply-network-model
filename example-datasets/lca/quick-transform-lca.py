@@ -107,7 +107,7 @@ def process_file(json_file):
 
             ttl.append(
 f"""uslci:{sid} a sn:SupplyFlow ;
-    sn:abstraction :ProductTypeLevel ;
+    sn:abstraction :ProductTypeAbstraction ;
     :input uslci:{in_id} ;
     :output uslci:{out_id} ;
     sn:volume [
