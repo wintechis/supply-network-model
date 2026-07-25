@@ -1,7 +1,8 @@
 PREFIX : <https://purl.org/supply-network/examples/>
+PREFIX uslci: <https://www.lcacommons.gov/lca-collaboration/National_Renewable_Energy_Laboratory/USLCI_Database_Public/datasets/>
 
-# What are the total carbon emmissions in the supply chain of one cubic foot of drinking water?
+# Which components in the supply network of drinking water emit hazardous waste?
 
-SELECT (SUM(?emmission) AS ?emmissions)
-WHERE { uslci:ddbc73af-51cd-3e7a-8380-2a6b23c05d8f (^:output/:input)* ?component   .
-    ?component uslci:emmission ?emmission .}
+SELECT ?component ?waste
+WHERE { uslci:ddbc73af-51cd-3e7a-8380-2a6b23c05d8f (^:output/:input)* ?component .
+    ?component uslci:waste ?waste .}

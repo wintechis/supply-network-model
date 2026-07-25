@@ -1,6 +1,7 @@
 import hashlib
 from concurrent.futures import ProcessPoolExecutor
 from pathlib import Path
+from decimal import Decimal
 
 import orjson
 
@@ -48,6 +49,11 @@ def supply_id(input_id, output_id, process_id):
     return f"sf_{h}"
 
 
+def decimal_str(value):
+    """Return a valid xsd:decimal lexical form (no scientific notation)."""
+    return format(Decimal(str(value)), "f")
+
+
 # -----------------------------------------------------------------------------
 # Worker
 # -----------------------------------------------------------------------------
@@ -67,10 +73,16 @@ def process_file(json_file):
 
     inputs = []
     outputs = []
+    waste = None
 
     for ex in exchanges:
 
         flow = ex["flow"]
+        
+        # Disposal; hazardous waste
+        if flow["@id"] == "b20513f5-f6ff-4753-90e7-01e1b1e9eada":
+            waste  = ex
+
         if flow["flowType"] != "PRODUCT_FLOW":
             continue
 
@@ -86,7 +98,7 @@ def process_file(json_file):
 
     for inp in inputs:
 
-        in_amount = float(inp["amount"])
+        in_amount = Decimal(str(inp["amount"]))
         if in_amount == 0:
             continue
         # print(f"in_amount: {in_amount}")
@@ -96,7 +108,7 @@ def process_file(json_file):
 
         for out in outputs:
 
-            out_amount = float(out["amount"])
+            out_amount = Decimal(str(out["amount"]))
             if out_amount == 0:
                 continue
             # print(f"out_amount: {out_amount}")
@@ -104,12 +116,18 @@ def process_file(json_file):
             out_id = out["flow"]["@id"]
             out_unit_id = out["unit"]["@id"]
 
-            # if in_id == "0d95cc8b-a9a0-3630-a760-1ab4d88257d8":
-            #     print(process_id)
-
             quantity = in_amount / out_amount
 
             sid = supply_id(in_id, out_id, process_id)
+
+            waste_str = ""
+
+            if waste != None:
+                waste_amount = Decimal(str(waste["amount"])) / out_amount
+                waste_str = (
+                    f'uslci:{out_id} uslci:waste '
+                    f'"{decimal_str(waste_amount)}"^^xsd:decimal .'
+                )
 
             ttl.append(
 f"""uslci:{sid} a sn:SupplyFlow ;
@@ -119,9 +137,10 @@ f"""uslci:{sid} a sn:SupplyFlow ;
     sn:volume [
         a sn:Volume ;
         sn:unit uslci:{inp_unit_id} ;
-        sn:quantity "{quantity}"^^xsd:decimal
+        sn:quantity "{decimal_str(quantity)}"^^xsd:decimal
     ] .
 uslci:{out_id} qudt:unit uslci:{out_unit_id} .
+{waste_str}
 
 """
             )
