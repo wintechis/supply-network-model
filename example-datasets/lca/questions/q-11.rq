@@ -1,0 +1,6 @@
+PREFIX : <https://purl.org/supply-network/examples/>
+
+# How many product types have a circular supply network (i.e., themselves as a (indirect) component)?
+
+SELECT (COUNT(?x) AS ?count)
+WHERE { ?x (^:input/:output)+ ?x .}

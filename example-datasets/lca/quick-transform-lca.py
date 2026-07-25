@@ -89,19 +89,25 @@ def process_file(json_file):
         in_amount = float(inp["amount"])
         if in_amount == 0:
             continue
+        # print(f"in_amount: {in_amount}")
 
         in_id = inp["flow"]["@id"]
+        inp_unit_id = inp["unit"]["@id"]
 
         for out in outputs:
 
             out_amount = float(out["amount"])
             if out_amount == 0:
                 continue
+            # print(f"out_amount: {out_amount}")
 
             out_id = out["flow"]["@id"]
-            unit_id = out["unit"]["@id"]
+            out_unit_id = out["unit"]["@id"]
 
-            quantity = out_amount / in_amount
+            # if in_id == "0d95cc8b-a9a0-3630-a760-1ab4d88257d8":
+            #     print(process_id)
+
+            quantity = in_amount / out_amount
 
             sid = supply_id(in_id, out_id, process_id)
 
@@ -112,9 +118,10 @@ f"""uslci:{sid} a sn:SupplyFlow ;
     :output uslci:{out_id} ;
     sn:volume [
         a sn:Volume ;
-        sn:unit uslci:{unit_id} ;
+        sn:unit uslci:{inp_unit_id} ;
         sn:quantity "{quantity}"^^xsd:decimal
     ] .
+uslci:{out_id} qudt:unit uslci:{out_unit_id} .
 
 """
             )

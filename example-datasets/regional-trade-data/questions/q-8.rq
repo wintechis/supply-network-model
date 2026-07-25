@@ -12,4 +12,5 @@ WHERE { ?flow sn:abstraction :StateIndustryAbstraction ;
         :demand tradedata:ss3 ;
         sn:volume ?volume .
     ?volume sn:time tradedata:2010 ;
+        sn:unit ?unit ;
         sn:quantity ?quantity .}

@@ -1,0 +1,15 @@
+PREFIX : <https://purl.org/supply-network/examples/>
+PREFIX qudt: <http://qudt.org/schema/qudt/>
+PREFIX sn: <https://purl.org/supply-network/onto#>
+PREFIX uslci: <https://www.lcacommons.gov/lca-collaboration/National_Renewable_Energy_Laboratory/USLCI_Database_Public/datasets/>
+
+# How much gaseous chlorine is required to create one cubic foot of drinking water?
+
+SELECT ?quantity ?unit
+WHERE { ?flow sn:abstraction :ProductTypeAbstraction ;
+        :input uslci:bef031b4-7530-3038-aa6b-be21db63d32f ;
+        :output uslci:ddbc73af-51cd-3e7a-8380-2a6b23c05d8f ;
+        sn:volume ?volume .
+    ?volume sn:unit ?unit ;
+        sn:quantity ?quantity .
+    uslci:ddbc73af-51cd-3e7a-8380-2a6b23c05d8f qudt:unit uslci:07973a41-56b3-4e1b-a208-fd75a09fbd4b . }

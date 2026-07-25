@@ -1,0 +1,12 @@
+PREFIX : <https://purl.org/supply-network/examples/>
+PREFIX qudt: <http://qudt.org/schema/qudt/>
+PREFIX sn: <https://purl.org/supply-network/onto#>
+PREFIX uslci: <https://www.lcacommons.gov/lca-collaboration/National_Renewable_Energy_Laboratory/USLCI_Database_Public/datasets/>
+
+# Which product type is directly derived from the most components?
+
+SELECT ?output (COUNT(?input) AS ?components)
+WHERE { ?flow sn:abstraction :ProductTypeAbstraction ;
+        :input ?input ;
+        :output ?output . }
+GROUP BY ?output ORDER BY DESC(?components) LIMIT 1
