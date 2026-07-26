@@ -2,4 +2,6 @@ PREFIX sn: <https://purl.org/supply-network/onto#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 ASK { ?volume a sn:Volume .
-  FILTER NOT EXISTS { ?volume sn:quantity ?quantity . } }
+    OPTIONAL { ?volume sn:quantity ?quantity . }}
+GROUP BY ?volume
+HAVING (COUNT(DISTINCT ?quantity) != 1)

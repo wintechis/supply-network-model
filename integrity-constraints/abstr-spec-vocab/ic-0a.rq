@@ -4,4 +4,4 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 ASK { ?from rdfs:subPropertyOf sn:from ;
         rdfs:range ?subclass .
     FILTER NOT EXISTS { ?into rdfs:subPropertyOf sn:into ;
-        rdfs:range ?subclass . } }
+            rdfs:range ?subclass . } }

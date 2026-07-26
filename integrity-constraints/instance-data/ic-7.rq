@@ -1,6 +1,7 @@
 PREFIX sn: <https://purl.org/supply-network/onto#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-ASK { ?supplyflow sn:abstraction ?profile . }
-GROUP BY ?supplyflow
-HAVING (COUNT(DISTINCT ?profile) > 1)
+ASK { ?sf a sn:SupplyFlow .
+    OPTIONAL { ?sf sn:abstraction ?profile . }}
+GROUP BY ?sf
+HAVING (COUNT(DISTINCT ?profile) != 1)
