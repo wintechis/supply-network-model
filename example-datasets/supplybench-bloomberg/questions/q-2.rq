@@ -1,6 +1,6 @@
 PREFIX : <https://purl.org/supply-network/examples/>
 PREFIX sn: <https://purl.org/supply-network/onto#>
-PREFIX sn: <https://purl.org/supply-network/onto#>
+PREFIX sb: <https://purl.org/supplybench#>
 PREFIX tsmc: <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ20.ttl#>
 PREFIX nvidia: <https://solid.iis.fraunhofer.de/oe-40200/2024/10/velektronik-graph-clean/company/weQ21.ttl#>
 

@@ -1,0 +1,13 @@
+Dataset:
+- triples: 76,193
+- entites: 1,536
+- supply flows: 8,356
+- volumes: 9,674
+
+
+IC & Runtime
+
+9 & 0.044 seconds
+10 & 0.079 seconds
+11 & 10.921 seconds
+12 & 0.05 seconds

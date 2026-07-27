@@ -3,13 +3,29 @@ PREFIX sn: <https://purl.org/supply-network/onto#>
 
 # Which industry had the highest net flow across all years? The query aggregates per industry.
 
-SELECT ?industry (SUM(?flowValue) AS ?netflow)
-WHERE { ?flow sn:abstraction :StateIndustryAbstraction .
-    {   ?flow :demand ?industry ;
-            sn:volume/sn:quantity ?q .
-        BIND(-?q AS ?flowValue)
-    } UNION {
-        ?flow :supply ?industry ;
-            sn:volume/sn:quantity ?q .
-        BIND(?q AS ?flowValue) } }
-GROUP BY ?industry ORDER BY DESC(?netflow) LIMIT 1
+# SELECT ?industry (SUM(?flowValue) AS ?netflow)
+# WHERE { ?flow sn:abstraction :StateIndustryAbstraction ;
+#         sn:volume ?volume .
+#     ?volume sn:quantity ?q .
+#     {   ?flow :demand ?industry .
+#         BIND(-?q AS ?flowValue)
+#     } UNION {
+#         ?flow :supply ?industry .
+#         BIND(?q AS ?flowValue) } }
+# GROUP BY ?industry ORDER BY DESC(?netflow) LIMIT 1
+
+
+SELECT ?industry ((COALESCE(?exports, 0) - COALESCE(?imports, 0)) AS ?netflow)
+WHERE { OPTIONAL {
+    SELECT ?industry (SUM(?q) AS ?exports)
+    WHERE { ?flow sn:level :StateIndustryLevel ;
+            :supply ?industry ;
+            sn:volume/sn:quantity ?q . }
+    GROUP BY ?industry
+  } OPTIONAL {
+    SELECT ?industry (SUM(?q) AS ?imports)
+    WHERE { ?flow sn:level :StateIndustryLevel ;
+            :demand ?industry ;
+            sn:volume/sn:quantity ?q . }
+    GROUP BY ?industry }}
+ORDER BY DESC(?netflow) LIMIT 1

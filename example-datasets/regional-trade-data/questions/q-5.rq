@@ -2,14 +2,13 @@ PREFIX : <https://purl.org/supply-network/examples/>
 PREFIX sn: <https://purl.org/supply-network/onto#>
 PREFIX tradedata: <http://data.europa.eu/89h/432cf8a7-fd5e-4816-a70c-633a7380c77c#>
 
-# Which ten states had the highest trade throughput in 2010? The query (see Listing~\ref{lst:q-5}) aggregates per state.
+# Which ten states had the highest trade throughput in 2010? The query aggregates per state.
 
 SELECT ?state (SUM(?quantity) AS ?throughput)
 WHERE { ?flow sn:abstraction :StateIndustryAbstraction ;
+        ?p ?state ;
         sn:volume ?volume .
-        ?volume sn:time tradedata:2010 ;
-            sn:quantity ?quantity .
-    {   ?flow :state_import ?state .
-    } UNION {
-        ?flow :state_export ?state . } }
+    ?volume sn:time tradedata:2010 ;
+        sn:quantity ?quantity .
+    VALUES ?p { :state_import :state_export }}
 GROUP BY ?state ORDER BY DESC(?throughput) LIMIT 10

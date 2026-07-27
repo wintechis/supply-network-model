@@ -3,7 +3,7 @@ PREFIX org: <http://www.w3.org/ns/org#>
 PREFIX sb: <https://purl.org/supplybench#>
 PREFIX sn: <https://purl.org/supply-network/onto#>
 
-# How many reachable suppliers do the enterprises have? The query  leverages the enterprise supply flows spanning an end-to-end network.
+# How many reachable suppliers do the enterprises have? The query leverages the enterprise supply flows spanning an end-to-end network.
 
 SELECT ?enterprise (COUNT(DISTINCT ?supplier) AS ?degree)
 WHERE { ?enterprise a org:Organization ;
