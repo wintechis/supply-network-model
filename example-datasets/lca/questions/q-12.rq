@@ -3,6 +3,6 @@ PREFIX uslci: <https://www.lcacommons.gov/lca-collaboration/National_Renewable_E
 
 # Which components in the supply network of drinking water emit hazardous waste?
 
-SELECT ?component ?waste
+SELECT ?component
 WHERE { uslci:ddbc73af-51cd-3e7a-8380-2a6b23c05d8f (^:output/:input)* ?component .
     ?component uslci:waste ?waste .}
