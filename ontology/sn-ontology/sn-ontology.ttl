@@ -129,6 +129,13 @@ sn:unit a rdf:Property , qb:AttributeProperty ;
     rdfs:comment "Links the unit of the observed quantity of a supply flow's volume."@en ;
     rdfs:isDefinedBy sn: .
 
+sn:supplyFlow a rdf:Property ;
+    rdfs:domain sn:Entity ;
+    rdfs:range sn:Entity ;
+    rdfs:label "supply flow"@en ;
+    rdfs:comment "Links an entity that receives a supply flow from this entity directly, offering a shortcut to the reified class sn:SupplyFlow."@en ;
+    rdfs:isDefinedBy sn: .
+
 
 # --- datatype properties ---
 

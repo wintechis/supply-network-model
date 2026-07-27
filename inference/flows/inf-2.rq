@@ -1,0 +1,22 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sn: <https://purl.org/supply-network/onto#>
+
+INSERT { 
+    [] sn:abstraction ?profile ;
+        ?from ?from_value ;
+        ?into ?into_value .
+} WHERE {
+    ?from_value sn:supplyFlow ?into_value .
+    ?from_value a ?entity .
+    ?into_value a ?entity .
+    ?entity rdfs:subClassOf sn:Entity .
+    ?from rdfs:subPropertyOf sn:from ;
+        rdfs:range ?entity .
+    ?into rdfs:subPropertyOf sn:into ;
+        rdfs:range ?entity .
+    ?profile sn:discriminativeProperty ?from , ?into .
+    FILTER NOT EXISTS {
+        ?profile sn:discriminativeProperty ?other .
+        FILTER(?other != ?from && ?other != ?into) }}
+        
