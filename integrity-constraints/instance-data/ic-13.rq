@@ -3,7 +3,11 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX sn: <https://purl.org/supply-network/onto#>
 
 ASK { ?entity a sn:Entity .
-    OPTIONAL { ?entity a ?subclass .
-        ?subclass rdfs:subClassOf sn:Entity . }}
-GROUP BY ?entity
-HAVING (COUNT(DISTINCT ?subclass) != 1)
+    FILTER ( NOT EXISTS {
+            ?entity a ?subclass .
+            ?subclass rdfs:subClassOf sn:Entity . }
+        || EXISTS {
+            ?entity a ?subclass1, ?subclass2 .
+            ?subclass1 rdfs:subClassOf sn:Entity .
+            ?subclass2 rdfs:subClassOf sn:Entity .
+            FILTER(?subclass1 != ?subclass2) } ) }

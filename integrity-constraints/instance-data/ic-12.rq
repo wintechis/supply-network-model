@@ -4,6 +4,8 @@ PREFIX sn: <https://purl.org/supply-network/onto#>
 
 ASK { ?supplyflow sn:abstraction ?profile .
     ?profile sn:discriminativeProperty ?p .
-    OPTIONAL { ?supplyflow ?p ?o .} }
-GROUP BY ?supplyflow ?p
-HAVING (COUNT(DISTINCT ?o) != 1)
+    FILTER ( NOT EXISTS {
+            ?supplyflow ?p ?o . }
+        || EXISTS {
+            ?supplyflow ?p ?o1, ?o2 .
+            FILTER(?o1 != ?o2) } ) }

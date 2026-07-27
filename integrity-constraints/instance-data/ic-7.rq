@@ -2,6 +2,8 @@ PREFIX sn: <https://purl.org/supply-network/onto#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 ASK { ?sf a sn:SupplyFlow .
-    OPTIONAL { ?sf sn:abstraction ?profile . }}
-GROUP BY ?sf
-HAVING (COUNT(DISTINCT ?profile) != 1)
+    FILTER (!EXISTS {
+            ?sf sn:abstraction ?p . }
+        || EXISTS {
+            ?sf sn:abstraction ?p1, ?p2 .
+            FILTER(?p1 != ?p2) } ) }
