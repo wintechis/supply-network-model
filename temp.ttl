@@ -1,0 +1,176 @@
+# own prefix
+@prefix sn: <https://purl.org/supply-network/onto#> .
+@prefix : <https://purl.org/supply-network/examples/> .
+
+# other prefixes
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix olca: <http://greendelta.github.io/olca-schema#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sb: <https://purl.org/supplybench#> .
+@prefix schema: <https://schema.org/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix tradedata: <http://data.europa.eu/89h/432cf8a7-fd5e-4816-a70c-633a7380c77c#> .
+@prefix uslci: <https://www.lcacommons.gov/lca-collaboration/National_Renewable_Energy_Laboratory/USLCI_Database_Public/datasets/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# lca - event/state
+
+uslci:31dd79aa-94df-31b9-b81f-8b1d436581da a olca:Process ;
+    olca:name "Drinking water; with chlorine disinfection; at consumer" ;
+    olca:exchanges [ a olca:Exchange ;
+            olca:flow uslci:bef031b4-7530-3038-aa6b-be21db63d32f ;
+            olca:isInput true ;
+            olca:amount 1187.1 ;
+            olca:unit uslci:07973a41-56b3-4e1b-a208-fd75a09fbd4b ] ,
+        [ a olca:Exchange ;
+            olca:flow uslci:3072b205-2fd9-32f4-bdb3-ac2e3b739a84 ;
+            olca:isInput false ;
+            olca:amount 1187.1 ;
+            olca:unit uslci:07973a41-56b3-4e1b-a208-fd75a09fbd4b ] ,
+        [ a olca:Exchange ;
+            olca:flow uslci:0b3e01cb-e0a2-35b4-a442-69ec84fd7fda ;
+            olca:isInput false ;
+            olca:amount 1000.0 ;
+            olca:unit uslci:07973a41-56b3-4e1b-a208-fd75a09fbd4b ] .
+uslci:bef031b4-7530-3038-aa6b-be21db63d32f a olca:Flow ;
+    olca:name "Drinking water treatment; primary disinfection; gaseous chlorine" .
+uslci:3072b205-2fd9-32f4-bdb3-ac2e3b739a84 a olca:Flow ;
+    olca:name "Drinking water treatment; pumping energy for acquisition and treatment" .
+uslci:0b3e01cb-e0a2-35b4-a442-69ec84fd7fda a olca:Flow ;
+    olca:name "Drinking water; with chlorine disinfection; at consumer" .
+
+
+# lca - state
+
+uslci:sf_dea98aab0dbf0807 a sn:SupplyFlow ;
+    sn:abstraction :ProductTypeAbstraction ;
+    :input uslci:bef031b4-7530-3038-aa6b-be21db63d32f ;
+    :output uslci:0b3e01cb-e0a2-35b4-a442-69ec84fd7fda ;
+    sn:volume [
+        a sn:Volume ;
+        sn:quantity 1.1871 ;
+        sn:unit uslci:07973a41-56b3-4e1b-a208-fd75a09fbd4b ;
+    ] .
+uslci:sf_94584784364ad446 a sn:SupplyFlow ;
+    sn:abstraction :ProductTypeAbstraction ;
+    :input uslci:3072b205-2fd9-32f4-bdb3-ac2e3b739a84 ;
+    :output uslci:0b3e01cb-e0a2-35b4-a442-69ec84fd7fda ;
+    sn:volume [
+        a sn:Volume ;
+        sn:quantity 1.1871 ;
+        sn:unit uslci:07973a41-56b3-4e1b-a208-fd75a09fbd4b ;
+    ] .
+uslci:bef031b4-7530-3038-aa6b-be21db63d32f a :ProductType ;
+    rdfs:label "Drinking water treatment; primary disinfection; gaseous chlorine" .
+uslci:3072b205-2fd9-32f4-bdb3-ac2e3b739a84 a :ProductType ;
+    rdfs:label "Drinking water treatment; pumping energy for acquisition and treatment" .
+uslci:0b3e01cb-e0a2-35b4-a442-69ec84fd7fda a :ProductType ;
+    rdfs:label "Drinking water; with chlorine disinfection; at consumer" .
+
+
+# trade data - event/state (proper?)
+
+[] a olca:Process ;
+    olca:exchanges [ a olca:Exchange ;
+            olca:flow :Money ;
+            :owner tradedata:AT11ss1 ;
+            olca:isInput true ;
+            olca:amount 42.67 ;
+            olca:unit cur:MegaUSD ] ,
+        [ a olca:Exchange ;
+            olca:flow :Money ;
+            :owner tradedata:AT13ss3 ;
+            olca:isInput false ;
+            olca:amount 42.67 ;
+            olca:unit cur:MegaUSD ] ;
+    :time tradedata:2010 .
+tradedata:AT11ss1 a olca:Flow ;
+    :part tradedata:AT11 , tradedata:ss1 .
+tradedata:AT13ss3 a olca:Flow ;
+    :part tradedata:AT13 , tradedata:ss3 .
+
+
+# trade data - state
+
+tradedata:AT11ss1AT13ss3 a sn:SupplyFlow ;
+    sn:abstraction :StateIndustryAbstraction ;
+    :state_export tradedata:AT11 ;
+    :state_import tradedata:AT13 ;
+    :supply tradedata:ss1 ;
+    :demand tradedata:ss3 ;
+    sn:volume [ a sn:Volume ;
+        sn:time tradedata:2010 ;
+        sn:quantity 42.67 ;
+        sn:unit cur:MegaUSD ] .
+tradedata:AT11 a :State ;
+    rdfs:label "Burgenland"@en .
+tradedata:AT13 a :State ;
+    rdfs:label "Wien"@en .
+tradedata:ss1 a :Industry ;
+    rdfs:label "Agriculture"@en .
+tradedata:ss3 a :Industry ;
+    rdfs:label "Food_beverages_and_tobacco"@en .
+
+
+# SupplyBench - event/state (proper?)
+
+[] a olca:Process ;
+    olca:exchanges [ a olca:Exchange ;
+            olca:flow :Money ;
+            :owner tsmc:this ;
+            olca:isInput true ;
+            olca:amount 479.0 ;
+            olca:unit cur:MegaUSD ] ,
+        [ a olca:Exchange ;
+            olca:flow :Money ;
+            :owner nvidia:this ;
+            olca:isInput false ;
+            olca:amount 479.0 ;
+            olca:unit cur:MegaUSD ] ;
+    :time <#2020Q3> .
+:Money a olca:Flow .
+
+
+# SupplyBench - event/state (naive)
+
+[] a olca:Process ;
+    olca:exchanges [ a olca:Exchange ;
+            olca:flow tsmc:this ;
+            olca:isInput true ;
+            olca:amount 479.0 ;
+            olca:unit cur:MegaUSD ] ,
+        [ a olca:Exchange ;
+            olca:flow nvidia:this ;
+            olca:isInput false ;
+            olca:amount 479.0 ;
+            olca:unit cur:MegaUSD ] .
+tsmc:this a olca:Flow ;
+    olca:name "TSMC" .
+nvidia:this a olca:Flow ;
+    olca:name "Nvidia" . 
+
+
+# SupplyBench - state
+
+nvidia:Q20 a sn:SupplyFlow ;
+        sn:abstraction :EnterpriseAbstraction ;
+        sb:supplier tsmc:this ;
+        sb:customer nvidia:this ;
+        sn:volume [ a sn:Volume ;
+                sn:time <#2020Q3> ;
+                sn:quantity  479.0 ;
+                sn:unit cur:MegaUSD ] .
+tsmc:this a org:Organization ;
+        rdfs:label "TSMC"@en .
+nvidia:this a org:Organization ;
+        rdfs:label "Nvidia"@en .
