@@ -8,6 +8,7 @@
 @prefix olca: <http://greendelta.github.io/olca-schema#> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix qb: <http://purl.org/linked-data/cube#> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -23,6 +24,30 @@
 @prefix wdt: <http://www.wikidata.org/prop/direct/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+# lca - prov-o
+
+uslci:31dd79aa-94df-31b9-b81f-8b1d436581da a prov:Activity ;
+    rdfs:label "Drinking water; with chlorine disinfection; at consumer" ;
+    prov:qualifiedUsage [ a prov:Usage ;
+            prov:entity uslci:bef031b4-7530-3038-aa6b-be21db63d32f ;
+            :quantity 1187.1 ;
+            :unit uslci:07973a41-56b3-4e1b-a208-fd75a09fbd4b ] ,
+        [ a prov:Usage ;
+            prov:entity uslci:3072b205-2fd9-32f4-bdb3-ac2e3b739a84 ;
+            :quantity 1187.1 ;
+            :unit uslci:07973a41-56b3-4e1b-a208-fd75a09fbd4b ] .
+uslci:bef031b4-7530-3038-aa6b-be21db63d32f a prov:Entity ;
+    rdfs:label "Drinking water treatment; primary disinfection; gaseous chlorine" .
+uslci:3072b205-2fd9-32f4-bdb3-ac2e3b739a84 a prov:Entity ;
+    rdfs:label "Drinking water treatment; pumping energy for acquisition and treatment" .
+uslci:0b3e01cb-e0a2-35b4-a442-69ec84fd7fda a prov:Entity ;
+    rdfs:label "Drinking water; with chlorine disinfection; at consumer" ;
+    prov:qualifiedGeneration [ a prov:Generation ;
+            prov:activity uslci:31dd79aa-94df-31b9-b81f-8b1d436581da ;
+            :quantity 1187.1 ;
+            :unit uslci:07973a41-56b3-4e1b-a208-fd75a09fbd4b  ] .
+    
+    
 # lca - event/state
 
 uslci:31dd79aa-94df-31b9-b81f-8b1d436581da a olca:Process ;
