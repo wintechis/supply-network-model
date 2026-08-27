@@ -24,7 +24,10 @@
 @prefix wdt: <http://www.wikidata.org/prop/direct/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-# lca - prov-o
+# office scanner
+# <https://www.lcacommons.gov/lca-collaboration/National_Renewable_Energy_Laboratory/USLCI_Database_Public/datasets/72617478-fdf2-3581-a069-d3ccf23ed07a>
+
+# lca - event/state with prov:Usage and prov:Generation patterns
 
 uslci:31dd79aa-94df-31b9-b81f-8b1d436581da a prov:Activity ;
     rdfs:label "Drinking water; with chlorine disinfection; at consumer" ;
@@ -75,7 +78,7 @@ uslci:0b3e01cb-e0a2-35b4-a442-69ec84fd7fda a olca:Flow ;
     olca:name "Drinking water; with chlorine disinfection; at consumer" .
 
 
-# lca - state
+# lca - state, equivalent to the prov:Derivation pattern
 
 uslci:sf_dea98aab0dbf0807 a sn:SupplyFlow ;
     sn:abstraction :ProductTypeAbstraction ;
