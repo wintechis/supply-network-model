@@ -9,19 +9,18 @@ import orjson
 # Configuration
 # -----------------------------------------------------------------------------
 
-INPUT_DIR = Path("./USLCI_Database/processes")
+INPUT_DIR = Path("./USLCI_Database/processes-formatted")
 # INPUT_DIR = Path("./test")
-OUTPUT_FILE = Path("uslci.ttl")
+OUTPUT_FILE = Path("uslci-provo.ttl")
 
 USLCI = "https://www.lcacommons.gov/lca-collaboration/National_Renewable_Energy_Laboratory/USLCI_Database_Public/datasets/"
 EX = "https://purl.org/supply-network/examples/"
 QUDT = "http://qudt.org/schema/qudt/"
-SN = "https://purl.org/supply-network/onto#"
 
 HEADER = f"""@prefix uslci: <{USLCI}> .
 @prefix : <{EX}> .
 @prefix qudt: <{QUDT}> .
-@prefix sn: <{SN}> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -63,25 +62,25 @@ def process_file(json_file):
         process = orjson.loads(f.read())
 
     process_id = process.get("@id", json_file.stem)
+    process_name = process.get("name", json_file.stem)
 
     products = {}
     units = {}
 
-    ttl = []
+    ttl_activity = f"""
+uslci:{process_id} a prov:Activity ;
+    rdfs:label "{esc(process_name)}" """
+
+    ttl_entities = ""
 
     exchanges = process.get("exchanges", [])
 
     inputs = []
     outputs = []
-    waste = None
 
     for ex in exchanges:
 
         flow = ex["flow"]
-        
-        # Disposal; hazardous waste
-        if flow["@id"] == "b20513f5-f6ff-4753-90e7-01e1b1e9eada":
-            waste  = ex
 
         if flow["flowType"] != "PRODUCT_FLOW":
             continue
@@ -91,61 +90,29 @@ def process_file(json_file):
         products.setdefault(flow["@id"], flow["name"])
         units.setdefault(unit["@id"], unit["name"])
 
+        flow_id = ex["flow"]["@id"]
+        ex_amount = Decimal(str(ex["amount"]))
+        ex_unit_id = ex["unit"]["@id"]
+
         if ex["isInput"]:
-            inputs.append(ex)
+            ttl_activity = ttl_activity + f""";
+    prov:qualifiedUsage [ a prov:Usage ;
+            prov:entity uslci:{flow_id} ;
+            :quantity {ex_amount} ;
+            :unit uslci:{ex_unit_id} ] """
         else:
-            outputs.append(ex)
+            ttl_entities = ttl_entities + f"""
 
-    for inp in inputs:
-
-        in_amount = Decimal(str(inp["amount"]))
-        if in_amount == 0:
-            continue
-        # print(f"in_amount: {in_amount}")
-
-        in_id = inp["flow"]["@id"]
-        inp_unit_id = inp["unit"]["@id"]
-
-        for out in outputs:
-
-            out_amount = Decimal(str(out["amount"]))
-            if out_amount == 0:
-                continue
-            # print(f"out_amount: {out_amount}")
-
-            out_id = out["flow"]["@id"]
-            out_unit_id = out["unit"]["@id"]
-
-            quantity = in_amount / out_amount
-
-            sid = supply_id(in_id, out_id, process_id)
-
-            waste_str = ""
-
-            if waste != None:
-                waste_amount = Decimal(str(waste["amount"])) / out_amount
-                waste_str = (
-                    f'uslci:{out_id} uslci:waste '
-                    f'"{decimal_str(waste_amount)}"^^xsd:decimal .'
-                )
-
-            ttl.append(
-f"""uslci:{sid} a sn:SupplyFlow ;
-    sn:abstraction :ProductTypeAbstraction ;
-    :input uslci:{in_id} ;
-    :output uslci:{out_id} ;
-    sn:volume [
-        a sn:Volume ;
-        sn:unit uslci:{inp_unit_id} ;
-        sn:quantity "{decimal_str(quantity)}"^^xsd:decimal
-    ] .
-uslci:{out_id} qudt:unit uslci:{out_unit_id} .
-{waste_str}
-
+uslci:{flow_id} a prov:Entity ;
+    prov:qualifiedGeneration [ a prov:Generation ;
+            prov:activity uslci:{process_id} ;
+            :quantity {ex_amount} ;
+            :unit uslci:{ex_unit_id} ] .
 """
-            )
 
-    return products, units, "".join(ttl)
+    ttl = ttl_activity + "." + ttl_entities
+
+    return products, units, ttl
 
 
 # -----------------------------------------------------------------------------
@@ -177,7 +144,7 @@ def main():
 
         for pid, name in all_products.items():
             out.write(
-f"""uslci:{pid} a :ProductType ;
+f"""uslci:{pid} a prov:Entity ;
     rdfs:label "{esc(name)}" .
 
 """
