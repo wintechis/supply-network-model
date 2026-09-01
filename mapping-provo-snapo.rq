@@ -1,0 +1,30 @@
+PREFIX : <https://purl.org/supply-network/examples/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX sn: <https://purl.org/supply-network/onto#>
+
+CONSTRUCT {
+    [] a sn:SupplyFlow ;
+        sn:from ?from ;
+        sn:into ?into ;
+        sn:volume [ a sn:Volume ;
+                sn:time ?time ;
+                sn:quantity ?quantity ;
+                sn:unit ?unit ] .
+                    
+    ?from a sn:Entity .
+    ?into a sn:Entity .
+}
+WHERE {
+    ?output a prov:Entity ;
+        :owner ?into ;
+        prov:qualifiedDerivation ?derivation .
+
+    ?derivation a prov:Derivation ;
+                prov:entity ?input ;
+                :quantity ?quantity ;
+                :unit ?unit .
+    OPTIONAL { ?derivation :time ?time . }
+
+    ?input a prov:Entity ;
+        :owner ?from .
+}
