@@ -4,5 +4,8 @@ example-datasets/regional-trade-data/*.csv
 example-datasets/regional-trade-data/*.nt
 example-datasets/regional-trade-data/rdf
 example-datasets/lca/USLCI_Database
+example-datasets/sta/rdf
+example-datasets/sta/*.csv
+example-datasets/cfs/*.csv
 
 todo.txt
