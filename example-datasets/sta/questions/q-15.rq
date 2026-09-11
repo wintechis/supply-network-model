@@ -1,0 +1,14 @@
+PREFIX : <https://purl.org/supply-network/examples/>
+PREFIX sn: <https://purl.org/supply-network/onto#>
+PREFIX sta: <https://data.jrc.ec.europa.eu/dataset/9436ea8e-c484-44b8-88f9-810bb6da64ae#>
+
+# Which country imported the highest total value of strategic commodities in 2023?
+
+SELECT ?country (SUM(?quantity) AS ?totalValue)
+WHERE { ?sf sn:abstraction :CountryAbstraction ;
+        :import ?country ;
+        sn:volume ?vol .
+    ?vol sn:time sta:year2023 ;
+        sn:quantity ?quantity . }
+GROUP BY ?country
+ORDER BY DESC(?totalValue)

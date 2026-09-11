@@ -1,0 +1,13 @@
+PREFIX : <https://purl.org/supply-network/examples/>
+PREFIX sn: <https://purl.org/supply-network/onto#>
+PREFIX sta: <https://data.jrc.ec.europa.eu/dataset/9436ea8e-c484-44b8-88f9-810bb6da64ae#>
+
+# Which strategic commodities were supplied from Sweden to Romania in 2024?
+
+SELECT ?sc
+WHERE { ?sf sn:abstraction :CountryAbstraction ;
+        :export sta:SWE ;
+        :import sta:ROM ;
+        sn:volume ?vol .
+    ?vol sn:time sta:year2024 ;
+        sn:subject ?sc . }

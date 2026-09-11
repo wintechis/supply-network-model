@@ -1,0 +1,13 @@
+PREFIX : <https://purl.org/supply-network/examples/>
+PREFIX sn: <https://purl.org/supply-network/onto#>
+PREFIX sta: <https://data.jrc.ec.europa.eu/dataset/9436ea8e-c484-44b8-88f9-810bb6da64ae#>
+
+# Which five countries export a strategic commodity to the most distinct countries?
+
+SELECT ?country (COUNT(DISTINCT ?target) AS ?numberOfCountries)
+WHERE { ?sf sn:abstraction :CountryAbstraction ;
+        :export ?country ;
+        :import ?target . }
+GROUP BY ?country
+ORDER BY DESC(?numberOfCountries)
+LIMIT 5

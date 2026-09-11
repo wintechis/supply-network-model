@@ -1,0 +1,11 @@
+PREFIX : <https://purl.org/supply-network/examples/>
+PREFIX sn: <https://purl.org/supply-network/onto#>
+PREFIX sta: <https://data.jrc.ec.europa.eu/dataset/9436ea8e-c484-44b8-88f9-810bb6da64ae#>
+
+# Between how many country pairs were gravity meters traded in 2024?
+
+SELECT (COUNT(?sf) AS ?numberOfCountries)
+WHERE { ?sf sn:abstraction :CountryAbstraction ;
+        sn:volume ?vol .
+    ?vol sn:time sta:year2024 ;
+        sn:subject "Gravity meters" . }
