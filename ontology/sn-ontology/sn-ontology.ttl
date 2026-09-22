@@ -139,6 +139,7 @@ sn:quantity a rdf:Property , qb:MeasureProperty ;
 
 sn:subject a rdf:Property , qb:AttributeProperty ;
     rdfs:domain sn:Volume ;
+    rdfs:range rdfs:Resource ;
     rdfs:label "subject"@en ;
     rdfs:comment "Links the subject (the flowing material or immaterial object) of the observed quantity of a supply flow's volume."@en ;
     rdfs:isDefinedBy sn: .

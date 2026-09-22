@@ -1,0 +1,92 @@
+State of Sections
+- introduction: -
+- examples: -
+- related work: -
+- flow-formal: 0
+- flow-kg: 0
+- eval: -
+- conclusion: 0
+
+
+High-level
+- inference of volumes vs inference of supply flows in outlook
+- Lesefluss, Argumentation, Requirements
+
+
+Details
+- qb:DataStructureDefinition for SNAPO
+- in SNAP, equivalent volumes are required for alignment/integration, then so are qualified flows
+- add condition to SNAP that makes qualified flows having equivalent properties except for the quantity illigal
+- then, qualified flows between entities cannot be derived from qualified flows between associated-entity sets without aggregating volumes
+- integrity constraint that verifies whether two volumes of one supply flow are equivalent (was damit machen?)
+- does SATD actually include no qualified flows that differ only in quantity?
+- the ICs are not equivalently contained in SNAP
+- complexity and levels in a supply chain
+    - https://www.sciencedirect.com/science/article/abs/pii/S0098135415000861
+- abstractions related work (inspiration, in the spirit of)
+    - Compositional modeling: finding the right model for the job
+    - Modelling domain knowledge using explicit conceptualization
+- warum manche IC unperformanter - split zwischen IC
+    - auch Tabelle pro Anzahl der entities, supply flows, und volumes?
+    - Dichte der datasets
+- QB has hierarchies
+- sn:supplyFlow ?
+- sn:subject rdfs:range rdfs:Resource
+- "abstraction-specific vocabulary" va "abstraction-specific ontology terms"
+- add highest average question/query
+- replace corporate dataset as unsupported example
+- how were example datasets created
+- "supply relation" vs "supply flow"
+- "abstraction" vs "abstraction level" vs "abstraction profile"
+- state_export und state_import bessere Terme
+- "tradedata" prefix zu RTD
+- motivation for QB alignment: can use existing work, eg, mappings from ROLAP data to QB and mapping of OLAP operations to SPARQL (cite mappings)
+- time in enhanced SupplyBench, coin URI
+- update table of example abstractions
+- enterprise abstarction -> organization abstarction
+- Nummerierung Q und IC
+- References
+- rerun experiments on fuseki with more heap memory
+- Declaration of competing interests (https://www.sciencedirect.com/journal/journal-of-web-semantics/publish/guide-for-authors#ethics-and-policies-declaration-of-competing-interests)
+- Funding sources (https://www.sciencedirect.com/journal/journal-of-web-semantics/publish/guide-for-authors#ethics-and-policies-funding-sources)
+- article highlights (https://www.sciencedirect.com/journal/journal-of-web-semantics/publish/guide-for-authors#writing-and-formatting-highlights)
+- Author contributions: CRediT (https://www.sciencedirect.com/journal/journal-of-web-semantics/publish/guide-for-authors#writing-and-formatting-article-structure)
+
+
+Code
+- Add HTML representation of SNAPO
+- sn ontology abstarct
+- Repository aufräumen
+
+
+Future work
+- Inferenz von Volumen (Aggregation) innerhalb Abstraktion
+    - Zusammenhang mit QB4OLAP (weitere Hierarchie)?
+    - subject weg
+    - subject zusammenfassen
+    - time weg
+    - time zusammenfassen
+- Mappings between abstractions/of entities
+    - example datsets abstract substitutes
+
+    - OLAP related work
+
+    - Hierarchie von Levels - wie definierbar, also eindeutige Entsprechung
+    - Hierarchie von Profiles
+    - OLAP vs SNAP dimensions and hierarchy
+
+    - abstract substitutes
+    - inference of abstract substitutes
+    - mapping associated-entity sets
+    - inferring supply networks
+
+    - SNAPO abstract substitutes
+    - QB/QB4OLAP vs SNAPO dimensions and hierarchy
+    - abstract substitutes entailment
+
+    - from/into entailment?
+    - SNAPO inferring supply networks
+
+    - new integrity constraints
+
+    - new example questions
