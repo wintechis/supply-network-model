@@ -9,51 +9,10 @@
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix schema: <https://schema.org/> .
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-# schema
-
-sn:DSD a qb:DataStructureDefinition ;
-    qb:component [ qb:dimension sn:from ;
-                   qb:componentAttachment qb:Slice ] ;
-    qb:component [ qb:dimension sn:into ;
-                   qb:componentAttachment qb:Slice ] ;
-    qb:component [ qb:dimension sn:time ;
-                   qb:componentAttachment qb:Observation ] ;
-    qb:component [ qb:dimension sn:subject ;
-                   qb:componentAttachment qb:Observation ] ;
-    qb:component [ qb:measure sn:quantity ;
-                   qb:componentAttachment qb:Observation ] ;
-    qb:component [ qb:attribute sn:unit ;
-                   qb:componentRequired "false"^^xsd:boolean ;
-                   qb:componentAttachment qb:Observation ] ;
-    qb:sliceKey sn:SK .
-
-sn:SK a qb:SliceKey ;
-    qb:dimension sn:from , sn:into .
-
-# example dataset
-
-:DS a qb:DataSet ;
-    qb:structure sn:DSD ; # inferrable via sn:SupplyNetwork
-    qb:slice :S .
-
-:S a qb:Slice ;
-    qb:sliceStructure sn:SK ; # inferrable via sn:SupplyFlow
-    sn:from :USA ;
-    sn:into :Germany ;
-    qb:observation :O .
-
-:O a qb:Observation ; # inferrable via sn:Volume
-    qb:dataSet :DS ;      
-    sn:time :2020 ;
-    sn:unit :Euro ;
-    sn:quantity 10.0 ;
-    sn:subject :Shoes .
 
 # QB violations
 

@@ -9,6 +9,7 @@
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix schema: <https://schema.org/> .
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
@@ -23,7 +24,7 @@ sn: a owl:Ontology ;
     schema:image <https://purl.org/supply-network/onto/visualization> ;
     owl:versionInfo "1.0.0" ;
     owl:versionIRI <https://purl.org/supply-network/onto/1.0.0> ;
-    dct:created "2026-06-30"^^xsd:date ;
+    dct:created "2026-10-12"^^xsd:date ;
     dct:creator <https://danielhenselmann.solidcommunity.net/profile/card#me> ;
     dct:contributor <https://aharth.solidcommunity.net/profile/card#me> ;
     dct:publisher [ foaf:name "Center for Applied Research on Supply Chain Services at Fraunhofer IIS"@en ;
@@ -40,10 +41,11 @@ sn: a owl:Ontology ;
 
 
 # --- classes ---
-    
-sn:Entity a rdfs:Class ;
-    rdfs:label "Entity"@en ;
-    rdfs:comment "An entity that can represent a vertex in a supply network on an abstraction. This class is abstract, i.e. abstraction-specific subclasses are expected."@en ;
+
+sn:SupplyNetwork a rdfs:Class ;
+    rdfs:subClassOf qb:DataSet ;
+    rdfs:label "Supply Network"@en ;
+    rdfs:comment "A network of (qualified) supply flows between entities."@en ;
     rdfs:isDefinedBy sn: .
 
 sn:SupplyFlow a rdfs:Class ;
@@ -51,11 +53,11 @@ sn:SupplyFlow a rdfs:Class ;
     rdfs:label "Supply Flow"@en ;
     rdfs:comment "A directed supply relation between two entities, typically with a volume."@en ;
     rdfs:isDefinedBy sn: .
-
-sn:AbstractionProfile a rdfs:Class ;
-    rdfs:subClassOf qb:SliceKey ;
-    rdfs:label "Abstraction Level"@en ;
-    rdfs:comment "An abstraction level of a supply flow, identified via abstraction-specific subproperties of sn:from and sn:into."@en ;
+    
+sn:Entity a rdfs:Class ;
+    rdfs:subClassOf skos:Concept ;
+    rdfs:label "Entity"@en ;
+    rdfs:comment "An entity that can represent a vertex in a supply network on an abstraction. This class is abstract, i.e. abstraction-specific subclasses are expected."@en ;
     rdfs:isDefinedBy sn: .
 
 time:TemporalEntity rdf:type rdfs:Class ;
@@ -77,34 +79,35 @@ sn:Volume a rdfs:Class ;
 
 # --- properties ---
 
+sn:binarySupplyFlow a rdf:Property ;
+    rdfs:domain sn:Entity ;
+    rdfs:range sn:Entity ;
+    rdfs:label "binary supply flow"@en ;
+    rdfs:comment "Links an entity that receives a supply flow from this entity directly, offering a shortcut to the reified class sn:SupplyFlow."@en ;
+    rdfs:isDefinedBy sn: .
+
+sn:supplyFlow a rdf:Property ;
+    rdfs:subPropertyOf qb:slice ;
+    rdfs:domain sn:SupplyNetwork ;
+    rdfs:range sn:SupplyFlow ;
+    rdfs:label "supply flow"@en ;
+    rdfs:comment "Links a qualified supply flow within the supply network."@en ;
+    rdfs:isDefinedBy sn: .
+
 sn:from a rdf:Property , qb:DimensionProperty ;
     rdfs:domain sn:SupplyFlow ;
     rdfs:range sn:Entity ;
     rdfs:label "from"@en ;
-    rdfs:comment "Links the entity that is the origin/source of a directed supply flow between two entities. This property is abstract, i.e. abstraction-specific subproperties are expecteda."@en ;
+    rdfs:comment "Links the entity that is the origin/source of a directed supply flow between two entities."@en ;
+    qb:codeList sn:EntityHierarchy ;
     rdfs:isDefinedBy sn: .
 
 sn:into a rdf:Property , qb:DimensionProperty ;
     rdfs:domain sn:SupplyFlow ;
     rdfs:range sn:Entity ;
     rdfs:label "into"@en ;
-    rdfs:comment "Links the entity that is the target of a directed supply flow between two entities. This property is abstract, i.e. abstraction-specific subproperties are expected."@en ;
-    rdfs:isDefinedBy sn: .
-
-sn:abstraction a rdf:Property ;
-    rdfs:subPropertyOf qb:sliceStructure ;
-    rdfs:domain sn:SupplyFlow ;
-    rdfs:range sn:AbstractionProfile ;
-    rdfs:label "abstraction"@en ;
-    rdfs:comment "Links the abstraction profile of a directed supply flow."@en ;
-    rdfs:isDefinedBy sn: .
-
-sn:discriminativeProperty a rdf:Property ;
-    rdfs:subPropertyOf qb:componentProperty ;
-    rdfs:domain sn:AbstractionProfile ;
-    rdfs:range qb:DimensionProperty ;
-    rdfs:label "discriminative property"@en ;
-    rdfs:comment "Links an abstraction-specific subproperty of sn:from or sn:into that is discriminative for the abstraction level. Similar to owl:hasKey, but determines an instance's keys via its sn:abstraction relation instead of class."@en ;
+    rdfs:comment "Links the entity that is the target of a directed supply flow between two entities."@en ;
+    qb:codeList sn:EntityHierarchy ;
     rdfs:isDefinedBy sn: .
 
 sn:volume a rdf:Property ;
@@ -120,9 +123,18 @@ sn:time a rdf:Property , qb:DimensionProperty ;
     rdfs:range time:TemporalEntity ;
     rdfs:label "time"@en ;
     rdfs:comment "Links the time instance or interval of a supply flow's volume."@en ;
+    qb:codeList sn:TimeHierarchy ;
     rdfs:isDefinedBy sn: .
 
-sn:unit a rdf:Property , qb:AttributeProperty ;
+sn:subject a rdf:Property , qb:DimensionProperty ;
+    rdfs:domain sn:Volume ;
+    rdfs:range skos:Concept ;
+    rdfs:label "subject"@en ;
+    rdfs:comment "Links the subject (the flowing material or immaterial object) of the observed quantity of a supply flow's volume."@en ;
+    qb:codeList sn:SubjectHierarchy ;
+    rdfs:isDefinedBy sn: .
+
+sn:unit a rdf:Property , qb:DimensionProperty ;
     rdfs:domain sn:Volume ;
     rdfs:range qudt:Unit ;
     rdfs:label "unit"@en ;
@@ -137,16 +149,323 @@ sn:quantity a rdf:Property , qb:MeasureProperty ;
     rdfs:comment "Links the observed quantity of a supply flow's volume."@en ;
     rdfs:isDefinedBy sn: .
 
-sn:subject a rdf:Property , qb:AttributeProperty ;
+sn:supplyNetwork a rdf:Property ;
+    rdfs:subPropertyOf qb:dataSet ;
     rdfs:domain sn:Volume ;
-    rdfs:range rdfs:Resource ;
-    rdfs:label "subject"@en ;
-    rdfs:comment "Links the subject (the flowing material or immaterial object) of the observed quantity of a supply flow's volume."@en ;
+    rdfs:range sn:SupplyNetwork ;
+    rdfs:label "supply network"@en ;
+    rdfs:comment "Links a supply network to a volume."@en ;
     rdfs:isDefinedBy sn: .
 
-sn:supplyFlow a rdf:Property ;
+sn:abstractSubstitute a rdf:Property ;
+    rdfs:subPropertyOf skos:broader ;
     rdfs:domain sn:Entity ;
     rdfs:range sn:Entity ;
-    rdfs:label "supply flow"@en ;
-    rdfs:comment "Links an entity that receives a supply flow from this entity directly, offering a shortcut to the reified class sn:SupplyFlow."@en ;
+    rdfs:label "abstract substitute"@en ;
+    rdfs:comment "Links an associated entity on another abstraction. This property is abstract, i.e. abstraction-specific subproperties are expected."@en ;
     rdfs:isDefinedBy sn: .
+
+
+# --- individuals ---
+
+sn:DSD a qb:DataStructureDefinition ;
+    qb:component [ qb:dimension sn:from ;
+                   qb:componentAttachment qb:Slice ] ;
+    qb:component [ qb:dimension sn:into ;
+                   qb:componentAttachment qb:Slice ] ;
+    qb:component [ qb:dimension sn:time ;
+                   qb:componentAttachment qb:Observation ] ;
+    qb:component [ qb:dimension sn:subject ;
+                   qb:componentAttachment qb:Observation ] ;
+    qb:component [ qb:dimension sn:unit ;
+                   qb:componentAttachment qb:Observation ] ;
+    qb:component [ qb:measure sn:quantity ;
+                   qb:componentAttachment qb:Observation ] ;
+    qb:sliceKey sn:SK .
+
+sn:SK a qb:SliceKey ;
+    qb:dimension sn:from , sn:into .
+
+sn:EntityHierarchy a skos:ConceptScheme ;
+    rdfs:label "Entity Hierarchy"@en ;
+    rdfs:comment "A hierarchy of entities."@en .
+
+sn:TimeHierarchy a skos:ConceptScheme ;
+    rdfs:label "Time Hierarchy"@en ;
+    rdfs:comment "A hierarchy of temporal entities with a defined top concept."@en ;
+    skos:hasTopConcept sn:AllTimes .
+
+sn:AllTime a time:TemporalEntity , skos:Concept ;
+    rdfs:label "all time"@en ;
+    rdfs:comment "A temporal entity that represents all time."@en ;
+    skos:topConceptOf sn:TimeHierarchy ;
+    skos:inScheme sn:TimeHierarchy ;
+    rdfs:isDefinedBy sn: .
+
+sn:SubjectHierarchy a skos:ConceptScheme;
+    rdfs:label "Subject Hierarchy"@en ;
+    rdfs:comment "A hierarchy of subjects with a defined top concept."@en ;
+    skos:hasTopConcept sn:AllSubjects .
+
+sn:AllSubjects a skos:Concept ;
+    rdfs:label "all subjects"@en ;
+    rdfs:comment "A resource that represents the union of all subjects."@en ;
+    skos:topConceptOf sn:SubjectHierarchy ;
+    skos:inScheme sn:SubjectHierarchy ;
+    rdfs:isDefinedBy sn: .
+
+
+# --- example ---
+
+# T-box
+
+org:Organization a rdfs:Class ;
+    rdfs:subClassOf sn:Entity .
+
+:Country a rdfs:Class ;
+    rdfs:subClassOf sn:Entity .
+
+:registeredInCountry a rdf:Property ;
+    rdfs:subPropertyOf sn:abstractSubstitute ;
+    rdfs:domain org:Organization ;
+    rdfs:range :Country .
+
+# A-box
+
+:SN a sn:SupplyNetwork ;
+    qb:structure sn:DSD ; # inferrable via sn:SupplyNetwork
+    sn:supplyFlow :SF .
+
+:SF a sn:SupplyFlow ;
+    qb:sliceStructure sn:SK ; # inferrable via sn:SupplyFlow
+    sn:from :tsmc ;
+    sn:into :nvidia ;
+    sn:volume :V .
+
+:V a sn:Volume ;
+    sn:time :2020Q3 ;
+    sn:subject :Chips ;
+    sn:unit :MegaUSD ;
+    sn:quantity 479.0 ;
+    sn:supplyNetwork :SN .
+
+:tsmc a org:Organization , sn:Entity , skos:Concept ;
+    skos:inScheme sn:EntityHierarchy ; # inferrable via sn:Entity or sn:from
+    :registeredInCountry :Taiwan .
+
+:nvidia a org:Organization , sn:Entity , skos:Concept ;
+    skos:inScheme sn:EntityHierarchy ; # inferrable via sn:Entity or sn:into
+    :registeredInCountry :USA .
+
+:Taiwan a :Country , sn:Entity , skos:Concept ;
+    skos:inScheme sn:EntityHierarchy . # inferrable via sn:Entity or sn:from
+
+:USA a :Country , sn:Entity , skos:Concept ;
+    skos:inScheme sn:EntityHierarchy . # inferrable via sn:Entity or sn:from
+
+:2020Q3 a time:TemporalEntity , skos:Concept ;
+    skos:inScheme sn:TimeHierarchy ; # inferrable via sn:time
+    skos:broader :2020 ; # vanilla QB
+    skos:broader sn:AllTimes . # vanilla QB, inferrable via sn:TimeHierarchy
+    # with multiple skos:broader statements, we do not know which to select for rollup
+
+:Chips a skos:Concept ;
+    skos:inScheme sn:SubjectHierarchy ; # inferrable via sn:subject
+    skos:broader :Electronics ; # vanilla QB
+    skos:broader sn:AllSubjects . # vanilla QB, inferrable via sn:SubjectHierarchy
+
+
+# --- example using QB4OLAP hierarchies for entity dimensions ---
+
+# T-box
+
+sn:from a qb:DimensionProperty .
+
+sb:supplier a qb4o:LevelProperty ;
+    qb4o:inDimension sn:from ;
+    qb4o:parentLevel :export .
+
+:export a qb4o:LevelProperty ;
+    qb4o:inDimension sn:from .
+
+sn:into a qb:DimensionProperty .
+
+sb:customer a qb4o:LevelProperty ;
+    qb4o:inDimension sn:into ;
+    qb4o:parentLevel :import .
+
+:import a qb4o:LevelProperty ;
+    qb4o:inDimension sn:into .
+
+sn:DSD_1 a qb:DataStructureDefinition ;
+    qb:component [ qb4o:level sb:supplier ;
+                   qb:componentAttachment qb:Slice ] ;
+    qb:component [ qb4o:level sb:customer ;
+                   qb:componentAttachment qb:Slice ] ;
+    qb:component [ qb:dimension sn:time ;
+                   qb:componentAttachment qb:Observation ] ;
+    qb:component [ qb:dimension sn:subject ;
+                   qb:componentAttachment qb:Observation ] ;
+    qb:component [ qb:dimension sn:unit ;
+                   qb:componentAttachment qb:Observation ] ;
+    qb:component [ qb:measure sn:quantity ;
+                   qb:componentAttachment qb:Observation ] ;
+    qb:sliceKey sn:SK_1 .
+
+sn:SK_1 a qb:SliceKey ;
+    qb4o:level sb:supplier , sb:customer .
+
+sn:DSD_2 a qb:DataStructureDefinition ;
+    qb:component [ qb4o:level :export ;
+                   qb:componentAttachment qb:Slice ] ;
+    qb:component [ qb4o:level :import ;
+                   qb:componentAttachment qb:Slice ] ;
+    qb:component [ qb:dimension sn:time ;
+                   qb:componentAttachment qb:Observation ] ;
+    qb:component [ qb:dimension sn:subject ;
+                   qb:componentAttachment qb:Observation ] ;
+    qb:component [ qb:dimension sn:unit ;
+                   qb:componentAttachment qb:Observation ] ;
+    qb:component [ qb:measure sn:quantity ;
+                   qb:componentAttachment qb:Observation ] ;
+    qb:sliceKey sn:SK_2 .
+
+sn:SK_2 a qb:SliceKey ;
+    qb4o:level :export , :import .
+
+# A-box
+
+:SN a sn:SupplyNetwork ;
+    qb:structure sn:DSD_1 ;
+    sn:supplyFlow :SF .
+
+:SF a sn:SupplyFlow ;
+    qb:sliceStructure sn:SK_1 ;
+    sb:supplier :tsmc ;
+    sb:customer :nvidia ;
+    sn:volume :V .
+
+:V a sn:Volume ;
+    sn:time :2020Q3 ;
+    sn:subject :Chips ;
+    sn:unit :MegaUSD ;
+    sn:quantity 479.0 ;
+    sn:supplyNetwork :SN .
+
+:tsmc a sn:Entity ;
+    qb4o:inLevel sb:supplier ;
+    skos:broader :Taiwan .
+
+:nvidia a sn:Entity ;
+    qb4o:inLevel sb:customer ;
+    skos:broader :USA .
+
+:Taiwan a sn:Entity ;
+    qb4o:inLevel :export .
+
+:USA a sn:Entity ;
+    qb4o:inLevel :import .
+
+
+# Hierarchies in vanilla QB, in QB4OLAP, and in SNAPO
+
+
+# Category hierarchy vanilla QB
+
+# N/A
+
+# Member hierarchy vanilla QB
+# - no distinction between multiple skos:broader statements
+
+sn:from qb:codeList sn:EntityHierarchy .
+sn:into qb:codeList sn:EntityHierarchy .
+
+sn:EntityHierarchy a skos:ConceptScheme .
+
+:tsmc skos:inScheme sn:EntityHierarchy ;
+    skos:broader :Taiwan ;
+    skos:broader :Asia .
+
+:Taiwan skos:inScheme sn:EntityHierarchy ;
+    skos:broader :Asia .
+
+
+# Category hierarchy QB4OLAP
+# - needs DataStructureDefinition per combination of levels
+# - needs different hierarchy for from/into dimensions
+
+sn:from a qb:DimensionProperty .
+
+sb:supplier a qb4o:LevelProperty ;
+    qb4o:inDimension sn:from ;
+    qb4o:parentLevel :export .
+
+:export a qb4o:LevelProperty ;
+    qb4o:inDimension sn:from .
+
+sn:into a qb:DimensionProperty .
+
+sb:customer a qb4o:LevelProperty ;
+    qb4o:inDimension sn:into ;
+    qb4o:parentLevel :import .
+
+:import a qb4o:LevelProperty ;
+    qb4o:inDimension sn:into .
+
+sn:DSD_1 a qb:DataStructureDefinition ;
+    qb:component [ qb4o:level sb:supplier ;
+                   qb:componentAttachment qb:Slice ] ;
+    qb:component [ qb4o:level sb:customer ;
+                   qb:componentAttachment qb:Slice ] ;
+    qb:component [ qb:measure sn:quantity ;
+                   qb:componentAttachment qb:Observation ] ;
+    qb:sliceKey sn:SK_1 .
+
+sn:SK_1 a qb:SliceKey ;
+    qb4o:level sb:supplier , sb:customer .
+
+sn:DSD_2 a qb:DataStructureDefinition ;
+    qb:component [ qb4o:level :export ;
+                   qb:componentAttachment qb:Slice ] ;
+    qb:component [ qb4o:level :import ;
+                   qb:componentAttachment qb:Slice ] ;
+    qb:component [ qb:measure sn:quantity ;
+                   qb:componentAttachment qb:Observation ] ;
+    qb:sliceKey sn:SK_2 .
+
+sn:SK_2 a qb:SliceKey ;
+    qb4o:level :export , :import .
+
+# Member hierarchy QB4OLAP
+
+:tsmc qb4o:inLevel sb:supplier ;
+    skos:broader :Taiwan ;
+    skos:broader :Asia .
+
+:Taiwan qb4o:inLevel :export ;
+    skos:broader :Asia .
+
+
+# Category hierarchy SNAPO
+# - needs one property per relation between categories
+
+:registeredInCountry rdfs:subPropertyOf sn:abstractSubstitute ;
+    rdfs:domain org:Organization ;
+    rdfs:range :Country .
+
+:continent rdfs:subPropertyOf sn:abstractSubstitute ;
+    rdfs:domain org:Organization ;
+    rdfs:range wd:Q5107 .
+
+:inContinent rdfs:subPropertyOf sn:abstractSubstitute ;
+    rdfs:domain :Country ;
+    rdfs:range wd:Q5107 .
+
+# Member hierarchy SNAPO
+
+:tsmc a org:Organization ;
+    :registeredInCountry :Taiwan ;
+    :continent :Asia .
+
+:Taiwan a :Country ;
+    :inContinent :Asia .
