@@ -267,7 +267,6 @@ org:Organization a rdfs:Class ;
     skos:inScheme sn:TimeHierarchy ; # inferrable via sn:time
     skos:broader :2020 ; # vanilla QB
     skos:broader sn:AllTimes . # vanilla QB, inferrable via sn:TimeHierarchy
-    # with multiple skos:broader statements, we do not know which to select for rollup
 
 :Chips a skos:Concept ;
     skos:inScheme sn:SubjectHierarchy ; # inferrable via sn:subject
@@ -353,11 +352,11 @@ sn:SK_2 a qb:SliceKey ;
     sn:supplyNetwork :SN .
 
 :tsmc a sn:Entity ;
-    qb4o:inLevel sb:supplier ;
+    qb4o:inLevel sb:supplier ; # clash if also a customer
     skos:broader :Taiwan .
 
 :nvidia a sn:Entity ;
-    qb4o:inLevel sb:customer ;
+    qb4o:inLevel sb:customer ; # clash if also a supplier
     skos:broader :USA .
 
 :Taiwan a sn:Entity ;
@@ -365,107 +364,3 @@ sn:SK_2 a qb:SliceKey ;
 
 :USA a sn:Entity ;
     qb4o:inLevel :import .
-
-
-# Hierarchies in vanilla QB, in QB4OLAP, and in SNAPO
-
-
-# Category hierarchy vanilla QB
-
-# N/A
-
-# Member hierarchy vanilla QB
-# - no distinction between multiple skos:broader statements
-
-sn:from qb:codeList sn:EntityHierarchy .
-sn:into qb:codeList sn:EntityHierarchy .
-
-sn:EntityHierarchy a skos:ConceptScheme .
-
-:tsmc skos:inScheme sn:EntityHierarchy ;
-    skos:broader :Taiwan ;
-    skos:broader :Asia .
-
-:Taiwan skos:inScheme sn:EntityHierarchy ;
-    skos:broader :Asia .
-
-
-# Category hierarchy QB4OLAP
-# - needs DataStructureDefinition per combination of levels
-# - needs different hierarchy for from/into dimensions
-
-sn:from a qb:DimensionProperty .
-
-sb:supplier a qb4o:LevelProperty ;
-    qb4o:inDimension sn:from ;
-    qb4o:parentLevel :export .
-
-:export a qb4o:LevelProperty ;
-    qb4o:inDimension sn:from .
-
-sn:into a qb:DimensionProperty .
-
-sb:customer a qb4o:LevelProperty ;
-    qb4o:inDimension sn:into ;
-    qb4o:parentLevel :import .
-
-:import a qb4o:LevelProperty ;
-    qb4o:inDimension sn:into .
-
-sn:DSD_1 a qb:DataStructureDefinition ;
-    qb:component [ qb4o:level sb:supplier ;
-                   qb:componentAttachment qb:Slice ] ;
-    qb:component [ qb4o:level sb:customer ;
-                   qb:componentAttachment qb:Slice ] ;
-    qb:component [ qb:measure sn:quantity ;
-                   qb:componentAttachment qb:Observation ] ;
-    qb:sliceKey sn:SK_1 .
-
-sn:SK_1 a qb:SliceKey ;
-    qb4o:level sb:supplier , sb:customer .
-
-sn:DSD_2 a qb:DataStructureDefinition ;
-    qb:component [ qb4o:level :export ;
-                   qb:componentAttachment qb:Slice ] ;
-    qb:component [ qb4o:level :import ;
-                   qb:componentAttachment qb:Slice ] ;
-    qb:component [ qb:measure sn:quantity ;
-                   qb:componentAttachment qb:Observation ] ;
-    qb:sliceKey sn:SK_2 .
-
-sn:SK_2 a qb:SliceKey ;
-    qb4o:level :export , :import .
-
-# Member hierarchy QB4OLAP
-
-:tsmc qb4o:inLevel sb:supplier ;
-    skos:broader :Taiwan ;
-    skos:broader :Asia .
-
-:Taiwan qb4o:inLevel :export ;
-    skos:broader :Asia .
-
-
-# Category hierarchy SNAPO
-# - needs one property per relation between categories
-
-:registeredInCountry rdfs:subPropertyOf sn:abstractSubstitute ;
-    rdfs:domain org:Organization ;
-    rdfs:range :Country .
-
-:continent rdfs:subPropertyOf sn:abstractSubstitute ;
-    rdfs:domain org:Organization ;
-    rdfs:range wd:Q5107 .
-
-:inContinent rdfs:subPropertyOf sn:abstractSubstitute ;
-    rdfs:domain :Country ;
-    rdfs:range wd:Q5107 .
-
-# Member hierarchy SNAPO
-
-:tsmc a org:Organization ;
-    :registeredInCountry :Taiwan ;
-    :continent :Asia .
-
-:Taiwan a :Country ;
-    :inContinent :Asia .

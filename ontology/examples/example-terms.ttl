@@ -88,9 +88,6 @@
 wdt:P30 rdfs:subPropertyOf sn:abstractSubstitute ;
     rdfs:domain :Country ;
     rdfs:range wd:Q5107 .
-:continent rdfs:subPropertyOf sn:abstractSubstitute ;
-    rdfs:domain org:Organization ;
-    rdfs:range wd:Q5107 .
 :inCountry rdfs:subPropertyOf sn:abstractSubstitute ;
     rdfs:domain :State ;
     rdfs:range :Country .
