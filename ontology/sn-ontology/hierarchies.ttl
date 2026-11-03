@@ -18,7 +18,9 @@
 
 # Hierarchies for the dimensions sn:from and sn:into in QB, QB4OLAP, and SNAPO
 # - from and into are always on the same level
-# - the hierarchy may have several broader levels
+# - a category (member) in the hierarchy may have several broader categories (members)
+# --> QB doe not distinct the broader members and thus cannot select the correct one for rollup
+# - one member (entity) may occur in multiple dimensions (from and into)
 
 
 # QB category hierarchy (dimension schema)

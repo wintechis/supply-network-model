@@ -1,0 +1,170 @@
+# own prefix
+@prefix sn: <https://purl.org/supply-network/onto#> .
+
+# other prefixes
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix schema: <https://schema.org/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+# --- example ---
+
+# T-box
+
+org:Organization a rdfs:Class ;
+    rdfs:subClassOf sn:Entity .
+
+:Country a rdfs:Class ;
+    rdfs:subClassOf sn:Entity .
+
+:registeredInCountry a rdf:Property ;
+    rdfs:subPropertyOf sn:abstractSubstitute ;
+    rdfs:domain org:Organization ;
+    rdfs:range :Country .
+
+# A-box
+
+:SN a sn:SupplyNetwork ;
+    qb:structure sn:DSD ; # inferrable via sn:SupplyNetwork
+    sn:supplyFlow :SF .
+
+:SF a sn:SupplyFlow ;
+    qb:sliceStructure sn:SK ; # inferrable via sn:SupplyFlow
+    sn:from :tsmc ;
+    sn:into :nvidia ;
+    sn:volume :V .
+
+:V a sn:Volume ;
+    sn:time :2020Q3 ;
+    sn:subject :Chips ;
+    sn:unit :MegaUSD ;
+    sn:quantity 479.0 ;
+    sn:supplyNetwork :SN .
+
+:tsmc a org:Organization , sn:Entity , skos:Concept ;
+    skos:inScheme sn:EntityHierarchy ; # inferrable via sn:Entity or sn:from
+    :registeredInCountry :Taiwan .
+
+:nvidia a org:Organization , sn:Entity , skos:Concept ;
+    skos:inScheme sn:EntityHierarchy ; # inferrable via sn:Entity or sn:into
+    :registeredInCountry :USA .
+
+:Taiwan a :Country , sn:Entity , skos:Concept ;
+    skos:inScheme sn:EntityHierarchy . # inferrable via sn:Entity or sn:from
+
+:USA a :Country , sn:Entity , skos:Concept ;
+    skos:inScheme sn:EntityHierarchy . # inferrable via sn:Entity or sn:from
+
+:2020Q3 a time:TemporalEntity , skos:Concept ;
+    skos:inScheme sn:TimeHierarchy ; # inferrable via sn:time
+    skos:broader :2020 ; # vanilla QB
+    skos:broader sn:AllTimes . # vanilla QB, inferrable via sn:TimeHierarchy
+
+:Chips a skos:Concept ;
+    skos:inScheme sn:SubjectHierarchy ; # inferrable via sn:subject
+    skos:broader :Electronics ; # vanilla QB
+    skos:broader sn:AllSubjects . # vanilla QB, inferrable via sn:SubjectHierarchy
+
+
+
+
+# --- example using QB4OLAP hierarchies for entity dimensions ---
+
+# T-box
+
+sn:from a qb:DimensionProperty .
+
+sb:supplier a qb4o:LevelProperty ;
+    qb4o:inDimension sn:from ;
+    qb4o:parentLevel :export .
+
+:export a qb4o:LevelProperty ;
+    qb4o:inDimension sn:from .
+
+sn:into a qb:DimensionProperty .
+
+sb:customer a qb4o:LevelProperty ;
+    qb4o:inDimension sn:into ;
+    qb4o:parentLevel :import .
+
+:import a qb4o:LevelProperty ;
+    qb4o:inDimension sn:into .
+
+sn:DSD_1 a qb:DataStructureDefinition ;
+    qb:component [ qb4o:level sb:supplier ;
+                   qb:componentAttachment qb:Slice ] ;
+    qb:component [ qb4o:level sb:customer ;
+                   qb:componentAttachment qb:Slice ] ;
+    qb:component [ qb:dimension sn:time ;
+                   qb:componentAttachment qb:Observation ] ;
+    qb:component [ qb:dimension sn:subject ;
+                   qb:componentAttachment qb:Observation ] ;
+    qb:component [ qb:dimension sn:unit ;
+                   qb:componentAttachment qb:Observation ] ;
+    qb:component [ qb:measure sn:quantity ;
+                   qb:componentAttachment qb:Observation ] ;
+    qb:sliceKey sn:SK_1 .
+
+sn:SK_1 a qb:SliceKey ;
+    qb4o:level sb:supplier , sb:customer .
+
+sn:DSD_2 a qb:DataStructureDefinition ;
+    qb:component [ qb4o:level :export ;
+                   qb:componentAttachment qb:Slice ] ;
+    qb:component [ qb4o:level :import ;
+                   qb:componentAttachment qb:Slice ] ;
+    qb:component [ qb:dimension sn:time ;
+                   qb:componentAttachment qb:Observation ] ;
+    qb:component [ qb:dimension sn:subject ;
+                   qb:componentAttachment qb:Observation ] ;
+    qb:component [ qb:dimension sn:unit ;
+                   qb:componentAttachment qb:Observation ] ;
+    qb:component [ qb:measure sn:quantity ;
+                   qb:componentAttachment qb:Observation ] ;
+    qb:sliceKey sn:SK_2 .
+
+sn:SK_2 a qb:SliceKey ;
+    qb4o:level :export , :import .
+
+# A-box
+
+:SN a sn:SupplyNetwork ;
+    qb:structure sn:DSD_1 ;
+    sn:supplyFlow :SF .
+
+:SF a sn:SupplyFlow ;
+    qb:sliceStructure sn:SK_1 ;
+    sb:supplier :tsmc ;
+    sb:customer :nvidia ;
+    sn:volume :V .
+
+:V a sn:Volume ;
+    sn:time :2020Q3 ;
+    sn:subject :Chips ;
+    sn:unit :MegaUSD ;
+    sn:quantity 479.0 ;
+    sn:supplyNetwork :SN .
+
+:tsmc a sn:Entity ;
+    qb4o:inLevel sb:supplier ; # clash if also a customer
+    skos:broader :Taiwan .
+
+:nvidia a sn:Entity ;
+    qb4o:inLevel sb:customer ; # clash if also a supplier
+    skos:broader :USA .
+
+:Taiwan a sn:Entity ;
+    qb4o:inLevel :export .
+
+:USA a sn:Entity ;
+    qb4o:inLevel :import .
